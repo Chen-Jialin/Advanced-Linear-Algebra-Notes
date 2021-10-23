@@ -93,7 +93,7 @@
     \fancypagestyle{FirstPage}% 首页页眉和页脚风格 First-page header and footer style
     {
         \fancyhf{}% 清除预设的页眉和页脚 Clear default header and footer
-        \setlength{\headheight}{42pt}% 页眉高 Height of the header
+        \setlength{\headheight}{60pt}% 页眉高 Height of the header
         \fancyhead[R]{{\huge\bfseries{}笔记}\\
             \href{#4}{#3}\\
             #5}% The left of the header
