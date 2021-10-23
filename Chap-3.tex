@@ -1,0 +1,392 @@
+% !Tex program = pdflatex
+% 第 3 章: 同构定理 Chap 3: The Isomorphism Theorems
+\ifx\allfiles\undefined
+\documentclass{note}
+\setcounter{chapter}{+1}
+\begin{document}
+\fi
+\chapter{同构定理}
+\begin{df}[商空间]
+    $F$ 为域, $V$ 是 $F$ 上的向量空间, $S$ 是 $V$ 的子空间, 则称 $\frac{V}{S}\equiv\{[v]\mid v\in V\}$ 是 $F$ 的\textbf{商空间}, 其中 $[v]\equiv\{u\in V\mid u-v\in S\}=S+v$.
+\end{df}
+
+$\frac{V}{S}$ 是 $F$ 上的向量空间.
+\begin{pf}
+    $[u]+[v]=\{a\in V\mid a-u\in S\}+\{b\in V\mid b-v\in S\}=\{(a+b)\in V\mid a-u\in S,b-v\in S\}$.\\
+    $[u+v]=\{w\in V\mid w-(u+v)\in S\}$.\\
+    $\forall a+b\in [u]+[v]$, $(a-u)+(b-v)=(a+b)-(u+v)\in S\Longrightarrow(a+b)\in[u+v]\Longrightarrow[u]+[v]\in[u+v]$.\\
+    $\forall w\in[u+v]$, $\exists c,d\in S$, s.t. $c+d=w-(u+v)\Longrightarrow w=(c+d)+(u+v)=(c+u)+(d+v)$, 其中 $(c+u)\in[u]$, $(d+v)\in[v]\Longrightarrow w\in[u]+[v]$.\\
+    故 $[u]+[v]=[u+v]$.
+
+    假设 $u\sim u'$, $v\sim v'$, 即 $[u]=[u']$, $[v]=[v']$.\\
+    $\because[u]=[u']$, $\therefore uS=u'S\Longrightarrow\exists s_1,s_1'\in S$, s.t. $u+s_1=u'+s_1'\Longleftrightarrow v'=u+s_1-s_1'$,\\
+    $\because[v]=[v']$, $\therefore vS=v'S\Longrightarrow\exists s_2,s_2'\in S$, s.t. $v+s_2=v'+s_2'\Longleftrightarrow v'=v+s_2-s_2'$,\\
+    从而 $u'+v'=u+s_1-s_1'+v+s_1-s_1'$, 其中 $\because s_1,s_1',s_1,s_1'\in S$, $s_1-s_1'\in S$, $s_2-s_2'\in S$,\\
+    $\because V$ 是交换群, $\therefore$, s.t. $s_1-s_1'+v=v+s_1-s_1'\Longrightarrow u'+v'=u+v+(s_1-s_1'+s_2-s_2')$\\
+    $\Longrightarrow(u'+v')S=(u+v+(s_1-s_1'+s_2-s_2'))S\Longrightarrow[u'+v']=[u'+v']=[u+v]$,\\
+    即 $[u]+[v]=[u+v]$ 与代表元选取无关, 故 $[u]+[v]=[u+v]$ 是运算.
+
+    $r[u]=r\{v\in V\mid v-u\in S\}=\{rv\mid v\in V,v-u\in S\}=\{rv\in V\mid rv-ru\in S\}=[ru]$.
+
+    假设 $u\sim u'$, 即 $[u]=[u']$.\\
+    $\because[u]=[u']$, $\therefore uS=u'S\Longrightarrow\exists s,s'\in S$, s.t. $u+s=u'+s'\Longleftrightarrow u'=u+s-s'$,\\
+    从而 $ru'=r(u+s-s')=ru+r(s-s')$, 其中 $s-s'\in S\Longrightarrow(ru')S=(ru+r(s-s'))S=(ru)S\Longrightarrow r[u']=[ru']=[ru]$,\\
+    即 $r[u]=[ru]$ 与代表元选取无关, 故 $r[u]=[ru]$ 是运算.
+
+    $(\frac{V}{S},+)$ 满足
+    \begin{itemize}
+        \item[(1)] \textbf{结合律}: $([v]+[u])+[w]=[u+v]+[w]=[u+v+w]=[u+(v+w)]=[u]+[v+w]=[u]+([v]+[w])$
+        \item[(2)] \textbf{有单位元 $[0]$}: $[0]+[u]=[0+u]=[u]=[u+0]=[u]+[0]$
+        \item[(3)] \textbf{有逆元}: $\forall v\in V$, $\exists-v$, s.t. $[a]+[-a]=[a+(-a)]=[0]=[(-a)+a]=[-a]+[a]$
+    \end{itemize}
+    且 $[u]+[v]=[u+v]=[v+u]=[v]+[u]$, 即 $(\frac{V}{S},+)$ 交换, 故 $(\frac{V}{S},+)$ 是交换群. (总之就是因为 $\frac{V}{S}$ 中的元素 $[v]$ 保持了 $V$ 中的元素 $v$ 的各种运算性质, 所以 $(V,+)$ 是交换群就可以推出 $\frac{V}{S}$ 也是交换群.)
+
+    $\frac{V}{S}$ 满足
+    \begin{itemize}
+        \item[(1)] $r([u+v])=r([u]+[v])=r[u]+r[v]$
+        \item[(2)] $(r+t)[u]=[(r+t)u]=[ru+tu]=[ru]+[tu]=r[u]+t[u]$
+        \item[(3)] $(r\cdot t)[u]=[(r\cdot t)u]=[r(tu)]=r[tu]=r(t[u])$
+        \item[(4)] \textbf{有单位元 $1$}: $[1][u]=[1u]=[u]$
+    \end{itemize}
+    故 $\frac{V}{S}$ 是 $F$ 上的向量空间.
+\end{pf}
+
+\begin{thm}[(课本定理 3.2)]
+    \begin{itemize}
+        \item[(1)] $\Pi_S:V\rightarrow\frac{V}{S}$, $v\mapsto[v]$ 是线性变换.
+        \item[(2)] $\Pi_S$ 是满线性变换, 即 $\im\Pi_S=\frac{V}{S}$.
+        \item[(3)] $\ker\Pi_S=S$.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] 显然 $\Pi_S$ 是唯一的, 故 $\Pi_S$ 是映射.
+
+        如前所证, $V$ 和 $\frac{V}{S}$ 均为 $F$ 上的向量空间.\\
+        $\because[u+v]=\{w\in V\mid w-(u+v)\in S\}$, $r[u]=[ru]$, $\therefore r[u]+t[v]=[ru]+[tv]=[ru+tv]$, 故 $\Pi_S$ 为线性变换.
+        \item[(2)] $\forall[v]\in\frac{V}{S}$, $\exists v\in V$, s.t. $\Pi_S(v)=[v]$, 即 $\im\Pi_S=\frac{V}{S}$, 故 $\Pi_S$ 是满线性变换.
+        \item[(3)] $\ker\Pi_S=\{v\in S\mid\Pi_S(v)=[0]\}$.\\
+        $\Pi_S(v)=[v]=S+v=[0]=S\Longrightarrow v\in S\Longrightarrow\ker\Pi_S=S$.
+    \end{itemize}
+\end{pf}
+
+\begin{thm}[(课本定理 3.3)]
+    \begin{itemize}
+        \item[(1)] $S,T$ 是子空间, 且 $S\subseteq T$, 则 $\frac{T}{S}$ 是 $\frac{V}{S}$ 的子空间.
+        \item[(2)] 取 $X$ 为 $\frac{V}{S}$ 的子空间, 则 $\exists V$ 的子空间 $T$, s.t. $\emptyset\neq S\subseteq T$, $\frac{T}{S}=X$.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] $\frac{T}{S}=\{[u]\mid u\in T\}$, $\frac{V}{S}=\{[v]\mid v\in V\}$.\\
+        $\forall[u]\in\frac{T}{S}$, $u\in T$, $\because T$ 是 $V$ 的子空间, $\therefore u\in V\Longrightarrow[u]\in\frac{V}{S}$, 故 $\frac{T}{S}\subseteq\frac{V}{S}$.
+
+        $\forall[u_1],[u_2]\in\frac{T}{S}$, $r,t\in F$, $r[u_1]+t[u_2]=[ru_1+tu_2]$, $\because u_1,u_2\in T$, $\therefore ru_1+tu_2\in T\Longrightarrow[ru_1+tu_2]\in\frac{T}{S}$, 故 $\frac{T}{S}$ 是线性空间.
+
+        综上, 得证.
+        \item[(2)] 取 $T=\cup_{[v]\in X}[v]$.\\
+        显然 $T\subseteq V$.\\
+        $\forall u,v\in T$, 根据 $T$ 的定义, $[u],[v]\in X$,\\
+        $\because X$ 为子空间, $\therefore r[u]+t[v]=[ru+tv]\in X\Longrightarrow ru+tv\in[ru+tv]\subseteq T=\cup_{v\in X}[v]\Longrightarrow ru+tv\in T$.\\
+        故 $T$ 为 $V$ 的子空间.
+
+        $\because[0]=S$, $\therefore S\subseteq T$.
+
+        $\frac{T}{S}=\{[v]=S+v\mid v\in T\}$.\\
+        $\forall[v]\in\frac{T}{S}$, $v\in T\Longrightarrow[v]\in X$.\\
+        $\forall[v]\in X$, $v\in T\Longrightarrow[v]\in\frac{T}{S}$.\\
+        故 $\frac{T}{S}=X$.
+
+        综上, 得证.
+    \end{itemize}
+\end{pf}
+
+\begin{thm}[第一同态基本定理 (课本定理 3.4)]
+    \footnote{该定理回答了 $\tau'$ 的存在性 (即 $\tau'$ 在什么条件下存在) 的问题. 之所以称``基本'', 是因为若将该定理中的向量空间换成其他代数结构, 定理仍然成立.} $S$ 是 $V$ 的子空间, $\tau\in\mathcal{L}(V,W)$,
+    \begin{center}
+        \begin{tikzpicture}
+            \node(1)at(0,2){$V$};
+            \node(2)at(2,2){$W$};
+            \node(3)at(0,0){$\frac{V}{S}$};
+            \node(4)at(-1,3){$v$};
+            \node(5)at(4,3){$\tau[v]$};
+            \node(6)at(-1,-2){$[v]$};
+            \draw[->](1)--(2)node[midway]{$\tau$};
+            \draw[->](1)--(3)node[midway]{$\Pi_S$};
+            \draw[dashed,->](3)--(2)node[midway]{$\tau'$};
+            \draw[|->](4)--(5);
+            \draw[|->](4)--(6);
+            \draw[dashed,|->](6)--(5);
+        \end{tikzpicture}
+    \end{center}
+    若 $S\subseteq\ker\tau$, 即 $\ker\Pi_S\subseteq\ker\tau$, 则 $\exists!\tau'$, s.t. $\tau=\tau'\circ\Pi_S$, 即 $\forall v\in V$, $\tau(v)=\tau'([v])$, 此时上图可交换.
+\end{thm}
+\begin{pf}
+    $\tau'$ 的唯一性要求, 若 $[u]=[v]$, 则 $\tau'([u])=\tau'([v])$,\\
+    即若 $u\sim v$, 则 $\tau(u)=\tau(v)$,\\
+    即若 $u-v\in S$, 则 $\tau(u-v)=0$,\\
+    即 $S\subseteq\ker\tau$.
+\end{pf}
+
+此时, $\ker\tau'=\{[v]\in\frac{V}{S}\mid\tau'([v])=0\}=\{[v]\in\frac{V}{S}\mid \tau(v)=0\}=\{[v]\in\frac{V}{S}\mid v\in\ker\tau\}=\{[v]\mid v\in\ker\tau\}=\frac{\ker\tau}{S}$,\\
+$\im\tau'=\{\tau'([v])\mid[v]\in\frac{V}{S}\}=\{\tau'([v])\mid v\in V\}=\{\tau(v)\mid v\in V\}=\im\tau$ ($\because\Pi_S$ 满射, $\therefore\forall[v]\in\frac{V}{S}$, $\exists v\in V$).
+
+那么, 如果 $\tau$ 双射, 即 $\exists\tau^{-1}\in\mathcal{L}(W,V)$, 再加上条件 $\ker\tau\subseteq S$, 即 $\ker\tau=S$, 如何?
+\begin{center}
+    \begin{tikzpicture}
+        \node(1)at(0,2){$V$};
+        \node(2)at(2,2){$W$};
+        \node(3)at(0,0){$\frac{V}{S}$};
+        \node(4)at(-1,3){$\tau^{-1}(w)$};
+        \node(5)at(4,3){$w$};
+        \node(6)at(-1,-2){$[w]$};
+        \draw[->](2)--(1)node[midway]{$\tau^{-1}$};
+        \draw[->](1)--(3)node[midway]{$\Pi_S$};
+        \draw[|->](5)--(4);
+        \draw[|->](4)--(6);
+    \end{tikzpicture}
+\end{center}
+此时, $\ker\tau'=\frac{\ker\tau}{S}=\{[v]\mid v\in\ker\tau\}=\{[v]\mid v\in S\}=\{[0]\}\Longrightarrow\tau'$ 单射.
+
+由上面关于第一同态定理的延伸讨论我们得到:
+\begin{thm}[第一同构定理 (课本定理 3.5)]
+    若 $\ker\tau=S$, 则 $\tau'$ 单射, $\frac{V}{\ker\tau}=\frac{V}{S}\approx\im\tau$.
+    \begin{center}
+        \begin{tikzpicture}
+            \node(1)at(0,2){$V$};
+            \node(2)at(2,2){$W$};
+            \node(3)at(0,0){$\frac{V}{S}$};
+            \node(4)at(-1,3){$v$};
+            \node(5)at(4,3){$\tau[v]$};
+            \node(6)at(-1,-2){$[v]$};
+            \draw[->](1)--(2)node[midway]{$\tau$};
+            \draw[->](1)--(3)node[midway]{$\Pi_S$};
+            \draw[dashed,->](3)--(2)node[midway]{$\tau'$};
+            \draw[|->](4)--(5);
+            \draw[|->](4)--(6);
+            \draw[dashed,|->](6)--(5);
+        \end{tikzpicture}
+    \end{center}
+\end{thm}
+\begin{pf}
+    $V=\ker\tau\oplus(\ker\tau)^c$, 其中 $(\ker\tau)^c\approx\im\tau\Longrightarrow\frac{V}{\ker\tau}=(\ker\tau)^c$.
+\end{pf}
+
+更一般地, 若 $V=S\oplus T$, 则 $\frac{V}{S}=T$, $\frac{V}{T}\approx S$.
+\begin{pf}
+    $\forall v\in V$, $v=u_S+u_T$, 其中 $u_S\in S$, $u_T\in T$.
+    令投影映射 $P_T:V\rightarrow T$, $v=u_S+u_T\mapsto u_T$.\\
+    $\ker P_T=\{v\in V\mid P_T(v)=0\}=S=[0]=\ker\Pi_S$.\\
+    $\exists!\tau'$ 单射, s.t. $P_T=\tau'\circ\Pi_S$.\\
+    又 $\im P_T=T$, 即 $P_T$ 满射, $\therefore\tau'$ 满射 $\Longrightarrow\tau'$ 同构 $\Longrightarrow\frac{V}{S}\approx T$.
+    \begin{center}
+        \begin{tikzpicture}
+            \node(1)at(0,2){$V$};
+            \node(2)at(2,2){$T$};
+            \node(3)at(0,0){$\frac{V}{S}$};
+            \node(4)at(-1,3){$v=u_S+u_T$};
+            \node(5)at(4,3){$u_T$};
+            \node(6)at(-1,-2){$[v]$};
+            \draw[->](1)--(2)node[midway]{$P_T$};
+            \draw[->](1)--(3)node[midway]{$\Pi_S$};
+            \draw[dashed,->](3)--(2)node[midway]{$\tau'$};
+            \draw[|->](4)--(5);
+            \draw[|->](4)--(6);
+            \draw[dashed,|->](6)--(5);
+        \end{tikzpicture}
+    \end{center}
+
+    同理可证 $\frac{V}{T}\approx S$.
+\end{pf}
+
+\begin{df}[对偶(空间)和线性泛函]
+    $V^*=\mathcal{L}(V,F)$ 是 $F$ 上的向量空间, 称 $V^*$ 为 $V$ 的\textbf{对偶(空间)}. 若 $f\in V^*$, 称 $f$ 为\textbf{线性泛函}.
+\end{df}
+
+\begin{itemize}
+    \item[(1)] $\ker V^*$ 为 $F$ 上的向量空间.
+    \item[(2)] $\dim F=1$, $\im f\subseteq F$, $\therefore\dim\im f\leq 1$, $\dim\ker f\geq\dim V-1$.
+    \item[(3)] $V^*$ 非空, $\because$ 必有零映射 $0\in V^*$, $0:V\rightarrow F$, $v\mapsto 0$.
+    \item[(4)] 若 $\dim\im f=0$, 则 $\im f=\{0\}$, $f$ 为零映射.
+    \item[(5)] 若 $\dim\im f=1$, 则 $\im f=\langle r\rangle$, 其中 $0\neq r\in F\Longrightarrow\im f=F$,\\
+    由反证法易证, 若 $v\in f^{-1}(r)=\{v\in V\mid f(v)=r\}$, 其中 $r\neq 0$, 则 $v\neq 0$, 且必有 $f(\langle v\rangle^c)=\{0\}$.
+\end{itemize}
+证明一下 (5) 的末句:
+\begin{pf}
+    假设 $\exists u\in\langle v\rangle^c$, s.t. $f(u)\neq 0$,\\
+    则有 $f\left(\frac{ru}{f(u)}\right)=r\Longrightarrow\frac{ru}{f(u)}\in f^{-1}(r)\Longrightarrow f^{-1}=\langle v\rangle\oplus\langle u\rangle$,\\
+    又 $\because u\in\langle v\rangle^c$, $\therefore\dim f^{-1}\geq 2$, 这与 $f^{-1}\subseteq(\ker f)^c$, $\dim(\ker f)^c=\dim\im f\leq 1$ 矛盾,\\
+    故假设错误, $\forall u\in\langle v\rangle^c$, $f(u)=0\Longrightarrow f(\langle v\rangle^c)=\{0\}$.
+\end{pf}
+
+\begin{thm}[(课本定理 3.11)]\label{thm-3.11}
+    \begin{itemize}
+        \item[(1)] 若 $0\neq v\in V$, $\exists 0\neq f\in V^*$, s.t. $f(v)\neq 0$.
+        \item[(2)] $v=0\Longleftrightarrow\forall f\in V^*$, $f(v)=0$.
+        \item[(3)] $f\in V^*$, 若 $f(x)\neq 0$, 则 $V=\ker f\oplus\langle x\rangle$, 即 $\im f\approx\langle x\rangle$.
+        \item[(4)] $0\neq f,g\in V^*$, $\ker f=\ker g\Longleftrightarrow\exists 0\neq\lambda\in F$, s.t. $f=\lambda g$.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] $v\neq 0$, 则 $V=\langle v\rangle\oplus\langle v\rangle^c$, 其中 $\langle v\rangle=\{rv\mid r\in F\}$.\\
+        令 $f:V\rightarrow F$, $rv+w\mapsto r$, 其中 $rv\in\langle v\rangle$, $w\in\langle v\rangle^c$, 故 $f(v)=1$, $f\in V^*$.\\
+        我们来验证一下: $\forall u_1,u_2\in V$, $r,t\in F$, $u_1$ 和 $u_2$ 可写成 $u_1=r_1v+w_2$, $u_2=r_2v+w_2$\\
+        $\Longrightarrow f(ru_1+tu_2)=f(r(r_1v+w_1)+t(r_2v+w_2))=f((rr_1v+rw_1)+(tr_2v+tw_2))=rr_1+tr_2=rf(r_1v+w_1)+tf(r_2v+w_2)=rf(u_1)+tf(u_2)$.\\
+        故得证.
+
+        并且需要注意这里的 $f$ 的构造不是唯一的: 我们可以构造 $f:V\rightarrow F$, $rv+u\mapsto rt$, 其中 $u\in\langle v\rangle^c$, 如此一来, $f(v)=t$.
+        \item[(2)] ``$\Longrightarrow$'': 若 $v=0$, 则 $\forall u\in V$, $f(v)+f(u)=f(v+u)=f(u)\Longrightarrow f(v)=0$.
+
+        ``$\Longleftarrow$'': 若 $\forall f\in V^*$, $f(v)=0$, 则 $\forall u\in V$, $f(v+u)=f(v)+f(u)=f(u)$.\\
+        假设 $v\neq 0$, 则由 (1), $\exists v\in V^*$, s.t. $f(v)\neq 0$, 与假设矛盾, 故假设错误, $v=0$.
+        \item[(3)] $f(x)\Longrightarrow\im f\neq\{0\}\Longrightarrow\dim\im f\neq 0\Longrightarrow\dim\im f\dim(\ker f)^c=1\Longrightarrow\dim\ker f=\dim V-\dim(\ker f)^c=\dim V-1$\\
+        $\Longrightarrow\exists v\in V$, s.t. $V=\ker f\oplus(\ker f)^c=\langle v\rangle$,\\
+        又 $\because f(x)\neq 0$, $\therefore x\in\langle v\rangle\Longrightarrow\langle x\rangle=\langle w\rangle\Longrightarrow V=\ker f\oplus\langle x\rangle$, 故得证.
+        \item[(4)] ``$\Longrightarrow$'': 令 $K=\ker f=\ker g$.\\
+        $\because\ker f=\ker g$, $\forall x\notin K$, 由 (3) 有, $V=\langle x\rangle\oplus K$.\\
+        取 $\lambda=\frac{f(x)}{g(x)}$ 即得.
+
+        ``$\Longrightarrow$'': 若 $\exists\lambda\neq 0$, $f=\lambda g$, 则显然 $\ker f=\ker g$.
+    \end{itemize}
+\end{pf}
+
+\begin{df}[对偶基]
+    $\mathcal{B}=\{b_1,\cdots,b_n\}$ 为 $V$ 的基, 则 $\forall i$, $\exists b_i^*\in V$, s.t. $b_i^*(b_i)=1$, 对 $j\neq i$, $b_i^*(b_j)=0$, 即 $b_i^*(b_j)=\delta_{ij}$, 从而可以构造出 $\mathcal{B}^*=\{b_1^*,\cdots,b_n^*\}\subseteq V^*$, 称为 $\mathcal{B}$ 的对偶基.
+\end{df}
+
+\begin{thm}[(课本定理 3.12)]
+    \begin{itemize}
+        \item[(1)] $\mathcal{B}^*=\{b_1^*,\cdots,b_n^*\}$ 线性无关.
+        \item[(2)] $\dim V<\infty$, 则 $\mathcal{B}^*$ 是 $V^*$ 的基.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] $\sum_{i=1}^mr_ib_i^*=0\Longrightarrow\forall v\in V$, $\left(\sum_{i=1}^mr_ib_i^*\right)(v)=0(v)=0$\\
+        $\Longrightarrow\sum_{i=1}^mr_ib_i^*(v)=0$\\
+        取 $v=b_j$, 则 $\sum_{i=1}^mr_ib_i^*(b_j)=\sum_{i=1}^mr_i\delta_{ij}=r_j=0$,\\
+        对各个 $b_j$ 如法炮制, 从而得到 $r_j=0\forall i$, 故得证.
+        \item[(2)] $\forall f\in V^*$, $\forall v\in V$, $\because\mathcal{B}$ 是 $V$ 的基, $\therefore v=\sum_{i=1}^nr_ib_i$\\
+        $\Longrightarrow b_j^*(v)=b_j^*\left(\sum_{i=1}^nr_ib_i\right)=\sum_{i=1}^nr_ib_j^*(b_i)=\sum_{i=1}^nr_i\delta_{ij}=r_j$\\
+        回代得 $v=\sum_{i=1}^nb_i^*(v)b_i$\\
+        $\Longrightarrow f(v)=f\left(\sum_{i=1}^nb_i^*(v)b_i\right)=\sum_{i=1}^nb_i^*(v)f(b_i)=\sum_{i=1}^nf(b_i)b_i^*(v)=\left(\sum_{i=1}^nf(b_i)b_i^*\right)(v)$, 这里 $b_i^*(v),f(b_i)\in F$, 因此可以交换位置, 我们可视 $\{b_i^*(v)\}$ 为基, $f(b_i)$ 为 $f(v)$ 在这组基上的展开系数\\
+        $\Longrightarrow f=\sum_{i=1}^nf(b_i)b_i^*$, 即 $f$ 可展开为 $\{\mathcal{B}^*\}$ 的线性表示, 结合 (1) 得证.
+    \end{itemize}
+\end{pf}
+
+按照类似上面的方法, $\forall v\in V$, 我们都可构造 $v^*\in V^*$, s.t. $\forall u_1\in\langle v\rangle$, $v^*(u)=1$, $\forall u_2\in\langle v\rangle^c$, $v^*(u_2)=0$,\\
+从而有映射 $V\rightarrow V^*$, $v\mapsto v^*$, $0\mapsto 0$ (零映射).\\
+$V^*$ 本身也是向量空间.
+
+\begin{df}[二重对偶(空间)]
+    $V^{**}=\mathcal{L}(V^*,F)$ 称为\textbf{二重对偶(空间)}, 其中的元素为 $v^{**}:V^*\rightarrow F$, $f\rightarrow f(v)$.
+\end{df}
+
+$V\rightarrow V^*\rightarrow V^{**}$, $v\mapsto v^*\mapsto v^{**}$, $b_i\mapsto b_i^*\mapsto b_i^{**}$, 满足 $b_i^*(b_j)=\delta_{ij}$, $b_i^{**}(b_j^*)=b_j^*(b_i)$, 两个映射复合得 $\tau:V\rightarrow V^{**}$, $v\mapsto v^{**}$.
+
+\begin{itemize}
+    \item[(1)] $\tau$ 是映射.
+    \item[(2)] $\tau$ 是线性变换.
+    \item[(3)] $\ker\tau=\{v\in V\mid\tau(v)=0\}=\{0\}\Longleftrightarrow\tau$ 单射.
+\end{itemize}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] 若 $u=v$, 则 $\forall f\in V^*$, $u^{**}(f)=f(u)=f(v)=v^{**}(v)$, 即得证.
+        \item[(2)] $\tau(ru+tv)=(ru+tv)^{**}$,\\
+        $\forall f\in V^*$, $(ru+tv)^{**}(f)=f(ru+tv)=rf(u)+tf(v)=ru^{**}(f)+tv^{**}(f)=r\tau(u)(f)+t\tau(v)(f)\Longrightarrow\tau(ru+tv)=r\tau(u)+t\tau(v)$,\\
+        结合 (1) 即得证.
+        \item[(3)] $\tau(v)=0\Longrightarrow\forall f\in V^*$, $v^{**}(f)=0\Longrightarrow f(v)=0\Longrightarrow$(定理 \ref{thm-3.11} (1)) $v=0$, 即得证.
+    \end{itemize}
+\end{pf}
+
+\begin{cor}[(课本引理 3.13)]
+    若 $\dim V=n<\infty$, 则 $\dim V^*=\dim V^{**}=n$, $V^{**}$ 与 $V$ 同构, 一个线性空间的二重对偶就回到自身, 所以实际上套娃式的 $V^{*\cdots*}$ 是没有意义的, 这里我们就写成 $V^{**}=V$.
+\end{cor}
+
+\begin{df}[算子伴随]
+    由线性变换 $\tau$ 可引出\textbf{算子伴随} $\tau^*:W^*\rightarrow V^*$, $g\mapsto g\circ\tau$.
+    \begin{center}
+        \begin{tikzpicture}
+            \node(1)at(-2,2){$V$};
+            \node(2)at(2,2){$W$};
+            \node(3)at(0,-2){$F$};
+            \draw[->](1)--(2)node[midway]{$\tau$};
+            \draw[->](2)--(3)node[midway]{$g$};
+            \draw[->](1)--(3)node[midway]{$\tau^*=g\circ\tau$};
+        \end{tikzpicture}
+    \end{center}
+\end{df}
+
+\begin{itemize}
+    \item[(1)] $\tau^*$ 是映射.
+    \item[(2)] $\tau^*$ 是线性的.
+\end{itemize}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] 若 $f=g\in W^*$, $v^**\in\tau^*$, 则 $\tau^*(f)=f\circ\tau=g\circ\tau=\tau^*(g)$, 故得证.
+        \item[(2)] $\tau^*(rg_1+tg_2)=(rg_1+tg_2)\circ\tau=rg_1\circ\tau+tg_2\circ\tau=r\tau^*(g_1)+t\tau^*(g_2)$, 故得证.
+    \end{itemize}
+\end{pf}
+
+\begin{thm}[(课本定理 3.18)]
+    \begin{itemize}
+        \item[(1)] $\tau.\sigma\in\mathcal{L}(V,W)$, $a,b\in F$, 则 $(a\tau+b\sigma)^*=a\tau^*+b\sigma^*$, 即求和与算子伴随可交换.
+        \item[(2)] $\sigma\in\mathcal{L}(V,W)$, $\tau\in\mathcal{L}(W,U)$, 则 $(\tau\circ\sigma)^*=\sigma^*\circ\tau^*$.
+        \item[(3)] $\mathcal{\tau}\in\mathcal{L}(V)$ 可逆 $\Longrightarrow(\tau^{-1})^*=(\tau^*)^{-1}$.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] $\forall f\in W^*$, $(a\tau+b\sigma)^*(f)=f\circ(a\tau+b\sigma)=af\circ\tau+bf\circ\sigma=a\tau^*(f)+b\tau^*(f)$, 即得证.
+        \item[(2)] $\forall f\in V^*$, $(\tau\circ\sigma)^*(f)=f\circ(t\circ\sigma)=f\circ(\tau\circ\sigma)=(f\circ\tau)\circ\sigma=\sigma^*(f\circ\tau)=\sigma^*(\tau^*(f))=(\sigma^*\circ\tau^*(f))=(\sigma^*\circ\tau^*)(f)\Longrightarrow(\tau\circ\sigma)^*=\sigma^*\circ\tau^*$.
+        \begin{center}
+            \begin{tikzpicture}
+                \node(1)at(-2,2){$V$};
+                \node(2)at(2,2){$W$};
+                \node(3)at(0,-2){$U$};
+                \draw[->](1)--(2)node[midway]{$\sigma$};
+                \draw[->](2)--(3)node[midway]{$\tau$};
+                \draw[->](1)--(3)node[midway]{$\tau\circ\sigma$};
+            \end{tikzpicture}\begin{tikzpicture}
+                \node(1)at(-2,2){$V^*$};
+                \node(2)at(2,2){$W^*$};
+                \node(3)at(0,-2){$U^*$};
+                \draw[->](2)--(1)node[midway]{$\sigma^*$};
+                \draw[->](3)--(2)node[midway]{$\tau^*$};
+                \draw[->](3)--(1)node[midway]{$(\tau\circ\sigma)^*=\sigma^*\circ\tau^*$?};
+            \end{tikzpicture}
+        \end{center}
+        \item[(3)] $1^*=(\tau\circ\tau^{-1})^*=(\tau^{-1})^*\circ\tau^*\Longrightarrow(\tau^{-1})^*=(\tau^*)^{-1}$.
+    \end{itemize}
+\end{pf}
+
+\begin{thm}[(课本定理 3.18)]
+    $\dim V<\infty$, $\dim W<\infty$, $\tau\in\mathcal{L}(V,W)$, $\tau^*\in\mathcal{L}(V,W)$, $\tau^{**}\in\mathcal{L}(V^{**},W^{**})=\mathcal{L}(V,W)$, 则 $\tau^{**}=\tau$.
+\end{thm}
+
+\begin{thm}[(课本定理 3.22)]
+    $\tau\in\mathcal{L}(V,W)$, 其中 $\dim V<\infty$, $\dim W<\infty$, $\mathcal{B}$ 和 $\mathcal{C}$ 分别是 $V$ 和 $W$ 的定序基, $\mathcal{B}^*$ 和 $\mathcal{C}^*$ 分别是 $\mathcal{B}$ 和 $\mathcal{C}$ 的对偶空间, 则 $[\tau^*]_{\mathcal{C}^*\mathcal{B}^*}=([\tau]_{\mathcal{BC}})^T$.
+\end{thm}
+\begin{pf}
+    设 $\dim V=n$, $\dim W=m$, $V$ 的定序基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, $W$ 的定序基 $\mathcal{C}=\{c_1,\cdots,c_m\}$, $\tau\in\mathcal{L}(V,W)$ 的矩阵表示为 $[\tau]_{\mathcal{BC}}=[\alpha_{ij}]_{m\times n}$, $\tau^*\in\mathcal{L}(W^*,V^*)$ 的矩阵表示为 $[\tau^*]_{\mathcal{C}^*\mathcal{B}^*}=[\beta_{ij}]_{n\times m}$,\\
+    即 $[\tau]_{\mathcal{BC}}=\begin{pmatrix}
+        [\tau(b_1)]_{\mathcal{C}}&\cdots&[\tau(b_n)]_{\mathcal{C}}
+    \end{pmatrix}$, 令 $[\tau(b_i)]_{\mathcal{C}}=\begin{pmatrix}
+        \alpha_{1i}\\
+        \vdots\\
+        \alpha_{mi}
+    \end{pmatrix}$, $\tau(b_i)=\sum_{k=1}^m\alpha_{ki}c_k$.\\
+    $[\tau^*]_{\mathcal{C}^*\mathcal{B}^*}=\begin{pmatrix}
+        [\tau^*(c_1^*)]_{\mathcal{B^*}}&\vdots&[\tau^*(c_n)]
+    \end{pmatrix}$, 其中 $[\tau^*(c_i^*)]_{\mathcal{B}^*}=\begin{pmatrix}
+        \beta_{1i}\\
+        \vdots\\
+        \beta_{ni}
+    \end{pmatrix}$, $\tau^*(c_i^*)=\sum_{l=1}^n\beta_{li}b_l^*$.\\
+    又 $\because\tau^*(c_i^*)=c_i^*\circ\tau$, 我们将这一复合函数作用在 $b_j$ 上有, $(c_i^*\circ\tau)(b_j)=\left(\sum_{l=1}^n\beta_{li}b_l^*\right)(b_j)=\sum_{l=1}^n\beta_{li}b_l^*(b_j)=\beta_{ji}$\\
+    $\Longrightarrow\beta_{ji}=c_i^*(\tau(b_j))$, 代入上面的 $\tau(b_j)$ 的展开式得 $\beta_{ji}=c_i^*\left(\sum_{k=1}^m\alpha_{kj}c_k\right)=\sum_{k=1}^m\alpha_{kj}c_i^*(c_k)=\sum_{k=1}^m\alpha_{kj}\delta_{ik}=\alpha_{ij}$, 故得证.
+\end{pf}
+\ifx\allfiles\undefined
+\end{document}
+\fi
