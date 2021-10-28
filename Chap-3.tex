@@ -238,9 +238,8 @@ $\im\tau'=\{\tau'([v])\mid[v]\in\frac{V}{S}\}=\{\tau'([v])\mid v\in V\}=\{\tau(v
         并且需要注意这里的 $f$ 的构造不是唯一的: 我们可以构造 $f:V\rightarrow F$, $rv+u\mapsto rt$, 其中 $u\in\langle v\rangle^c$, 如此一来, $f(v)=t$.
         \item[(2)] ``$\Longrightarrow$'': 若 $v=0$, 则 $\forall u\in V$, $f(v)+f(u)=f(v+u)=f(u)\Longrightarrow f(v)=0$.
 
-        ``$\Longleftarrow$'': 若 $\forall f\in V^*$, $f(v)=0$, 则 $\forall u\in V$, $f(v+u)=f(v)+f(u)=f(u)$.\\
-        假设 $v\neq 0$, 则由 (1), $\exists v\in V^*$, s.t. $f(v)\neq 0$, 与假设矛盾, 故假设错误, $v=0$.
-        \item[(3)] $f(x)\Longrightarrow\im f\neq\{0\}\Longrightarrow\dim\im f\neq 0\Longrightarrow\dim\im f\dim(\ker f)^c=1\Longrightarrow\dim\ker f=\dim V-\dim(\ker f)^c=\dim V-1$\\
+        ``$\Longleftarrow$'': 若 $\forall f\in V^*$, $f(v)=0$, 则假设 $v\neq 0$, 则由 (1), $\exists v\in V^*$, s.t. $f(v)\neq 0$, 矛盾, 故假设错误, $v=0$.
+        \item[(3)] $f(x)\neq 0\Longrightarrow\im f\neq\{0\}\Longrightarrow\dim\im f\neq 0\Longrightarrow\dim\im f\dim(\ker f)^c=1\Longrightarrow\dim\ker f=\dim V-\dim(\ker f)^c=\dim V-1$\\
         $\Longrightarrow\exists v\in V$, s.t. $V=\ker f\oplus(\ker f)^c=\langle v\rangle$,\\
         又 $\because f(x)\neq 0$, $\therefore x\in\langle v\rangle\Longrightarrow\langle x\rangle=\langle w\rangle\Longrightarrow V=\ker f\oplus\langle x\rangle$, 故得证.
         \item[(4)] ``$\Longrightarrow$'': 令 $K=\ker f=\ker g$.\\

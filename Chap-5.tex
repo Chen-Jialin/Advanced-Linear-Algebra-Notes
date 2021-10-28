@@ -1,0 +1,106 @@
+% !Tex program = pdflatex
+% 第 5 章: 模 II: 自由与诺特模 Chap 5: Modules II: Free and Noetherian Modules
+\ifx\allfiles\undefined
+\documentclass{note}
+\setcounter{chapter}{+4}
+\begin{document}
+\fi
+\chapter{模 II: 自由与诺特模}
+\begin{df}[诺特 (Notherian) 模]
+    $M\in R-\mod$, $S_1,\cdots,S_n,\cdots$ 是 $M$ 的子模 且 $S_1\subseteq\cdots\subseteq S_n\subseteq\cdots$, 若 $\exists K\in\mathbb{Z}^+$, s.t. $S_K=S_{K+1}=\cdots$, 则称 $M$ 满足\textbf{升链条件 (A.C.C.)}, 称满足 ACC 的模为\textbf{诺特模}.
+\end{df}
+
+\begin{thm}[(课本定理 5.7)]
+    \begin{itemize}
+        \item[(1)] $M\in R-\mod$ 为诺特模 $\Longleftrightarrow M$ 的子模是有限生成的.
+        \item[(2)] $R$ 是诺特环 $\Longleftrightarrow R$ 的理想都是有限生成的.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] ``$\Longrightarrow$'': 设 $S$ 是 $M$ 的子模.
+        若 $S=\{0\}$, 则 $S=\langle\langle 0\rangle\rangle$ 显然有限生成,\\
+        若 $S\neq\{0\}$, 则 $\exists 0\neq v_1\in S$, 令 $S_1=\langle\langle v_1\rangle\rangle\subseteq S$,\\
+        若 $S_1=S$, 则 $S$ 有限生成,\\
+        若 $S_1\neq S$, 则 $\exists v_2\in S-S_1$, 令 $S_2=\langle\langle v_1,v_2\rangle\rangle\subseteq S$, 则 $S_1\subseteq S_2\subseteq S$,\\
+        若 $S_2=S$, 则 $S$ 有限生成,\\
+        若 $S_2\neq S$, 则 $\exists 0\neq v_3\in S-S_2$, 令 $S_3=\langle\langle v_1,v_2,v_3\rangle\rangle\subseteq S$, 则 $S_1\subseteq S_2\subseteq S_3\subseteq S$,\\
+        若 $S_3=S$, 则 $S$ 有限生成,\\
+        若 $S_3\neq S$, 则 $\exists 0\neq v_4\in S-S_3$, 令 $S_4=\langle\langle v_1,v_2,v_3,v_4\rangle\rangle\in S$, 则 $S_1\subseteq S_2\subseteq S_3\subseteq S_3\subseteq S_4\subseteq S$,\\
+        $\cdots$\\
+        以此类推, 得 $S_1\subseteq S_2\subseteq\cdots\subseteq S_n\subseteq\cdots$,\\
+        $\because S$ 满足 ACC, $\therefore\exists K\in\mathbb{Z}^+$, s.t. $S_K=S_{K+1}=\cdots=S=\langle\langle v_1,\cdots,v_n\rangle\rangle$, 故 $S$ 有限生成.
+
+        ``$\Longleftarrow$'': 取 $M$ 的任一子模升链 $S_1\subseteq\cdots\subseteq S_n\subseteq\cdots$, 则 $S=\cap_{i\in J}S_i$ 是 $M$ 的子模,\\
+        $\because M$ 的子模是有限生成的, $\therefore S$ 必然是有限生成, 故设 $S=\langle\langle v_m,\cdots,v_m\rangle\rangle$,\\
+        $\forall K=1,\cdots,m$, $u_k\in S=\cup_{i\in J}S_i\Longrightarrow\exists i_k\in J$, s.t. $u_k\in S_{i_k}$,\\
+        令 $K=\max\{i_1,\cdots,i_m\}$, 则由升链的性质, $u_1,\cdots,u_m\in S_K$\\
+        $\Longrightarrow S_K=S$, 故升链必终止于 $S_K$.
+
+        综上, 得证.
+    \end{itemize}
+\end{pf}
+
+\begin{eg}
+    $\because\mathbb{Z}$ 的任意理想均有单个元素生成, 具体地说, $I$ 是 $\mathbb{Z}$ 的理想, 则 $I=\langle n\rangle$, 其中 $n$ 为 $I$ 中的最小整数, $\therefore\mathbb{Z}$ 是诺特环.
+\end{eg}
+
+\begin{eg}
+    $F[x]=\{\sum_{i=0}^na_ix^i\mid a_i\in F,n\in\mathbb{Z}\}$, $I$ 是 $F[x]$ 的理想, 则 $I=\langle f(x)\rangle$, 其中 $\deg f(x)$ 是 $I$ 中最小的\footnote{多项式间的除法: 若 $\deg g(x)\geq\deg f(x)$, 则 $\exists q(x),r(x)\in F[x]$, s.t. $g(x)=q(x)f(x)+r(x)$ 且 ($r(x)=0$ 或 $0<\deg r(x)<\deg f(x)$)}, 故 $(F[x],+,\cdot)$ 是诺特环.
+\end{eg}
+
+\begin{df}[主理想]
+    由一个元素生成的诺特环.
+\end{df}
+
+\begin{thm}[(课本定理 5.7)]\label{thm-5.7}
+    $R$ 为有单位元的交换环, 则 $R$ 是诺特环 $\Longleftrightarrow R$ 上的有限生成模都是诺特模.
+\end{thm}
+
+上述定理意味着有限生成的性质对诺特环是遗传的.
+
+\begin{pf}
+    ``$\Longleftarrow$'': $R\in R-\mod$ 且 $R=\langle\langle 1\rangle\rangle$, 故 $R$ 为诺特环.
+
+    ``$\Longrightarrow$'': 取 $R$ 上的有限生成模 $M=\langle\langle v_1,\cdots,v_n\rangle\rangle\in R-\mod$, $M=\{\sum_{i=1}^nr_iv_i\mid r_i\in R\}$.\\
+    定义映射 $\tau:R^n\rightarrow M$, $(r_1,\cdots,r_n)\mapsto\sum_{i=1}^nr_iu_i$.
+    \begin{itemize}
+        \item[(1)] $\because\tau(r(r_1,\cdots,r_n)+t(l_1,\cdots,l_n))=\tau(rr_1+tl_1,\cdots,rr_n+tl_n)=\sum_{i=1}^n(rr_i+tl_i)u_i=r\sum_{i=1}^nr_iu_i+t\sum_{i=1}^nl_iu_i=r\tau(r_1,\cdots,r_n)+t\tau(l_1,\cdots,l_n)$, $\therefore\tau$ 是 $R^n$ 到 $M$ 上的模同态.
+        \item[(2)] $\because\forall(r_1,\cdots,r_n)$, $\exists\sum_{i=1}^nr_iu_i$, $\therefore\tau$ 满射.
+    \end{itemize}
+    $\Longrightarrow\tau$ 满同态.
+
+    设 $S$ 是 $M$ 的任一子模, 则 $\tau^{-1}(S)$ 是 $R^n$ 的子模, 且 $\because\tau$ 满同态, $\therefore\tau(\tau^{-1}(S))=S$.
+
+    【思路】 根据定理 \ref{thm-5.7}, 要证 $M$ 诺特, 即证 $M$ 的子模 $S$ 有限生成, 于是先证 $R^n$ 的子模有限生成, 从而 $R^n$ 诺特, 进而利用引理 \ref{cor for thm-5.8} 得 $S$ 有限生成.
+
+    数学归纳法: 当 $n=1$ 时, $R$ 诺特 $\Longrightarrow R^n$ 诺特.\\
+    假设当 $n=k$ 时, $R^k$ 诺特, 则当 $n=k+1$ 时, 要证 $R^{k+1}$ 诺特, 即证 $R^{k+1}$ 的子模有限生成.\\
+    取 $I$ 为 $R^{n+1}$ 子模, 取 $I_1=\{(0,\cdots,0,a_{k+1})\mid\exists a_1,\cdots,a_k\in R,\text{ s.t. }(a_1,\cdots,a_k,a_{k+1})\in I\}$, $I_2=\{(a_1,\cdots,a_k,0)\mid\exists a_k\in R,\text{ s.t. }(a_1,\cdots,a_k,a_{k+1})\in I\}$.\\
+    $\forall(0,\cdots,0,a_{k+1}),(0,\cdots,0,b_{k+1})\in I_1$, $\exists a_1,\cdots,a_k,b_1,\cdots,b_k\in R$, s.t. $(a_1,\cdots,a_k,a_{k+1}),(b_1,\cdots,b_k,b_{k+1})\in I$,\\
+    $\because I$ 是子模, $\therefore\forall r,t\in R$, $r(a_1,\cdots,a_k,a_{k+1})+t(b_1,\cdots,b_k,b_{k+1})=(ra_1+tb_1,\cdots,ra_k+ta_k)\in I\Longrightarrow r(0,\cdots,0,a_{k+1})+t(0,\cdots,0,b_{k+1})=(0,\cdots,0,ra_{k+1}+tb_{k+1})\in I_2$, 故 $I_1$ 为 $R^{k+1}$ 的子模.\\
+    $\forall(a_1,\cdots,a_k,0),(b_1,\cdots,b_k,0)\in I_2$, $\exists a_{k+1},b_{k+1}$, s.t. $(a_1,\cdots,a_k,a_{k+1}),(b_1,\cdots,b_k,b_{k+1})\in I$\\
+    $\therefore I$ 是子模, $\therefore\forall r,t\in R$, $r(a_1,\cdots,a_k,a_{k+1})+t(b_1,\cdots,b_k,b_{k+1})=(ra_1+tb_1,\cdots,ra_k+ta_k)\in I\Longrightarrow r(a_1,\cdots,a_k,0)+t(b_1,\cdots,b_k,0)=(ra_1+tb_1,\cdots,ra_k+tb_k,0)\in I_2$, 故 $I_2$ 为 $R^{k+1}$ 的子模.\\
+    令 $J_1=\{a_{k+1}\mid(0,\cdots,0,a_{k+1})\in I_1\}$, $J_2=\{(a_1,\cdots,a_k)\mid(a_1,\cdots,a_k)\in I_2\}$, 易证 $J_1$ 是 $R$ 的子模, $J_2$ 是 $R^k$ 的子模.\\
+    $\because R,R^k$ 诺特, $\therefore J_1,J_2$ 有限生成, 设 $J_1=\langle\langle g_1,\cdots,g_m\rangle\rangle$, $J_2=\langle\langle f_1,\cdots,f_n\rangle\rangle$, 其中 $g_1\in R$, $f_i\in R^k$.\\
+    于是 $\forall i=1,\cdots,m$, $(0,\cdots,0,g_i)\in I_1$, 由 $I_1$ 的定义, $\exists g_{i_1},\cdots,g_{i_k}\in R$, s.t. $\bar{g}_i\equiv(g_{i_1},\cdots,g_{i_n},g_i)\in I$,\\
+    又有 $\bar{f}_i=(f_i,0)$,\\
+    $\forall r=(r_1,\cdots,r_k,r_{k+1})\in I$, 则 $(0,\cdots,0,r_{k+1})\in I_1$, 即 $r_{k+1}\in J_1=\langle\langle g_1,\cdots,g_m\rangle\rangle$,\\
+    于是 $r_{k+1}=\sum_{i=1}^m\alpha_ig_i$, $(h,0)\equiv r-\sum_{i=1}^m\alpha_i\bar{g}_i=(*,\cdots,*,0)\in I$, 从而 $(h,0)\in I_2$, $h\in J_2$, 设 $h=\sum_{i=1}^n\beta_if_i$\\
+    $\Longrightarrow r=\sum_{i=1}^m\alpha_i\bar{g}_i+\sum_{i=1}^n\beta_i\bar{f}_i$, 故 $I$ 由 $\bar{g}_1,\cdots,\bar{g}_m,\bar{f}_1,\cdots,\bar{f}_n$ 生成 $\Longrightarrow R^{k+1}$ 诺特 $\Longrightarrow R^n$ 诺特 $\forall n\Longrightarrow S=\tau(\tau^{-1}(S))$ 有限生成.
+\end{pf}
+
+\begin{cor}\label{cor for thm-5.8}
+    $\tau:M\rightarrow N$ 满同态, 则 $M$ 有限生成 $\Longrightarrow N$ 有限生成, 即有限生成模的满同态像有限生成.
+\end{cor}
+\begin{pf}
+    $\because M$ 有限生成, $\therefore$ 设 $M=\langle\langle v_1,\cdots,v_n\rangle\rangle=\left\{\sum_{i=1}^nr_iv_i\mid r_i\in R\right\}$,\\
+    $\because\tau$ 满同态, $\therefore N=\im\tau=\{\tau(u)\mid u\in M\}=\{\tau(u)\mid u=\sum_{i=1}^nr_iv_i,r_i\in R\}=\left\{\tau\left(\sum_{i=1}^nr_iv_i\right)\mid r_i\in R\right\}=\{\sum_{i=1}^nr_i\tau(v_i)\mid r_i\in R\}=\langle\langle\tau(v_1),\cdots,\tau(v_n)\rangle\rangle$, 故 $N$ 有限生成.
+\end{pf}
+
+\begin{thm}[Hilbert 基本定理 (课本定理 5.9)]
+    $R$ 是诺特环 $\Longrightarrow R[x]\equiv\{\sum_{i=0}^nr_ix^i\mid r_i\in R,n\in\mathbb{Z}^+\}$ 诺特.
+\end{thm}
+\ifx\allfiles\undefined
+\end{document}
+\fi

@@ -11,7 +11,7 @@
     \begin{itemize}
         \item[(1)] $\alpha(r,u+v)=\alpha(r,u)+\alpha(r,v)$ (可简写为 $r(u+v)=ru+rv$)
         \item[(2)] $\alpha(r+t,u)=\alpha(r,u)+\alpha(t,u)$ (可简写为 $(r+t)u=ru+tu$)
-        \item[(3)] $\alpha(r\cdot t,u)=\alpha(r,\alpha(t,u))$ (可简写为 $(r\cdot t)\cdot u=r(tu)$)
+        \item[(3)] $\alpha(r\cdot t,u)=\alpha(r,\alpha(t,u))$ (可简写为 $(rt)u=r(tu)$)
         \item[(4)] \textbf{有单位元}: $\exists 1\in F$, s.t. $\alpha(1,u)=u$ (可简写为 $1u=u$)
     \end{itemize}
     则称 $V$ 是 $F$ 上的向量空间.
@@ -93,8 +93,8 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
     $rw_1+tw_2=r(u_1+v_1)+t(u_2+v_2)=(ru_1+tu_2)+(rv1+tv_2)$, 其中 $ru_1+tu_2\in S$, $rv_1+tv_2\in T\Longrightarrow rw_1+tw_2\in S+T$, 故 $S+T$ 为 $V$ 的子空间.
 \end{pf}
 
-\begin{df}[生成子空间]
-    $\emptyset\neq S\subseteq V$, $\langle S\rangle\equiv$ 包含 $S$ 的最小子空间 $=\left\{\sum_{i=1}^nr_iu_i\mid r_i\in F,u_i\in S,n\in\mathbb{N}\right\}$, 其中称 $S$ 为生成集.
+\begin{df}[生成子空间和生成集]
+    $\emptyset\neq S\subseteq V$, $S$ 的\textbf{生成子空间}为 $\langle S\rangle\equiv$ 包含 $S$ 的最小子空间 $=\left\{\sum_{i=1}^nr_iu_i\mid r_i\in F,u_i\in S,n\in\mathbb{N}\right\}$, 其中称 $S$ 为\textbf{生成集}.
 \end{df}
 
 \begin{eg}

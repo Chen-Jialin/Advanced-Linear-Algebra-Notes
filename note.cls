@@ -143,6 +143,7 @@
 \providecommand{\chr}{\,\mathrm{char}\,}% 域的特征 Characteristic of field
 \providecommand{\nul}{\,\mathrm{null}\,}% 线性变换的零度 Nullity of linear transform
 \providecommand{\rk}{\,\mathrm{rk}\,}% 线性变换的秩 Rank of linear transforms
+\providecommand{\End}{\,\mathrm{End}\,}% 自同态集合 Set of endomorphism
 
 % 题目和题解风格 Problem and solution style
 \ifUsingEnglish

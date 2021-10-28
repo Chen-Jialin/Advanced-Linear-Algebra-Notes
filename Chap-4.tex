@@ -1,0 +1,220 @@
+% !Tex program = pdflatex
+% 第 4 章: 模 I: 基本性质 Chap 4: Modules I: Basic Properties
+\ifx\allfiles\undefined
+\documentclass{note}
+\setcounter{chapter}{+3}
+\begin{document}
+\fi
+\chapter{模 I: 基本性质}
+\begin{df}[模]
+    $R$ 为有单位元交换环, $(M,+)$ 为交换群, 数乘 $:R\times M\rightarrow M$, $(r,m)\mapsto m$ 满足
+    \begin{itemize}
+        \item[(1)] $(r+t)m=rm+tm$
+        \item[(2)] $(rt)m=r(tm)$
+        \item[(3)] $r(m_1+m_2)=rm_1+rm_2$
+        \item[(4)] $1m=m$
+    \end{itemize}
+    则称 $M$ 为 $R$ 上的\textbf{模}, 记作 $R-\mod\equiv\{\text{$R$ 上的模}\}$.
+\end{df}
+
+$\because$ 域是一种特殊的环, $\therefore$ 向量空间是一种特殊的模.
+
+$0m=0$.
+\begin{pf}
+    $0m+0m=(0+0)m=0m\Longrightarrow 0m=0$.
+\end{pf}
+
+$r0=0$.
+\begin{pf}
+    $r0+r0=r(0+0)=r0\Longrightarrow r0=0$.
+\end{pf}
+
+$(-r)m=r(-m)=-(rm)$.
+\begin{pf}
+    $(-r)m+rm=(-r+r)m=0m=0\Longrightarrow(-r)m=-rm$.\\
+    $r(-m)+rm=r(m+(-m))=r0=0\Longrightarrow r(-m)=-rm$.
+\end{pf}
+
+$\forall r\in R$, 可构造映射 $\bar{r}:M\rightarrow M$, $m\mapsto rm$. $\bar{r}$ 是 $M$ 上的群同态, 又称\textbf{自同态}, 记作 $\bar{r}\in\End(M)\equiv\{\text{$M$ 上的自同态}\}$, $\End(M)$ 关于同态的加法、复合成环, 其单位元为 $M$ 上的恒等映射, $1_M$, 故还可构造映射 $\phi:R\rightarrow\End(M)$, $r\mapsto\bar{r}$.
+\begin{pf}
+    $\bar{r}(m+n)=r(m+n)=rm+rn=\bar{r}(m)+\bar{r}(n)$, 即映射 $\bar{r}$ 下保持运算结构, 故得证.
+\end{pf}
+
+\begin{eg}
+    在交换群 $(G,+)$ 上定义 $1a=a$, $2a=a+a$, $\cdots$, $na=\overbrace{a+\cdots+a}^{\text{$n$ 个 $a$ 相加}}$, $-a=-1a$, $-2a=(-a)+(-a)$, $-na=\overbrace{(-a)+\cdots+(-a)}^{\text{$n$ 个 $(-a)$ 相加}}$, 数乘 $\alpha:\mathbb{Z}\times G\rightarrow G$, $(n,a)\mapsto na$, 满足
+    \begin{itemize}
+        \item[(1)] $\alpha$ 是映射
+        \item[(2)] $(n+m)a=na+ma$
+        \item[(3)] $(nm)a=n(ma)$
+        \item[(4)] $n(a+b)=na+nb$
+    \end{itemize}
+    \begin{pf}
+        \begin{itemize}
+            \item[(1)] $na$ 的定义依赖于 $G$ 中的运算, 而运算的本质是卡氏积至原集合的映射, 有唯一的结果, 故得证.
+            \item[(2)] $(n+m)a=\overbrace{a+\cdots+a}^{\text{$(n+m)$ 个 $a$ 相加}}=\overbrace{a+\cdots+a}^{\text{$n$ 个 $a$ 相加}}+\overbrace{a+\cdots+a}^{\text{$m$ 个 $a$ 相加}}=na+ma$.
+            \item[(3)] $(nm)a=\overbrace{a+\cdots+a}^{\text{$nm$ 个 $a$ 相加}}=\overbrace{\overbrace{a+\cdots+a}^{\text{$m$ 个 $a$ 相加}}+\cdots+\overbrace{a+\cdots+a}^{\text{$m$ 个 $a$ 相加}}}^{\text{$n$ 组}}=\overbrace{ma+\cdots+ma}^{\text{$n$ 个 $ma$ 相加}}=n(ma)$.
+            \item[(4)] $n(a+b)=\overbrace{(a+b)+\cdots+(a+b)}^{\text{$n$ 个 $(a+b)$ 相加}}=\overbrace{a+\cdots+a}^{\text{$n$ 个 $a$ 相加}}+\overbrace{b+\cdots+b}^{\text{$n$ 个 $b$ 相加}}=na+nb$.
+            \item[(5)] 由定义显然.
+        \end{itemize}
+    \end{pf}
+    故 $M\in\mathbb{Z}-\mod$.
+\end{eg}
+
+\begin{eg}
+    $\forall$ 交换群 $(G,+)$, $G\in\mathbb{Z}-\mod$.
+\end{eg}
+
+\begin{eg}
+    $R\in R-\mod$, 其中的数乘即 $R$ 中的乘法.
+\end{eg}
+
+\begin{eg}\label{module Zp}
+    $\mathbb{Z}_p=\frac{\mathbb{Z}}{p}=\{[0],\cdots,[p-1]\}$, $(\mathbb{Z}_p,+)$ 是交换群, 故 $\mathbb{Z}_p\in\mathbb{Z}-\mod$.
+
+    $\mathbb{Z}_6=\{[0],[1],[2],[3],[4],[5]\}$, $n[k]=\overbrace{[k]+\cdots+[k]}=[nk]$,\\
+    注意到 $[2]\neq[0]$, $3\neq 0$, 但 $3[2]=[6]=[0]$, 即非零元素的卡氏积在数乘映射下得到零元素, 这意味着非零的单个元素不再线性无关.
+
+    实际上, $\mathbb{Z}_p$ 中无线性无关元素.
+\end{eg}
+
+\begin{eg}
+    $R^n=\{(r_1,\cdots,r_n)\mid r_i\in R\}\in R-\mod$, 其中 $(r_1,\cdots,r_n)+(l_1,\cdots,l_n)=(r_1+l_1,\cdots,r_n+l_n)$, $r(r_1,\cdots,r_n)=(rr_1,\cdots,rr_n)$.
+\end{eg}
+
+\begin{df}[子模]
+    $\emptyset\neq S\subseteq M$, 若在 $M$ 的运算下, $S$ 是 $R$ 上的模, 则称 $S$ 为 $M$ 的子模.
+\end{df}
+
+\begin{thm}[判定子模的方法 (课本定理 4.1)]
+    $\emptyset\neq S\subseteq M$ 是 $M$ 的子模 $\Longleftrightarrow\forall u,v\in S$, $\forall r,t\in R$, $ru+tv\in S$ (即线性运算封闭).
+\end{thm}
+
+\begin{thm}[(课本定理 4.2)]
+    $S,T\subseteq M$ 是 $M$ 的子模, 则 $S\cap T$ 为 $M$ 的子模, $S+T\equiv\{u+v\mid u\in S,v\in T\}$ 为 $M$ 的子模.
+\end{thm}
+
+\begin{thm}
+    $R\in R-\mod $, $R$ 的子模即 $R$ 上的理想.
+\end{thm}
+\begin{pf}
+    设 $S$ 为 $R$ 的子模, 则
+    \begin{itemize}
+        \item[(1)] $\emptyset\neq S\subseteq R$
+        \item[(2)] $\forall u,v\in S$, $\forall r,t\in R$, $ru+tv\in S$. 特别地, 令 $t=0$, 则 $ru\in S$
+    \end{itemize}
+    故 $S$ 为 $R$ 的理想.
+\end{pf}
+
+\begin{df}[生成子模和生成集]
+    $\emptyset\neq S\subseteq M\in R-\mod$, $S$ 的\textbf{生成子模}为 $\langle\langle S\rangle\rangle\equiv$ 包含 $S$ 的最小子模 $\equiv$ 包含 $S$ 的所有子模的交 $=\{\sum_{i=1}^nr_iu_i\mid r_i\in R,u_i\in S,n\in\mathbb{Z}^+\}$, 其中称 $S$ 为\textbf{生成集}.
+\end{df}
+
+$\forall M\in R-\mod$, 都有生成集, $\because M=\langle\langle M\rangle\rangle$.
+
+\begin{df}[有限生成模]
+    生成集由有限个元素构成的生成模.
+\end{df}
+
+\begin{df}[循环模]
+    生成集由一个元素构成的生成模.
+\end{df}
+
+\begin{eg}
+    $R\in R-\mod$ 是一个循环模, $\because R=\langle\langle 1\rangle\rangle=\{r1\mid r\in R\}$.
+\end{eg}
+
+有限生成模的子模未必是有限生成的, 即有限生成的性质未必会由模遗传至其子模.
+\begin{eg}
+    多项式环 $R=F[x_1,\cdots,x_n,\cdots]\equiv\left\{\sum_{k_i=0}^Na_{i_1,\cdots,i_n}x_{i_1}^{k_1}\cdots x_{i_n}^{k_n}\mid a_{i_1\cdots i_n}\in F,N_i\in\mathbb{Z}^+\right\}$, $R\in R-\mod$ 且 $R=\langle\langle 1\rangle\rangle$.\\
+    假设 $S$ 是有限生成的, $S=\langle\langle f_1,\cdots,f_m\rangle\rangle$, $f_i=\sum_{j_1,\cdots,j_m=0}^{N_i}a_{i_1,\cdots,i_n}^{j_1,\cdots,j_n}x_{i_1}^{j_1}\cdots x_{i_n}^{j_n}$ 是有限个变元的有限次多项式, 故 $S$ 无法生成无限个变元的无限次多项式, 即 $S$ 并非是有限生成的.
+\end{eg}
+
+\begin{df}[线性无关]
+    $\emptyset\neq S\subseteq M$, 若 $\sum_{i=1}^nr_iu_i=0$ 其中 $u_i\in S$, $r_i\in R\forall i\Longrightarrow r_1=\cdots=r_n=0$, 则称 $S$ 线性无关.
+\end{df}
+
+在模中, 线性无关元素未必存在, 如例 \ref{module Zp} 中 $\mathbb{Z}_p$ 无线性无关元素.
+
+在向量空间中, 我们有: $u,v$ 线性相关 $\Longleftrightarrow\exists$ 不全为零的 $r,t\in R$, s.t. $ru+tv=0$, 无妨设 $r\neq 0$, 则 $ru=-tv\Longrightarrow u=-\frac{t}{r}v$.
+
+在模中, 上述说法未必成立: $u,v$ 线性相关 $\Longleftrightarrow\exists$ 不全为零的 $r,t$, s.t. $ru+tv=0$, (无妨设 $r\neq 0$,) 则 $ru=-tv$, 但由于未必能找到 $r$ 的逆元, 所以未必有 $u=-\frac{t}{r}v$. 故在模中, 线性相关元素未必能相互表示, 即一个线性相关元素未必能由与其线性相关的元素线性表示.
+
+\begin{df}[自由模]
+    $M\in R-\mod$, $M=\langle\langle\mathcal{B}\rangle\rangle$ 且 $\mathcal{B}$ 线性无关, 则称 $M$ 为\textbf{自由模}, $\mathcal{B}$ 为 $M$ 的基.
+\end{df}
+
+\begin{thm}[(课本定理 4.3)]
+    $\emptyset\neq\mathcal{B}\subseteq M$ 是 $M$ 的基, 则 $\forall v\in M$, $v$ 可由 $\mathcal{B}$ 中的元素唯一地线性表示.
+\end{thm}
+
+\begin{thm}[(课本定理 4.4)]
+     $\mathcal{B}$ 是 $M$ 的基 $\Longleftrightarrow\mathcal{B}$ 为 $M$ 的极小生成集\uline{且}为 $M$ 的极大线性无关集.
+\end{thm}
+
+\begin{eg}
+    $\mathbb{Z}_6=\{[0],[1],[2],[3],[4],[5]\}$, $\mathbb{Z}_6=\langle\langle[1]\rangle\rangle=\langle\langle[5]\rangle\rangle$,\\
+    $\because 0[1]=[0]$, $1[1]=[1]$, $2[1]=[2]$, $3[1]=[3]$, $4[1]=[4]$, $5[1]=[5]$,\\
+    $0[5]=[0]$, $1[5]=[5]$, $2[5]=[10]=[4]$, $3[5]=[15]=[3]$, $4[5]=[20]=[2]$, $5[5]=[25]=[1]$.\\
+    故 $\mathbb{Z}_6$ 的表示不唯一.
+\end{eg}
+
+$M\in R-\mod$, 但 $M$ 的子模未必自由.
+\begin{eg}
+    $R=\mathbb{Z}\times\mathbb{Z}=\{(n,m)\mid n,m\in\mathbb{Z}\}$, 其中 $(n,m)(k,l)=(nk,ml)$, $(n,m)+(k,l)=(n+k,m+l)$ 是仅为交换环 (而非域), $R\in R-\mod$, $R=\langle\langle(1,1)\rangle\rangle=\{r(1,1)\mid r\in R=\mathbb{Z}\times\mathbb{Z}\}$, $\therefore R$ 自由.\\
+    但子模 $S=\mathbb{Z}\times\{0\}=\{(n,0)\mid n\in\mathbb{Z}\}$, $\because\forall n\neq 0$, $(n,0)(0,1)=(0,0)$, $\therefore$ 无线性无关元, 从而非自由.
+\end{eg}
+
+\begin{df}[模同态]
+    $M,N\in R-\mod$, 映射 $\tau:M\rightarrow N$, 若 $\forall u,v\in M$, $r,t\in R$, $\tau(ru+tv)=r\tau(u)+t\tau(v)$, 则 $\tau$ 为 $M$ 到 $N$ 的\textbf{模同态}, 记作 $\tau\in\hom(M,N)=\{\text{$M$ 到 $N$ 的模同态}\}$.
+\end{df}
+
+取 $r=t=1$, 则 $\forall u,v\in M$, $\tau(u+v)=\tau(u)+\tau(v)$, 故 $\tau$ 为群同态.
+
+\begin{thm}[(课本定理 4.6)]
+    \begin{itemize}
+        \item[(1)] $\ker\tau\equiv\{v\in M\mid\tau(v)=0\}$ 是 $M$ 的子模. $\tau$ 单射 $\Longleftrightarrow\ker\tau=\{0\}$.
+        \item[(2)] $\im\tau\equiv\{\tau(v)\mid v\in M\}$ 是 $N$ 的子模. $\tau$ 满射 $\Longleftrightarrow\im\tau=N$.
+    \end{itemize}
+\end{thm}
+
+\begin{df}[商模]
+    $S$ 是 $M$ 的子模, \textbf{商群}$\equiv\{[v]\mid v\in M\}$.
+\end{df}
+
+$[u]+[v]=[u+v]$, $r[u]=[ru]$ 是合法运算, $\because$ 结果与代表元选取无关.
+
+\begin{center}
+    \begin{tikzpicture}
+        \node(1)at(0,2){$M$};
+        \node(2)at(2,2){$N$};
+        \node(3)at(0,0){$\frac{M}{S}$};
+        \node(4)at(-1,3){$v$};
+        \node(5)at(4,3){$\tau[v]$};
+        \node(6)at(-1,-2){$[v]$};
+        \draw[->](1)--(2)node[midway]{$\tau$};
+        \draw[->](1)--(3)node[midway]{$\Pi_S$};
+        \draw[dashed,->](3)--(2)node[midway]{$\tau'$};
+        \draw[|->](4)--(5);
+        \draw[|->](4)--(6);
+        \draw[dashed,|->](6)--(5);
+    \end{tikzpicture}
+\end{center}
+$\Pi_S:M\rightarrow\frac{M}{S}$, $v\mapsto[v]$, 且满足
+\begin{itemize}
+    \item[(1)] $\Pi_S$ 满射.
+    \item[(2)] $\ker\Pi_S=S$.
+\end{itemize}
+
+\begin{thm}[同态第一基本定理]
+    若 $S\subseteq\ker\tau$, 则 $\exists!\tau'$, s.t. $\tau=\tau'\circ\Pi_S$.
+\end{thm}
+
+$\ker\tau'=\frac{\ker\tau}{S}$.
+
+\begin{thm}[同构第一基本定理]
+    若 $S=\ker\tau$, 则 $\tau'=\frac{\ker\tau}{S}=\{[0]\}$, 即 $\tau'$ 单射.\\
+    $\because\im\tau'=\im\tau$, $\therefore$ 若进一步有 $\tau$, 则 $\tau'$ 同构.
+\end{thm}
+\ifx\allfiles\undefined
+\end{document}
+\fi

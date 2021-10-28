@@ -8,7 +8,7 @@
 \chapter{线性变换}
 \section{线性变换}
 \begin{df}[线性变换]
-    向量空间之间的映射. $F$ 为域, $V,W$ 为 $F$ 上的向量空间, 映射 $\tau:V\rightarrow W$, 若 $\tau(ru+tv)=r\tau(u)+t\tau(v)$, $r,t\in F$, $u,v\in V$, 则称 $\tau$ 为 $V$ 到 $W$ 的线性变换.
+    向量空间之间的映射. $F$ 为域, $V,W$ 为 $F$ 上的向量空间, 映射 $\tau:V\rightarrow W$, 若 $\tau(ru+tv)=r\tau(u)+t\tau(v)$, $r,t\in F$, $u,v\in V$, 则称 $\tau$ 为 $V$ 到 $W$ 的\textbf{线性变换}.
 \end{df}
 (类似于同态)
 
@@ -30,7 +30,7 @@ $\mathcal{L}(V,W)\equiv\{\text{$V$ 到 $W$ 的线性变换}\}$, $\mathcal{L}(V)=
 
 取 $\tau,\sigma\in\mathcal{L}(V,W)$, $v\overset{\tau}{\mapsto}\tau(v)$, $v\overset{\sigma}{\mapsto}\sigma(v)\Longrightarrow v\overset{\tau+\sigma}{\mapsto}\tau(v)+\sigma(v)$ 也是线性变换, 且 $\tau+\sigma\in\mathcal{L}(V,W)$.
 \begin{pf}
-    由映射的像的唯一性, $\because v\overset{\tau}{\mapsto}\tau(v)$ 是唯一的, $v\overset{\sigma}{\mapsto}\sigma(v)$ 是唯一的, $\therefore v\overset{\tau+\sigma}{\mapsto}\tau(v)+\sigma(v)$ 是唯一的, 故 $\tau+\sigma$ 是映射.
+    由映射的像的唯一性, 若 $v=u$, 则 $\tau(v)=\tau(u)$, $\sigma(v)=\sigma(u)\Longrightarrow(\tau+\sigma)(v)=\tau(v)+\sigma(v)=\tau(u)+\sigma(u)+(\tau+\sigma)(u)$, 故 $\tau+\sigma$ 是映射.
 
     $(\tau+\sigma)(ru+tv)=\tau(ru+tv)+\sigma(ru+tv)=r\tau(u)+t\tau(v)+r\sigma(u)+t\sigma(v)=r[\tau(u)+\sigma(u)]+t[\tau(v)+\sigma(v)]=r[(\tau+\sigma)(u)]+t[(\tau+\sigma)(v)]$, 故 $\tau+\sigma$ 为 $V$ 到 $W$ 的线性变换.
 \end{pf}
@@ -70,9 +70,9 @@ $\mathcal{L}(V,W)$ 是 $F$ 上的向量空间.
 \begin{thm}[(课本定理 2.1)]
     \begin{itemize}
         \item[(1)] $\mathcal{L}(V,W)$ 是 $F$ 上的向量空间.
-        \item[(2)] $t\in\mathcal{L}(V,W)$, $\sigma\in\mathcal{L}(W,U)$, 则 $\sigma\circ\tau\in\mathcal{L}(V,U)$.
+        \item[(2)] $\tau\in\mathcal{L}(V,W)$, $\sigma\in\mathcal{L}(W,U)$, 则 $\sigma\circ\tau\in\mathcal{L}(V,U)$.
         \item[(3)] $\tau$ 是 $V$ 到 $W$ 的同构, 则 $\tau^{-1}\in\mathcal{L}(W,V)$.
-        \item[(4)] $\mathcal{L}(V)$ 既是向量空间, 也是环, 且两者的加法运算是一样的, 故 $\mathcal{L}(V)$ 是\textbf{代数}.
+        \item[(4)] $\mathcal{L}(V)$ 既是向量空间, 也是环, 且两者的加法运算是相同的, 故 $\mathcal{L}(V)$ 是\textbf{代数}.
     \end{itemize}
 \end{thm}
 
@@ -102,7 +102,7 @@ $\mathcal{L}(V)$ 是环.
     \end{itemize}
 \end{thm}
 
-\begin{thm}[(课本定理 2.2)]
+\begin{thm}[(课本定理 2.2)]\label{thm-2.4}
     $\mathcal{B}$ 是 $V$ 的基, $\tau\in\mathcal{L}(V,W)$, 则 $\tau$ 可由 $\tau$ 在 $\mathcal{B}$ 上的像唯一确定.
 \end{thm}
 \begin{pf}
@@ -112,7 +112,7 @@ $\mathcal{L}(V)$ 是环.
 
 同构的向量空间有很多性质可以相互传递, 下面我们就来讨论这件事.
 
-\begin{thm}[(课本定理 2.4)]\label{thm-2.4}
+\begin{thm}[(课本定理 2.4)]
     $\tau\in\mathcal{L}(V,W)$ 同构, $S$ 是 $V$ 真子集, 则
     \begin{itemize}
         \item[(1)] $V=\langle S\rangle\Longleftrightarrow W=\langle\tau(S)\rangle$.
@@ -153,7 +153,7 @@ $\mathcal{L}(V)$ 是环.
     $\tau\in\mathcal(L)(V,W)$,
     \begin{itemize}
         \item[(1)] $(\ker\tau)^c\approx\im\tau$.
-        \item[(2)] $\dim V=\dim\ker\tau+\dim\im\tau\equiv\nul\tau+\rk\tau$, 其中称 $\nul\tau\equiv\dim\ker\tau$ 为 $\tau$ 的零度, $\rk\tau\equiv\dim\im\tau$ 为 $\tau$ 的秩.
+        \item[(2)] $\dim V=\dim\ker\tau+\dim\im\tau\equiv\nul\tau+\rk\tau$, 其中称 $\nul\tau\equiv\dim\ker\tau$ 为 $\tau$ 的\textbf{零度}, $\rk\tau\equiv\dim\im\tau$ 为 $\tau$ 的\textbf{秩}.
     \end{itemize}
 \end{thm}
 \begin{pf}
@@ -179,12 +179,7 @@ $x$ 为 $n$ 维向量, $\dim\{x\mid Ax=0\}=n-\rk A$, 故 $\dim\{x\mid Ax=0\}=\nu
 
 $F$ 为域, $F^n=\{(r_1,\cdots,r_n)\mid r_i\in F\}$, 满足 $(r_1,\cdots,r_n)+(l_1,\cdots,l_n)=(r_1+l_1,\cdots,r_n+l_n)$ 及 $r(r_1,\cdots,r_n)=(rr_1,\cdots,rr_n)$, $\dim F^n=n$, $F^n$ 的标准基为 $\{e_1=(1,0,\cdots,0),e_2=(0,1,\cdots,0),\cdots,e_n=(0,0,\cdots,1)\}$; $F^m=\{(r_1,\cdots,r_m)\mid r_i\in F\}$, $\dim F=m$, 标准基为 $\{f_1=(1,0,\cdots,0),f_2=(0,1,\cdots,0),\cdots,f_m=(0,0,\cdots,1)\}$. 如何确定/展现 $F^n$ 到 $F^m$ 的线性变换?
 
-根据定理 \ref{thm-2.4}, 我们只需确定一组基在线性变换下的表现, 就可以确定这一线性变换.
-\begin{pf}
-    $\{b_1,\cdots,b_n\}$ 为 $V$ 的基, 线性变换 $\tau\in\mathcal{L}(V,W)$, 若已知 $\tau(b_i)\forall i$, 则 $\forall v\in V$, $v=\sum_{i=1}^nr_ib_i\Longrightarrow\tau(v)=\tau\left(\sum_{i=1}^nr_ib_i\right)=\sum_{i=1}^nr_i\tau(b_i)$ 可以确定, 由此 $\tau$ 可以确定.
-\end{pf}
-
-因此, $\forall\tau\in\mathcal{L}(F^n,F^m)$, 若 $\tau(e_i)=(a_{1i},\cdots,a_{mi})=\sum_{j=1}^ma_{ji}f_j$.\\
+根据定理 \ref{thm-2.4}, 我们只需确定一组基在线性变换下的表现, 就可以确定这一线性变换. 因此, $\forall\tau\in\mathcal{L}(F^n,F^m)$, 若 $\tau(e_i)=(a_{1i},\cdots,a_{mi})=\sum_{j=1}^ma_{ji}f_j$.\\
 $\forall(r_1,\cdots,r_n)\in F^n$,
 \begin{align*}
     \tau((r_1,\cdots,r_n))=&\tau\left(\sum_{i=1}^nr_ie_i\right)=\sum_{i=1}^nr_i\tau(e_i)=\sum_{i=1}^nr_i\left(\sum_{j=1}^ma_{ji}f_j\right)=\sum_{j=1}^m\left(\sum_{i=1}^nr_ia_{ji}\right)f_j=\left(\sum_{i=1}^nr_ia_{1i},\cdots,\sum_{i=1}^nr_ia_{mi}\right)\\
@@ -232,7 +227,7 @@ $f:\mathcal{L}(F^n,F^m)\rightarrow M_{m\times n}(F)$, $\tau\mapsto M_{\tau}$ 是
         f(r\tau+t\sigma)=&M_{r\tau+t\sigma}=\begin{pmatrix}
             (r\tau+t\sigma)(e_1)&\cdots&(r\tau+t\sigma)(e_n)
         \end{pmatrix}=\begin{pmatrix}
-            r\tau(e_1)+t\sigma(e_n)&\cdots&r\tau+t\sigma(e_n)
+            r\tau(e_1)+t\sigma(e_1)&\cdots&r\tau(e_n)+t\sigma(e_n)
         \end{pmatrix}\\
         =&r\begin{pmatrix}
             \tau(e_1)&\cdots&\tau(e_n)
@@ -396,9 +391,9 @@ $M_{\tau}=\begin{pmatrix}
 
 \begin{thm}[(课本定理 2.14)]
     \begin{align*}
-        \boxed{[\tau(v)]_{\mathcal{C}}=[\tau(v)]_{\mathcal{BC}}[v]_{\mathcal{B}}}
+        \boxed{[\tau(v)]_{\mathcal{C}}=[\tau]_{\mathcal{BC}}[v]_{\mathcal{B}}}
     \end{align*}
-    其中 $[\tau(v)]_{\mathcal{C}}$ 是 $\tau(v)$ 在基 $\mathcal{C}$ 的表象下的坐标表示, $[\tau(v)]_{\mathcal{BC}}$ 是从基 $\mathcal{B}$ 的表象到基 $\mathcal{C}$ 的表象的线性变换的矩阵表示, $[v]_{\mathcal{B}}$ 是 $v$ 在基 $\mathcal{B}$ 的表象下的坐标表示.
+    其中 $[\tau(v)]_{\mathcal{C}}$ 是 $\tau(v)$ 在基 $\mathcal{C}$ 的表象下的坐标表示, $[\tau]_{\mathcal{BC}}$ 是从基 $\mathcal{B}$ 的表象到基 $\mathcal{C}$ 的表象的线性变换的矩阵表示, $[v]_{\mathcal{B}}$ 是 $v$ 在基 $\mathcal{B}$ 的表象下的坐标表示.
 \end{thm}
 
 \begin{thm}[(课本定理 2.15)]
