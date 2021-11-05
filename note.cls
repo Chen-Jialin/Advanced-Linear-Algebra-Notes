@@ -143,6 +143,7 @@
 \DeclareMathOperator{\nul}{null}% 线性变换的零度 Nullity of linear transform
 \DeclareMathOperator{\rk}{rk}% 线性变换的秩 Rank of linear transforms
 \DeclareMathOperator{\End}{End}% 自同态集合 Set of endomorphism
+\DeclareMathOperator{\module}{mod}% 模 Module
 
 % 题目和题解风格 Problem and solution style
 \ifUsingEnglish

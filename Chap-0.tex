@@ -1,5 +1,5 @@
 % !Tex program = pdflatex
-% 第 0 章: 代数学基础
+% 第 0 章: 代数学基础 Chap 0: Algebra Basics
 \ifx\allfiles\undefined
 \documentclass{note}
 \begin{document}
@@ -128,7 +128,7 @@
 
 \section{映射}
 \begin{df}[映射]
-    $\forall a\in S_1$, $\exists!b\in S_2$, s.t. $b=f(a)$, 记作 $f:S_1\rightarrow S_2$, $a\mapsto b$, 其中称 $S_1$ 为定义域, $S_2$ 为值域, $b$ 为 $a$ 的像, $a$ 为 $b$ 的原像.
+    $\forall a\in S_1$, $\exists!b\in S_2$, s.t. $b=f(a)$, 记作 $f:S_1\rightarrow S_2$, $a\mapsto b$, 其中称 $S_1$ 为\textbf{定义域}, $S_2$ 为\textbf{值域}, $b$ 为 $a$ 的\textbf{像}, $a$ 为 $b$ 的\textbf{原像}.
 \end{df}
 
 \begin{eg}[恒等映射]
@@ -136,7 +136,7 @@
 \end{eg}
 
 \begin{df}[映射相等]
-    映射 $f:S_1\rightarrow S_2$, $g:S_1\rightarrow S_3$, $\forall a\in S_1$, $f(a)=g(a)$, 则称 $f$ 与 $g$ 相等, 记作 $f=g$.
+    映射 $f:S_1\rightarrow S_2$, $g:S_1\rightarrow S_3$, $\forall a\in S_1$, $f(a)=g(a)$, 则称 $f$ 与 $g$ \textbf{相等}, 记作 $f=g$.
 \end{df}
 
 $\forall a\in S_1$, $\{f(a)\}\subseteq S_2$ 且 $\abs{\{f(a)\}}=1$.
@@ -199,7 +199,7 @@ $\im f\subseteq S_2$.
 \end{itemize}
 
 \begin{df}[映射的复合]
-    映射 $f:S_1\rightarrow S_2$, $g:S_2\rightarrow S_3$, 则称映射 $g\circ f:S_1\rightarrow S_2$, $a\mapsto g\circ f(a)\equiv g(f(a))$ 为 $f$ 和 $g$ 的复合.
+    映射 $f:S_1\rightarrow S_2$, $g:S_2\rightarrow S_3$, 则称映射 $g\circ f:S_1\rightarrow S_2$, $a\mapsto g\circ f(a)\equiv g(f(a))$ 为 $f$ 和 $g$ 的\textbf{复合}.
 \end{df}
 
 \begin{thm}[映射复合的结合律]
@@ -209,7 +209,7 @@ $\im f\subseteq S_2$.
 故连续复合 $f_1\circ f_2\circ\cdots\circ f_n$ 无需括号.
 
 \begin{df}[交换图]
-    $f: S_1\rightarrow S_1$, $h:S_2\rightarrow S_3$, $g:S_1\rightarrow S_3$, 若 $g=f\circ h$, 则称该图交换.
+    $f: S_1\rightarrow S_1$, $h:S_2\rightarrow S_3$, $g:S_1\rightarrow S_3$, 若 $g=f\circ h$, 则称该图\textbf{交换}.
     \begin{center}
         \begin{tikzpicture}
             \node(1)at(0,0){$S_1$};
@@ -221,7 +221,7 @@ $\im f\subseteq S_2$.
         \end{tikzpicture}
     \end{center}
 
-    $f:S_1\rightarrow S_2$, $g:S_2\rightarrow S_4$, $h:S_1\rightarrow S_3$, $l:S_3\rightarrow S_4$, 若 $g\circ f=l\circ h$, 则称该图交换.
+    $f:S_1\rightarrow S_2$, $g:S_2\rightarrow S_4$, $h:S_1\rightarrow S_3$, $l:S_3\rightarrow S_4$, 若 $g\circ f=l\circ h$, 则称该图\textbf{交换}.
     \begin{center}
         \begin{tikzpicture}
             \node(1)at(0,0){$S_1$};
@@ -237,7 +237,7 @@ $\im f\subseteq S_2$.
 \end{df}
 
 \begin{df}[单射 (Injective 或 One-to-one)]
-    映射 $f:S_1\rightarrow S_2$, $\forall a,b\in S_1$, 若 $f(a)=f(b)\Longrightarrow a=b$, 则称 $f$ 单射.
+    映射 $f:S_1\rightarrow S_2$, $\forall a,b\in S_1$, 若 $f(a)=f(b)\Longrightarrow a=b$, 则称 $f$ \textbf{单射}.
 \end{df}
 
 \textbf{单射的性质}:
@@ -247,7 +247,7 @@ $\im f\subseteq S_2$.
 \end{itemize}
 
 \begin{df}[满射 (Surjective)]
-    映射 $f:S_1\rightarrow S_2$, 若 $\forall b\in S_2$, $\exists a\in S_1$, s.t. $f(a)=b$ (即 $\im f=S_2$), 则称 $f$ 满射.
+    映射 $f:S_1\rightarrow S_2$, 若 $\forall b\in S_2$, $\exists a\in S_1$, s.t. $f(a)=b$ (即 $\im f=S_2$), 则称 $f$ \textbf{满射}.
 \end{df}
 
 \textbf{满射的性质}:
@@ -257,7 +257,7 @@ $\im f\subseteq S_2$.
 \end{itemize}
 
 \begin{df}[双射]
-    映射 $f$ 单射且满射 $\Longleftrightarrow f$ 双射.
+    映射 $f$ 单射且满射 $\Longleftrightarrow f$ \textbf{双射}.
 \end{df}
 
 \begin{eg}
@@ -343,13 +343,13 @@ $\im f\subseteq S_2$.
 
 \section{等价关系和等价类}
 \begin{df}[卡氏积]
-    集合 $S_1$ 和 $S_2$ 的卡氏积 $S_1\times S_2\equiv\{(a,b)\mid a\in S_1,b\in S_2\}$.\\
-    集合 $S$ 的卡氏积 $S\times S\equiv\{(a,b)\mid a,b\in S\}$.
+    集合 $S_1$ 和 $S_2$ 的\textbf{卡氏积} $S_1\times S_2\equiv\{(a,b)\mid a\in S_1,b\in S_2\}$.\\
+    集合 $S$ 的\textbf{卡氏积} $S\times S\equiv\{(a,b)\mid a,b\in S\}$.
 \end{df}
 注意, 一般 $(a,b)\neq (b,a)$.
 
 \begin{df}[关系]
-    卡氏积的子集. $\mathcal{R}\in S\times S$, 称为 $S$ 上的关系.
+    卡氏积的子集. $\mathcal{R}\in S\times S$, 称为 $S$ 上的\textbf{关系}.
 \end{df}
 
 \begin{eg}
@@ -361,7 +361,7 @@ $\im f\subseteq S_2$.
 \end{eg}
 
 \begin{df}[图]
-    对映射 $f:S_1\rightarrow S_2$, 有关系 $G_f=\{(a,f(a))\mid a\in S_1\}\subseteq S_1\times S_2$, 称 $G_f$ 为 $f$ 的图.
+    对映射 $f:S_1\rightarrow S_2$, 有关系 $G_f=\{(a,f(a))\mid a\in S_1\}\subseteq S_1\times S_2$, 称 $G_f$ 为 $f$ 的\textbf{图}.
 \end{df}
 (第一个坐标在此关系中仅出现一次, 不会重复.)
 
@@ -374,11 +374,11 @@ $\im f\subseteq S_2$.
         \item[(2)] \textbf{对称性}: 若 $(a,b)\in\mathcal{R}$, 则 $(b,a)\in\mathcal{R}$ (即$a\sim b\Longleftrightarrow b\sim a$)
         \item[(3)] \textbf{传递性}: 若 $(a,b)\in\mathcal{R}$, $(b,c)\in\mathcal{R}$, 则 $(a,c)\in\mathcal{R}$ (即$a\sim b,b\sim c\Longleftrightarrow a\sim c$)
     \end{itemize}
-    则称 $\mathcal{R}$ 为 $S$ 上的等价关系. 若元素 $a,b$ 具有等价关系, 记为 $a\sim b$.
+    则称 $\mathcal{R}$ 为 $S$ 上的\textbf{等价关系}. 若元素 $a,b$ 具有等价关系, 记作 $a\sim b$.
 \end{df}
 
 \begin{df}[等价类]
-    由具有等价关系的元素组成的集合. $\forall a\in S$, $[a]\equiv\{b\in S\mid b\sim a\}\subseteq$ 称为 $a$ 的等价类, $a$ 称为该等价类的代表元.
+    由具有等价关系的元素组成的集合. $\forall a\in S$, $[a]\equiv\{b\in S\mid b\sim a\}\subseteq$ 称为 $a$ 的\textbf{等价类}, $a$ 称为该等价类的\textbf{代表元}.
 \end{df}
 
 $\because a\in[a]$, $\therefore[a]$ 非空.
@@ -409,19 +409,19 @@ $c\in S$, 则有且仅有以下两种情况:
 等价类这一概念可用于将大问题分解为小问题加以解决.
 
 \begin{df}[剖分]
-    集合 $S\neq\emptyset$, 若 $S=\cup_{i\in K,S_i\subseteq S}S_i$ 且 $S_i\cap S_j=\emptyset\forall i\neq j$, 则称 $\{S_i\subseteq S\mid i\in K\}$ 为 $S$ 的一个剖分.
+    集合 $S\neq\emptyset$, 若 $S=\cup_{i\in K,S_i\subseteq S}S_i$ 且 $S_i\cap S_j=\emptyset\forall i\neq j$, 则称 $\{S_i\subseteq S\mid i\in K\}$ 为 $S$ 的\textbf{剖分}.
 \end{df}
 
 可由集合的等价类得到它的一个剖分.
 
 \begin{df}[商类]
-    所有等价类的集合. $\frac{S}{\sim}\equiv\{[a]\mid a\in S\}$. $\pi: S\rightarrow\frac{S}{\sim}$, $a\mapsto[a]$ 称为自然映射.
+    所有等价类的集合. $\frac{S}{\sim}\equiv\{[a]\mid a\in S\}$. $\pi: S\rightarrow\frac{S}{\sim}$, $a\mapsto[a]$ 称为\textbf{自然映射}.
 \end{df}
 
 自然映射满射, 但未必单射.
 
 \begin{df}[运算]
-    映射 $*:S\times S\rightarrow S$ 称为 $S$ 上的一个运算, 记为 $(S,*)$.
+    映射 $*:S\times S\rightarrow S$ 称为 $S$ 上的\textbf{运算}, 记作 $(S,*)$.
 \end{df}
 
 $\forall a,b\in S$, $a*b\in S$.
@@ -433,9 +433,9 @@ $\forall a,b\in S$, $a*b\in S$.
         \item[(1)] \textbf{结合律}: $(a*b)*c=a*(b*c)$\\
         (故 $a_1*a_2*\cdots*a_n$ 无需括号, 可写为 $\prod_{i=1}^na_i$.)
         \item[(2)] \textbf{有单位元 $e$}: s.t. $e*a=a*e=a$
-        \item[(3)] \textbf{有逆元}: $\forall a\in G$, $\exists b$, s.t. $a*b=b*a=e$, 则称 $b$ 为 $a$ 的逆, 记为 $b=a^{-1}$
+        \item[(3)] \textbf{有逆元}: $\forall a\in G$, $\exists b$, s.t. $a*b=b*a=e$, 则称 $b$ 为 $a$ 的逆, 记作 $b=a^{-1}$
     \end{itemize}
-    则称 $(G,*)$ 为一个群.
+    则称 $(G,*)$ 为\textbf{群}.
 \end{df}
 
 \begin{thm}
@@ -480,11 +480,11 @@ $\forall a,b\in S$, $a*b\in S$.
 \end{df}
 
 \begin{df}[有限群]
-    若 $\abs{G}<\infty$, 则称 $G$ 为有限群.
+    若 $\abs{G}<\infty$, 则称 $G$ 为\textbf{有限群}.
 \end{df}
 
 \begin{df}[群元素的阶]
-    $g\in G$, $0\neq n\in\mathbb{N}$, 若 $g^n=e$, 则称最小的这样的 $n$ 为 $g$ 的阶, 记为 $\abs{g}$, 若 $n$ 不存在, 则称 $g$ 无穷阶.
+    $g\in G$, $0\neq n\in\mathbb{N}$, 若 $g^n=e$, 则称最小的这样的 $n$ 为 $g$ 的\textbf{阶}, 记作 $\abs{g}$, 若 $n$ 不存在, 则称 $g$ \textbf{无穷阶}.
 \end{df}
 
 若 $\abs{G}<\infty$, 则 $\forall g\in G$, $\abs{g}<\infty$.
@@ -496,7 +496,7 @@ $\forall a,b\in S$, $a*b\in S$.
 \end{pf}
 
 \begin{df}[子群]
-    对群 $(G,*)$, $H$ 为 $G$ 的非空子集, 若 $(H,*)$ 亦为群, 则称 $(H,*)$ 为 $(G,*)$ 的子群, 记为 $(H,*)<(G,*)$.
+    对群 $(G,*)$, $H$ 为 $G$ 的非空子集, 若 $(H,*)$ 亦为群, 则称 $(H,*)$ 为 $(G,*)$ 的\textbf{子群}, 记作 $(H,*)<(G,*)$.
 \end{df}
 
 \begin{eg}
@@ -518,7 +518,7 @@ $\forall a,b\in S$, $a*b\in S$.
 \end{pf}
 
 \begin{df}[平凡子群]
-    $(G,*)$ 和 $(\{e\},*)$ 为 $(G,*)$ 的平凡子群.
+    $(G,*)$ 和 $(\{e\},*)$ 为 $(G,*)$ 的\textbf{平凡子群}.
 \end{df}
 
 \begin{df}[真子群 (非平凡子群)]
@@ -551,7 +551,7 @@ $\forall a,b\in S$, $a*b\in S$.
 \end{eg}
 
 \begin{df}[陪集 (Coset)]
-    真子群 $H<G$, $\forall g\in G$, 左陪集 $gH\equiv\{g*h\mid\forall h\in H\}$, 右陪集 $Hg\equiv\{h*g\mid\forall h\in H\}$.
+    真子群 $H<G$, $\forall g\in G$, \textbf{左陪集} $gH\equiv\{g*h\mid\forall h\in H\}$, \textbf{右陪集} $Hg\equiv\{h*g\mid\forall h\in H\}$.
 \end{df}
 
 简便起见, 以下讨论针对左陪集, 右陪集同理.
@@ -633,7 +633,7 @@ $\forall a,b\in S$, $a*b\in S$.
 \end{ans}
 
 \begin{thm}[正规子群]
-    若 $gH=Hg$, 则 $\frac{G}{H}$ 与 $G$ 和 $H$ 具有相同的代数结构, 此时称 $H$ 为 $G$ 的正规子群.
+    若 $gH=Hg$, 则 $\frac{G}{H}$ 与 $G$ 和 $H$ 具有相同的代数结构, 此时称 $H$ 为 $G$ 的\textbf{正规子群}.
 \end{thm}
 
 \begin{thm}
@@ -645,7 +645,7 @@ $\forall a,b\in S$, $a*b\in S$.
 \end{eg}
 
 \begin{df}[群同态]
-    对群 $(G_1,*)$ 和 $(G_2,\circ)$, 若映射 $f:G_1\rightarrow G_2$ 满足 $f(a*b)=f(a)\circ f(b)$ (即映射后保持代数结构), 则称 $f$ 为 $G_1$ 到 $G_2$ 的群同态.
+    对群 $(G_1,*)$ 和 $(G_2,\circ)$, 若映射 $f:G_1\rightarrow G_2$ 满足 $f(a*b)=f(a)\circ f(b)$ (即映射后保持代数结构), 则称 $f$ 为 $G_1$ 到 $G_2$ 的\textbf{群同态}.
 \end{df}
 (类似于集合间的映射)
 
@@ -676,7 +676,7 @@ $\forall a,b\in S$, $a*b\in S$.
 \end{pf}
 
 \begin{df}[群同态的核 (Kernel)]
-    单位元的原像. $f$ 为 $G_1$ 到 $G_2$ 的群同态, $e_1$ 和 $e_2$ 分别是 $G_1$ 和 $G_2$ 的单位元, 则称 $\ker f\equiv f^{-1}(e_2)=\{a\in G_1\mid f(a)=e_2\}$ 为 $f$ 的核.
+    单位元的原像. $f$ 为 $G_1$ 到 $G_2$ 的群同态, $e_1$ 和 $e_2$ 分别是 $G_1$ 和 $G_2$ 的单位元, 则称 $\ker f\equiv f^{-1}(e_2)=\{a\in G_1\mid f(a)=e_2\}$ 为 $f$ 的\textbf{核}.
 \end{df}
 
 $\because e_1\in\ker f$, $\therefore\ker f\neq\emptyset$.
@@ -687,7 +687,7 @@ $\ker f\subseteq G_1$.
 \end{pf}
 
 \begin{df}[群同态的像]
-    $f$ 为 $G_1$ 到 $G_2$ 的群同态, 则称 $\im f\equiv f(G_1)=\{f(a)\mid a\in G_1\}$ 为 $f$ 的像.
+    $f$ 为 $G_1$ 到 $G_2$ 的群同态, 则称 $\im f\equiv f(G_1)=\{f(a)\mid a\in G_1\}$ 为 $f$ 的\textbf{像}.
 \end{df}
 
 $\im f\in G_2$.
@@ -715,7 +715,7 @@ $\im f\in G_2$.
         \item[(3)] \textbf{左分配律}: $a\cdot(b+c)=a\cdot b+a\cdot c$,\\
         \textbf{右分配律}: $(a+b)\cdot c=a\cdot c+b\cdot c$
     \end{itemize}
-    则称 $(R,+,\cdot)$ 为环.
+    则称 $(R,+,\cdot)$ 为\textbf{环}.
 \end{df}
 
 \begin{eg}
@@ -743,10 +743,10 @@ $\im f\in G_2$.
 \textbf{特殊的环}:
 \begin{itemize}
     \item[(1)] ~\begin{df}[交换环]
-        若 $\forall a,b\in R$, $a\cdot b=b\cdot a$, 则称 $R$ 为交换环.
+        若 $\forall a,b\in R$, $a\cdot b=b\cdot a$, 则称 $R$ 为\textbf{交换环}.
     \end{df}
     \item[(2)] ~\begin{df}[有单位元的环]
-        若 $\exists 1$, s.t. $\forall a\in R$, $1\cdot a=a\cdot 1=a$, 则称 $R$ 为有单位元的环, 称 $1$ 为 $R$ 的单位元.
+        若 $\exists 1\in R$, s.t. $\forall a\in R$, $1\cdot a=a\cdot 1=a$, 则称 $R$ 为\textbf{有单位元的环}, 称 $1$ 为 $R$ 的\textbf{单位元}.
     \end{df}
 \end{itemize}
 
@@ -763,7 +763,7 @@ $\im f\in G_2$.
 \end{eg}
 
 \begin{df}[零因子]
-    $0\neq a\in R$, 若 $\exists 0\neq b\in R$, s.t. $a\cdot b=0$ 或 $b\cdot a=0$, 则称 $a$ 为 $R$ 的零因子.
+    $0\neq a\in R$, 若 $\exists 0\neq b\in R$, s.t. $a\cdot b=0$ 或 $b\cdot a=0$, 则称 $a$ 为 $R$ 的\textbf{零因子}.
 \end{df}
 
 \begin{df}[整环]
@@ -771,7 +771,7 @@ $\im f\in G_2$.
 \end{df}
 
 \begin{df}[子环]
-    非空真子集 $\emptyset\neq R_1\subseteq R$, 若 $(R_1,+,\cdot)$ 亦为环, 则称 $R_1$ 为 $R$ 的子环.
+    非空真子集 $\emptyset\neq R_1\subseteq R$, 若 $(R_1,+,\cdot)$ 亦为环, 则称 $R_1$ 为 $R$ 的\textbf{子环}.
 \end{df}
 
 $\because(R_1,+)$ 为交换群, $\therefore(R_1,+)<(R,+)$.
@@ -792,11 +792,11 @@ $\because(R_1,+)$ 为交换群, $\therefore(R_1,+)<(R,+)$.
 \end{pf}
 
 \begin{df}[理想]
-    非空子集 $I\subseteq R$, 若 $\forall a,b\in I$, $r\in R$, $a-b\in I$, $r\cdot a\in I$, $a\cdot r\in I$, 则称 $I$ 为 $R$ 的理想.
+    非空子集 $I\subseteq R$, 若 $\forall a,b\in I$, $r\in R$, $a-b\in I$, $r\cdot a\in I$, $a\cdot r\in I$, 则称 $I$ 为 $R$ 的\textbf{理想}.
 \end{df}
 
 \begin{df}[平凡理想]
-    $(\{0\},+,\cdot)$ 和 $(R,+,\cdot)$ 为 $(R,+,\cdot)$ 的平凡理想.
+    $(\{0\},+,\cdot)$ 和 $(R,+,\cdot)$ 为 $(R,+,\cdot)$ 的\textbf{平凡理想}.
 \end{df}
 
 \begin{df}[单环]
@@ -862,7 +862,7 @@ $([a],[b])\mapsto[a+b]$ 和 $([a],[b])\mapsto[a\cdot b]$ 都是运算.
         \item[(1)] $f(a+b)=f(a)+f(b)$
         \item[(2)] $f(a\cdot b)=f(a)\cdot f(b)$
     \end{itemize}
-    则称 $f$ 为 $R_1$ 到 $R_2$ 的同态.
+    则称 $f$ 为 $R_1$ 到 $R_2$ 的\textbf{环同态}.
 \end{df}
 
 由环同态的定义, $f$ 必为 $(R_1,+)$ 到 $(R_2,+)$ 的群同态, 故 $f(0)=0$, $f(a^{-1})=[f(a)]^{-1}$.
@@ -905,7 +905,7 @@ $\im f\subseteq R_2$.
 \end{df}
 
 \begin{df}[典范同态]
-    $I$ 为 $R$ 的理想, $\pi:R\rightarrow\frac{R}{I}$, $a\mapsto[a]$ 称为典范同态.
+    $I$ 为 $R$ 的理想, $\pi:R\rightarrow\frac{R}{I}$, $a\mapsto[a]$ 称为\textbf{典范同态}.
 \end{df}
 
 典范同态是满同态.
@@ -941,7 +941,7 @@ $\im f\subseteq R_2$.
         \item[(3)] \textbf{左分配律}: $a\cdot(b+c)=a\cdot b+a\cdot c$,\\
         \textbf{右分配律}: $(a+b)\cdot c=a\cdot c+b\cdot c$
     \end{itemize}
-    则称 $(F,+,\cdot)$ 为域.
+    则称 $(F,+,\cdot)$ 为\textbf{域}.
 \end{df}
 
 由于有 $0$ 和 $1$ 这两个元素, $\abs{F}\geq 2$. 当 $\abs{F}=2$ 时, $F=\{0,1\}\approxeq\mathbb{Z}_2=\frac{\mathbb{Z}}{\langle 2\rangle}$.
@@ -972,7 +972,7 @@ $p=\chr F$ 必为质数, 否则 $\exists m,n<p$, s.t. $0=p\cdot 1=(n\cdot m)\cdo
         \item[(1)] $f(a+b)=f(a)+f(b)$
         \item[(2)] $f(a\cdot b)=f(a)\cdot f(b)$
     \end{itemize}
-    则称 $f$ 为 $F_1$ 到 $F_2$ 的同态.
+    则称 $f$ 为 $F_1$ 到 $F_2$ 的\textbf{域同态}.
 \end{df}
 
 \textbf{域同态的性质}:
