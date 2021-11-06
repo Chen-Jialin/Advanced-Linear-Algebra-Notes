@@ -61,7 +61,7 @@ $-1v=-v$.
 \end{pf}
 
 \begin{df}[子空间]
-    $\emptyset\neq S\subseteq V$, 若 $S$ 为 $V$ 的子群, 且在相同的数乘下构成 $F$ 上的向量空间, 则称 $S$ 是 $V$ 的子空间.
+    $\emptyset\neq S\subseteq V$, 若 $S$ 为 $V$ 的子群, 且在相同的数乘下构成 $F$ 上的向量空间, 则称 $S$ 是 $V$ 的\textbf{子空间}.
 \end{df}
 
 \begin{thm}[子空间的判定 (课本定理 1.1)]
@@ -105,7 +105,8 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
 \end{eg}
 
 \begin{df}[线性无关]
-    非零元 $u_1,\cdots,u_m$, 若 $r_1u_1+\cdots+\cdots+r_mu_m=0\Longrightarrow r_1=\cdots=r_m=0$, 则称 $u_1,\cdots,u_m$ 线性无关. 若 $S$ 中任意有限个元素线性无关, 则称 $S$ 线性无关.
+    非零元 $u_1,\cdots,u_m$, 若 $r_1u_1+\cdots+\cdots+r_mu_m=0\Longrightarrow r_1=\cdots=r_m=0$, 则称 $u_1,\cdots,u_m$ \textbf{线性无关}.\\
+    若 $S$ 中任意有限个元素线性无关, 则称 $S$ \textbf{线性无关}.
 \end{df}
 
 \begin{eg}
@@ -125,7 +126,7 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
 \end{pf}
 
 \begin{df}[线性相关]
-    $u_1,\cdots,u_m$, 若 $\exists$ 不全为零的 $r_1,\cdots,r_m$, s.t. $r_1u_1+\cdots+r_mu_m=0$, 则称 $u_1,\cdots,u_m$ 线性相关.
+    $u_1,\cdots,u_m$, 若 $\exists$ 不全为零的 $r_1,\cdots,r_m$, s.t. $r_1u_1+\cdots+r_mu_m=0$, 则称 $u_1,\cdots,u_m$ \textbf{线性相关}.
 \end{df}
 
 若 $u,v$ 线性相关, 则两者共线.
@@ -134,7 +135,7 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
 \end{pf}
 
 \begin{df}[线性表示]
-    $v$ 可由 $u_1,\cdots,u_n$ 线性表示 $\Longleftrightarrow\exists r_1,\cdots,r_n\in F$, s.t. $v=\sum_{i=1}^nr_iu_i$.
+    $v$ 可由 $u_1,\cdots,u_n$ \textbf{线性表示} $\Longleftrightarrow\exists r_1,\cdots,r_n\in F$, s.t. $v=\sum_{i=1}^nr_iu_i$.
 \end{df}
 
 \begin{thm}[(课本定理 1.6)]\label{thm-1.6}
@@ -185,7 +186,7 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
 \end{pf}
 
 \begin{df}[基]
-    任何生成向量空间 $V$ 的线性无关集. 基的阶数称为 $V$ 的维数, 记作 $\dim V$.
+    任何生成向量空间 $V$ 的线性无关集. 基的阶数称为 $V$ 的\textbf{维数}, 记作 $\dim V$.
 \end{df}
 
 \begin{thm}[(课本定理 1.12)]
@@ -218,8 +219,8 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
             \item $(v_1,\cdots,v_n)+(u_1,\cdots,u_n)=(v_1+u_1,\cdots,v_n+u_n)$
             \item $r(v_1,\cdots,v_n)=(rv_1,\cdots,rv_n)$
         \end{itemize}
-        则$V_1\oplus\cdots\oplus V_n$ 为 $F$ 的向量空间, $V_1\oplus\cdots\oplus V_n$ 为 $V_1,\cdots,V_n$ 的外直和.
-        \item[(2)] \textbf{内直和}: $V$ 是 $F$ 上的向量空间, $V_1,\cdots,V_n$ 是 $V$ 的子空间, 若 $V=\sum_{i=1}^nV_i$, 其中 $v_i\in V_i$ 且 $V_i\cap(\cup_{j\neq i}V_j)=\{0\}$, 则称 $V$ 为 $V_1,\cdots,V_m$ 的内直和, 记作 $V=\bigoplus_{i=1}^nV_i$, 称 $V_i$ 为直和项.
+        则$V_1\oplus\cdots\oplus V_n$ 为 $F$ 的向量空间, $V_1\oplus\cdots\oplus V_n$ 为 $V_1,\cdots,V_n$ 的\textbf{外直和}.
+        \item[(2)] \textbf{内直和}: $V$ 是 $F$ 上的向量空间, $V_1,\cdots,V_n$ 是 $V$ 的子空间, 若 $V=\sum_{i=1}^nV_i$, 其中 $v_i\in V_i$ 且 $V_i\cap(\cup_{j\neq i}V_j)=\{0\}$, 则称 $V$ 为 $V_1,\cdots,V_m$ 的\textbf{内直和}, 记作 $V=\bigoplus_{i=1}^nV_i$, 称 $V_i$ 为\textbf{直和项}.
     \end{itemize}
 \end{df}
 
@@ -231,7 +232,7 @@ $V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdo
 \end{eg}
 
 \begin{thm}[(课本定理 1.5)]
-    $\{v_i\mid i\in J\}$ 是 $V$ 的子空间集合, $V=\sum_{i\in J}V_i$, 则下列等价:
+    $\{V_i\mid i\in J\}$ 是 $V$ 的子空间集合, $V=\sum_{i\in J}V_i$, 则下列等价:
     \begin{itemize}
         \item[(1)] $V=\bigoplus_{i\in J}V_i$
         \item[(2)] $V_i\cap(\sum_{j\neq i}V_j)\neq\{0\}$
@@ -266,7 +267,8 @@ $V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdo
     故 $V=\langle v_1\rangle\oplus\cdots\oplus\langle v_n\rangle$.
 
     ``$\Longleftarrow$'': 一方面, $V=\langle v_1\rangle+\cdots+\langle v_n\rangle=\langle\mathcal{B}\rangle$;\\
-    另一方面, (线性无关的证明存疑), $\Longrightarrow v_1,\cdots,v_n$ 线性无关.\\
+    另一方面, 假设 $\{v_1,\cdots,v_n\}$ 线性相关, 则 $\exists$ 不全为零的 $r_1,\cdots,r_n$, s.t. $\sum_{i}r_iv_i=0$,\\
+    不妨设 $r_i\neq 0$, 则 $r_iv_i=-\sum_{j\neq i}r_jv_j\Longrightarrow 0\neq r_iv_i\in V_i$ 且 $r_iv_i=-\sum_{j\neq i}r_jv_j\in\cup_{j\neq i}V_j\Longrightarrow r_iv_i\in V_0\cap(\cup_{j\neq i}V_j)\Longrightarrow V_0\cap(\cup_{j\neq i}V_j)\neq\{0\}$, 与直和的定义矛盾, 故假设错误, $v_1,\cdots,v_n$ 线性无关.\\
     故 $\mathcal{B}=\{v_1,\cdots,v_n\}$ 是 $V$ 的基.
 \end{pf}
 
@@ -294,7 +296,7 @@ $V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdo
     \begin{itemize}
         \item[(1)] $\because\mathcal{B}$ 是 $V$ 的基, $\therefore\forall u\in V$, $u=\sum_{i=1}^kr_iv_i$, 其中 $r_i\in F$, $v_i\in\mathcal{B}$, $k\in\mathbb{N}$.\\
         $\langle\mathcal{B}_1\rangle=\{\sum_{i=1}^nr_iv_i\mid r_i\in F,v_i\in\mathcal{B}_1,n\in\mathbb{N}\}$, $\langle\mathcal{B}_2\rangle=\{\sum_{i=1}^nr_iv_i\mid r_i\in F,v_i\in\mathcal{B}_2,n\in\mathbb{N}\}$.\\
-        $u=\sum_{i=1}^tr_iv_i+\sum{i=t+1}^kr_iv_i$, 其中 $v_1,\cdots,v_k\in\mathcal{B}_1$, $v_{k+1},\cdots,v_k\in\mathcal{B}_2\Longrightarrow V=\langle\mathcal{B}_1\rangle+\langle\mathcal{B}_2\rangle$.
+        $u=\sum_{i=1}^tr_iv_i+\sum_{i=t+1}^kr_iv_i$, 其中 $v_1,\cdots,v_t\in\mathcal{B}_1$, $v_{t+1},\cdots,v_k\in\mathcal{B}_2\Longrightarrow V=\langle\mathcal{B}_1\rangle+\langle\mathcal{B}_2\rangle$.
 
         $\forall u\in\langle\mathcal{B}_1\rangle\cap\langle\mathcal{B}_2\rangle$,$u\in\langle\mathcal{B}_1\rangle\Longrightarrow u=\sum_{i=1}^nr_iv_i$, 其中 $r_i\in F$, $v_i\in\mathcal{B}_1$,\\
         且 $u\in\langle\mathcal{B}_2\rangle\Longrightarrow u=\sum_{i=1}^nl_iw_i$, 其中 $l_i\in F$, $w_i\in\mathcal{B}_2$\\

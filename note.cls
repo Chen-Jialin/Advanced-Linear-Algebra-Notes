@@ -141,9 +141,12 @@
 \DeclareMathOperator{\tr}{Tr}% 矩阵的迹 Trace of matrix
 \DeclareMathOperator{\chr}{char}% 域的特征 Characteristic of field
 \DeclareMathOperator{\nul}{null}% 线性变换的零度 Nullity of linear transform
-\DeclareMathOperator{\rk}{rk}% 线性变换的秩 Rank of linear transforms
+\DeclareMathOperator{\rk}{rk}% 线性变换的秩 Rank of linear transform
 \DeclareMathOperator{\End}{End}% 自同态集合 Set of endomorphism
 \DeclareMathOperator{\module}{mod}% 模 Module
+\DeclareMathOperator{\tor}{tor}% 挠 Torsion
+\DeclareMathOperator{\ann}{ann}% 零化子 Annihilator
+\DeclareMathOperator{\free}{free}% 自由/无挠 Free/Torsion-free
 
 % 题目和题解风格 Problem and solution style
 \ifUsingEnglish

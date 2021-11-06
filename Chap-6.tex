@@ -1,0 +1,304 @@
+% !Tex program = pdflatex
+% 第 6 章: 主理想整环上的模 Chap 6: Modules over a Principal Ideal Domain
+\ifx\allfiles\undefined
+\documentclass{note}
+\setcounter{chapter}{+5}
+\begin{document}
+\fi
+\chapter{主理想整环上的模}
+\begin{df}[主理想整环 (PID)]
+    每个理想均由一个元素生成的整环.
+\end{df}
+
+\begin{eg}
+    $\mathbb{Z}$, $\mathbb{C}[x]$ 为 PID.
+\end{eg}
+
+PID 必诺特.
+
+$\mathbb{R}$ 为整环, $a,b,r,s\in R$,
+\begin{itemize}
+    \item[(1)] ~
+    \begin{df}[整除]
+        $r$ \textbf{整除} $s\Longleftrightarrow s=xr$, $x\in R$, 记作 $r\mid s$.
+    \end{df}
+    \item[(2)] ~
+    \begin{df}[单位]
+        $R$ 中的可逆元.
+    \end{df}
+    \begin{eg}
+        $\mathbb{Z}$ 中的 $1$ 和 $-1$ 互逆, 故 $1$ 和 $-1$ 均为单位, 实际上, $\mathbb{Z}^*\equiv\mathbb{Z}-\{0\}$ 中的元素均为单位.
+    \end{eg}
+    \item[(3)] ~
+    \begin{df}[素元]
+        $0\neq q\in R$, 若 $p\mid ab\Longrightarrow p\mid a$ 或 $p\mid b$, 则称 $p$ 为\textbf{素元}.
+    \end{df}
+    \item[(4)] ~
+    \begin{df}[不可约元]
+        $0\neq r\in R$, 若 $r=ab\Longrightarrow a$ 或 $b$ 为单位, 则称 $r$ 为\textbf{不可约元}.
+    \end{df}
+    \item[(5)] ~
+    \begin{df}[互素]
+        $r$ 与 $b$ \textbf{互素} $\Longrightarrow a$ 与 $b$ 无非单位公因子.
+    \end{df}
+\end{itemize}
+\textbf{注意}:
+\begin{itemize}
+    \item 单元必素, 必不可约.
+    \begin{pf}
+        设 $0\neq r\in R$ 为单位, 则必 $\exists a$ 的逆 $a^{-1}$.\\
+        若 $r\mid ab$, 则 $(ar^{-1})r=a$, $(br^{-1})r=b\Longrightarrow r$ 为素元.\\
+        若 $r=ab$, 则 $r^{-1}r=r^{-1}(ab)=(r^{-1}a)b=1$, $r^{-1}a$ 为 $b$ 的逆元, 即 $b$ 可逆 $\Longrightarrow r$ 为不可约元.
+    \end{pf}
+    \item 对于整环来说, 素元不可约, 反之未必.
+    \begin{pf}
+        设 $p$ 为素元, 若 $p=ab$, 则 $1p=p=ab\Longrightarrow p\mid ab$.\\
+        $\because p$ 为素元, $\therefore p\mid a$ 或 $p=b$.\\
+        无妨 $p\mid a$, 则 $a=px$, 其中 $x\in R$\\
+        $\Longrightarrow p=ab=pxb\Longrightarrow p(1-xb)=0$,\\
+        $\because p\neq 0$ 且 $R$ 为整环 ($R$ 无零因子), $\therefore 1-xb=0\Longrightarrow xb=1\Longrightarrow b$ 为单位, 故 $p$ 为不可约元.
+    \end{pf}
+    \begin{eg}(不可约元非素的例子)
+        $R=\{a+b\sqrt{-5}\mid a,b\in\mathbb{Z}\}$ 为整环.\\
+        $9=3^2=(2+\sqrt{-5})(2-\sqrt{-5})$,\\
+        $3$ 不可约 (证略), $3\mid(2+\sqrt{-5})(2-\sqrt{-5})$, 但 $3\nmid(2+\sqrt{-5})$, $3\nmid(2-\sqrt{-5})\Longrightarrow 3$ 非素.
+    \end{eg}
+    \item 对于非整环来说, 素元未必不可约.
+    \begin{eg}
+        $(\mathbb{Z}_6,+,\cdot)$ 非整环, $[2]$ 为素元, 但 $[2]=[2][4]$, $[2]$ 和 $[4]$ 均非单位 $\Longrightarrow[2]$ 可约.
+    \end{eg}
+\end{itemize}
+
+\begin{thm}[(课本定理 0.29)]
+    $R$ 为 PID, $a,b\in R$,\\
+    $a$ 与 $b$ 互素 $\Longleftrightarrow\exists r,t\in R$, s.t. $ra+tb=1$.
+\end{thm}
+\begin{pf}
+    ``$\Longrightarrow$'': $R$ 为 PID, 令 $I=\langle a,b\rangle$,\\
+    $\because R$ 是主理想, $\therefore I$ 可由一个元素生成, 设 $I=\langle c\rangle$, 其中 $c\in R$,\\
+    又 $\because a\in I$, $b\in I$, $\therefore c\mid a$, $c\mid b\Longrightarrow c$ 为 $a$ 和 $b$ 的公因子,\\
+    $\because a,b$ 互素, $\therefore c$ 为单位, 即 $\exists c^{-1}\in R$, s.t. $1=c^{-1}c\in I$,\\
+    $\because 1\in I$, $\therefore 1=ra+tb$.
+
+    ``$\Longleftarrow$'': 取 $c$ 为 $a$ 和 $b$ 的公因子,\\
+    $\because 1=ra+tb$, $\therefore c\mid 1\Longrightarrow c$ 可逆, 即 $c$ 为单位.
+\end{pf}
+
+有算法可以在给定 $a,b$ 下找到 $s,t$, 此处不赘述.
+
+\begin{thm}[(课本定理 0.29)]
+    $R$ 是 PID, $\forall 0\neq r\in R$, $r=up_1\cdots p_n$ 且该分解式唯一, 其中 $u$ 为单位, $p_i$ 是 $R$ 中的不可约元, $n\in\mathbb{Z}^+$.
+\end{thm}
+\begin{pf}
+    若 $r$ 不可约, 则直接得证.\\
+    若 $r$ 可约, 则设 $r=r_1r_2$, $r_1$ 和 $r_2$ 至少有一个非单位,\\
+    无妨 $r_1$ 不是单位, 则 $r_1$ 不可约.\\
+    若 $r_2$ 不可约, 则得证,\\
+    若 $r_2$ 可约, 则 $\langle r\rangle\subseteq\langle r_2\rangle$,\\
+    对 $r_2$ 继续如上分解, 可得 $\langle r\rangle\subseteq\langle r_2\rangle\subseteq\cdots$,\\
+    又 $\because R$ 为 PID, $\therefore R$ 诺特, 即 $\exists K\in\mathbb{Z}^+$, s.t. $\langle r_K\rangle=\langle r_{K+1}\rangle=\cdots$,\\
+    故重复如上分解操作, 最终可将 $r$ 表为有限个不可约元的乘积.
+\end{pf}
+
+\begin{df}[挠元 (Torsion)]
+    $M\in R-\module$, $v\in M$, 若 $\exists 0\neq r\in R$, s.t. $rv=0$, 则称 $v$ 为 $M$ 的\textbf{挠元}.
+\end{df}
+
+\begin{df}[挠模]
+    所有元素均为挠元的模.
+\end{df}
+
+\begin{df}[无挠]
+    若一模无非零挠元, 则称该模\textbf{无挠}.
+\end{df}
+
+与线性无关类似, 若 $0\neq v\in M$, $r\in R$, $rv=0$, 且 $M$ 无挠, 则 $r=0$.
+
+\begin{df}[挠子模]
+    $M_{\tor}=\{v\in M\mid v\text{ 为挠元}\}$.
+\end{df}
+
+$\because 0$ 为 $M$ 的挠元, $0\in M_{\tor}$, $\therefore M_{\tor}\neq\emptyset$.
+
+$M_{\tor}$ 为 $M$ 的子模.
+\begin{pf}
+    $\forall u,v\in M_{\tor}$, $\exists 0\neq r_1,r_2\in R$, s.t. $r_1u=0$, $r_2v=0$,\\
+    $\forall s,t\in R$, $(r_1r_2)(su+tv)=r_2s(r_1u)+r_1t(r_2v)=r_2s\cdot 0+r_1t\cdot 0=0+0=0$ 且 $r_1r_2\neq 0\Longrightarrow(su+tv)\in M_{\tor}$, 故得证.
+\end{pf}
+  
+$\frac{M}{M_{\tor}}$ 无挠.
+\begin{pf}
+    假设 $[0]\neq[v]\in\frac{M}{M_{\tor}}$ 为挠元, 则 $\exists 0\neq r\in R$, $r[v]=[rv]=[0]=M_{\tor}\Longrightarrow rv\in M_{\tor}\Longrightarrow v=r^{-1}(rv)\in M_{\tor}\Longrightarrow[v]=M_{\tor}=[0]$, 与假设矛盾, 故假设错误, 得证.
+\end{pf}
+
+\begin{df}[零化子]
+    $v\in M\in R-\module$, $v$ 的\textbf{零化子} $\ann(v)\equiv\{r\in R\mid rv=0\}\subseteq R$.\\
+    $N$ 是 $M$ 的子模, 则 $\ann(N)=\{r\in R\mid rN\equiv\{rv\mid v\in N\}=\{0\}\}\subseteq R$.
+\end{df}
+
+$\ann(v)$ 是 $R$ 的理想.
+\begin{pf}
+    $\forall s,t\in\ann(v)$, $sv=tv=0\Longrightarrow sv-tv=(s-t)v=0\Longrightarrow s-t\in\ann(v)$,\\
+    $\forall r\in R$, $(rs)v=r(sv)=r\cdot 0=0\Longrightarrow rs\in\ann(v)$.\\
+    综上, 得证.
+\end{pf}
+同理, $\ann(N)$ 也是 $R$ 的理想
+
+\begin{df}[阶]
+    若 $R$ 为 PID, 则 $\ann(v),\ann(N)$ 均为主理想, 其生成元分别称为 $v$ 和 $N$ 的\textbf{阶}.
+\end{df}
+
+\begin{thm}[(课本定理 6.5)]
+    $R$ 为 PID, $M\in R-\module$ 自由, 则 $M$ 的子模均自由.
+\end{thm}
+\begin{pf}
+    (不严谨的证明, 仅针对) $M$ 有限生成 (的特殊情况) 且自由. 设 $M=\langle\langle v_1,\cdots,v_n\rangle\rangle=\left\{\sum_{i=0}^nr_iv_i\mid r_i\in R\right\}$, 其中 $\{v_1,\cdots,v_n\}$ 线性无关.\\
+    $\forall v\in M$, $v=\sum_{i=1}^nr_iv_i$ 展开唯一, 定序后, $M\longleftrightarrow R^{n}$, $v\longleftrightarrow\begin{pmatrix}
+        r_1\\
+        \vdots\\
+        r_n
+    \end{pmatrix}$ 模同构.\\
+    设 $S$ 是 $R^n$ 的子模, 取 $R$ 的理想 $I_k=\{r_k\in R\mid\exists a_1,\cdots,a_{k-1}\in R,\text{ s.t. }(a_1,\cdots,a_{k-1},r_k,0,\cdots,0)\in S\}$.\\
+    $\because R$ 为 PID, $\therefore I_k$ 由一个元素生成, 设 $I_k=\langle r_k\rangle$, 其中 $r_k\neq 0$, $k=1,\cdots,n$.\\
+    取 $u_k=(a_1^k,\cdots,a_{k-1}^k,r_k,0,\cdots,0)\in S$, $S=\langle u_1,\cdots,u_n\rangle$ 生成 (下证) 且显然 $\{u_1,\cdots,u_n\}$ 线性无关.\\
+    取 $(b_1,\cdots,b_n)\in S$, 若 $b_n\neq 0$, 则 $b_n\in I_n=\langle r_n\rangle\Longrightarrow\exists x_n\in R$, s.t. $b_n=x_nr_n\Longrightarrow(b_1,\cdots,b_n)-x_nb_n=(\cdots,0)$,
+    重复如上操作, 最终可将 $(b_1,\cdots,b_n)$ 用 $\{u_1,\cdots,u_n\}$ 表示.\\
+    故得证.
+\end{pf}
+
+\begin{thm}[(课本定理 6.6)]
+    $R$ 为 PID, $M\in R-\module$ 有限生成,\\
+    $M$ 自由 $\Longleftrightarrow M$ 无挠.
+\end{thm}
+\begin{pf}
+    ``$\Longrightarrow$'': 设 $M=\langle\langle v_1,\cdots,v_n\rangle\rangle$ 且 $\{v_1,\cdots,v_n\}$ 线性无关.\\
+    $\forall v\in V$, $v=\sum_{i=1}^nr_iv_i$,\\
+    若 $rv=0$, 则 $r\left(\sum_{i=1}^nr_iv_i\right)=\sum_{i=1}^n(rr_i)v_i=0$,\\
+    $\because\{v_1,\cdots,v_n\}$ 线性无关, $\therefore rr_1=\cdots=rr_n=0$,\\
+    $\because R$ 为整环 (无零因子), $\therefore$ 若 $r\neq 0$, 则 $r_1=\cdots=r_n=0\Longrightarrow v=0$, 故 $M$ 无挠.
+
+    ``$\Longleftarrow$'': 取 $M=\langle\langle u_1,\cdots,u_m\rangle\rangle$,\\
+    无妨设 $u_1,\cdots,u_k$ 是其中最大的线性无关组, 即 $\forall i=k+1,\cdots,m$, $\{u_1,\cdots,u_k,u_i\}$ 线性相关\\
+    $\Longrightarrow\exists$ 不全为零的 $a_{i1},\cdots,a_{ik},a_i$, s.t. $a_{i1}u_1+\cdots+a_{ik}u_k+a_iu_i=0$,\\
+    显然 $a_i\neq 0$ (否则 $a_{i1}u_1+\cdots+a_{ik}u_k=0\Longrightarrow a_{i1}=\cdots=a_{ik}=0$, 矛盾) $\Longrightarrow a_iu_i=-(a_{i1}u_1+\cdots+a_{ik}u_k)$.\\
+    令 $a=a_{k+1}\cdot\cdots\cdot a_m$, 则 $a\neq 0$,\\
+    $aM=\langle\langle au_1,\cdots,au_k,au_{k+1},\cdots,au_m\rangle\rangle\subseteq\langle\langle u_1,\cdots,u_k\rangle\rangle$,\\
+    $\because\{u_1,\cdots,u_k\}$ 线性无关, $\therefore\langle\langle u_1,\cdots,u_k\rangle\rangle$ 是自由模,\\
+    $\because R$ 为 PID, 自由具有遗传性, $\therefore aM$ 自由.
+    构造映射 $\tau:M\rightarrow aM$, $v\mapsto av$.
+    \begin{itemize}
+        \item[(1)] $\tau$ 线性.
+        \item[(2)] $\because M$ 无挠且 $a\neq 0$, $\therefore\ker\tau=\{v\in M\mid av=0\}=\{0\}$.
+        \item[(3)] $\tau$ 满射.
+    \end{itemize}
+    故 $\tau$ 同构 $\Longrightarrow M$ 也自由.
+
+    综上, 得证.
+\end{pf}
+$\because M$ 自由, $\therefore M=\langle\langle v_1,\cdots,v_n\rangle\rangle$,\\
+又 $\because \{v_1,\cdots,v_n\}$ 线性无关, $\therefore$ 对 $i\neq j$, $\langle\langle v_i\rangle\rangle\cap\langle\langle v_j\rangle\rangle=\{0\}\Longrightarrow M=\langle\langle v_1\rangle\rangle\oplus\cdots\oplus\langle\langle v_n\rangle\rangle$.
+
+\begin{thm}[(课本定理 6.8)]\label{thm-6.8}
+    $R$ 是 PID, $M\in R-\module$ 有限生成, 则 $M=M_{\free}\oplus M_{\tor}$.
+\end{thm}
+\begin{pf}
+    $M_{\tor}$ 为挠子模且 $\frac{M}{M_{\tor}}$ 无挠.\\
+    $\because\Pi:M\rightarrow\frac{M}{M_{\tor}}$, $u\rightarrow[u]$ 满同态且 $M$ 有限生成, 由引理 \ref{cor-1 for thm-6.8} 得 $\frac{M}{M_{\tor}}$ 有限生成.\\
+    又 $\because\frac{M}{M_{\tor}}$ 无挠, $\therefore\frac{M}{M_{\tor}}$ 自由.\\
+    取 $\frac{M}{M_{\tor}}=\langle\langle[u_1],\cdots,[u_t]\rangle\rangle$, 其中 $\{u_1,\cdots,u_t\}$, 线性无关 (下证),\\
+    \begin{pf}
+        若 $\sum_{i=1}^tr_iu_i=0$, 则 $\Pi\left(\sum_{i=1}^tr_iu_i\right)=\sum_{i=1}^tr_i\Pi(u_i)=\sum_{i=1}^tr_i[u_i]=0$,\\
+        又 $\because\{[u_1],\cdots,[u_t]\}$ 线性无关, $\therefore r_1=\cdots=r_t=0\Longrightarrow\{u_1,\cdots,u_t\}$ 线性无关.
+    \end{pf}
+    故 $\langle\langle u_1,\cdots,u_t\rangle\rangle$ 为自由模, 记为 $M_{\free}$.
+
+    确定了 $M_{\free}$ 和 $M_{\tor}$ 后, 下面来证 $M=M_{\free}\oplus M_{\tor}$:\\
+    $\forall v\in M$, $\Pi(v)=[v]\in\frac{M}{M_{\tor}}=\langle\langle[u_1],\cdots,[u_t]\rangle\rangle\Longrightarrow\Pi(v)=[v]=\sum_{i=1}^tl_i[u_i]$.\\
+    令 $u=\sum_{i=1}^tl_iu_i\in M_{\free}$, 则 $\tau(u)=\tau\left(\sum_{i=1}^tl_iu_i\right)=\sum_{i=1}^tl_i\Pi(u_i)=\sum_{i=1}^tl_i[u_i]=\Pi(v)$.\\
+    $\Pi(v-u)=\Pi(v)-\Pi(u)=0\Longrightarrow v-u\in\ker\Pi=M_{\tor}$,\\
+    于是 $v=u+(v-u)$, 其中 $u\in M_{\free}$, $v-u\in M_{\tor}\Longrightarrow M=M_{\free}+M_{\tor}$.
+
+    取 $w\in M_{\free}\cap M_{\tor}$, 则 $w\in M_{\free}\Longleftrightarrow w=\sum_{i=1}^t\alpha_iu_i$,\\
+    且 $w\in M_{\tor}\Longleftrightarrow\Pi(w)=0$\\
+    $\Longrightarrow 0=\Pi(w)=\Pi\left(\sum_{i=1}^t\alpha_iu_i\right)=\sum_{i=1}^t\alpha_t\Pi(u_i)\Longrightarrow\alpha_1=\cdots=\alpha_t=0\Longrightarrow w=0\Longrightarrow M_{\free}\cap M_{\tor}=\{0\}$.
+
+    综上, 得证.
+\end{pf}
+\begin{cor}\label{cor-1 for thm-6.8}
+    $\tau:M\rightarrow N$ 满同态, 若 $M$ 有限生成, 则 $N$ 有限生成.
+\end{cor}
+\begin{pf}
+    $\because\tau:M\rightarrow N$ 满同态, $\therefore\forall w\in N$, $\exists u\in M$, s.t. $w=\tau(u)$,\\
+    又 $\because M$ 有限生成, 设 $M=\langle\langle v_1,\cdots,v_k\rangle\rangle$, $\therefore u=\sum_{i=1}^kr_iu_i\Longrightarrow\tau(u)=\tau\left(\sum_{i=1}^kr_iu_i\right)=\sum_{i=1}^kr_i\tau(u_i)$,\\
+    故 $N=\langle\langle\tau(u_1),\cdots,\tau(u_k)\rangle\rangle$, 即 $N$ 有限生成.
+\end{pf}
+
+至此, $M_{\free}=\langle\langle u_1,\cdots,u_t\rangle\rangle=\langle\langle u_1\rangle\rangle\oplus\cdots\oplus\langle\langle u_t\rangle\rangle$ 已拆解到位. 那么能否以及如何继续拆解 $M_{\tor}$ 呢?
+
+\begin{thm}[(课本定理 6.10)]\label{thm-6.10}
+    $R$ 为 PID, $M\in R-\module$ 为挠模且 $\ann(M)=\langle\langle\mu\rangle\rangle$, 其中 $\mu=up_1{e_1}\cdots p_m^{e_m}$, $p_i$ 均不可约且互不相等, $e_i\in\mathbb{Z}^+\forall i$,\\
+    则 $M=M_{p_1}\oplus\cdots\oplus M_{p_m}$, 其中 $M_{p_i}=\{v\in M\mid p_i^{e_i}v=0\}$ 是阶为 $p_i^{e_i}$ (即 $\ann(M_{p_i})=\langle p_i^{e_i}\rangle$) 的准素子模.
+\end{thm}
+\begin{pf}
+    不失一般性, 设 $\mu=pq$, $p$ 与 $q$ 互素, 要证 $M=M_p\oplus M_q$, 其中 $M_p=\{v\mid pv=0\}$, $M_q=\{v\mid qv=0\}$.\\
+    $\because p$ 与 $q$ 互素, $\therefore\exists r,t\in R$, s.t. $rp+tq=1$.\\
+    $\forall v\in M$, $v=1v=(rp+tq)v=(rp)v+(tq)v$,\\
+    $q(rp)v=(qrp)v=(rpq)v=r(pq)v=r\mu v$,\\
+    又 $\because\langle\langle\mu\rangle\rangle$ 为零化子, $\therefore q(rpv)=r\mu v=0\Longrightarrow rpv\in M_q$,\\
+    同理, $tqv\in M_p$, 故 $M=M_p+M_q$.
+
+    若 $v\in M_p\cap M_q$, 则 $v\in M_p\Longleftrightarrow pv=0$,\\
+    且 $v\in M_q\Longleftrightarrow qv=0$\\
+    $\Longrightarrow v=1v=(rp+tq)v=rpv+tqv=r0+t0=0+0=0\Longrightarrow M_p=M_q=\{0\}$.
+
+    $\because M_p=\{v\mid pv=0\}$, $\therefore\ann(M_{p})=\langle p\rangle$, 易推广得 $M_{p_i}=\langle p_i^{e_i}\rangle$.
+
+    综上, 得证.
+\end{pf}
+
+然后准子模能否进一步分解呢?
+
+\begin{thm}[(课本定理 6.11)]\label{thm-6.11}
+    $R$ 为 PID, $M\in R-\module$ 有限生成, $\ann(M)=\langle p^e\rangle$, 其中 $p$ 不可约, $e\in\mathbb{Z}^+$,\\
+    则 $M=\langle\langle v_1\rangle\rangle\oplus\cdots\oplus\langle\langle v_n\rangle\rangle$, 其中 $\ann(v_i)=\langle p^{e_i}\rangle$, 且 $e=e_1\geq\cdots\geq e_n$.
+\end{thm}
+\begin{pf}(存在性证明)
+    不失一般性, 只需证 $M$ 由两个生成元时, 定理成立, 即可由数学归纳法推广到一般情况.\\
+    设 $M=\langle\langle u_1,u_2\rangle\rangle$ 且 $u_1,u_2\neq 0$, $\ann(M)=\{r\in R\mid rM=\{0\}\}=\langle p^e\rangle$.\\
+    $\because u_1\in M$, $\therefore p^eu_1=0\Longrightarrow p^e\in\ann(u_1)$,\\
+    同理, $p^e\in\ann(u_2)$.\\
+    若 $\ann(u_1)=\langle b_1\rangle$, 则 $\because p$ 不可约, $\therefore b_1\mid p^e\Longrightarrow b_1=p^{l_1}$, $l_1\leq e$,\\
+    同理, 若 $\ann(u_2)=\langle b_2\rangle$, 则 $b_2=p^{l_2}$, $l_2\leq e$.\\
+    假设 $l_1<e$, $l_2<e$, 令 $l=\max\{l_1,l_2\}$, 则 $p^e\nmid p^l$ 且 $p^l\in\ann(M)$, 与 $\ann(M)=\langle p^e\rangle$ 矛盾, 故假设错误, $l_1,l_2$ 中至少有一个 $=e$.\\
+    无妨设 $l_1=e$ 即 $\ann(u_1)=\langle p^e\rangle$.\\
+    $M=\langle\langle u_1,u_2\rangle\rangle\Longrightarrow M=\langle\langle u_1\rangle\rangle+\langle\langle u_2\rangle\rangle$,\\
+    若 $\langle\langle u_1\rangle\rangle\cap\langle\langle u_2\rangle\rangle=\{0\}$, 则 $M=\langle\langle u_1\rangle\rangle\oplus\langle\langle u_2\rangle\rangle$, 得证.\\
+    若 $\langle\langle u_1\rangle\rangle\cap\langle\langle u_2\rangle\rangle\neq\{0\}$, 则 $\exists 0\neq r\in R$, s.t. $ru_2\in\langle\langle u_1\rangle\rangle$.\\
+    取 $R$ 的理想 $J=\{r\in R\mid ru_2\in\langle\langle u_1\rangle\rangle\}$.\\
+    $\because R$ 为 PID, $\therefore J$ 由一个元素生成, 设 $J=\langle\langle t\rangle\rangle$.\\
+    $\because p^eu_2=0\Longrightarrow p^e\in J$, $\therefore p^e\in J\Longrightarrow t\mid p^e$,\\
+    又 $\because p$ 不可约, $\therefore t=p^{e_2}$ 且 $e_2\leq e$,\\
+    又 $\because J=\{r\in R\mid ru_2\in\langle\langle u_1\rangle\rangle\}=\langle t\rangle$, $\therefore p^{e_2}u_2\in\langle\langle u_1\rangle\rangle$, 即 $\exists\alpha\in R$, s.t. $p^{e_2}u_2-\alpha u_1=0$\\
+    $\Longrightarrow p^{e-e_2}(p^{e_2}u_2-\alpha u_1)=0\Longrightarrow p^eu_2-p^{e-e_2}\alpha u_1=0$,\\
+    又 $\because p^eu_2=0$, $\therefore p^{e-e_2}\alpha u_1=0\Longrightarrow p^{e-e_2}\alpha\in\ann(u_1)$,\\
+    又 $\because\ann(u_1)=\langle p^e\rangle$, $\therefore p^e\mid p^{e-e_2}\alpha\Longrightarrow p^{e_2}\mid\alpha\Longrightarrow\exists\beta\in R$, s.t. $\alpha=\beta p^{e_2}$,\\
+    回代到 $p^{e_2}u_2-\alpha u_1=0$ 得 $p^{e_2}u_2-p^{e_2}\beta u_1=0\Longrightarrow p^{e_2}(u_2-\beta u_1)=0$.\\
+    令 $w=u_2-\beta u_1$, 则 $M=\langle\langle u_1,w\rangle\rangle$, 且 $\langle\langle u_1\rangle\rangle\cap\langle\langle w\rangle\rangle=\{0\}$ (下证),\\
+    \begin{pf}
+        设 $v\in\langle\langle u_1\rangle\rangle\cap\langle\langle w\rangle\rangle$, 则 $v\in\langle\langle u_1\rangle\rangle$,\\
+        且 $v\in\langle\langle w\rangle\rangle\Longrightarrow\exists r\in R$, $v=rw$\\
+        $\Longrightarrow v=rw=ru_2-r\beta u_1\in\langle\langle u_1\rangle\rangle$,\\
+        $\because r\beta u_1\in\langle\langle u_1\rangle\rangle$, $\therefore ru_2\in\langle\langle u_1\rangle\rangle$, (由 $J$ 的定义) 即 $r=p^{e_2}r_1$,\\
+        回代得 $v=rw=p^{e_2}r_1u_2-p^{e_2}r\beta u_1=p^{e_2}r_1u_2-p^{e_2}r_1\beta u_1=p^{e_2}r_1u_2-r_1(\beta p^{e_2})u_1=r_2(p^{e_2}u_2-\alpha u_1)=r_20=0\Longrightarrow \langle\langle u_1\rangle\rangle\cap\langle\langle w\rangle\rangle=\{0\}$.
+    \end{pf}
+    故 $M=\langle\langle u_1\rangle\rangle\oplus\langle\langle w\rangle\rangle$, 其中 $u_1$ 的阶为 $p^{e_1}$, $w$ 的阶为 $p^{e_2}$, $e_2\leq e_1=e$.
+\end{pf}
+
+总结定理 \ref{thm-6.8}, \ref{thm-6.10} 和 \ref{thm-6.11}, 可得:
+\begin{thm}[(课本定理 6.12)]
+    $R$ 为 PID, $M\in R-\module$ 有限生成且为挠模, $\ann(M)=\langle\mu\rangle$, 其中 $\mu=up_1^{e_1}\cdots p_m^{e_m}$,\\
+    则 $M=M_{p_1}\oplus\cdots\oplus M_{p_m}=\left(\bigoplus_{i=1}^{t_1}\langle\langle v_{1i}\rangle\rangle\right)\oplus\cdots\oplus\left(\bigoplus_{i=1}^{t_m}\langle\langle v_{mi}\rangle\rangle\right)$, 其中 $\ann(v_{ij})=p_i^{e_{ij}}$, $e_i=e_{i1}\geq\cdots\geq e_{it_i}$.
+\end{thm}
+\ifx\allfiles\undefined
+\end{document}
+\fi
