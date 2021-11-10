@@ -199,7 +199,7 @@ $\because M$ 自由, $\therefore M=\langle\langle v_1,\cdots,v_n\rangle\rangle$,
 又 $\because \{v_1,\cdots,v_n\}$ 线性无关, $\therefore$ 对 $i\neq j$, $\langle\langle v_i\rangle\rangle\cap\langle\langle v_j\rangle\rangle=\{0\}\Longrightarrow M=\langle\langle v_1\rangle\rangle\oplus\cdots\oplus\langle\langle v_n\rangle\rangle$.
 
 \begin{thm}[(课本定理 6.8)]\label{thm-6.8}
-    $R$ 是 PID, $M\in R-\module$ 有限生成, 则 $M=M_{\free}\oplus M_{\tor}$.
+    $R$ 是 PID, $M\in R-\module$ 有限生成, 则 $M=M_{\free}\oplus M_{\tor}$, 其中 $M_{\free}=\frac{M}{M_{\tor}}$.
 \end{thm}
 \begin{pf}
     $M_{\tor}$ 为挠子模且 $\frac{M}{M_{\tor}}$ 无挠.\\
@@ -210,7 +210,7 @@ $\because M$ 自由, $\therefore M=\langle\langle v_1,\cdots,v_n\rangle\rangle$,
         若 $\sum_{i=1}^tr_iu_i=0$, 则 $\Pi\left(\sum_{i=1}^tr_iu_i\right)=\sum_{i=1}^tr_i\Pi(u_i)=\sum_{i=1}^tr_i[u_i]=0$,\\
         又 $\because\{[u_1],\cdots,[u_t]\}$ 线性无关, $\therefore r_1=\cdots=r_t=0\Longrightarrow\{u_1,\cdots,u_t\}$ 线性无关.
     \end{pf}
-    故 $\langle\langle u_1,\cdots,u_t\rangle\rangle$ 为自由模, 记为 $M_{\free}$.
+    故 $\langle\langle u_1,\cdots,u_t\rangle\rangle$ 为自由模, 记作 $M_{\free}$.
 
     确定了 $M_{\free}$ 和 $M_{\tor}$ 后, 下面来证 $M=M_{\free}\oplus M_{\tor}$:\\
     $\forall v\in M$, $\Pi(v)=[v]\in\frac{M}{M_{\tor}}=\langle\langle[u_1],\cdots,[u_t]\rangle\rangle\Longrightarrow\Pi(v)=[v]=\sum_{i=1}^tl_i[u_i]$.\\
@@ -236,7 +236,7 @@ $\because M$ 自由, $\therefore M=\langle\langle v_1,\cdots,v_n\rangle\rangle$,
 至此, $M_{\free}=\langle\langle u_1,\cdots,u_t\rangle\rangle=\langle\langle u_1\rangle\rangle\oplus\cdots\oplus\langle\langle u_t\rangle\rangle$ 已拆解到位. 那么能否以及如何继续拆解 $M_{\tor}$ 呢?
 
 \begin{thm}[(课本定理 6.10)]\label{thm-6.10}
-    $R$ 为 PID, $M\in R-\module$ 为挠模且 $\ann(M)=\langle\langle\mu\rangle\rangle$, 其中 $\mu=up_1{e_1}\cdots p_m^{e_m}$, $p_i$ 均不可约且互不相等, $e_i\in\mathbb{Z}^+\forall i$,\\
+    $R$ 为 PID, $M\in R-\module$ 为挠模且 $\ann(M)=\langle\langle\mu\rangle\rangle$, 其中 $\mu=up_1^{e_1}\cdots p_m^{e_m}$, $u$ 为单位, $p_i$ 均不可约且互不相等, $e_i\in\mathbb{Z}^+$,\\
     则 $M=M_{p_1}\oplus\cdots\oplus M_{p_m}$, 其中 $M_{p_i}=\{v\in M\mid p_i^{e_i}v=0\}$ 是阶为 $p_i^{e_i}$ (即 $\ann(M_{p_i})=\langle p_i^{e_i}\rangle$) 的准素子模.
 \end{thm}
 \begin{pf}
@@ -256,10 +256,10 @@ $\because M$ 自由, $\therefore M=\langle\langle v_1,\cdots,v_n\rangle\rangle$,
     综上, 得证.
 \end{pf}
 
-然后准子模能否进一步分解呢?
+然后准素子模能否进一步分解呢?
 
 \begin{thm}[(课本定理 6.11)]\label{thm-6.11}
-    $R$ 为 PID, $M\in R-\module$ 有限生成, $\ann(M)=\langle p^e\rangle$, 其中 $p$ 不可约, $e\in\mathbb{Z}^+$,\\
+    $R$ 为 PID, $M\in R-\module$ 有限生成且为挠模, $\ann(M)=\langle p^e\rangle$, 其中 $p$ 不可约, $e\in\mathbb{Z}^+$,\\
     则 $M=\langle\langle v_1\rangle\rangle\oplus\cdots\oplus\langle\langle v_n\rangle\rangle$, 其中 $\ann(v_i)=\langle p^{e_i}\rangle$, 且 $e=e_1\geq\cdots\geq e_n$.
 \end{thm}
 \begin{pf}(存在性证明)
@@ -296,9 +296,45 @@ $\because M$ 自由, $\therefore M=\langle\langle v_1,\cdots,v_n\rangle\rangle$,
 
 总结定理 \ref{thm-6.8}, \ref{thm-6.10} 和 \ref{thm-6.11}, 可得:
 \begin{thm}[(课本定理 6.12)]
-    $R$ 为 PID, $M\in R-\module$ 有限生成且为挠模, $\ann(M)=\langle\mu\rangle$, 其中 $\mu=up_1^{e_1}\cdots p_m^{e_m}$,\\
-    则 $M=M_{p_1}\oplus\cdots\oplus M_{p_m}=\left(\bigoplus_{i=1}^{t_1}\langle\langle v_{1i}\rangle\rangle\right)\oplus\cdots\oplus\left(\bigoplus_{i=1}^{t_m}\langle\langle v_{mi}\rangle\rangle\right)$, 其中 $\ann(v_{ij})=p_i^{e_{ij}}$, $e_i=e_{i1}\geq\cdots\geq e_{it_i}$.
+    $R$ 为 PID, $M\in R-\module$ 有限生成,\\
+    则 $M=M_{\free}\oplus M_{\tor}$, 其中 $M_{\free}=\frac{M}{M_{\tor}}$.\\
+    若 $\ann(M_{\tor})=\langle\mu\rangle$, 其中 $\mu=up_1^{e_1}\cdots p_n^{e_n}$, $u$ 为单位, $p_i$ 不可约且互不相等, $e_i\in\mathbb{Z}^+$,\\
+    则 $M_{\tor}=M_{p_1}\oplus\cdots\oplus M_{p_n}$, 其中 $M_{p_i}=\{v\in M_{\tor}\mid p_i(v)=0\}$ 即 $\ann(M_{p_i})=\langle p_i^{e_i}\rangle$,\\
+    $M_{p_i}=\langle\langle v_i\rangle\rangle\oplus\cdots\langle\langle v_{it_i}\rangle\rangle$, 其中 $\ann(v_{ij})=\langle p_i^{e_{ij}}\rangle$, $e_i=e_{i1}\geq\cdots\geq e_{it_i}$.\\
+    故 $M=\overbrace{\left(\bigoplus_{i=1}^m\langle\langle u_i\rangle\rangle\right)}^{M_{\free}}\oplus\overbrace{\left[\bigoplus_{i=1}^n\overbrace{\left(\bigoplus_{j=1}^{t_i}\langle\langle v_{ij}\rangle\rangle\right)}^{M_{p_i}}\right]}^{M_{\tor}}$.
 \end{thm}
+
+由定理 \ref{thm-6.11}, $M_{\tor}=\bigoplus_{ij}\langle\langle v_{ij}\rangle\rangle$, 其中 $\ann(v_{ij})=\langle p_i^{e_{ij}}\rangle$, $e_{i1}\geq\cdots\geq e_{it_i}$. 这里,
+\[
+    \begin{Bmatrix}
+        v_{11}&v_{12}&\cdots&v_{1t_1}\\
+        v_{21}&v_{22}&\cdots&v_{2t_2}\\
+        \vdots&\vdots&\ddots&\vdots\\
+        v_{n1}&v_{n2}&\cdots&v_{nt_n}
+    \end{Bmatrix}
+\]
+生成了 $M_{\tor}$, 其阶为
+\begin{df}[初等因子]
+    $M$ 的初等因子:
+    \[
+        \begin{Bmatrix}
+            p_1^{e_{11}}&p_1^{e_{12}}&\cdots&p_1^{e_{1t_1}}\\
+            p_2^{e_{21}}&p_2^{e_{22}}&\cdots&p_2^{e_{2t_2}}\\
+            \vdots&\vdots&\ddots&\vdots\\
+            p_n^{e_{n1}}&p_n^{e_{n2}}&\cdots&p_n^{e_{nt_n}}
+        \end{Bmatrix}.
+    \]
+\end{df}
+此外, 还定义了
+\begin{df}[不变因子]
+    $M$ 的不变因子:
+    \begin{align*}
+        q_1=&\prod_ip_i^{e_{1i}},\\
+        q_2=&\prod_ip_i^{e_{2i}},\\
+        \vdots&,\\
+        q_t=&\prod_ip_i^{e_{ti}}.
+    \end{align*}
+\end{df}
 \ifx\allfiles\undefined
 \end{document}
 \fi

@@ -35,7 +35,7 @@ $(-r)m=r(-m)=-(rm)$.
     $r(-m)+rm=r(m+(-m))=r0=0\Longrightarrow r(-m)=-rm$.
 \end{pf}
 
-$\forall r\in R$, 可构造映射 $\bar{r}:M\rightarrow M$, $m\mapsto rm$. $\bar{r}$ 是 $M$ 上的群同态, 又称\textbf{自同态}, 记作 $\bar{r}\in\End(M)\equiv\{\text{$M$ 上的自同态}\}$, $\End(M)$ 关于同态的加法、复合成环, 其单位元为 $M$ 上的恒等映射, $1_M$, 故还可构造映射 $\phi:R\rightarrow\End(M)$, $r\mapsto\bar{r}$.
+$\forall r\in R$, 可构造映射 $\bar{r}:M\rightarrow M$, $m\mapsto rm$. $\bar{r}$ 是 $M$ 上的群同态, 又称\textbf{自同态}, 记作 $\bar{r}\in\End(M)\equiv\{\text{$M$ 上的自同态}\}$, $\End(M)$ 关于同态的加法、复合成环, 其单位元为 $M$ 上的恒等映射, 记作 $1_M$, 故还可构造映射 $\phi:R\rightarrow\End(M)$, $r\mapsto\bar{r}$.
 \begin{pf}
     $\bar{r}(m+n)=r(m+n)=rm+rn=\bar{r}(m)+\bar{r}(n)$, 即映射 $\bar{r}$ 下保持运算结构, 故得证.
 \end{pf}
@@ -71,7 +71,7 @@ $\forall r\in R$, 可构造映射 $\bar{r}:M\rightarrow M$, $m\mapsto rm$. $\bar
 \begin{eg}\label{module Zp}
     $\mathbb{Z}_p=\frac{\mathbb{Z}}{p}=\{[0],\cdots,[p-1]\}$, $(\mathbb{Z}_p,+)$ 是交换群, 故 $\mathbb{Z}_p\in\mathbb{Z}-\module$.
 
-    $\mathbb{Z}_6=\{[0],[1],[2],[3],[4],[5]\}$, $n[k]=\overbrace{[k]+\cdots+[k]}=[nk]$,\\
+    $\mathbb{Z}_6=\{[0],[1],[2],[3],[4],[5]\}$, $n[k]=\overbrace{[k]+\cdots+[k]}^{\text{$n$ 个 $[k]$ 相加}}=[nk]$,\\
     注意到 $[2]\neq[0]$, $3\neq 0$, 但 $3[2]=[6]=[0]$, 即非零元素的卡氏积在数乘映射下得到零元素, 这意味着非零的单个元素不再线性无关.
 
     实际上, $\mathbb{Z}_p$ 中无线性无关元素.
@@ -100,7 +100,7 @@ $\forall r\in R$, 可构造映射 $\bar{r}:M\rightarrow M$, $m\mapsto rm$. $\bar
     设 $S$ 为 $R$ 的子模, 则
     \begin{itemize}
         \item[(1)] $\emptyset\neq S\subseteq R$
-        \item[(2)] $\forall u,v\in S$, $\forall r,t\in R$, $ru+tv\in S$. 特别地, 令 $t=0$, 则 $ru\in S$
+        \item[(2)] $\forall u,v\in S$, $\forall r,t\in R$, $ru+tv\in S$. 特别地, 令 $r=1$, $t=-1$, 得 $u-v\in S$, 令 $t=0$, 得 $ru\in S$
     \end{itemize}
     故 $S$ 为 $R$ 的理想.
 \end{pf}
@@ -116,7 +116,7 @@ $\forall M\in R-\module$, 都有生成集, $\because M=\langle\langle M\rangle\r
 \end{df}
 
 \begin{df}[循环模]
-    生成集由一个元素构成的生成模.
+    由一个元素生成的模.
 \end{df}
 
 \begin{eg}
