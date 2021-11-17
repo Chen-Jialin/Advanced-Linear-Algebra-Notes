@@ -157,13 +157,13 @@ $\Longrightarrow\tau^{m+1}(v)=\tau(\tau^m(v))=\tau(-\left[r_{m-1}\tau^{m-1}(v)+\
 \end{thm}
 \begin{pf}
     先证 $\{v,\tau(v),\cdots,\tau^{m-1}(v)\}$ 线性无关: 设 $l_0v+l_1\tau(v)+\cdots+l_{m-1}\tau^{m-1}(v)=0$,\\
-    令 $h(x)=l_0+l_1x+\cdots+l_{m-1}x^{m-1}$, 则 $h(x)(v)\Longrightarrow h(x)\in\ann(v)=\langle p(x)\rangle\Longrightarrow p(x)\mid h(x)$,\\
+    令 $h(x)=l_0+l_1x+\cdots+l_{m-1}x^{m-1}$, 则 $h(x)v=0\Longrightarrow h(x)\in\ann(v)=\langle p(x)\rangle\Longrightarrow p(x)\mid h(x)$,\\
     然而 $\because\deg p(x)=m\geq\deg h(x)=m-1$, $\therefore$ 只能有 $l_0=l_1=\cdots=l_{m-1}=0$, 故 $\{v,\tau(v),\cdots,\tau^{m-1}(v)\}$ 线性无关.
 
-    再证 $\{v,\tau(v),\cdots,\tau^{m-1}(v)\}$ 生成 $\langle\langle v\rangle\rangle$: $\langle\langle v\rangle\rangle=\{h(x)v\mid h(x)\in F[x]\}=h(\tau)(v)$,\\
-    $\forall h(\tau)v\in\langle\langle v\rangle\rangle$, 若$\deg h(x)\leq m-1$, 则 $h(x)v$ 显然可由 $\{v,\tau(v),\cdots,\tau^{m-1}\}$ 表示,
-    若 $\deg h(x)\geq m-1$, 则 $h(x)=q(x)p(x)+r(x)$, 其中 $q(x)$ 为商多项式, 余多项式 $r(x)=0$ 或 $\deg r(x)<\deg p(x)=m-1$,\\
-    $\Longrightarrow h(x)v=(q(\tau)p(\tau)+r(\tau))(v)=q(\tau)p(\tau)v+r(\tau)(v)$, 其中 $\because p(x)\in\ann(v)$, $\therefore p(\tau)v=0\Longrightarrow h(x)v=r(\tau)v$ 可由 $\{v,\tau(v),\cdots,\tau^{m-1}\}$ 表示.
+    再证 $\{v,\tau(v),\cdots,\tau^{m-1}(v)\}$ 生成 $\langle\langle v\rangle\rangle$: $\langle\langle v\rangle\rangle=\{h(x)v\mid h(x)\in F[x]\}=\{h(\tau)(v)\mid h(x)\in F[x]\}$,\\
+    $\forall h(\tau)v\in\langle\langle v\rangle\rangle$, 若 $\deg h(x)\leq m-1$, 则 $h(x)v$ 显然可由 $\{v,\tau(v),\cdots,\tau^{m-1}\}$ 表示,\\
+    若 $\deg h(x)>m-1$, 则 $h(x)=q(x)p(x)+r(x)$, 其中 $q(x)$ 为商多项式, 余多项式 $r(x)=0$ 或 $\deg r(x)<\deg p(x)=m-1$\\
+    $\Longrightarrow h(x)v=(q(\tau)p(\tau)+r(\tau))(v)=q(\tau)p(\tau)(v)+r(\tau)(v)$, 其中 $\because p(x)\in\ann(v)$, $\therefore p(\tau)v=0\Longrightarrow h(x)v=r(\tau)v$ 可由 $\{v,\tau(v),\cdots,\tau^{m-1}\}$ 表示.
 
     综上, 得证.
 \end{pf}
@@ -203,34 +203,32 @@ $\langle\langle v_{ij}\rangle\rangle$ 就是循环不变子空间. 那么, 以 $
         -r_{m-1}
     \end{pmatrix}$,\\
     从而 $[\tau]_{\mathcal{B}}=\begin{pmatrix}
-        0&0&\cdots&0&-r_0\\
-        1&0&\cdots&0&-r_1\\
-        0&1&\cdots&0&-r_2\\
-        0&0&\cdots&0&-r_3\\
-        \vdots&\vdots&\ddots&\vdots&\vdots\\
-        0&0&\cdots&0&-r_{m-2}\\
-        0&0&\cdots&1&-r_{m-1}
+        0&0&\cdots&\cdots&0&-r_0\\
+        1&0&\cdots&\cdots&0&-r_1\\
+        0&1&\cdots&\cdots&0&-r_2\\
+        \vdots&\vdots&\ddots&\ddots&\vdots&\vdots\\
+        0&0&\cdots&\cdots&0&-r_{m-2}\\
+        0&0&\cdots&\cdots&1&-r_{m-1}
     \end{pmatrix}\equiv C[p(x)]$, 称为多项式 $p(x)=x^m+r_{m-1}x^{m-1}+\cdots+r_1x+r_0$ 的\textbf{伴阵}.
 \end{df}
 
 设 $d_{ij}=\deg p_i^{e_{ij}}(x)$, 则 $\mathcal{B}_{ij}=\{v_{ij},\tau(v_{ij}),\cdots,\tau^{d_{ij}-1}(v_{ij})\}$ 为 $\langle v_{ij}\rangle$ 的基,\\
 以 $\mathcal{B}_{ij}$ 为基, $\tau$ 在循环不变子空间 $\langle\langle v_{ij}\rangle\rangle$ 中的表示就是 $p_i^{e_{ij}}(x)$ 的伴阵: $[\tau]_{\mathcal{B}_{ij}}=C[p_i^{e_{ij}}(x)]=\begin{pmatrix}
-    0&0&\cdots&0&-l_1^{(ij)}\\
-    1&0&\cdots&0&-l_2^{(ij)}\\
-    0&1&\cdots&0&-l_3^{(ij)}\\
-    0&0&\cdots&0&-l_4^{(ij)}\\
-    \vdots&\vdots&\ddots&\vdots&\vdots\\
-    0&0&\cdots&0&-l_{d_{ij}-2}^{(ij)}\\
-    0&0&\cdots&1&-l_{d_{ij}-1}^{(ij)}
+    0&0&\cdots&\cdots&0&-l_1^{(ij)}\\
+    1&0&\cdots&\cdots&0&-l_2^{(ij)}\\
+    0&1&\cdots&\cdots&0&-l_3^{(ij)}\\
+    \vdots&\vdots&\ddots&\ddots&\vdots&\vdots\\
+    0&0&\cdots&\cdots&0&-l_{d_{ij}-2}^{(ij)}\\
+    0&0&\cdots&\cdots&1&-l_{d_{ij}-1}^{(ij)}
 \end{pmatrix}$.\\
 
 上面我们简化了 $\tau$ 在循环不变子空间 $\langle\langle v_{ij}\rangle\rangle$ 中的表示. 又 $\because V=\bigoplus_{ij}\langle\langle v_{ij}\rangle\rangle$, $\therefore\mathcal{B}=\cup_{ij}\mathcal{B}_{ij}$ 为 $V$ 的基, 利用 $\mathcal{B}$ 我们可简化 $\tau$ 在整个向量空间 $V$ 中的表示:
-\begin{thm}[(课本定理 7.10)]
+\begin{thm}[(课本定理 7.10)]\label{thm-7.10}
     $\dim V<\infty$, $\tau\in\mathcal{L}(V)$, $V$ 的极小多项式为 $m_{\tau}(x)=p_1^{e_1}(x)\cdots p_n^{e_n}(x)$, 其中 $p_i(x)$ 不可约且互不相等,\\
     $\Longrightarrow V=V_{p_1}\oplus\cdots\oplus V_{p_m}$, 其中 $\ann(V_{p_i})=\langle p_1^{e_1}(x)\rangle$,\\
     $V_{p_i}=\langle\langle v_{i1}\rangle\rangle\oplus\cdots\oplus\langle\langle v_{it_i}\rangle\rangle$, 其中 $\ann(v_{ij})=\langle p_i^{e_{ij}}(x)\rangle$, $e_i\geq e_{i1}\geq\cdots\geq e_{it_i}$,\\
     以 $\cup_{ij}\{v_{ij},\tau(v_{ij}),\cdots,\tau^{d_{ij}-1}(v)\}$ 为基, 其中 $d_{ij}=\dim\langle\langle v_{ij}\rangle\rangle$, $\tau$ 的表示可简化为
-    $$[\tau]_{\mathcal{B}}=\begin{pmatrix}
+    $$[\tau]_{\mathcal{B}}=\bigoplus_{ij}C[p_i^{e_{ij}}(x)]=\begin{pmatrix}
         C[p_1^{e_{11}}(x)]\\
         &\ddots\\
         &&C[p_1^{e_{1t_1}}(x)]\\

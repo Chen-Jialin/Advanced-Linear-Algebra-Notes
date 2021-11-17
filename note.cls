@@ -147,6 +147,8 @@
 \DeclareMathOperator{\tor}{tor}% 挠 Torsion
 \DeclareMathOperator{\ann}{ann}% 零化子 Annihilator
 \DeclareMathOperator{\free}{free}% 自由/无挠 Free/Torsion-free
+\DeclareMathOperator{\spec}{spec}% 特征谱 Spectral
+\DeclareMathOperator{\diag}{diag}% 对角矩阵 Diagonal matrix
 
 % 题目和题解风格 Problem and solution style
 \ifUsingEnglish
