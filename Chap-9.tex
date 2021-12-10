@@ -39,7 +39,7 @@
     综上, 得证.
 \end{pf}
 
-\begin{thm}[(课本第 3 版定理 9.2)]
+\begin{thm}[(课本第 3 版定理 9.2)]\label{thm-9.2}
     $V$ 为内积向量空间, $\tau\in\mathcal{L}(V)$,
     \begin{itemize}
         \item[(1)] $\forall v,w\in V$, $\langle\tau(v),w\rangle=0\Longrightarrow\tau=0$.
@@ -224,7 +224,7 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
     再对 $o_1,\cdots,o_n,\cdots$ 归一化, 得到正交归一集 $\mathcal{O}=\langle o_1,\cdots,o_n,\cdots\rangle$, s.t. $\langle\mathcal{B}\rangle=\langle\mathcal{O}\rangle$.
 \end{thm}
 
-\begin{df}[Hammel 基]
+\begin{df}[Hamel 基]
     极大线性无关集.
 \end{df}
 
@@ -233,11 +233,13 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
 \end{df}
 
 \begin{thm}[(课本第 3 版定理 9.13)]
-    当 $\dim V<\infty$ 时, Hilbert 基 $\Longrightarrow$ Hammel 基.
+    当 $\dim V<\infty$ 时, Hilbert 基 $\Longrightarrow$ Hamel 基.
 \end{thm}
 
-\begin{eg}[Hilbert 基并非 Hammel 基的例子 (课本第 3 版例 9.5)]
-    % TODO
+\begin{eg}[Hilbert 基并非 Hamel 基的例子 (课本第 3 版例 9.5)]
+    $V=l^2$ 空间 (所有平方收敛级数列构成的空间), $M=\{e_1=(1,0,\cdots),e_2=(0,1,0,\cdots),\cdots\}$ 显然正交归一. 若 $v=(x_n)\in l^2$ 且 $v\perp M$, 则 $\forall i$, $x_i=\langle v,e_i\rangle=0\Longrightarrow v=0$, 故 $M$ 为 $V$ 的 Hilbert 基, 
+
+    然而, $M$ 张成的 $l^2$ 的子空间中的平方收敛级数列必仅有有限个非零项 $\Longrightarrow\text{span}S\neq l^2$, 故 $M$ 非 Hamel 基.
 \end{eg}
 
 \begin{thm}[(课本定理 9.11)]
@@ -328,8 +330,6 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
     $0=\langle u,u_j\rangle=\sum_{i=1}^kl_i\langle u_i,u_j\rangle=\sum_{i=1}^kl_i\delta_{ij}=l_j\Longrightarrow u=\sum_{i=1}^kl_iu_i=0$.
 
     ``(2) $\Longrightarrow$ (3)'': $v=v-\hat{v}+\hat{v}$, $\because\mathcal{O}^{\perp}=\{0\}$, $S^{\perp}\subseteq\mathcal{O}^{\perp}$, $\therefore S^{\perp}=\{0\}\Longrightarrow V=S\odot S^{\perp}$.
-
-    % TODO
 \end{pf}
 
 \section{Riesz 表示定理}

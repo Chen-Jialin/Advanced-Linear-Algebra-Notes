@@ -251,7 +251,7 @@ $\im\tau'=\{\tau'([v])\mid[v]\in\frac{V}{S}\}=\{\tau'([v])\mid v\in V\}=\{\tau(v
 \end{pf}
 
 \begin{df}[对偶基]
-    $\mathcal{B}=\{b_1,\cdots,b_n\}$ 为 $V$ 的基, 则 $\forall i$, $\exists b_i^*\in V$, s.t. $b_i^*(b_i)=1$, 对 $j\neq i$, $b_i^*(b_j)=0$, 即 $b_i^*(b_j)=\delta_{ij}$, 从而可以构造出 $\mathcal{B}^*=\{b_1^*,\cdots,b_n^*\}\subseteq V^*$, 称为 $\mathcal{B}$ 的对偶基.
+    $\mathcal{B}=\{b_1,\cdots,b_n\}$ 为 $V$ 的基, 则 $\forall i$, $\exists b_i^*\in V$, s.t. $b_i^*(b_i)=1$, 对 $j\neq i$, $b_i^*(b_j)=0$, 即 $b_i^*(b_j)=\delta_{ij}$, 从而可以构造出 $\mathcal{B}^*=\{b_1^*,\cdots,b_n^*\}\subseteq V^*$, 称为 $\mathcal{B}$ 的\textbf{对偶基}.
 \end{df}
 
 \begin{thm}[(课本定理 3.12)]
@@ -304,7 +304,7 @@ $V\rightarrow V^*\rightarrow V^{**}$, $v\mapsto v^*\mapsto v^{**}$, $b_i\mapsto 
 \end{cor}
 
 \begin{df}[算子伴随]
-    由线性变换 $\tau$ 可引出\textbf{算子伴随} $\tau^*:W^*\rightarrow V^*$, $g\mapsto g\circ\tau$.
+    由线性变换 $\tau$ 可引出\textbf{算子伴随} $\tau^{\times}:W^*\rightarrow V^*$, $g\mapsto g\circ\tau$.
     \begin{center}
         \begin{tikzpicture}
             \node(1)at(-2,2){$V$};
@@ -312,33 +312,33 @@ $V\rightarrow V^*\rightarrow V^{**}$, $v\mapsto v^*\mapsto v^{**}$, $b_i\mapsto 
             \node(3)at(0,-2){$F$};
             \draw[->](1)--(2)node[midway]{$\tau$};
             \draw[->](2)--(3)node[midway]{$g$};
-            \draw[->](1)--(3)node[midway]{$\tau^*=g\circ\tau$};
+            \draw[->](1)--(3)node[midway]{$\tau^{\times}=g\circ\tau$};
         \end{tikzpicture}
     \end{center}
 \end{df}
 
 \begin{itemize}
-    \item[(1)] $\tau^*$ 是映射.
-    \item[(2)] $\tau^*$ 是线性的.
+    \item[(1)] $\tau^{\times}$ 是映射.
+    \item[(2)] $\tau^{\times}$ 是线性的.
 \end{itemize}
 \begin{pf}
     \begin{itemize}
-        \item[(1)] 若 $f=g\in W^*$, $v^**\in\tau^*$, 则 $\tau^*(f)=f\circ\tau=g\circ\tau=\tau^*(g)$, 故得证.
-        \item[(2)] $\tau^*(rg_1+tg_2)=(rg_1+tg_2)\circ\tau=rg_1\circ\tau+tg_2\circ\tau=r\tau^*(g_1)+t\tau^*(g_2)$, 故得证.
+        \item[(1)] 若 $f=g\in W^*$, $v^**\in\tau^{\times}$, 则 $\tau^{\times}(f)=f\circ\tau=g\circ\tau=\tau^{\times}(g)$, 故得证.
+        \item[(2)] $\tau^{\times}(rg_1+tg_2)=(rg_1+tg_2)\circ\tau=rg_1\circ\tau+tg_2\circ\tau=r\tau^{\times}(g_1)+t\tau^{\times}(g_2)$, 故得证.
     \end{itemize}
 \end{pf}
 
 \begin{thm}[(课本定理 3.18)]
     \begin{itemize}
-        \item[(1)] $\tau.\sigma\in\mathcal{L}(V,W)$, $a,b\in F$, 则 $(a\tau+b\sigma)^*=a\tau^*+b\sigma^*$, 即求和与算子伴随可交换.
-        \item[(2)] $\sigma\in\mathcal{L}(V,W)$, $\tau\in\mathcal{L}(W,U)$, 则 $(\tau\circ\sigma)^*=\sigma^*\circ\tau^*$.
-        \item[(3)] $\mathcal{\tau}\in\mathcal{L}(V)$ 可逆 $\Longrightarrow(\tau^{-1})^*=(\tau^*)^{-1}$.
+        \item[(1)] $\tau.\sigma\in\mathcal{L}(V,W)$, $a,b\in F$, 则 $(a\tau+b\sigma)^*=a\tau^{\times}+b\sigma^*$, 即求和与算子伴随可交换.
+        \item[(2)] $\sigma\in\mathcal{L}(V,W)$, $\tau\in\mathcal{L}(W,U)$, 则 $(\tau\circ\sigma)^*=\sigma^*\circ\tau^{\times}$.
+        \item[(3)] $\mathcal{\tau}\in\mathcal{L}(V)$ 可逆 $\Longrightarrow(\tau^{-1})^*=(\tau^{\times})^{-1}$.
     \end{itemize}
 \end{thm}
 \begin{pf}
     \begin{itemize}
-        \item[(1)] $\forall f\in W^*$, $(a\tau+b\sigma)^*(f)=f\circ(a\tau+b\sigma)=af\circ\tau+bf\circ\sigma=a\tau^*(f)+b\tau^*(f)$, 即得证.
-        \item[(2)] $\forall f\in V^*$, $(\tau\circ\sigma)^*(f)=f\circ(t\circ\sigma)=f\circ(\tau\circ\sigma)=(f\circ\tau)\circ\sigma=\sigma^*(f\circ\tau)=\sigma^*(\tau^*(f))=(\sigma^*\circ\tau^*(f))=(\sigma^*\circ\tau^*)(f)\Longrightarrow(\tau\circ\sigma)^*=\sigma^*\circ\tau^*$.
+        \item[(1)] $\forall f\in W^*$, $(a\tau+b\sigma)^*(f)=f\circ(a\tau+b\sigma)=af\circ\tau+bf\circ\sigma=a\tau^{\times}(f)+b\tau^{\times}(f)$, 即得证.
+        \item[(2)] $\forall f\in V^*$, $(\tau\circ\sigma)^*(f)=f\circ(t\circ\sigma)=f\circ(\tau\circ\sigma)=(f\circ\tau)\circ\sigma=\sigma^*(f\circ\tau)=\sigma^*(\tau^{\times}(f))=(\sigma^*\circ\tau^{\times}(f))=(\sigma^*\circ\tau^{\times})(f)\Longrightarrow(\tau\circ\sigma)^*=\sigma^*\circ\tau^{\times}$.
         \begin{center}
             \begin{tikzpicture}
                 \node(1)at(-2,2){$V$};
@@ -352,23 +352,23 @@ $V\rightarrow V^*\rightarrow V^{**}$, $v\mapsto v^*\mapsto v^{**}$, $b_i\mapsto 
                 \node(2)at(2,2){$W^*$};
                 \node(3)at(0,-2){$U^*$};
                 \draw[->](2)--(1)node[midway]{$\sigma^*$};
-                \draw[->](3)--(2)node[midway]{$\tau^*$};
-                \draw[->](3)--(1)node[midway]{$(\tau\circ\sigma)^*=\sigma^*\circ\tau^*$?};
+                \draw[->](3)--(2)node[midway]{$\tau^{\times}$};
+                \draw[->](3)--(1)node[midway]{$(\tau\circ\sigma)^*=\sigma^*\circ\tau^{\times}$?};
             \end{tikzpicture}
         \end{center}
-        \item[(3)] $1^*=(\tau\circ\tau^{-1})^*=(\tau^{-1})^*\circ\tau^*\Longrightarrow(\tau^{-1})^*=(\tau^*)^{-1}$.
+        \item[(3)] $1^*=(\tau\circ\tau^{-1})^*=(\tau^{-1})^*\circ\tau^{\times}\Longrightarrow(\tau^{-1})^*=(\tau^{\times})^{-1}$.
     \end{itemize}
 \end{pf}
 
 \begin{thm}[(课本定理 3.18)]
-    $\dim V<\infty$, $\dim W<\infty$, $\tau\in\mathcal{L}(V,W)$, $\tau^*\in\mathcal{L}(V,W)$, $\tau^{**}\in\mathcal{L}(V^{**},W^{**})=\mathcal{L}(V,W)$, 则 $\tau^{**}=\tau$.
+    $\dim V<\infty$, $\dim W<\infty$, $\tau\in\mathcal{L}(V,W)$, $\tau^{\times}\in\mathcal{L}(V,W)$, $\tau^{**}\in\mathcal{L}(V^{**},W^{**})=\mathcal{L}(V,W)$, 则 $\tau^{**}=\tau$.
 \end{thm}
 
 \begin{thm}[(课本定理 3.22)]
-    $\tau\in\mathcal{L}(V,W)$, 其中 $\dim V<\infty$, $\dim W<\infty$, $\mathcal{B}$ 和 $\mathcal{C}$ 分别是 $V$ 和 $W$ 的定序基, $\mathcal{B}^*$ 和 $\mathcal{C}^*$ 分别是 $\mathcal{B}$ 和 $\mathcal{C}$ 的对偶空间, 则 $[\tau^*]_{\mathcal{C}^*\mathcal{B}^*}=([\tau]_{\mathcal{BC}})^T$.
+    $\tau\in\mathcal{L}(V,W)$, 其中 $\dim V<\infty$, $\dim W<\infty$, $\mathcal{B}$ 和 $\mathcal{C}$ 分别是 $V$ 和 $W$ 的定序基, $\mathcal{B}^*$ 和 $\mathcal{C}^*$ 分别是 $\mathcal{B}$ 和 $\mathcal{C}$ 的对偶基, 则 $[\tau^{\times}]_{\mathcal{C}^*\mathcal{B}^{\times}}=([\tau]_{\mathcal{BC}})^T$.
 \end{thm}
 \begin{pf}
-    设 $\dim V=n$, $\dim W=m$, $V$ 的定序基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, $W$ 的定序基 $\mathcal{C}=\{c_1,\cdots,c_m\}$, $\tau\in\mathcal{L}(V,W)$ 的矩阵表示为 $[\tau]_{\mathcal{BC}}=[\alpha_{ij}]_{m\times n}$, $\tau^*\in\mathcal{L}(W^*,V^*)$ 的矩阵表示为 $[\tau^*]_{\mathcal{C}^*\mathcal{B}^*}=[\beta_{ij}]_{n\times m}$,\\
+    设 $\dim V=n$, $\dim W=m$, $V$ 的定序基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, $W$ 的定序基 $\mathcal{C}=\{c_1,\cdots,c_m\}$, $\tau\in\mathcal{L}(V,W)$ 的矩阵表示为 $[\tau]_{\mathcal{BC}}=[\alpha_{ij}]_{m\times n}$, $\tau^{\times}\in\mathcal{L}(W^*,V^*)$ 的矩阵表示为 $[\tau^{\times}]_{\mathcal{C}^*\mathcal{B}^*}=[\beta_{ij}]_{n\times m}$,\\
     即 $[\tau]_{\mathcal{BC}}=\begin{pmatrix}
         [\tau(b_1)]_{\mathcal{C}}&\cdots&[\tau(b_n)]_{\mathcal{C}}
     \end{pmatrix}$, 令 $[\tau(b_i)]_{\mathcal{C}}=\begin{pmatrix}
@@ -383,7 +383,7 @@ $V\rightarrow V^*\rightarrow V^{**}$, $v\mapsto v^*\mapsto v^{**}$, $b_i\mapsto 
         \vdots\\
         \beta_{ni}
     \end{pmatrix}$, $\tau^*(c_i^*)=\sum_{l=1}^n\beta_{li}b_l^*$.\\
-    又 $\because\tau^*(c_i^*)=c_i^*\circ\tau$, 我们将这一复合函数作用在 $b_j$ 上有, $(c_i^*\circ\tau)(b_j)=\left(\sum_{l=1}^n\beta_{li}b_l^*\right)(b_j)=\sum_{l=1}^n\beta_{li}b_l^*(b_j)=\beta_{ji}$\\
+    又 $\because\tau^*(c_i^*)=c_i^*\circ\tau$, 我们将这一复合函数作用在 $b_j$ 上有 $(c_i^*\circ\tau)(b_j)=\left(\sum_{l=1}^n\beta_{li}b_l^*\right)(b_j)=\sum_{l=1}^n\beta_{li}b_l^*(b_j)=\beta_{ji}$\\
     $\Longrightarrow\beta_{ji}=c_i^*(\tau(b_j))$, 代入上面的 $\tau(b_j)$ 的展开式得 $\beta_{ji}=c_i^*\left(\sum_{k=1}^m\alpha_{kj}c_k\right)=\sum_{k=1}^m\alpha_{kj}c_i^*(c_k)=\sum_{k=1}^m\alpha_{kj}\delta_{ik}=\alpha_{ij}$, 故得证.
 \end{pf}
 \ifx\allfiles\undefined
