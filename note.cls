@@ -149,6 +149,8 @@
 \DeclareMathOperator{\free}{free}% 自由/无挠 Free/Torsion-free
 \DeclareMathOperator{\spec}{spec}% 特征谱 Spectral
 \DeclareMathOperator{\diag}{diag}% 对角矩阵 Diagonal matrix
+\DeclareMathOperator{\cl}{cl}% 集合的闭包 Closure of set
+\DeclareMathOperator{\lp}{l}% 集合的极限点 Limit point of set
 
 % 题目和题解风格 Problem and solution style
 \ifUsingEnglish

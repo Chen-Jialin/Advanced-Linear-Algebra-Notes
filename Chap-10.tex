@@ -1,5 +1,5 @@
 % !Tex program = pdflatex
-% 第 9 章: 实数和复数内积空间 Chap 9: Real and Complex Inner Product Space
+% 第 10 章: 正规算子的结构理论 Chap 10: Structure Theory for Normal Operator
 \ifx\allfiles\undefined
 \documentclass{note}
 \setcounter{chapter}{+9}
@@ -593,6 +593,15 @@ $\Longleftrightarrow\tau=\lambda_1\rho_1+\cdots+\lambda_k\rho_k$, 其中 $\lambd
         当 $\tau$ 不可逆时, 拓展 $\rho$ 的像为 $\tau$ 的像的方式不唯一, 故 $\nu$ 不唯一.
     \end{itemize}
 \end{pf}
+
+若 $\sigma$ 酉, 则其特征值模 $\abs{\lambda}=1$, 可记为 $\lambda_i=e^{i\theta_i}$, 其中 $\theta_i\in\mathbb{R}$,\\
+则 $\sigma=\lambda_1\rho_1+\cdots+\lambda_k\rho_k=e^{i\theta_1}\rho_1+\cdots+e^{i\theta_k}\rho_k$, 其中 $\rho_1+\cdots+\rho_k=1$ 为正交单位分解.\\
+令 $H=\theta_1\rho_1+\cdots+\theta_k\rho_k$, 则
+\begin{itemize}
+    \item[(1)] $H^*=H$.
+    \item[(2)] $\sigma=e^{iH}$.
+\end{itemize}
+此处 $H$ 类似量子力学中的哈密顿量, $\sigma$ 类似演化算子.
 \ifx\allfiles\undefined
 \end{document}
 \fi
