@@ -3,7 +3,7 @@
 
 %% Options
 % 边数模式 Side mode
-\providecommand{\Side}{oneside}% 单边(不分奇偶数页，默认)或双边(区分奇偶数页)模式 Oneside (not distinguishing odd or even pages, default) or twoside (distinguishing odd and even pages) mode
+\providecommand{\Side}{oneside}% 单边 (不分奇偶数页, 默认) 或双边 (区分奇偶数页) 模式 Oneside (not distinguishing odd or even pages, default) or twoside (distinguishing odd and even pages) mode
 \newif\ifTwoSide% [布尔变量] 是否为双边模式 [Bool] Whether twoside mode or not (default)
 \DeclareOption{oneside}% 单边模式 Oneside mode
 {
@@ -17,7 +17,7 @@
 }
 
 % 语言 Language
-\newif\ifUsingEnglish% [布尔变量] 是否(默认)使用英语 [Bool] Whether using English or not (default)
+\newif\ifUsingEnglish% [布尔变量] 是否 (默认) 使用英语 [Bool] Whether using English or not (default)
 \DeclareOption{zh}% 使用中文
 {
     \UsingEnglishfalse
@@ -75,12 +75,13 @@
 
 % 其他 Others
 \RequirePackage{ulem}% 各式下划线和删除标记 Various underlines & deletion notes
-\normalem% 避免将意大利斜体 (\emph或\em) 替换为下划线 Avoide replacing italics (\emph or \em) with underlines
+\normalem% 避免将意大利斜体 (\emph 或 \em) 替换为下划线 Avoide replacing italics (\emph or \em) with underlines
 \RequirePackage{color}% 文本颜色 Text color
 \RequirePackage{hyperref}% 超链接 Hyperlink
 \RequirePackage{framed}% 文本加框 Framed text
 \RequirePackage{mdframed}% 定理环境加框 Framed theorem environment
 \RequirePackage{footmisc}% 脚注引用 Footnote reference
+\RequirePackage[subfigure]{tocloft}% 自定义目录，subfigure 选项防止与 subfigure 宏包冲突 Contents table customization, option subfigure avoiding conflict with subfigure package
 
 % 页眉和页脚 Header & footer
 % #1 笔记主题 Notes topic
@@ -96,12 +97,13 @@
         \setlength{\headheight}{60pt}% 页眉高 Height of the header
         \fancyhead[R]{{\huge\bfseries{}笔记}\\
             \href{#4}{#3}\\
-            #5}% The left of the header
+            #5}% 页眉左 The left of the header
         \fancyhead[L]{{\huge\bfseries#1}\\
-            #2}% The center of the header
-        \fancyfoot[R]{\thepage\ / \pageref{LastPage}}% 页脚右：<当前页码> / <总页数> The right of the footer: <current page number> / <total page number>
+            #2}% 页眉右 The center of the header
+        % \fancyfoot[R]{\thepage\ / \pageref{LastPage}}% 页脚右: <当前页码> / <总页数> The right of the footer: <current page number> / <total page number>
     }
-    \thispagestyle{FirstPage}% 设置首页页眉风格为 FirstPage Set header style of first page to be FirstPage
+    \tocloftpagestyle{FirstPage}% 设置目录页页眉风格为 FirstPage Set header style of contents table pages to be FirstPage
+    \tableofcontents
 }
 \fancypagestyle{plain}{% 每章首页页眉和页脚风格 Header and footer style of each chapter's first page
     \fancyhf{}% 清除预设的页眉和页脚 Clear default header and footer
@@ -118,8 +120,8 @@
 \setlength{\headheight}{14pt}% 页眉高 Height of the header
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
-\fancyhead[L]{\leftmark}% 页眉右：<当前章标题> The right of the header <current chapter title>
-\fancyhead[R]{\rightmark}% 页眉左：<当前节标题> The left of the header: <current section title>
+\fancyhead[L]{\leftmark}% 页眉右: <当前章标题> The right of the header <current chapter title>
+\fancyhead[R]{\rightmark}% 页眉左: <当前节标题> The left of the header: <current section title>
 \ifTwoSide
     \fancyfoot[RO]{\thepage\ / \pageref{LastPage}}% 奇数页脚右: <当前页码> / <总页数> The right of odd page footer: <current page number> / <total page number>
     \fancyfoot[LE]{\thepage\ / \pageref{LastPage}}% 偶数页脚左: <当前页码> / <总页数> The left of even page footer: <current page number> / <total page number>
@@ -151,6 +153,8 @@
 \DeclareMathOperator{\diag}{diag}% 对角矩阵 Diagonal matrix
 \DeclareMathOperator{\cl}{cl}% 集合的闭包 Closure of set
 \DeclareMathOperator{\lp}{l}% 集合的极限点 Limit point of set
+\DeclareMathOperator{\spanned}{span}% 张成的空间 Spanned space
+\DeclareMathOperator{\cspan}{cpan}% 所张空间的闭包 Closure of spanned space
 
 % 题目和题解风格 Problem and solution style
 \ifUsingEnglish
@@ -166,17 +170,17 @@
     \providecommand{\Proof}{Proof}% "Proof" in proof environment (pf)
     \providecommand{\Answer}{Answer}% "Answer" in answer environment (ans)
 \else
-    \providecommand{\Definition}{定义}% 定义环境 (def) 中的 “定义”
-    \providecommand{\Axiom}{公理}% 公理环境 (ax) 中的“公理”
-    \providecommand{\Theorem}{定理}% 定理环境 (thm) 中的“定理”
-    \providecommand{\Law}{定律}% 定律环境 (law) 中的“定律”
-    \providecommand{\Corollary}{引理}% 引理环境 (cor) 中的“引理”
-    \providecommand{\Example}{例}% 例环境 (eg) 中的“例”
-    \providecommand{\Problem}{问题}% 问题环境 (prob) 中的“问题”
-    \providecommand{\Exercise}{习题}% 习题环境 (exe) 中的“习题”
-    \providecommand{\Solution}{解}% 解环境 (sol) 中的“解”
-    \providecommand{\Proof}{证}% 证明环境 (pf) 中的“证”
-    \providecommand{\Answer}{答}% 答环境 (ans) 中的“答”
+    \providecommand{\Definition}{定义}% 定义环境 (def) 中的 "定义"
+    \providecommand{\Axiom}{公理}% 公理环境 (ax) 中的 "公理"
+    \providecommand{\Theorem}{定理}% 定理环境 (thm) 中的 "定理"
+    \providecommand{\Law}{定律}% 定律环境 (law) 中的 "定律"
+    \providecommand{\Corollary}{引理}% 引理环境 (cor) 中的 "引理"
+    \providecommand{\Example}{例}% 例环境 (eg) 中的 "例"
+    \providecommand{\Problem}{问题}% 问题环境 (prob) 中的 "问题"
+    \providecommand{\Exercise}{习题}% 习题环境 (exe) 中的 "习题"
+    \providecommand{\Solution}{解}% 解环境 (sol) 中的 "解"
+    \providecommand{\Proof}{证}% 证明环境 (pf) 中的 "证"
+    \providecommand{\Answer}{答}% 答环境 (ans) 中的 "答"
 \fi
 \newtheoremstyle{Entry}% 定理风格名称 Theorem style name
 {}% 定理上方空间尺寸, 留空为默认 Space above theorem, being left empty means default
@@ -194,7 +198,7 @@
 \newmdtheoremenv{law}{\Law}[chapter]% 定律 Law
 \newmdtheoremenv{cor}{\Corollary}[chapter]% 引理 Corollary
 \makeatletter
-\def\@endtheorem{\qed\endtrivlist\@endpefalse}% 定理末尾添加 qed 符号 (黑色空心小正方形)% Add qed symbols (black hollow small square) to the end of theorems
+\def\@endtheorem{\qed\endtrivlist\@endpefalse}% 定理末尾添加 QED 符号 (黑色空心小正方形) Add QED symbols (black hollow small square) to the end of theorems
 \makeatother
 \newtheorem{eg}{\Example}[chapter]% 例 Example
 \newtheorem{prob}{\Problem}[chapter]% 问题 Problem

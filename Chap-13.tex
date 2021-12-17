@@ -105,14 +105,136 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \end{df}
 \begin{eg}
     三角形、矩形、圆形均为凸集.\\
-    三角形中任一点可表为其三个顶点的凸组合 ($\sum_ip_ix_i$, 其中 $p_i>0\forall i$, $\sum_ip_i=1$).\\
+    三角形中任一点可表为其三个顶点的\textbf{凸组合} ($\sum_ip_ix_i$, 其中 $p_i>0\forall i$, $\sum_ip_i=1$).\\
     无法写成其他点的凸组合的点称为\textbf{极点}, 如三角形的三个顶点.\\
-    过凸集的极限点且将整个空间划分为含有凸集和不含凸集的两部分的超平面称为面 (face), 如过三角形的一个顶点但未过三角形内部的直线.\\
-    过凸集的不止一个极限点的面, 称为 facet, 如三角形的边所在的直线.
+    过凸集的极限点且将整个空间划分为含有凸集和不含凸集的两部分的超平面称为\textbf{面 (face)}, 如过三角形的一个顶点但未过三角形内部的直线.\\
+    过凸集的不止一个极限点的面, 称为 \textbf{facet}, 如三角形的边所在的直线.
 \end{eg}
 
-\begin{thm}[(课本定理 13.9)]
-    $S$ 为内积向量空间 $V$ 的完备的凸闭子集, 则 $\forall x\in V$, $\exists!\hat{x}\in S$, s.t. $\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}$, 称 $\hat{x}$ 为 $x$ 在 $S$ 中的最佳近似.
+\begin{thm}[(课本定理 13.9)]\label{thm-13.9}
+    $V$ 为内积向量空间, $S$ 为 $V$ 的完备的凸闭子集, 则 $\forall x\in V$, $\exists!\hat{x}\in S$, s.t. $\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}$, 称 $\hat{x}$ 为 $x$ 在 $S$ 中的最佳近似.
+\end{thm}
+\begin{pf}
+    令 $\delta=\inf_{y\in S}\norm{x-y}$, 则 $\forall\epsilon>0$, $\exists z\in S$, s.t. $\norm{y-z}<\delta+\epsilon$.\\
+    取 $\epsilon=\frac{1}{n}$, $\exists y_1\in S$, s.t. $\norm{x-y_1}<\delta+\epsilon_1$,\\
+    $\cdots$,\\
+    $\exists y_n\in S$, s.t. $\norm{x-y_n}\leq\delta+\epsilon_n$,\\
+    $\cdots$, 于是得序列 $(y_n)\in S$.\\
+    令 $s_n=x-y_n$, 则 $(\norm{s_n})\rightarrow\delta$.\\
+    $\norm{s_i-s_j}^2=2(\norm{s_i}^2+\norm{s_j})-\norm{s_i+s_j}^2$, 其中 $\norm{s_i+s_j}^2=\norm{x-y_i+x-y_j}^2=4\norm{x-\frac{y_i+y_j}{2}}^2$,\\
+    $\because y_i,y_j\in S$ 且 $S$ 凸, $\therefore\frac{y_i+y_j}{2}\in S\Longrightarrow\norm{x-\frac{y_i+y_j}{2}}^2\geq\delta$\\
+    $\Longrightarrow\norm{s_i-s_j}^2\leq 2(\norm{s_i}^2+\norm{s_j}^2)-4\delta^2\rightarrow 4\delta^2-4\delta^2=0\Longrightarrow\norm{s_i-s_j}^2=\norm{x-y_i-x+y_j}^2=\norm{y_i-y_j}^2\rightarrow 0$, 故 $(y_n)$ 为 $S$ 中柯西列.\\
+    又 $\because S$ 完备, $\therefore(y_n)\rightarrow x\Longrightarrow\norm{x-\hat{x}}=\lim_{n\rightarrow\infty}\norm{x-y_n}=\delta$.
+
+    下证 $\hat{x}$ 的唯一性: 设 $w\in S$, s.t. $\norm{x-w}=\delta$.\\
+    $\norm{\hat{x}-w}^2=\norm{\hat{x}-x+x-w}^2=2(\norm{x-\hat{x}}^2+\norm{x-w}^2)-\norm{\hat{x}-x-(x-w)}^2$, 其中 $\norm{\hat{x}-x-(x-w)}=4\norm{x-\frac{\hat{x}+w}{2}}^2$,\\
+    $\because\hat{x},w\in S$ 且 $S$ 凸, $\therefore\frac{\hat{x}+w}{2}\in S\Longrightarrow\norm{x-\frac{\hat{x}+w}{2}}^2\geq\delta$\\
+    $\Longrightarrow\norm{\hat{x}-w}^2\leq 2(\norm{x-\hat{x}}^2+\norm{x-w}^2)-4\delta^2=4\delta^2-4\delta^2=0\Longrightarrow\norm{\hat{x}-w}^2=0\Longrightarrow w=\hat{x}$.
+
+    综上, 得证.
+\end{pf}
+
+若 $S$ 非凸, 则 $\hat{x}$ 未必唯一.
+
+由上述定理, 可定义 $\min_{y\in S}\norm{x-y}\equiv\inf_{y\in S}\norm{x-y}$.
+
+\begin{thm}[(课本定理 13.10)]
+    $V$ 为内积向量空间, $S$ 为 $V$ 的完备子空间, 则 $\forall x\in V$, $\exists x$ 在 $S$ 中的最佳近似 $\hat{x}$ 且 $x-\hat{x}\perp S$.
+\end{thm}
+\begin{pf}
+    $S$ 为子空间 $\Longleftrightarrow S$ 中线性运算封闭 $\Longrightarrow S$ 凸, 由定理 \ref{thm-13.9} 得, $\exists!x$ 在 $S$ 中的最佳近似 $\hat{x}\in S$, s.t. $\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}$.
+
+    下证 $x-\hat{x}\in S$: $\forall y\in S$, $r\in F$, $\norm{v-ry}^2=\langle v-ry,v-ry\rangle=\langle v,v\rangle+\langle v,-ry\rangle+\langle-ry,v\rangle+\langle-ry,-ry\rangle=\norm{v}^2-\bar{r}\langle v,y\rangle-r\langle y,v\rangle+\abs{r}^2\norm{y}^2=\norm{v}^2+\norm{y}^2\left(r\bar{r}-\bar{r}\frac{\langle v,y\rangle}{\norm{y}^2}-r\frac{\langle y,v\rangle}{\norm{y}^2}\right)=\norm{v}^2+\norm{y}^2\left(r-\frac{\langle v,y\rangle}{\norm{y}^2}\right)\left(\bar{r}-\frac{\langle y,v\rangle}{\norm{y}^2}\right)-\norm{y}^2\frac{\langle v,y\rangle\langle y,v\rangle}{\norm{y}^4}=\norm{x}^2+\norm{y}^2\abs{r-\frac{\langle v,y\rangle}{\norm{y}^2}}-\frac{\abs{\langle v,y\rangle}}{\norm{y}^2}$.\\
+    当 $r=\frac{\langle v,y\rangle}{\norm{y}^2}$ 时, $\norm{v-ry}^2$ 取最小值, 此时 $\norm{v-ry}^2=\norm{v}^2-\frac{\abs{\langle v,y\rangle}^2}{\norm{y}^2}$.\\
+    特别地, 令 $v=x-\hat{x}$, 则 $\norm{x-\hat{x}-ry}^2\geq\norm{x-\hat{x}}^2-\frac{\abs{\langle x-\hat{x},y\rangle}^2}{\norm{y}^2}$.\\
+    又 $\because\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}^2\leq\norm{x-(\hat{x}+ry)}^2$, $\therefore\frac{\abs{\langle x-\hat{x},y\rangle}^2}{\norm{y}^2}=0\Longrightarrow x-\hat{x}\perp y\Longrightarrow x-\hat{x}\perp S$.
+
+    综上, 得证.
+\end{pf}
+
+\begin{thm}[投影定理 (课本定理 13.11)]
+    $V$ 为内积向量空间, $S$ 为 $V$ 的完备子集, 则 $V=S\odot S^{\perp}$.\\
+    特别地, 若 $H$ 为希尔伯特空间, $S$ 为 $H$ 的闭子空间, 则 $H=S\odot S^{\perp}$.
+\end{thm}
+
+\begin{thm}[(课本定理 13.12)]
+    $S,T$ 为 $V$ 的子空间, 则
+    \begin{itemize}
+        \item[(1)] 若 $V=S\odot T$, 则 $V=S\odot T$.
+        \item[(2)] 若正交补 $\exists$, 则唯一. 若 $S\odot T=S\odot T'$, 则 $T=T'$.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] $\because V=S\odot T$, $\therefore\forall x\in T$, $x\perp S\Longrightarrow T\subseteq S^{\perp}$.
+
+        $\forall w\in S^{\perp}\subseteq V=S\odot T$, $w=w_S+w_T$, 其中 $w_S\in S$, $w_T\in T$.\\
+        $\because w\in S^{\perp}$, $w_S\in S$, $\therefore 0=\langle w_S,w\rangle=\langle w_S,w_S+w_T\rangle=\langle w_S,w_S\rangle+\msout{\langle w_S,w_T\rangle}0\Longrightarrow w_S=0\Longrightarrow w=w_T\in T\Longrightarrow S^{\perp}\subseteq T$.
+
+        综上, 得证.
+    \end{itemize}
+\end{pf}
+
+补空间不唯一, 但补空间之间互相同构.
+
+\begin{thm}[(课本定理 13.13)]
+    $H$ 为希尔伯特空间, 则
+    \begin{itemize}
+        \item[(1)] 若 $A\subseteq H$, 则 $\cspan(A)^{\perp}=A^{\perp\perp}~$\footnote{$\cspan(A)=\cl(\spanned{A})$ 为 $A$ 中向量所张成的空间的闭包.}.
+        \item[(2)] 若 $S$ 为 $H$ 的子空间, 则 $\cl(S)=S^{\perp}$.
+        \item[(3)] 若 $K$ 为 $H$ 的完备子空间, 则 $K=K^{\perp\perp}$.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] 即证 $\cspan(A)^{\perp}=A^{\perp}$: $\because A\subseteq\cspan(A)$, $\therefore\cspan(A)^{\perp}\subseteq A^{\perp}$.
+
+        $\cspan(A)=\spanned(A)\cup\lp(\spanned(A))$.\\
+        $\forall x\in A$, $x\perp A$.\\
+        $\forall y\in\spanned(A)$, $y=\sum_ir_ix_i$, 其中 $r_i\in F$, $x_i\in A$.\\
+        $\because x\perp A$, $\therefore\langle x,x_i\rangle=0\forall i\Longrightarrow\langle x,y\rangle=\langle x,\sum_ir_ix_i\rangle=\sum_i\overline{r_i}\langle x,x_i\rangle=0\Longrightarrow x\perp\spanned(A)$.\\
+        $\forall z\in\lp(\spanned(A))$, $\forall r$, $B(z,r)\cap\spanned(A)$ 中包含异于 $z$ 的点.\\
+        取 $r_n=\frac{1}{n}$, 则可得序列 $(z_n)\in\spanned(A)$. s.t. $z_n\neq z\forall n$ 且 $B(z_n,z)<r_n$ 即 $(z_n)\rightarrow z$.\\
+        $\because x\in A^{\perp}$, $\therefore x\perp\spanned(A)$.\\
+        又 $\because(z_n)\in\spanned(A)$, $\therefore x\perp z_n$ 即 $\langle x,z_n\rangle=0\forall n$.\\
+        又 $\because\langle x,\rangle:V\rightarrow\mathbb{R}$, $v\mapsto\langle x,v\rangle$ 连续, $(z_n)\rightarrow z$, $\therefore\langle x,z_n\rangle\rightarrow\langle x,z\rangle$.\\
+        又 $\because\langle x,z_n\rangle=0$ 为常序列, $\therefore\langle x,z\rangle=0\Longrightarrow x\perp\lp(\spanned(A))$.\\
+        $\because x\perp\spanned(A)$, $x\perp\lp(\spanned(A))$, $\therefore x\perp\spanned(A)\cup\lp(\spanned(A))=\cspan(A)\Longrightarrow A^{\perp}\subseteq\cspan(A)$.
+
+        综上, $\cspan(A)=A^{\perp\perp}\Longrightarrow H=\cspan(A)\odot\cspan(A)^{\perp}=\cspan(A)\odot A^{\perp}\Longrightarrow\cspan(A)=A^{\perp\perp}$.
+        \item[(2)] 将 (1) 中的 $\spanned(A)$ 换成 $S$ 即得证.
+        \item[(3)] $\because K$ 为 $H$ 的完备子空间, $\therefore K$ 闭 $\Longrightarrow K=\cl(K)$, 利用 (2) 即得证.
+    \end{itemize}
+\end{pf}
+
+利用上述定理可得如下推论:
+\begin{thm}[(课本定理 13.14)]
+    $H$ 为希尔伯特空间, $A\subseteq H$, 若 $\spanned(A)$ 在 $H$ 中稠密, 则 $A^{\perp}=\{0\}$.
+\end{thm}
+\begin{pf}
+    $\because\spanned(A)$ 在 $H$ 中稠密, $\therefore\cspan(A)=\cl(\spanned(A))=H$.\\
+    $\because H$ 为希尔伯特空间, $A\subseteq H$, $\therefore\cspan(A)=A^{\perp\perp}\Longrightarrow H=A^{\perp\perp}\Longrightarrow A^{\perp}=H^{\perp}=\{0\}$.\\
+\end{pf}
+
+\begin{thm}[(课本定理 13.15)]
+    $\mathcal{O}$ 为 Hilbert 基, 则 $\mathcal{O}^{\perp}=\{0\}$.
+\end{thm}
+\begin{pf}
+    $\because\mathcal{O}$ 为 Hilbert 基, $\therefore\mathcal{O}$ 为极大的正交集, 即得证.
+\end{pf}
+
+\begin{thm}[(课本定理 13.25)]
+    $H$ 为 Hilbert 空间, $\mathcal{O}=\{o_k\mid k\in K\}$ 为 $H$ 中的正交归一簇, 则 $\forall x\in H$, $\hat{x}=\sum_{k\in K}\langle x,o_k\rangle$ 在 $H$ 中收敛, 为 $x$ 在 $\spanned(\mathcal{O})$ 中的最佳近似, $\sum_{k\in K}\abs{\langle x,o_k\rangle}^2\leq\norm{x}^2$.
+\end{thm}
+
+\begin{thm}[(课本定理 13.26)]
+    $H$ 为 Hilbert 空间, $\mathcal{O}=\{u_k\mid k\in K\}$ 为 $H$ 中的正交归一簇, 则下列叙述等价:
+    \begin{itemize}
+        \item[(1)] $\mathcal{O}$ 为 Hilbert 基.
+        \item[(2)] $\mathcal{O}=\{0\}$.
+        \item[(3)] $x=\hat{x}$.
+        \item[(4)] $\norm{x}=\norm{\hat{x}}$.
+    \end{itemize}
 \end{thm}
 \ifx\allfiles\undefined
 \end{document}
