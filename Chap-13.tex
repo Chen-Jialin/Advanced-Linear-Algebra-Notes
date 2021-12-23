@@ -68,7 +68,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 此前, 我们已经证明, 对给定的向量, 由有限维子空间有正交归一基可表示其在有限维子空间中的最佳近似; 由于无限维子空间有最大正交归一集, 但该最大正交归一集未必为基, 故向量在无限维子空间中未必有最佳近似; 以开子集为例可说明, 向量在子集中未必有最佳近似.
 
 \begin{df}[级数收敛和绝对收敛]
-    序列 $(x_n)$ 的前 $n$ 项和 $s_n=\sum_{i=1}^nx_i$, 若 $(s_n)$ 在 $V$ 中收敛于 $s$, 则称级数 $\sum_{i=1}^{\infty}x_i$ 在 $V$ 中\textbf{收敛}于 $s$, 记作 $\sum_{i=1}^{\infty}=s$; 若 $\sum_{i=1}^{\infty}\abs{x_i}$ 收敛, 则称 $\sum_{i=1}^{\infty}x_i$ 绝对收敛.
+    序列 $(x_n)$ 的前 $n$ 项和 $s_n=\sum_{i=1}^nx_i$, 若 $(s_n)$ 在 $V$ 中收敛于 $s$, 则称级数 $\sum_{i=1}^{\infty}x_i$ 在 $V$ 中\textbf{收敛}于 $s$, 记作 $\sum_{i=1}^{\infty}=s$; 若 $\sum_{i=1}^{\infty}\abs{x_i}$ 收敛, 则称 $\sum_{i=1}^{\infty}x_i$ \textbf{绝对收敛}.
 \end{df}
 
 \begin{thm}[收敛和绝对收敛的关系 (课本定理 13.8)]
@@ -101,7 +101,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 
 \section{近似问题}
 \begin{df}[凸集]
-    若 $\forall x,y\in C$, $\forall p\in[0,1]$, $px+(1-p)y\in C$, 则称 $C$ 为凸集.
+    若 $\forall x,y\in C$, $\forall p\in[0,1]$, $px+(1-p)y\in C$, 则称 $C$ 为\textbf{凸集}.
 \end{df}
 \begin{eg}
     三角形、矩形、圆形均为凸集.\\
@@ -112,7 +112,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \end{eg}
 
 \begin{thm}[(课本定理 13.9)]\label{thm-13.9}
-    $V$ 为内积向量空间, $S$ 为 $V$ 的完备的凸闭子集, 则 $\forall x\in V$, $\exists!\hat{x}\in S$, s.t. $\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}$, 称 $\hat{x}$ 为 $x$ 在 $S$ 中的最佳近似.
+    $V$ 为内积向量空间, $S$ 为 $V$ 的完备的凸闭子集, 则 $\forall x\in V$, $\exists!\hat{x}\in S$, s.t. $\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}$, 称 $\hat{x}$ 为 $x$ 在 $S$ 中的\textbf{最佳近似}.
 \end{thm}
 \begin{pf}
     令 $\delta=\inf_{y\in S}\norm{x-y}$, 则 $\forall\epsilon>0$, $\exists z\in S$, s.t. $\norm{y-z}<\delta+\epsilon$.\\
@@ -236,6 +236,153 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
         \item[(4)] $\norm{x}=\norm{\hat{x}}$.
     \end{itemize}
 \end{thm}
+
+\section{有界线性变换的 Riesz 表示定理}
+\begin{df}[有界线性变换]
+    $H_1,H_2$ 为希尔伯特空间, $\tau\in\mathcal{L}(H_1,H_2)$, 若 $\sup_{0\neq x\in H_1}\frac{\norm{\tau(x)}}{\norm{x}}<\infty$, 则称 $\tau$ \textbf{有界}, 记 $\norm{\tau}\equiv\sup_{0\neq x\in H_1}\frac{\norm{\tau(x)}}{\norm{x}}$, 称为 $\tau$ 的\textbf{范数}.\\
+    记 $\mathcal{B}(H_1,H_2)=\{H_1$ 到 $H_2$ 的\textbf{有界线性变换}$\}$, $\mathcal{B}(H_1)\equiv\mathcal{B}(H_1)=\{H_1$ 的\textbf{有界线性算子}$\}$.
+\end{df}
+
+\begin{eg}
+    \begin{itemize}
+        \item[(1)] 零变换有界, $\norm{0}=0$.
+        \item[(2)] 恒等变换有界, $\norm{1}=1$.
+        \item[(3)] 若 $\dim H_1<\infty$, $\dim H_2<\infty$, 则 $\forall\tau\in\mathcal{L}(H_1,H_2)$ 有界.
+    \end{itemize}
+\end{eg}
+
+\begin{thm}\label{thm-13.a}
+    若 $\tau$ 有界, 则 $\norm{\tau(y)}\leq\norm{\tau}\norm{y}$.
+\end{thm}
+\begin{pf}
+    若 $y=0$, 则显然.
+
+    $\forall 0\neq y$, $\frac{\norm{\tau(y)}}{\norm{y}}\leq\sup_{x\neq 0}\frac{\norm{\tau(x)}}{\norm{x}}=\norm{\tau}\Longrightarrow\norm{\tau(y)}\leq\norm{\tau}\norm{y}$.
+
+    综上, 得证.
+\end{pf}
+
+\begin{thm}[(课本定理 13.30)]
+    $\tau$ 有界, 则
+    \begin{itemize}
+        \item[(1)] $\norm{\tau}=\sup_{\norm{x}=1}\norm{\tau(x)}$.
+        \item[(2)] $\norm{\tau}=\sup_{\norm{x}\leq 1}\norm{\tau(x)}$.
+        \item[(3)] $\norm{\tau}=\inf\{c\mid\norm{\tau(x)}\leq c\cdot\norm{x}\}$.
+    \end{itemize}
+\end{thm}
+\begin{pf}
+    \begin{itemize}
+        \item[(1)] $\frac{\norm{\tau(x)}}{\norm{x}}=\sqrt{\frac{\langle\tau(x),\tau(x)\rangle}{\norm{x}^2}}=\sqrt{\langle\frac{\tau(x)}{\norm{x}},\frac{\tau(x)}{\norm{x}}\rangle}=\sqrt{\langle\tau\left(\frac{x}{\norm{x}}\right),\tau\left(\frac{x}{\norm{x}}\right)\rangle}=\norm{\tau\left(\frac{x}{\norm{x}}\right)}$.\\
+        令 $y=\frac{x}{\norm{x}}$, 则 $\norm{y}=1$, $\norm{\tau}=\sup_{x\neq 0}\frac{\norm{\tau(x)}}{\norm{x}}=\sup_{\norm{y}=1}\norm{\tau(y)}$.
+        \item[(2)] 一方面, $\sup_{\norm{x}\leq 1}\norm{\tau(x)}\geq\sup_{\norm{x}=1}\norm{\tau(x)}=\norm{\tau}$;\\
+        另一方面, $\sup_{\norm{x}\leq 1}\norm{\tau(x)}\leq\sup_{\norm{x}\leq 1}\frac{\norm{\tau(x)}}{\norm{x}}\leq\sup_{x\neq 0}\frac{\norm{\tau(x)}}{\norm{x}}=\norm{\tau}$,\\
+        故 $\norm{\tau}=\sup_{\norm{x}\leq 1}\norm{\tau(x)}$.
+        \item[(3)] 由定理 \ref{thm-13.a} 即得证.
+    \end{itemize}
+\end{pf}
+
+\begin{thm}[(课本定理 13.31)]
+    $\tau$ 有界 $\Longleftrightarrow\tau$ 连续.
+\end{thm}
+\begin{pf}
+    ``$\Longrightarrow$'': 取 $H_1$ 中收敛序列 $(x_n)\rightarrow x$.\\
+    $\forall\epsilon>0$, $\exists N>0$, s.t. 当 $n>N$ 时, $\norm{x_n-x}<\frac{\epsilon}{\norm{\tau}}$\\
+    $\Longrightarrow\norm{\tau(x_n)-\tau(x)}=\norm{\tau(x_n-x)}\leq\norm{\tau}\norm{x_n-x}<\epsilon\Longrightarrow(\tau(x_n))\rightarrow\tau(x)$, 故 $\tau$ 连续.
+
+    ``$\Longleftarrow$'': 以 $0$ 为例, 其余点同理可证.\\
+    $\because\tau$ 连续, $\therefore\forall\epsilon>0$, $\exists\delta>0$, s.t. $\tau(B(0,\delta))\subseteq B(\tau(0),\epsilon)=B(0,\epsilon)$.\\
+    特别地, 令 $\epsilon=1$, 则 $\exists\delta_1>0$, s.t. $\tau(B(0,\delta_1))\subseteq B(0,1)$.\\
+    若 $\norm{x}\leq\delta_1$, 则 $\norm{\tau(x)}\leq 1\Longrightarrow$ 若 $\norm{x}=\delta_1$, 则 $\norm{x}\leq 1$\\
+    $\Longrightarrow$ 若 $\norm{x}=\delta_1$, 则 $\frac{\norm{\tau(x)}}{\norm{x}}\leq\frac{1}{\delta_1}$\\
+    $\Longrightarrow\forall\norm{x}=1$, $\norm{\delta_1x}=\delta_1$, $\frac{\norm{\tau(x)}}{\norm{x}}=\frac{\norm{\tau(\delta_1x)}}{\norm{\delta_1x}}\leq\frac{1}{\delta_1}\Longrightarrow\tau$ 有界.
+
+    综上, 得证.
+\end{pf}
+
+\textbf{有界线性变换/算子的性质}: $\tau,\sigma\in B(H_1,H_2)$, 则
+\begin{itemize}
+    \item[(1)] $\tau+\sigma\in\mathcal{B}(H_1,H_2)$ 且 $\norm{\tau+\sigma}\leq\norm{\tau}+\norm{\sigma}$.
+    \begin{pf}
+        $\norm{\tau+\sigma}=\sup_{x\neq 0}\frac{\norm{(\tau+\sigma)(x)}}{\norm{x}}=\sup_{x\neq 0}\frac{\norm{\tau(x)+\sigma(x)}}{\norm{x}}\leq\sup_{\norm{x}}\Longrightarrow\tau+\sigma\in\mathcal{B}(H_1,H_2)$.
+    \end{pf}
+
+    由此定义了有界线性变换的加法, 与线性变换的加法相同.
+    \item[(2)] $\forall r\in F$, $rt\in\mathcal{B}(H_1,H_2)$ 且 $\norm{r\tau}=\abs{r}\norm{\tau}$.
+    \begin{pf}
+        $\norm{r\tau}=\sup_{x\neq 0}\frac{\norm{r\tau(x)}}{\norm{x}}=\sup_{x\neq 0}\frac{\abs{r}\norm{\tau(x)}}{\norm{x}}=\abs{r}\norm{\tau}\Longrightarrow r\tau\in\mathcal{B}(H_1,H_2)$.
+    \end{pf}
+
+    由此定义了有界线性变换的数乘, 与线性变换的数乘相同.
+\end{itemize}
+$\tau,\sigma\in\mathcal{B}(H_1)$, 则
+\begin{itemize}
+    \item[(3)] $\sigma\circ\tau\in\mathcal{B}(H_1)$ 且 $\norm{\sigma\circ\tau}\leq\norm{\sigma}\norm{\tau}$.
+    \begin{pf}
+        $\because\norm{\sigma\circ\tau(x)}=\norm{\sigma(\tau(x))}=\norm{\sigma(\tau(x))}\leq\norm{\sigma}\norm{\tau(x)}\leq\norm{\sigma}\norm{\tau}\norm{x}$, $\therefore\norm{\sigma\circ\tau}=\sup_{x\neq 0}\frac{\norm{\sigma\circ\tau(x)}}{\norm{x}}\leq\sup_{x\neq 0}\norm{\sigma}\norm{\tau}=\norm{\sigma}\norm{\tau}\Longrightarrow\sigma\circ\tau\in\mathcal{B}(H_1)$.
+    \end{pf}
+\end{itemize}
+
+$(\mathcal{B}(H_1,H_2),+)$ 为交换群.
+\begin{pf}
+    $(\mathcal{B}(H_1,H_2),+)$ 满足
+    \begin{itemize}
+        \item[(1)] \textbf{结合律}: 由线性变换加法的结合律即得,
+        \item[(2)] \textbf{有单位元}: 零映射 $0\in\mathcal{B}(H_1,H_2)$, $\forall\tau\in\mathcal{B}(H_1,H_2)$, $\norm{0+\tau}=\sup_{0\neq x\in H_1}\frac{\norm{(0+\tau)(x)}}{\norm{x}}=\sup_{0\neq x\in H_1}\frac{\norm{\tau(x)}}{\norm{x}}=\norm{\tau}$, 同理 $\norm{\tau+0}=\norm{\tau}$,
+        \item[(3)] \textbf{有逆元}: $\forall\tau\in\mathcal{B}(H_1,H_2)$, $\exists-\tau\in\mathcal{B}(H_1,H_2)$, s.t. $\tau+(-\tau)=(-\tau)+\tau=0$,
+    \end{itemize}
+    故得证.
+\end{pf}
+
+$\mathcal{B}(H_1,H_2)$ 为向量空间.
+\begin{pf}
+    前面已定义了有界线性变换的数乘及 $\mathcal{B}(H_1,H_2)$ 为交换群, 又由于 $\mathcal{B}(H_1)$ 满足
+    \begin{itemize}
+        \item[(1)] $r(\tau+\sigma)=r\tau+r\sigma$,
+        \item[(2)] $(r+t)\tau=r\tau+t\tau$,
+        \item[(3)] $(rt)\tau=r(t\tau)$,
+        \item[(4)] \textbf{有单位元}: $\exists 1\in F$, s.t. $1\tau=\tau$,
+    \end{itemize}
+    故得证.
+\end{pf}
+
+$(\mathcal{B}(H),+,\circ)$ 为环.
+\begin{pf}
+    $(\mathcal{B}(H),+,\circ)$ 满足
+    \begin{itemize}
+        \item[(1)] $(\mathcal{B}(H_1),+)$ 为交换群,
+        \item[(2)] \textbf{结合律}: 由线性变换的复合即得,
+        \item[(3)] \textbf{左分配律}: $\tau\circ(\sigma+\pi)=\tau\circ\sigma+\tau\circ\pi$,\\
+        \textbf{右分配律}: $(\tau+\sigma)\circ\pi=\tau\circ\pi+\sigma\circ\pi$,
+    \end{itemize}
+    故得证.
+\end{pf}
+
+\begin{thm}[Riesz 表示定理 (课本定理 13.32)]
+    $H$ 为希尔伯特空间, $\forall f\in H^*\equiv\{H$ 到 $F$ 上的有界线性变换$\}=\mathcal{B}(H,F)$, $\exists!z\in H$, s.t. $\forall x\in H$, $f(x)=\langle x,z\rangle$ 且 $\norm{z}=\norm{f}$.
+\end{thm}
+\begin{pf}
+    若 $f=0$, 则取 $z=0$, 以下考虑 $f\neq 0$ 的情况:\\
+    由引理 \ref{cor-13.2} 得, $\ker f$ 为闭子空间, 又 $\because H$ 为希尔伯特空间, $\therefore\ker f$ 完备子空间 $\Longrightarrow H=\ker f\odot\ker f^{\perp}$.\\
+    由同构第一基本定理得 $\frac{H}{\ker f}\approx F\approx\ker f^{\perp}\Longrightarrow\dim\ker f^{\perp}=1\Longrightarrow\exists x\in H$, s.t. $\ker f^{\perp}=\langle x\rangle$.\\
+    $\forall y\in H$, $y=rx+w$, 其中 $w\in\langle x\rangle^{\perp}=\ker f\Longrightarrow f(y)=f(rx+w)=rf(x)+f(w)=rf(x)$.\\
+    取 $z=\frac{\overline{f(x)}}{\langle x,x\rangle}x$, 则 $\langle y,\frac{\overline{f(x)}}{\langle x,x\rangle}x\rangle=\frac{f(x)}{\langle x,x\rangle}\langle rx+w,x\rangle=\frac{rf(x)}{\langle x,x\rangle}\langle x,x\rangle=rf(x)=f(y)$.
+\end{pf}
+
+\begin{cor}\label{cor-13.2}
+    $\tau\in\mathcal{B}(H,F)$, 则 $\ker\tau$ 为闭子空间.
+\end{cor}
+\begin{pf}
+    $\ker f=\{v\in H\mid f(v)=\langle v,z_0\rangle=0\}$, 其中 $z_0$ 为 $f$ 的 Riesz 向量.\\
+    取 $\ker f$ 中序列 $(x_n)\rightarrow x_0$.\\
+    $\because\langle,z_0\rangle$ 连续, $\therefore\langle x_n,z_0\rangle=0\rightarrow\langle x_0,z_0\rangle=0\Longrightarrow x_0\in\ker f$, 故 $\ker f$ 收敛封闭 $\Longrightarrow f$ 闭.
+\end{pf}
+
+$\tau^*\in\mathcal{B}(H_2,H_1)$ 且 $\norm{\tau^*}\leq\norm{\tau}$, 即 $\mathcal{B}(H_1,H_2)$ 是伴随封闭的.
+\begin{pf}
+    
+\end{pf}
+
+$\because\mathcal{B}(H)$ 是伴随封闭的, $\mathcal{B}(H)$ 关于线性算子的加法和复合成环, 关于线性算子的加法和点乘成向量空间, $\therefore\mathcal{B}(H)$ 为辛代数.
 \ifx\allfiles\undefined
 \end{document}
 \fi
