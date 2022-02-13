@@ -9,9 +9,9 @@
 \begin{df}[内积和内积空间]
     $F=\mathbb{R}$ (或 $\mathbb{C}$), 映射 $\langle,\rangle:V\times V\rightarrow F$, $(u,v)\mapsto\langle u,v\rangle$ 满足
     \begin{itemize}
-        \item[(1)] \textbf{正定性}: $\langle u,u\rangle\geq 0$, 且 $\langle u,u\rangle=0\Longleftrightarrow u=0$
-        \item[(2)] \textbf{对称 (或共轭对称)}: 对 $F=\mathbb{R}$, $\langle u,v\rangle=\langle v,u\rangle$; 对 $F=\mathbb{C}$, $\langle u,v\rangle=\overline{\langle v,u\rangle}$
-        \item[(3)] \textbf{关于第一坐标线性, 关于第二坐标线性 (或共轭线性)}: 对 $F=\mathbb{R}$, $\langle ru_1+tu_2,v\rangle=r\langle u_1,v\rangle+t\langle u_2,v\rangle$, $\langle u,rv_1+tv_2\rangle=r\langle u,v_1\rangle+t\langle u,v_2\rangle$; 对 $F=\mathbb{C}$, $\langle ru_1+tu_2,v\rangle=r\langle u_1,v\rangle+t\langle u_2,v\rangle$, $\langle u,rv_1+tv_2\rangle=\bar{r}\langle u,v_1\rangle+\bar{t}\langle u,v_2\rangle$
+        \item[(1)] \textbf{正定性}: $\langle u,u\rangle\geq 0$, 且 $\langle u,u\rangle=0\Longleftrightarrow u=0$,
+        \item[(2)] \textbf{对称 (或共轭对称)}: 对 $F=\mathbb{R}$, $\langle u,v\rangle=\langle v,u\rangle$; 对 $F=\mathbb{C}$, $\langle u,v\rangle=\overline{\langle v,u\rangle}$,
+        \item[(3)] \textbf{关于第一坐标线性, 关于第二坐标线性 (或共轭线性)}: 对 $F=\mathbb{R}$, $\langle ru_1+tu_2,v\rangle=r\langle u_1,v\rangle+t\langle u_2,v\rangle$, $\langle u,rv_1+tv_2\rangle=r\langle u,v_1\rangle+t\langle u,v_2\rangle$; 对 $F=\mathbb{C}$, $\langle ru_1+tu_2,v\rangle=r\langle u_1,v\rangle+t\langle u_2,v\rangle$, $\langle u,rv_1+tv_2\rangle=\bar{r}\langle u,v_1\rangle+\bar{t}\langle u,v_2\rangle$,
     \end{itemize}
     则称 $\langle,\rangle$ 是 $V$ 上的\textbf{内积}, 称 $V$ 为\textbf{内积向量空间}.
 \end{df}
@@ -31,7 +31,7 @@
     $V$ 为内积向量空间, $u,v\in V$, $\forall x\in V$, $\langle u,x\rangle=\langle v,x\rangle\Longleftrightarrow u=v$.
 \end{cor}
 \begin{pf}
-    ``$\Longrightarrow$'': $\langle u,x\rangle=\langle v,x\rangle\Longleftrightarrow\langle u,x\rangle-\langle v,x\rangle=0\Longleftrightarrow\langle u-v,x\rangle=0$,\\
+    ``$\Longrightarrow$'': $\langle u,x\rangle=\langle v,x\rangle\Longleftrightarrow\langle u,x\rangle-\langle v,x\rangle=0\Longleftrightarrow\langle u-v,x\rangle=0$.\\
     不妨取 $x=u-v$, 则 $\langle u-v,u-v\rangle=0\Longleftrightarrow u-v=0\Longleftrightarrow u=v$.
 
     ``$\Longleftarrow$'': 显然.
@@ -40,7 +40,7 @@
 \end{pf}
 
 \begin{thm}[(课本第 3 版定理 9.2)]\label{thm-9.2}
-    $V$ 为内积向量空间, $\tau\in\mathcal{L}(V)$,
+    $V$ 为内积向量空间, $\tau\in\mathcal{L}(V)$, 则
     \begin{itemize}
         \item[(1)] $\forall v,w\in V$, $\langle\tau(v),w\rangle=0\Longrightarrow\tau=0$.
         \item[(2)] 对 $F=\mathbb{C}$, $\forall v\in V$, $\langle\tau(v),v\rangle=0\Longrightarrow\tau=0$.
@@ -48,11 +48,11 @@
 \end{thm}
 \begin{pf}
     \begin{itemize}
-        \item[(1)] 不妨取 $w=\tau(v)$, 则 $\langle\tau(v),w\rangle=\langle\tau(v),\tau(v)\rangle=0\Longrightarrow\forall v\tau(v)=0$, 故 $\tau=0$.
-        \item[(2)] $\forall v,w\in V$, $v+w\in V$, $v+iw\in V$,\\
+        \item[(1)] 不妨取 $w=\tau(v)$, 则 $\langle\tau(v),w\rangle=\langle\tau(v),\tau(v)\rangle=0\Longrightarrow\forall v$, $\tau(v)=0$, 故 $\tau=0$.
+        \item[(2)] $\forall v,w\in V$, $v+w\in V$, $v+iw\in V$.\\
         $\langle\tau(v+w),v+w\rangle=0=\msout{\langle\tau(v),v\rangle}0+\langle\tau(v),w\rangle+\langle\tau(w),v\rangle+\msout{\langle\tau(w),w\rangle}0$, $\langle\tau(v+iw),v+iw\rangle=\msout{\langle\tau(v),v\rangle}0+\langle\tau(v),iw\rangle+\langle\tau(iw),v\rangle+\msout{\langle\tau(iw),iw\rangle}0$\\
         $\Longrightarrow\langle\tau(v),w\rangle+\langle\tau(w),v\rangle=0$, $-i\langle\tau(v),w\rangle+i\langle\tau(w),v\rangle=0$\\
-        $\Longrightarrow\langle\tau(v),w\rangle=0$,\\
+        $\Longrightarrow\langle\tau(v),w\rangle=0$.\\
         利用 (1) 中的结论, $\tau(v)=0$.
     \end{itemize}
 \end{pf}
@@ -65,7 +65,7 @@ $S$ 是内积向量空间 $V$ 的子空间, 则对应的商空间 $\frac{V}{S}$ 
 
 \section{范数和距离}
 \begin{df}[(内积诱导出的)范数和赋范向量空间]
-    $\norm{v}\equiv\sqrt{\langle u,u\rangle}$, 此时称 $V$ 为\textbf{赋范向量空间}
+    $u$ 的 (由内积诱导出的) \textbf{范数} $\norm{u}\equiv\sqrt{\langle u,u\rangle}$, 此时称 $V$ 为\textbf{赋范向量空间}.
 \end{df}
 
 \begin{df}[单位向量]
@@ -84,24 +84,24 @@ $S$ 是内积向量空间 $V$ 的子空间, 则对应的商空间 $\frac{V}{S}$ 
         \item[(4)] \textbf{三角不等式}: $\norm{u+v}\leq\norm{u}+\norm{v}$.
         \item[(5)] $\forall x\in V$, $\norm{u-v}\leq\norm{u-x}+\norm{v-x}$.
         \item[(6)] $\abs{\norm{u}-\norm{v}}\leq\norm{u-v}$.
-        \item[(7)] \textbf{平行四边形法则}: $\norm{u+v}^2+\norm{u-v}^2=2(\norm{u}^2+\norm{v}^2)$
+        \item[(7)] \textbf{平行四边形法则}: $\norm{u+v}^2+\norm{u-v}^2=2(\norm{u}^2+\norm{v}^2)$.
     \end{itemize}
 \end{thm}
 \begin{pf}
     \begin{itemize}
-        \item[(7)] $\norm{u+v}^2=\langle u+v,u+v\rangle=\langle u,u\rangle+\langle u,v\rangle+\langle v,u\rangle+\langle v,v\rangle$, $\norm{u-v}^2=\langle u-v,u-v\rangle=\langle u,u\rangle-\langle u,v\rangle-\langle v,u\rangle+\langle v,v\rangle$,\\
+        \item[(7)] $\norm{u+v}^2=\langle u+v,u+v\rangle=\langle u,u\rangle+\langle u,v\rangle+\langle v,u\rangle+\langle v,v\rangle$, $\norm{u-v}^2=\langle u-v,u-v\rangle=\langle u,u\rangle-\langle u,v\rangle-\langle v,u\rangle+\langle v,v\rangle$.\\
         以上两式相加得, $\norm{u+v}^2+\norm{u-v}^2=2\langle u,u\rangle+2\langle v,v\rangle=2\norm{u}^2+2\norm{v}^2$.
     \end{itemize}
 \end{pf}
 
 \begin{df}[范数和赋范向量空间]
-    映射 $\norm{}:V\rightarrow F$, $v\mapsto\norm{v}$, 满足
+    映射 $\norm{}:V\rightarrow F$, $v\mapsto\norm{v}$, 若满足
     \begin{itemize}
-        \item[(1)] $\norm{v}\geq 0$, 且 $\norm{v}=0\Longleftrightarrow v=0$
-        \item[(2)] $\norm{rv}=\abs{r}\norm{v}$
-        \item[(3)] $\norm{u+v}\leq\norm{u}+\norm{v}$
+        \item[(1)] $\norm{v}\geq 0$, 且 $\norm{v}=0\Longleftrightarrow v=0$,
+        \item[(2)] $\norm{rv}=\abs{r}\norm{v}$,
+        \item[(3)] $\norm{u+v}\leq\norm{u}+\norm{v}$,
     \end{itemize}
-    则称 $\norm{}$ 为 $V$ 上的一个范数, 称 $V$ 为赋范向量空间.
+    则称 $\norm{}$ 为 $V$ 上的一个\textbf{范数}, 称 $V$ 为\textbf{赋范向量空间}.
 \end{df}
 
 给定向量空间, 范数不唯一, 其中内积诱导的范数是一类特殊的范数, 故内积向量空间必为赋范向量空间. 内积诱导的范数可反向构建内积, 但利用一般的范数未必能构建内积 (因为或无法满足内积的线性性质).
@@ -115,7 +115,7 @@ $S$ 是内积向量空间 $V$ 的子空间, 则对应的商空间 $\frac{V}{S}$ 
 \end{thm}
 
 \begin{df}[度量/距离]
-    $d(u,v)\equiv\norm{u-v}$, 此时称 $V$ 为度量向量空间.
+    $d(u,v)\equiv\norm{u-v}$, 此时称 $V$ 为\textbf{度量向量空间}.
 \end{df}
 
 \begin{thm}[度量的性质 (课本定理 9.4)]
@@ -134,7 +134,7 @@ $S$ 是内积向量空间 $V$ 的子空间, 则对应的商空间 $\frac{V}{S}$ 
 \end{df}
 
 \begin{df}[等距同构]
-    若 $\tau$ 等距且双射, 则称 $\tau$ 等距同构.
+    若 $\tau$ 等距且双射, 则称 $\tau$ \textbf{等距同构}.
 \end{df}
 
 \begin{thm}[(课本定理 9.5)]
@@ -154,8 +154,8 @@ $S$ 是内积向量空间 $V$ 的子空间, 则对应的商空间 $\frac{V}{S}$ 
 \begin{df}[正交]
     \begin{itemize}
         \item[(1)] $V$ 为内积向量空间, $u,v\in V$, 若 $\langle u,v\rangle=0$, 则称 $u$ 与 $v$ \textbf{正交}, 记作 $u\perp v$.
-        \item[(2)] $X,Y$ 为 $V$ 的子集, 若 $\forall x\in X$, $y\in Y$, 有 $x\perp y$, 则称 $X$ 与 $Y$ 正交, 记作 $X\perp Y$.
-        \item[(3)] $X^{\perp}=\{v\in X\mid v\perp X\}$.
+        \item[(2)] $X,Y$ 为 $V$ 的子集, 若 $\forall x\in X$, $\forall y\in Y$, 有 $x\perp y$, 则称 $X$ 与 $Y$ \textbf{正交}, 记作 $X\perp Y$.
+        \item[(3)] $X$ 的\textbf{正交补} $X^{\perp}=\{v\in X\mid v\perp X\}$.
     \end{itemize}
 \end{df}
 
@@ -179,7 +179,7 @@ $\because 0\in X^{\perp}$, $\therefore X^{\perp}$ 必非空.
 \end{pf}
 
 \begin{df}[正交直和]
-    $V=S\oplus T$ 且 $S\perp T$, 则称 $V$ 为 $S$ 与 $T$ 的正交直和, 记作 $V=S\odot T$.
+    $V=S\oplus T$ 且 $S\perp T$, 则称 $V$ 为 $S$ 与 $T$ 的\textbf{正交直和}, 记作 $V=S\odot T$.
 \end{df}
 
 $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
@@ -196,10 +196,10 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
 
 给定子空间, 其正交补空间一定存在? 关于正交补空间的存在性问题, 我们稍后讨论.
 
-给定 $S\subseteq V$ 和 $S^{\perp}$, 是否必有 $V=S\odot S^{\perp}$.
+给定 $S\subseteq V$ 和 $S^{\perp}$, 是否必有 $V=S\odot S^{\perp}$?
 
 \begin{df}[正交(归一)集]
-    $\mathcal{O}=\{u_1,\cdots,u_k\mid k\in K\}$, 若 $\mathcal{O}$ 中向量两两正交, 则称 $\mathcal{O}$ 为\textbf{正交集}, 特别地, $\langle u_i,u_j\rangle=\delta_{ij}$, 则称 $\mathcal{O}$ 为\textbf{正交归一集}.
+    $\mathcal{O}=\{u_1,\cdots,u_k\mid k\in K\}$, 若 $\mathcal{O}$ 中向量两两正交, 则称 $\mathcal{O}$ 为\textbf{正交集}, 特别地, 若 $\langle u_i,u_j\rangle=\delta_{ij}$, 则称 $\mathcal{O}$ 为\textbf{正交归一集}.
 \end{df}
 
 不含零的正交集均可归一化为正交归一集.
@@ -208,10 +208,10 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
     不含零的正交集线性无关.
 \end{thm}
 \begin{pf}
-    设 $\{u_k\mid k\in K\}$ 是正交集 且 $u_i\neq 0\forall i\in K$.\\
-    设 $\sum_{i=1}^mr_iu_i=0$,\\
-    $\forall k\in K$, $0=\langle 0,u_k\rangle=\langle\sum_{i=1}^mr_iu_i,u_k\rangle=\sum_{i=1}^mr_i\langle u_i,u_k\rangle=r_k\langle u_k,u_k\rangle$,\\
-    又 $\because u_k\neq 0$, $\therefore\langle u_k,u_k\rangle\neq 0\Longrightarrow r_k=0$
+    设 $\{u_i\mid i\in K\}$ 是正交集 且 $u_i\neq 0\forall i\in K$.\\
+    设 $\sum_{i=1}^mr_iu_i=0$.\\
+    $\forall k\in K$, $0=\langle 0,u_k\rangle=\langle\sum_{i=1}^mr_iu_i,u_k\rangle=\sum_{i=1}^mr_i\langle u_i,u_k\rangle=r_k\langle u_k,u_k\rangle$.\\
+    又 $\because u_k\neq 0$, $\therefore\langle u_k,u_k\rangle\neq 0\Longrightarrow r_k=0$, 故得证.
 \end{pf}
 
 线性无关集未必正交, 但可通过 Gram-Schmidt 正交化过程将线性无关集正交化.
@@ -219,7 +219,12 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
 \begin{thm}[Gram-Schmidt 正交化过程 (课本定理 9.10)]
     $\mathcal{B}=\{b_1,\cdots,b_n,\cdots\}$ 是向量空间 $V$ 中线性独立集且 $v_i\neq 0\forall i$, 则可通过
     \begin{align*}
-        o_1=v_1
+        o_1=&v_1,\\
+        o_2=&v_2-\frac{\langle v_2,o_1\rangle}{\langle o_1,o_1\rangle}o_1,\\
+        o_3=&v_3-\frac{\langle v_3,o_2\rangle}{\langle o_2,o_2\rangle}o_2-\frac{\langle v_3,o_1\rangle}{\langle o_1,o_1\rangle}o_1,\\
+        \cdots&\\
+        o_n=&v_n-\sum_{j=1}^{n-1}\frac{\langle v_n,o_j\rangle}{\langle o_j,o_j\rangle}o_j,\\
+        \cdots&,
     \end{align*}
     再对 $o_1,\cdots,o_n,\cdots$ 归一化, 得到正交归一集 $\mathcal{O}=\langle o_1,\cdots,o_n,\cdots\rangle$, s.t. $\langle\mathcal{B}\rangle=\langle\mathcal{O}\rangle$.
 \end{thm}
@@ -243,7 +248,7 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
 \end{eg}
 
 \begin{thm}[(课本定理 9.11)]
-    $\mathcal{O}$ 为正交归一集, $S=\langle\mathcal{O}\rangle$, $\forall v\in V$, 令 $v$ 的\textbf{傅里叶展开} $\hat{v}=\langle v,u_1\rangle u_1+\cdots+\langle v,u_k\rangle u_k$, 则 $\hat{v}\in S$ 且
+    $\mathcal{O}$ 为正交归一集, $\langle\mathcal{O}\rangle=S\subseteq V$, $\forall v\in V$, 令 $v$ 的\textbf{傅里叶展开} $\hat{v}=\langle v,u_1\rangle u_1+\cdots+\langle v,u_k\rangle u_k$, 则 $\hat{v}\in S$ 且
     \begin{itemize}
         \item[(1)] $\hat{v}$ 是 $S$ 中唯一满足 $v-\hat{v}\perp S$ 的向量.
         \item[(2)] $\hat{v}$ 是 $S$ 中与 $v$ 最近的向量 (即 $\forall w\in S$, $d(v,\hat{v})\leq d(d,w)$), 称 $\hat{v}$ 为 $v$ 在 $S$ 中的\textbf{最佳近似}.
@@ -252,53 +257,50 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
 \end{thm}
 \begin{pf}
     \begin{itemize}
-        \item[(1)] $\forall w\in S$, $w=\sum_{i=1}^kr_iu_i$,\\
+        \item[(1)] $\forall w\in S$, $w=\sum_{i=1}^kr_iu_i$.\\
         先证正交: $\langle v-\hat{v},w\rangle=\langle v,w\rangle-\langle\hat{v},w\rangle=\langle v,\sum_{i=1}^kr_iu_i\rangle-\langle\sum_{i=1}^k\langle v,u_i\rangle u_i,\sum_{j=1}^kr_ju_j\rangle\\=\sum_{i=1}^k\bar{r}_i\langle v,u_i\rangle-\sum_{i=1}^k\langle v,u_i\rangle\sum_{i=1}^k\bar{r}_j\langle u_i,u_j\rangle=\sum_{i=1}^k\bar{r}_i\langle v,u_i\rangle-\sum_{i=1}^k\langle v,u_i\rangle\sum_{j=1}^k\bar{r}_j\delta_{ij}=\sum_{i=1}^k\bar{r}_i\langle v,u_i\rangle-\sum_{i=1}^k\bar{r}_i\langle v,u_i\rangle=0\Longrightarrow v-\hat{v}\perp S$.
 
-        再证唯一: 若取 $u\in S$, s.t. $v-u\perp S$, 设 $u=\sum_{i=1}^kl_iu_i$,\\
-        $v-u\perp S\Longrightarrow\forall u_j\in S$, $j=1,\cdots,k$, $\langle v-u,u_j\rangle=0\Longrightarrow\langle v,u_j\rangle-\langle u,u_j\rangle=0\Longrightarrow\langle v,u_j\rangle=\langle u,u_j\rangle=l_j\Longrightarrow u=\sum_{i=1}^kl_iu_i=\sum_{i=1}^k\langle v,u_i\rangle u_i=v$.
+        再证唯一: 若取 $u\in S$, s.t. $v-u\perp S$, 设 $u=\sum_{i=1}^kl_iu_i$.\\
+        $\because v-u\perp S$, $\therefore\forall u_j\in S$, $j=1,\cdots,k$, $\langle v-u,u_j\rangle=0\Longrightarrow\langle v,u_j\rangle-\langle u,u_j\rangle=0\Longrightarrow\langle v,u_j\rangle=\langle u,u_j\rangle=l_j\Longrightarrow u=\sum_{i=1}^kl_iu_i=\sum_{i=1}^k\langle v,u_i\rangle u_i=v$.
 
         综上, 得证.
-        \item[(2)] $\forall w\in S$, $d^2(u,w)=\norm{v-w}^2=\norm{v-\hat{v}+\hat{v}-w}^2$,\\
-        $\because\hat{v}\in S$, $w\in S$, $\therefore\hat{v}-w\in S$,\\
+        \item[(2)] $\forall w\in S$, $d^2(v,w)=\norm{v-w}^2=\norm{v-\hat{v}+\hat{v}-w}^2$.\\
+        $\because\hat{v}\in S$, $w\in S$, $\therefore\hat{v}-w\in S$.\\
         又 $\because v-\hat{v}\perp S$, $\therefore v-\hat{v}\perp\hat{v}-w$\\
-        $\Longrightarrow d^2(u,w)=\norm{v-\hat{v}}^2+\norm{\hat{v}-w}^2$,\\
+        $\Longrightarrow d^2(u,w)=\norm{v-\hat{v}}^2+\norm{\hat{v}-w}^2$.\\
         $\because\norm{\hat{v}-w}^2\geq 0$, $\therefore d^2(u,w)\geq\norm{v-\hat{v}}^2=d^2(v,\hat{v})$.
-        \item[(3)] $\norm{v}^2=\norm{v-\hat{v}+\hat{v}}^2$,\\
-        $\because v-\hat{v}\perp S$, $\hat{v}\in S$, $\therefore v-\hat{v}\perp\hat{v}$,\\
-        由勾股定理, $\norm{v-\hat{v}}^2+\norm{\hat{v}}^2\geq\norm{\hat{v}}^2\Longrightarrow\norm{v}\geq\norm{\hat{v}}$.
+        \item[(3)] $\norm{v}^2=\norm{v-\hat{v}+\hat{v}}^2$.\\
+        $\because v-\hat{v}\perp S$, $\hat{v}\in S$, $\therefore v-\hat{v}\perp\hat{v}$.\\
+        由勾股定理, $\norm{v-\hat{v}+\hat{v}}^2=\norm{v-\hat{v}}^2+\norm{\hat{v}}^2\geq\norm{\hat{v}}^2\Longrightarrow\norm{v}\geq\norm{\hat{v}}$.
     \end{itemize}
 \end{pf}
 
 \begin{thm}[投影定理 (课本定理 9.12)]
-    $S$ 是 $V$ 的有限维子空间, 则 $V=S\odot S^{\perp}$, 且 $\forall v\in V$, $v=\hat{v}+(v-\hat{v})$, 其中 $\hat{v}\in S$ 为 $v$ 在 $S$ 中的最佳近似, $v-\hat{v}\in S^{\perp}$,\\
-    $\dim V=\dim S+\dim S^{\perp}$.
+    $S$ 是 $V$ 的有限维子空间, 则 $V=S\odot S^{\perp}$, 且 $\forall v\in V$, $v=\hat{v}+(v-\hat{v})$, 其中 $\hat{v}\in S$ 为 $v$ 在 $S$ 中的最佳近似, $v-\hat{v}\in S^{\perp}$, $\dim V=\dim S+\dim S^{\perp}$.
 \end{thm}
 
 \begin{thm}[(课本定理 9.12)]
-    $S$ 为有限维子空间, 则
     \begin{itemize}
-        \item[(1)] $S^{\perp\perp}=S$.
+        \item[(1)] $S$ 为 $V$ 的有限维子空间, 则 $S^{\perp\perp}=S$.
         \item[(2)] 子集 $X\subseteq V$ 且 $\dim\langle X\rangle<\infty$, 则 $X^{\perp\perp}=\langle X\rangle$.
     \end{itemize}
 \end{thm}
 \begin{pf}
     \begin{itemize}
-        \item[(1)] $S^{\perp}=\{v\in V\mid v\perp S\}$, $S^{\perp\perp}=\{u\in V\mid u\perp S^{\perp}\}$,\\
-        显然, $S\subseteq S^{\perp\perp}$.
+        \item[(1)] $S^{\perp}=\{v\in V\mid v\perp S\}$, $S^{\perp\perp}=\{u\in V\mid u\perp S^{\perp}\}$, 显然, $S\subseteq S^{\perp\perp}$.
 
-        $\forall w\in S^{\perp\perp}\subseteq V$, $\because S$ 有限维, $\therefore V=S\odot S^{\perp}\Longrightarrow w=w_S+w_{S^{\perp}}\Longrightarrow w_S=w-w_{S^{\perp}}$,\\
-        $0=\langle w_S^{\perp},w_S\rangle=\langle w_{S^{\perp}},w-w_{S^{\perp}}\rangle=\langle w_{S^{\perp}},w\rangle-\langle w_{S^{\perp}},w_{S^{\perp}}\rangle$,\\
+        $\forall w\in S^{\perp\perp}\subseteq V$, $\because S$ 有限维, $\therefore V=S\odot S^{\perp}\Longrightarrow w=w_S+w_{S^{\perp}}\Longrightarrow w_S=w-w_{S^{\perp}}$.\\
+        $0=\langle w_{S^{\perp}},w_S\rangle=\langle w_{S^{\perp}},w-w_{S^{\perp}}\rangle=\langle w_{S^{\perp}},w\rangle-\langle w_{S^{\perp}},w_{S^{\perp}}\rangle$.\\
         $\because w\in S^{\perp\perp}$, $\therefore\langle w_{S^{\perp}},w\rangle=0\Longrightarrow\langle w_{S^{\perp}},w_{S^{\perp}}\rangle=0\Longrightarrow w_{S^{\perp}}=0\Longrightarrow w=w_S\in S$, 故 $S^{\perp\perp}\subseteq S$.
 
         综上, 得证.
-        \item[(2)] $\because\dim\langle X\rangle<0$, $\therefore\abs{X}<\infty$, 设 $X=\{u_1,\cdots,u_k\}$.\\
-        $\forall w_1\in\langle X\rangle$, $w_1=\sum_{i=1}^kr_iu_i$,\\
+        \item[(2)] $\because\dim\langle X\rangle<\infty$, $\therefore\abs{X}<\infty$, 设 $X=\{u_1,\cdots,u_k\}$.\\
+        $\forall w_1\in\langle X\rangle$, $w_1=\sum_{i=1}^kr_iu_i$.\\
         $\forall w_2\in X^{\perp}$, $\langle w_1,w_2\rangle=\langle\sum_{i=1}^kr_iu_i,w_2\rangle=\sum_{i=1}^kr_i\langle u_i,w_2\rangle=0\Longrightarrow\langle X\rangle\subseteq X^{\perp\perp}$.
 
-        $\forall w\in X^{\perp\perp}$, 令 $w$ 在 $\langle X\rangle$ 上的最佳近似 $\hat{w}=\sum_{i=1}^kl_iu_i\in\langle X\rangle$,\\
+        $\forall w\in X^{\perp\perp}$, 令 $w$ 在 $\langle X\rangle$ 上的最佳近似 $\hat{w}=\sum_{i=1}^kl_iu_i\in\langle X\rangle$.\\
         $\langle w-\hat{w},w-\hat{w}\rangle=\langle w,w-\hat{w}\rangle-\langle\hat{w},w-\hat{w}\rangle$,\\
-        $\because w-\hat{w}\in\langle X\rangle^{\perp}$, $\hat{w}\in\langle X\rangle$, $\therefore\langle\hat{w},w-\hat{w}\rangle=0$,\\
+        其中 $\because w-\hat{w}\in\langle X\rangle^{\perp}$, $\hat{w}\in\langle X\rangle$, $\therefore\langle\hat{w},w-\hat{w}\rangle=0$,\\
         $\because w-\hat{w}\in X^{\perp}$, $w\in X^{\perp\perp}$, $\therefore\langle w,w-\hat{w}\rangle=0$\\
         $\Longrightarrow\langle w-\hat{w},w-\hat{w}\rangle=0\Longrightarrow w-\hat{w}=0\Longrightarrow w=\hat{w}\in\langle X\rangle\Longrightarrow X^{\perp\perp}\in\langle X\rangle$.
 
@@ -325,11 +327,9 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
     \end{itemize}
 \end{thm}
 \begin{pf}
-    ``(1) $\Longrightarrow$ (2)'': $V=\langle\mathcal{O}\rangle$, $\forall u\in\mathcal{O}^{\perp}\subseteq V$, $v=\sum_{i=1}^kl_iu_i$\\
-    $\because u\in\mathcal{O}^{\perp}$, $\therefore\forall i=1,\cdots,k$, $\langle u,u_i\rangle=0$,\\
-    $0=\langle u,u_j\rangle=\sum_{i=1}^kl_i\langle u_i,u_j\rangle=\sum_{i=1}^kl_i\delta_{ij}=l_j\Longrightarrow u=\sum_{i=1}^kl_iu_i=0$.
-
-    ``(2) $\Longrightarrow$ (3)'': $v=v-\hat{v}+\hat{v}$, $\because\mathcal{O}^{\perp}=\{0\}$, $S^{\perp}\subseteq\mathcal{O}^{\perp}$, $\therefore S^{\perp}=\{0\}\Longrightarrow V=S\odot S^{\perp}$.
+    ``(1) $\Longrightarrow$ (2)'': $V=\langle\mathcal{O}\rangle$, $\forall u\in\mathcal{O}^{\perp}\subseteq V$, $u=\sum_{i=1}^kl_iu_i$.\\
+    $\because u\in\mathcal{O}^{\perp}$, $\therefore\forall i=1,\cdots,k$, $\langle u,u_i\rangle=0$.\\
+    $0=\langle u,u_j\rangle=\sum_{i=1}^kl_i\langle u_i,u_j\rangle=\sum_{i=1}^kl_i\delta_{ij}=l_j\Longrightarrow u=\sum_{i=1}^kl_iu_i=0$, 故得证.
 \end{pf}
 
 \section{Riesz 表示定理}
@@ -337,21 +337,20 @@ $F=\mathbb{R}$ (或 $\mathbb{C}$), $V$ 为 $F$ 上的有限维内积向量空间
 \begin{thm}[Riesz 表示定理 (课本定理 9.15)]\label{thm-9.15}
     $\dim V=n$, $\forall f\in V^*$, $\exists!x\in V$, s.t. $f(v)=\langle v,x\rangle$.
 \end{thm}
-即对偶空间中的任一函数均可用与一向量的内积代替, 或对偶空间中的任一函数均可用一向量表示.
+即对偶空间中的任一函数均可用与唯一向量的内积代替, 或对偶空间中的任一函数均与唯一向量对应.
 \begin{pf}
-    $\dim\im f\leq 1$. 若 $\dim\im f=0$, 则 $f=0\Longrightarrow x=0$;\\
+    $\because\im f\subseteq F$, $\therefore\dim\im f\leq\dim F=1$.\\
+    若 $\dim\im f=0$, 即 $\im f=\{0\}$, 则 $f=0\Longrightarrow x=0$;\\
     若 $\dim\im f\neq 0$, 则 $\dim\im f=1$, $\exists 0\neq u\in V$, s.t. $f(u)\neq 0$.\\
-    $\because V=\ker f\oplus\im f$ 且 $\ker f^c\approx\im f$, $\therefore\dim\ker f^c=\dim\im f=1$,\\
-    $\Longrightarrow\ker f^c=\langle u\rangle\Longrightarrow V=\langle u\rangle\odot\ker f$,\\
-    $\Longrightarrow\langle u\rangle^{\perp}=\{0\}\Longrightarrow f(\langle u\rangle^{\perp})=0$, 故 $V=\langle u\rangle\odot\langle u\rangle^{\perp}$.
-
-    $\because V=\langle u\rangle\odot\langle u\rangle^{\perp}$, $\therefore\forall v\in V$, $v=ru+w$, 其中 $w\in\ker f$, $f(v)=f(ru+w)=rf(u)+f(w)=rf(u)$,\\
-    取 $x=\frac{\overline{f(u)}}{\langle u,u\rangle}u$, 则 $\langle v,x\rangle=\langle v,\frac{\overline{f(u)}}{\langle u,u\rangle}u\rangle=\frac{f(u)}{\langle u,u\rangle}\langle v,u\rangle=\frac{f(u)}{\langle u,u\rangle}\langle ru+w,u\rangle=\frac{rf(u)}{\langle u,u\rangle}\langle u,u\rangle=rf(u)$.
+    $\because V=\ker f\oplus\ker f^c$ 且 $\ker f^c\approx\im f$, $\therefore\dim\ker f^c=\dim\im f=1\Longrightarrow\ker f^c=\langle u\rangle$.\\
+    选取适当的 $u$, 则可将 $V$ 分解为 $V=\ker f\odot\langle u\rangle=\langle u\rangle^{\perp}\odot\langle u\rangle$, 其中 $\ker f=\langle u\rangle^{\perp}$.\\
+    $\because V=\langle u\rangle\odot\langle u\rangle^{\perp}$, $\therefore\forall v\in V$, $v=ru+w$, 其中 $w\in\langle u\rangle^{\perp}=\ker f\Longrightarrow f(v)=f(ru+w)=rf(u)+f(w)=rf(u)$.\\
+    取 $x=\frac{\overline{f(u)}}{\langle u,u\rangle}u$, 则 $\langle v,x\rangle=\langle v,\frac{\overline{f(u)}}{\langle u,u\rangle}u\rangle=\frac{f(u)}{\langle u,u\rangle}\langle v,u\rangle=\frac{f(u)}{\langle u,u\rangle}\langle ru+w,u\rangle=\frac{rf(u)}{\langle u,u\rangle}\langle u,u\rangle=rf(u)=f(v)$.
 \end{pf}
 
 由对偶空间中函数与向量空间中向量的一一对应的关系, 可引出
 \begin{df}[Riesz 映射]
-    $\mathcal{R}:V^*\rightarrow V$, $f\mapsto x$, s.t. $f(v)=\langle v,x\rangle$.
+    $\mathcal{R}:V^*\rightarrow V$, $f\mapsto x$, s.t. $\forall v\in V$, $f(v)=\langle v,x\rangle$.
 \end{df}
 
 \begin{itemize}
@@ -363,7 +362,7 @@ $F=\mathbb{R}$ (或 $\mathbb{C}$), $V$ 为 $F$ 上的有限维内积向量空间
 \begin{pf}
     \item[(1)] 由定理 \ref{thm-9.15} 即得.
     \item[(2)] 显然.
-    \item[(3)] $\ker\mathcal{R}=\{f\in V^*\mid\mathcal{R}(f)=0\}=\{f\in V^*\mid f(v)=\langle v,0\rangle=0\}=\{0\}$, 故得证.
+    \item[(3)] $\ker\mathcal{R}=\{f\in V^*\mid\mathcal{R}(f)=0\}=\{f\in V^*\mid f(v)=\langle v,0\rangle=0\forall v\}=\{0\}$, 故得证.
     \item[(4)] 令 $\mathcal{R}(f)=x_f$, $\mathcal{R}(g)=x_g$, $\mathcal{R}(rf+tg)=x_{rf+tg}$.\\
     一方面, $(rf+tg)(v)=\langle v,x_{rf+tg}\rangle$;\\
     另一方面, $(rf+tg)(v)=rf(v)+tg(v)=r\langle v,x_f\rangle+t\langle v,x_g\rangle=\langle v,\bar{r}x_f+\bar{t}x_g\rangle$\\

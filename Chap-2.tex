@@ -8,13 +8,11 @@
 \chapter{线性变换}
 \section{线性变换}
 \begin{df}[线性变换]
-    向量空间之间的映射. $F$ 为域, $V,W$ 为 $F$ 上的向量空间, 映射 $\tau:V\rightarrow W$, 若 $\tau(ru+tv)=r\tau(u)+t\tau(v)$, $r,t\in F$, $u,v\in V$, 则称 $\tau$ 为 $V$ 到 $W$ 的\textbf{线性变换}.
+    向量空间之间的线性映射. $F$ 为域, $V,W$ 为 $F$ 上的向量空间, 映射 $\tau:V\rightarrow W$, 若 $\tau(ru+tv)=r\tau(u)+t\tau(v)$, $r,t\in F$, $u,v\in V$, 则称 $\tau$ 为 $V$ 到 $W$ 的\textbf{线性变换}.\\
+    记 $\mathcal{L}(V,W)\equiv\{V$ 到 $W$ 的\textbf{线性变换}$\}$, $\mathcal{L}(V)\equiv\mathcal{L}(V,V)=\{V$ 到 $V$ 的线性变换$\}=\{V$ 上的\textbf{线性算子}$\}$.
 \end{df}
-(类似于同态)
 
 取 $r=1$, $t=1$, 则 $\tau(u+v)=\tau(u)+\tau(v)$, 故 $\tau$ 是 $V$ 到 $W$ 的群同态, 从而 $\tau(0)=0$, $\tau(-v)=-\tau(v)$.
-
-$\mathcal{L}(V,W)\equiv\{\text{$V$ 到 $W$ 的线性变换}\}$, $\mathcal{L}(V)=\mathcal{L}(V,V)=\{\text{$V$ 到 $V$ 的线性变换}\}=\{\text{$V$ 上的线性算子}\}$.
 
 \begin{df}[单线性变换]
     单射的线性变换.
@@ -25,14 +23,14 @@ $\mathcal{L}(V,W)\equiv\{\text{$V$ 到 $W$ 的线性变换}\}$, $\mathcal{L}(V)=
 \end{df}
 
 \begin{df}[同构]
-    双射的线性变换. 若两个向量空间 $V,W$ 之间存在同构, 也称这两个向量空间同构, 记作 $V\approx W$.
+    双射的线性变换. 若两个向量空间 $V,W$ 之间存在同构, 则称 $V$ 与 $W$ 同构, 记作 $V\approx W$.
 \end{df}
 
-取 $\tau,\sigma\in\mathcal{L}(V,W)$, $v\overset{\tau}{\mapsto}\tau(v)$, $v\overset{\sigma}{\mapsto}\sigma(v)\Longrightarrow v\overset{\tau+\sigma}{\mapsto}\tau(v)+\sigma(v)$ 也是线性变换, 且 $\tau+\sigma\in\mathcal{L}(V,W)$.
+取 $\tau,\sigma\in\mathcal{L}(V,W)$, $v\overset{\tau}{\mapsto}\tau(v)$, $v\overset{\sigma}{\mapsto}\sigma(v)$, 则 $v\overset{\tau+\sigma}{\mapsto}\tau(v)+\sigma(v)$ 也是线性变换, 且 $\tau+\sigma\in\mathcal{L}(V,W)$.
 \begin{pf}
-    由映射的像的唯一性, 若 $v=u$, 则 $\tau(v)=\tau(u)$, $\sigma(v)=\sigma(u)\Longrightarrow(\tau+\sigma)(v)=\tau(v)+\sigma(v)=\tau(u)+\sigma(u)+(\tau+\sigma)(u)$, 故 $\tau+\sigma$ 是映射.
+    由映射的像的唯一性, 若 $v=u$, 则 $\tau(v)=\tau(u)$, $\sigma(v)=\sigma(u)\Longrightarrow(\tau+\sigma)(v)=\tau(v)+\sigma(v)=\tau(u)+\sigma(u)=(\tau+\sigma)(u)$, 故 $\tau+\sigma$ 是映射.
 
-    $(\tau+\sigma)(ru+tv)=\tau(ru+tv)+\sigma(ru+tv)=r\tau(u)+t\tau(v)+r\sigma(u)+t\sigma(v)=r[\tau(u)+\sigma(u)]+t[\tau(v)+\sigma(v)]=r[(\tau+\sigma)(u)]+t[(\tau+\sigma)(v)]$, 故 $\tau+\sigma$ 为 $V$ 到 $W$ 的线性变换.
+    $(\tau+\sigma)(ru+tv)=\tau(ru+tv)+\sigma(ru+tv)=r\tau(u)+t\tau(v)+r\sigma(u)+t\sigma(v)=r[\tau(u)+\sigma(u)]+t[\tau(v)+\sigma(v)]=r(\tau+\sigma)(u)+t(\tau+\sigma)(v)$, 故 $\tau+\sigma$ 为 $V$ 到 $W$ 的线性变换.
 \end{pf}
 由此定义了线性变换之间的加法.
 
@@ -40,29 +38,29 @@ $(\mathcal{L}(V,W),+)$ 为交换群.
 \begin{pf}
     $(\mathcal{L}(V,W),+)$ 满足
     \begin{itemize}
-        \item[(1)] \textbf{结合律}: $\forall v\in V$, $[(\tau+\sigma)+\delta](v)=(\tau+\sigma)(v)+\delta(v)=\tau(v)+\sigma(v)+\delta(v)=\tau(v)+(\sigma(v)+\delta(v))=\tau(v)+(\sigma+\delta)(v)=[\tau+(\sigma+\delta)](v)\Longrightarrow[(\tau+\sigma)+\delta]=[\tau+(\sigma+\delta)]$.
-        \item[(2)] \textbf{有单位元 $0$}: 零映射 $0(v)=0$, $\forall\tau\in\mathcal{L}(V,W)$, $(0+\tau)(v)=0(v)+\tau(v)=0+\tau(v)=\tau(v)+0=\tau(v)+0(v)=(\tau+0)(v)$.
-        \item[(3)] \textbf{有逆元}: $\forall\tau\in\mathcal{L}(V,W)$, $\exists-\tau$, s.t. $(-\tau)(v)=-\tau(v)\Longrightarrow[\tau+(-\tau)](v)=\tau(v)-\tau(v)=0=0(v)$.
-        \item[(4)] \textbf{交换律}: $\forall v\in V$, $(\tau+\sigma)(v)=\tau(v)+\sigma(v)=\sigma(v)+\tau(v)=[\sigma+\tau](v)$.
+        \item[(1)] \textbf{结合律}: $\forall v\in V$, $[(\tau+\sigma)+\delta](v)=(\tau+\sigma)(v)+\delta(v)=\tau(v)+\sigma(v)+\delta(v)=\tau(v)+(\sigma(v)+\delta(v))=\tau(v)+(\sigma+\delta)(v)=[\tau+(\sigma+\delta)](v)\Longrightarrow(\tau+\sigma)+\delta=\tau+(\sigma+\delta)$,
+        \item[(2)] \textbf{有单位元 $0$}: 零映射 $0(v)=0$, $\forall\tau\in\mathcal{L}(V,W)$, $(0+\tau)(v)=0(v)+\tau(v)=0+\tau(v)=\tau(v)+0=\tau(v)+0(v)=(\tau+0)(v)$,
+        \item[(3)] \textbf{有逆元}: $\forall\tau\in\mathcal{L}(V,W)$, $\exists-\tau\in\mathcal{L})(V,W)$, s.t. $(-\tau)(v)=-\tau(v)\Longrightarrow[\tau+(-\tau)](v)=\tau(v)-\tau(v)=0=0(v)$,
+        \item[(4)] \textbf{交换律}: $\forall v\in V$, $(\tau+\sigma)(v)=\tau(v)+\sigma(v)=\sigma(v)+\tau(v)=(\sigma+\tau)(v)$,
     \end{itemize}
     故 $\mathcal{L}(V,W)$ 为交换群.
 \end{pf}
 
-$\forall r\in F$, $v\in\mathcal{L}(V,W)$, $v\overset{\tau}{\mapsto}\tau(v)\Longrightarrow v\overset{r\tau}{\mapsto}r\tau(v)$ 是线性变换, 且 $r\tau\in\mathcal{L}(V,W)$.
+$\forall r\in F$, $\forall v\in\mathcal{L}(V,W)$, $v\overset{\tau}{\mapsto}\tau(v)$, 则 $v\overset{r\tau}{\mapsto}r\tau(v)$ 是线性变换, 且 $r\tau\in\mathcal{L}(V,W)$.
 \begin{pf}
     由映射的像的唯一性, $\because v\overset{\tau}{\mapsto}\tau(v)$ 是唯一的, $\therefore v\overset{r\tau}{\mapsto}r\tau(v)$ 是唯一的, 故 $r\tau$ 是映射.
 
-    $(r\tau)(v)=r\tau(v)=r[\tau(v)]$, 故 $r\tau$ 为 $V$ 到 $W$ 的线性变换.
+    $(r\tau)(sv+tu)=r[s\tau(v)+t\tau(u)]=s(r\tau)(v)+t(r\tau)(v)\Longrightarrow r\tau\in\mathcal{L}(V,W)$.
 \end{pf}
 
 $\mathcal{L}(V,W)$ 是 $F$ 上的向量空间.
 \begin{pf}
     前面已证, $(\mathcal{L}(V,W),+)$ 为交换群, 且其满足
     \begin{itemize}
-        \item[(1)] $\forall v\in V$, $[(r+t)\tau](v)=(r+t)\tau(v)=r\tau(v)+t\tau(v)=(r\tau+t\tau)(v)\Longrightarrow (r+t)\tau=r\tau+t\tau$
-        \item[(2)] $\forall v\in V$, $[(rt)\tau](v)=(rt)\tau(v)=r[t\tau(v)]=[r(t\tau)](v)\Longrightarrow(rt)\tau=r(t\tau)$
-        \item[(3)] $\forall v\in V$, $[r(\tau+\sigma)](v)=r(\tau+\sigma)(v)=r[\tau(v)+\sigma(v)]=r\tau(v)+r\sigma(v)=(r\tau+r\sigma)(v)\Longrightarrow r(\tau+\sigma)=r\tau+r\sigma$
-        \item[(4)] 恒等映射 $1:\mathcal{L}(V,W)\rightarrow\mathcal{L}(V,W)$, $\tau\overset{1}{\mapsto}$, $\forall v\in V$, $(1\tau)(v)=1[\tau(v)]=\tau(v)\Longrightarrow 1\tau=\tau$
+        \item[(1)] $\forall v\in V$, $[(r+t)\tau](v)=(r+t)\tau(v)=r\tau(v)+t\tau(v)=(r\tau+t\tau)(v)\Longrightarrow (r+t)\tau=r\tau+t\tau$,
+        \item[(2)] $\forall v\in V$, $[(rt)\tau](v)=(rt)\tau(v)=r[t\tau(v)]=[r(t\tau)](v)\Longrightarrow(rt)\tau=r(t\tau)$,
+        \item[(3)] $\forall v\in V$, $[r(\tau+\sigma)](v)=r(\tau+\sigma)(v)=r[\tau(v)+\sigma(v)]=r\tau(v)+r\sigma(v)=(r\tau+r\sigma)(v)\Longrightarrow r(\tau+\sigma)=r\tau+r\sigma$,
+        \item[(4)] $\exists$ 恒等映射 $1:\mathcal{L}(V,W)\rightarrow\mathcal{L}(V,W)$, $\tau\overset{1}{\mapsto}\tau$, s.t. $\forall v\in V$, $(1\tau)(v)=1[\tau(v)]=\tau(v)\Longrightarrow 1\tau=\tau$,
     \end{itemize}
     故得证.
 \end{pf}
@@ -80,9 +78,9 @@ $\mathcal{L}(V)$ 是环.
 \begin{pf}
     前面已证, $(\mathcal{L}(V),+)$ 为交换群, 且满足
     \begin{itemize}
-        \item[(1)] \textbf{结合律}: $\because$ 映射的复合有结合律, $\therefore\mathcal{L}(V)$ 中元素的复合有结合律
-        \item[(2)] \textbf{左右分配律}: $\forall v\in V$, $[(\sigma+\tau)\delta](v)=(\sigma+\tau)[\delta(v)]=\sigma[\delta(v)]+\tau[\delta(v)]=(\sigma\delta)(v)+(\tau\delta)(v)\Longrightarrow(\sigma+\tau)\delta=\sigma\delta+\tau\delta$\\
-        $[\sigma(\tau+\delta)](v)=\sigma[(\tau+\delta)(v)]=\sigma[\tau(v)+\delta(v)]=\sigma[\tau(v)]+\sigma[\delta(v)]=\sigma\tau(v)+\sigma\delta(v)\Longrightarrow\sigma(\tau+\delta)=\sigma\tau+\sigma\delta$
+        \item[(1)] \textbf{结合律}: $\because$ 映射的复合有结合律, $\therefore\mathcal{L}(V)$ 中元素的复合有结合律,
+        \item[(2)] \textbf{左右分配律}: $\forall v\in V$, $[(\sigma+\tau)\delta](v)=(\sigma+\tau)[\delta(v)]=\sigma[\delta(v)]+\tau[\delta(v)]=(\sigma\delta)(v)+(\tau\delta)(v)\Longrightarrow(\sigma+\tau)\delta=\sigma\delta+\tau\delta$,\\
+        $[\sigma(\tau+\delta)](v)=\sigma[(\tau+\delta)(v)]=\sigma[\tau(v)+\delta(v)]=\sigma[\tau(v)]+\sigma[\delta(v)]=\sigma\tau(v)+\sigma\delta(v)\Longrightarrow\sigma(\tau+\delta)=\sigma\tau+\sigma\delta$,
     \end{itemize}
     故得证.
 \end{pf}
@@ -96,6 +94,7 @@ $\mathcal{L}(V)$ 是环.
 \end{df}
 
 \begin{thm}[(课本定理 2.3)]
+    $\tau\in\mathcal{L}(V,W)$, 则
     \begin{itemize}
         \item[(1)] $\tau$ 满线性变换 $\Longleftrightarrow\im\tau=W$.
         \item[(2)] $\tau$ 单线性变换 $\Longleftrightarrow\ker\tau=\{0\}$.
@@ -106,8 +105,8 @@ $\mathcal{L}(V)$ 是环.
     $\mathcal{B}$ 是 $V$ 的基, $\tau\in\mathcal{L}(V,W)$, 则 $\tau$ 可由 $\tau$ 在 $\mathcal{B}$ 上的像唯一确定.
 \end{thm}
 \begin{pf}
-    若已知 $\tau(b_i)\forall b_i\in\mathcal{B}$, 则 $\forall v\in V$, $v=\sum_{i=1}^nr_ib_i$, $r_i\in F$, $b_i\in\mathcal{B}$, $n\in\mathbb{Z}^+$\\
-    $\Longrightarrow\tau(v)=\tau\left(\sum_{i=1}^nr_ib_i\right)=\sum_{i=1}^nr_i\tau(b_i)$.
+    已知 $\tau(b_i)\forall b_i\in\mathcal{B}$.\\
+    $\forall v\in V$, $v=\sum_{i=1}^nr_ib_i$, $r_i\in F$, $b_i\in\mathcal{B}$, $n\in\mathbb{Z}^+\Longrightarrow\tau(v)=\tau\left(\sum_{i=1}^nr_ib_i\right)=\sum_{i=1}^nr_i\tau(b_i)$.
 \end{pf}
 
 同构的向量空间有很多性质可以相互传递, 下面我们就来讨论这件事.
@@ -122,22 +121,22 @@ $\mathcal{L}(V)$ 是环.
 \end{thm}
 \begin{pf}
     \begin{itemize}
-        \item[(1)] ``$\Longrightarrow$'': $\because V=\langle S\rangle$, $\therefore\forall v\in V$, $v=\sum_ir_is_i$,\\
-        又 $\because\tau$ 同构, $\therefore\forall w\in W$, $\exists v\in V$, s.t. $w=\tau(v)\Longrightarrow\tau(v)=\tau\left(\sum_ir_is_i\right)=\sum_ir_i\tau(s_i)$.
+        \item[(1)] ``$\Longrightarrow$'': $\because V=\langle S\rangle$, $\therefore\forall v\in V$, $v=\sum_ir_is_i$.\\
+        又 $\because\tau$ 同构, $\therefore\forall w\in W$, $\exists v=\tau^{-1}(w)\in V$, s.t. $w=\tau(v)\Longrightarrow\tau(v)=\tau\left(\sum_ir_is_i\right)=\sum_ir_i\tau(s_i)$.
 
-        ``$\Longleftarrow$'': $\because W=\langle\tau(S)\rangle$, $\therefore\forall w\in W$, $w=\sum_ir_i\tau(s_i)$,\\
-        又 $\because\tau$ 同构, $\therefore\forall v\in W$, $\exists w\in W$, s.t. $v=\tau^{-1}(w)=\tau^{-1}\left(\sum_ir_i\tau(s_i)\right)=\sum_ir_i\tau^{-1}(\tau(s_i))=\sum_ir_i\tau(s_i)$.
+        ``$\Longleftarrow$'': $\because W=\langle\tau(S)\rangle$, $\therefore\forall w\in W$, $w=\sum_ir_i\tau(s_i)$.\\
+        又 $\because\tau$ 同构, $\therefore\forall v\in W$, $\exists w=\tau(v)\in W$, s.t. $v=\tau^{-1}(w)=\tau^{-1}\left(\sum_ir_i\tau(s_i)\right)=\sum_ir_i\tau^{-1}(\tau(s_i))=\sum_ir_i\tau(s_i)$.
 
         综上, (1) 得证.
-        \item[(2)] ``$\Longrightarrow$'': 假设 $\sum_ir_i\tau(s_i)=0$, 则 $\tau\left(\sum_ir_is_i\right)=0$,\\
-        又 $\because\tau$ 同构, $\therefore\ker\tau=\{0\}\Longrightarrow\sum_ir_is_i=0$,\\
+        \item[(2)] ``$\Longrightarrow$'': 假设 $\sum_ir_i\tau(s_i)=0$, 则 $\tau\left(\sum_ir_is_i\right)=0$.\\
+        又 $\because\tau$ 同构, $\therefore\ker\tau=\{0\}\Longrightarrow\sum_ir_is_i=0$.\\
         又 $\because S$ 线性无关, $\therefore r_i=0\forall i\Longrightarrow\tau(S)$ 线性无关.
 
-        ``$\Longleftarrow$'': 假设 $\sum_ir_is_i=0$, 则 $\tau\left(\sum_ir_is_i\right)=\sum_ir_i\tau(s_i)=0$,\\
+        ``$\Longleftarrow$'': 假设 $\sum_ir_is_i=0$, 则 $\tau\left(\sum_ir_is_i\right)=\sum_ir_i\tau(s_i)=0$.\\
         又 $\because\tau(S)$ 线性无关, $\therefore r_i=0\forall i\Longrightarrow S$ 线性无关.
 
         综上, (2) 得证.
-        \item[(3)] (1), (2) $\Longrightarrow$ (3).
+        \item[(3)] $\Longleftarrow$(1), (2).
     \end{itemize}
 \end{pf}
 
@@ -150,7 +149,7 @@ $\mathcal{L}(V)$ 是环.
 \end{thm}
 
 \begin{thm}[(课本定理 2.8)]
-    $\tau\in\mathcal(L)(V,W)$,
+    $\tau\in\mathcal{L}(V,W)$, 则
     \begin{itemize}
         \item[(1)] $(\ker\tau)^c\approx\im\tau$.
         \item[(2)] $\dim V=\dim\ker\tau+\dim\im\tau\equiv\nul\tau+\rk\tau$, 其中称 $\nul\tau\equiv\dim\ker\tau$ 为 $\tau$ 的\textbf{零度}, $\rk\tau\equiv\dim\im\tau$ 为 $\tau$ 的\textbf{秩}.
@@ -160,11 +159,11 @@ $\mathcal{L}(V)$ 是环.
     \begin{itemize}
         \item[(1)] 设映射 $\tau^c:\ker(\tau)^c\rightarrow\im\tau$, $u\mapsto\tau(u)$.
 
-        先证 $\tau^c$ 是单射: $\ker(\tau^c)=\ker(\tau)\cap\ker(\tau)^c$ (即 $\ker(\tau^c)$ 中的元素同时满足 $\ker(\tau)$ 的条件, 且在定义域 $\ker(\tau)^c$ 中),\\
-        又 $\because V=\ker(\tau)\oplus\ker(\tau)^c$, $\therefore\ker(\tau)\cap\ker(\tau)^c=\{0\}\Longrightarrow\ker(\tau^c)=\{0\}$, 故 $\tau^c$ 单射.
+        先证 $\tau^c$ 是单射: $\ker(\tau^c)=\ker(\tau)\cap\ker(\tau)^c$ (即 $\ker(\tau^c)$ 中的元素同时满足 $\ker(\tau)$ 的条件, 且在定义域 $\ker(\tau)^c$ 中).\\
+        $\because V=\ker(\tau)\oplus\ker(\tau)^c$, $\therefore\ker(\tau)\cap\ker(\tau)^c=\{0\}\Longrightarrow\ker(\tau^c)=\{0\}$, 故 $\tau^c$ 单射.
 
         再证 $\tau^c$ 是满射: 一方面, $\im(\tau^c)\subseteq\im(\tau)$;\\
-        另一方面, $\forall\tau(v)$, $v=u+w$, 其中 $u\in\ker(\tau)$, $w\in\ker(\tau)^c\Longrightarrow\tau(v)=\tau(u+w)=\tau(u)+\tau(w)=0+\tau(w)=\tau(w)\in\im(\tau^c)\Longrightarrow\im(\tau)\subseteq\im(\tau^c)$.\\
+        另一方面, $\forall v\in V$, $v=u+w$, 其中 $u\in\ker(\tau)$, $w\in\ker(\tau)^c\Longrightarrow\tau(v)=\tau(u+w)=\tau(u)+\tau(w)=0+\tau(w)=\tau(w)\in\im(\tau^c)\Longrightarrow\im(\tau)\subseteq\im(\tau^c)$.\\
         故 $\im(\tau^c)=\im(\tau)$, 即 $\tau^c$ 满射.
 
         综上, (1) 得证.
@@ -172,9 +171,9 @@ $\mathcal{L}(V)$ 是环.
     \end{itemize}
 \end{pf}
 
-$x$ 为 $n$ 维向量, $\dim\{x\mid Ax=0\}=n-\rk A$, 故 $\dim\{x\mid Ax=0\}=\nul A$.
+$x$ 为 $n$ 维向量, $\nul A=\dim\{x\mid Ax=0\}=n-\rk A$.
 
-\section{表示}
+\section{线性变换的表示}
 ``表示''其实就是用已知的东西展现未知的东西, 在这里, 我们用已知的矩阵乘法展现未知的线性变换, 这就是线性变换的表示.
 
 $F$ 为域, $F^n=\{(r_1,\cdots,r_n)\mid r_i\in F\}$, 满足 $(r_1,\cdots,r_n)+(l_1,\cdots,l_n)=(r_1+l_1,\cdots,r_n+l_n)$ 及 $r(r_1,\cdots,r_n)=(rr_1,\cdots,rr_n)$, $\dim F^n=n$, $F^n$ 的标准基为 $\{e_1=(1,0,\cdots,0),e_2=(0,1,\cdots,0),\cdots,e_n=(0,0,\cdots,1)\}$; $F^m=\{(r_1,\cdots,r_m)\mid r_i\in F\}$, $\dim F=m$, 标准基为 $\{f_1=(1,0,\cdots,0),f_2=(0,1,\cdots,0),\cdots,f_m=(0,0,\cdots,1)\}$. 如何确定/展现 $F^n$ 到 $F^m$ 的线性变换?
@@ -221,7 +220,7 @@ $\forall(r_1,\cdots,r_n)\in F^n$,
 
 $f:\mathcal{L}(F^n,F^m)\rightarrow M_{m\times n}(F)$, $\tau\mapsto M_{\tau}$ 是线性变换.
 \begin{pf}
-    由上述的 $M_{\tau}$ 构造过程知, $f(\tau)=M_{\tau}$ 是唯一的, 故 $f$ 是映射.
+    由上述的 $M_{\tau}$ 构造过程知, 给定 $\tau$, $f(\tau)=M_{\tau}$ 是唯一的, 故 $f$ 是映射.
 
     \begin{align*}
         f(r\tau+t\sigma)=&M_{r\tau+t\sigma}=\begin{pmatrix}
@@ -237,13 +236,15 @@ $f:\mathcal{L}(F^n,F^m)\rightarrow M_{m\times n}(F)$, $\tau\mapsto M_{\tau}$ 是
     \end{align*}
     故 $f$ 是线性的.
 
-    综上, $f:\mathcal{L}(F^n)\rightarrow M_{m\times n}(F)$, $\tau\mapsto M_{\tau}$ 是线性变换.
+    综上, $f$ 为线性变换.
 \end{pf}
 
-f 单射.
+$f$ 单射.
 \begin{pf}
-    $\ker f\equiv\{\tau\mid f(\tau)=0\}=\{\tau\mid M_{\tau}=0\}$.\\
-    $\forall\tau\in\ker f$, $\forall\vec{r}\in F^n$, $\tau(\vec{r})=M_{\tau}\vec{r}=\vec{0}\Longrightarrow M_{\tau}=0_{m\times n}\Longrightarrow\tau=0$.\\
+    $\ker f\equiv\{\tau\mid f(\tau)=0\}=\{\tau\mid M_{\tau}=0\}\Longrightarrow\forall\tau\in\ker f$, $M_{\tau}=\begin{pmatrix}
+        \tau(e_1)&\cdots&\tau(e_n)
+    \end{pmatrix}=0_{m\times n}$\\
+    $\Longrightarrow\forall v\in V$, $\tau(v)=M_{\tau}v=0\Longrightarrow\tau=0$.\\
     故 $\ker f=\{0\}$ (这里的``$0$''代表的是零变换) $\Longleftrightarrow f$ 单射.
 \end{pf}
 
@@ -256,14 +257,15 @@ $f$ 满射.
 
 综上, $f$ 同构.
 
-取 $V$ 的基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, $\forall v\in V$, $v=\sum_ir_ib_i$.\\
+取 $V$ 的基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, 则 $\forall v\in V$, $v=\sum_ir_ib_i$.\\
 当 $\mathcal{B}$ 定序, $\phi_{\mathcal{B}}:V\rightarrow F^n$, $v\mapsto\begin{pmatrix}
     r_1\\
     \vdots\\
     r_n
 \end{pmatrix}\equiv[v]_{\mathcal{B}}$ 是一个映射.
 \begin{pf}
-    由于 $\mathcal{B}$ 是 $V$ 的基, 展开式 $v=\sum_ir_ib_i$ 唯一确定, 又 $\because\mathcal{B}$ 定序, 从而映射 $v\mapsto\begin{pmatrix}
+    由于 $\mathcal{B}$ 是 $V$ 的基, 展开式 $v=\sum_ir_ib_i$ 唯一确定.\\
+    又 $\because\mathcal{B}$ 定序, $\therefore$ 映射 $v\mapsto\begin{pmatrix}
         r_1\\
         \vdots\\
         r_n
@@ -284,7 +286,7 @@ $f$ 满射.
             r_1\\
             \vdots\\
             r_n
-        \end{pmatrix}=r\phi_{\mathcal{B}}(u)+t\phi_{\mathcal{B}}(v),
+        \end{pmatrix}=r\phi_{\mathcal{B}}(\vec{u})+t\phi_{\mathcal{B}}(\vec{v}),
     \end{align*}
     故 $\phi_B$ 为 $V$ 到 $F^n$ 的线性变换.
 \end{pf}
@@ -310,12 +312,16 @@ $\phi_{\mathcal{B}}$ 满射.
         r_1\\
         \vdots\\
         r_n
-    \end{pmatrix}\in F^n$, $\exists v\in V$, s.t. $\sum_{i=1}^nr_ib_i\in V$, 故 $\phi_{\mathcal{B}}$ 满射.
+    \end{pmatrix}\in F^n$, $\exists v=\sum_{i=1}^nr_ib_i\in V$, s.t. $\phi_{\mathcal{B}}(v)=\begin{pmatrix}
+        r_1\\
+        \vdots\\
+        r_n
+    \end{pmatrix}$, 故 $\phi_{\mathcal{B}}$ 满射.
 \end{pf}
 
 综上, $\phi_{\mathcal{B}}$ 同构.
 
-取 $V$ 的一组定序基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, 另一组定序基 $\mathcal{C}=\{c_1,\cdots,c_n\}$, $v$ 在 $\mathcal{B}$ 下的表象为 $[v]_{\mathcal{B}}$, 在 $\mathcal{C}$ 下的表象为 $[v]_{\mathcal{C}}$, 映射关系见如下的交换图. 如何联系 $v$ 在不同基下的表象, $[v]_{\mathcal{B}}$ 和 $[v]_{\mathcal{C}}$, 从而得到 $\tau$?
+$\dim V=n$, 取 $V$ 的一组定序基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, 另一组定序基 $\mathcal{C}=\{c_1,\cdots,c_n\}$, 向量 $v$ 在 $\mathcal{B}$ 下的坐标表示为 $[v]_{\mathcal{B}}$, 在 $\mathcal{C}$ 下的坐标表示为 $[v]_{\mathcal{C}}$, $\tau$ 将 $[v]_{\mathcal{B}}$ 转换为 $[\tau]_{\mathcal{C}}$, 映射关系如以下的交换图所示. 如何表示映射 $\tau$?
 \begin{center}
     \begin{tikzpicture}
         \node(1)at(0,2){$V$};
@@ -336,8 +342,8 @@ $\phi_{\mathcal{B}}$ 满射.
 $[v]_{\mathcal{C}}=\tau([v]_{\mathcal{B}})=M_{\tau}[v]_{\mathcal{B}}$, 其中 $M_{\tau}=\begin{pmatrix}
     \tau(e_1)&\cdots&\tau(e_n)
 \end{pmatrix}$.\\
-$\tau:F^n\rightarrow F^n,\quad e_i\mapsto\tau(e_i)=\phi_{\mathcal{C}}(\phi_{\mathcal{B}}^{-1}(e_i))=\phi_{\mathcal{C}}(b_i)$,\\
-$M_{\tau}=\begin{pmatrix}
+$\tau:F^n\rightarrow F^n,\quad e_i\mapsto\tau(e_i)=\phi_{\mathcal{C}}(\phi_{\mathcal{B}}^{-1}(e_i))=\phi_{\mathcal{C}}(b_i)$\\
+$\Longrightarrow M_{\tau}=\begin{pmatrix}
     [b_1]_{\mathcal{C}}&\cdots&[b_n]_{\mathcal{C}}
 \end{pmatrix}\equiv M_{\mathcal{BC}}$.
 
@@ -347,6 +353,8 @@ $M_{\tau}=\begin{pmatrix}
     \end{align*}
     其中 $[v]_{\mathcal{B}}$ 和 $[v]_{\mathcal{C}}$ 分别是向量 $v$ 在基 $\mathcal{B}$ 和 $\mathcal{C}$ 表象下的坐标表示, $M_{\mathcal{BC}}$ 是在两种坐标表示之间线性变换对应的矩阵.
 \end{thm}
+
+$\dim V=n$, $\dim W=n$, 故 $V\approx W\approx F^n$, 取 $V$ 的一组定序基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, $W$ 的一组定序基 $\mathcal{C}=\{c_1,\cdots,c_n\}$, $\tau$ 为 $V$ 到 $W$ 的线性变换, 映射关系如下所示. 如何表示 $\tau$?
 
 \begin{center}
     \begin{tikzpicture}
@@ -393,7 +401,7 @@ $M_{\tau}=\begin{pmatrix}
     \begin{align*}
         \boxed{[\tau(v)]_{\mathcal{C}}=[\tau]_{\mathcal{BC}}[v]_{\mathcal{B}}}
     \end{align*}
-    其中 $[\tau(v)]_{\mathcal{C}}$ 是 $\tau(v)$ 在基 $\mathcal{C}$ 的表象下的坐标表示, $[\tau]_{\mathcal{BC}}$ 是从基 $\mathcal{B}$ 的表象到基 $\mathcal{C}$ 的表象的线性变换的矩阵表示, $[v]_{\mathcal{B}}$ 是 $v$ 在基 $\mathcal{B}$ 的表象下的坐标表示.
+    其中 $[\tau(v)]_{\mathcal{C}}$ 是 $\tau(v)$ 在基 $\mathcal{C}$ 表象下的坐标表示, $[v]_{\mathcal{B}}$ 是 $v$ 在基 $\mathcal{B}$ 表象下的坐标表示, $[\tau]_{\mathcal{BC}}$ 是从基 $\mathcal{B}$ 表象到基 $\mathcal{C}$ 表象的线性变换的矩阵表示.
 \end{thm}
 
 \begin{thm}[(课本定理 2.15)]
@@ -424,7 +432,7 @@ $\tau_A'=\phi_{\mathcal{C}}'\phi_{\mathcal{C}}^{-1}\tau_A\phi_{\mathcal{B}}\phi_
 
 \begin{thm}[(课本定理 2.16)]
     \begin{align*}
-        \boxed{[\tau]_{\mathcal{B'C'}}=M_{CC'}[\tau]_{\mathcal{BC}}M_{\mathcal{B'B}}}
+        \boxed{[\tau]_{\mathcal{B'C'}}=M_{\mathcal{CC}'}[\tau]_{\mathcal{BC}}M_{\mathcal{B'B}}}
     \end{align*}
     其中 $[\tau]_{\mathcal{BC}}$ 和 $[\tau]_{\mathcal{B'C'}}$ 分别是线性变换 $\tau$ 在基 $(\mathcal{B},\mathcal{C})$ 和 $(\mathcal{B}',\mathcal{C}')$ 下的表示, 矩阵 $M_{\mathcal{B'B}}$ 和 $M_{\mathcal{CC}'}$ 分别对应了从基 $\mathcal{B}$ 到基 $\mathcal{B}'$ 和从基 $\mathcal{C}$ 到基 $\mathcal{C}'$ 的变换矩阵.
 \end{thm}
@@ -459,7 +467,7 @@ $M_{\mathcal{BB}'}$ 可逆.
     $M_{\mathcal{BB}'}=M_{\tau}=\begin{pmatrix}
         [b_1]_{\mathcal{B}'}&\cdots&[b_n]_{\mathcal{B}'}
     \end{pmatrix}$, s.t. $[v]_{\mathcal{B}'}=M_{\mathcal{BB}'}[v]_{\mathcal{B}}$.\\
-    同理可以构造 $M_{\mathcal{BB}'}=\begin{pmatrix}
+    同理可构造 $M_{\mathcal{B'B}}=\begin{pmatrix}
         [b_1']_{\mathcal{B}}&\cdots&[b_n']_{\mathcal{B}}
     \end{pmatrix}$, s.t. $[v]_{\mathcal{B}}=M_{\mathcal{B'B}}[v]_{\mathcal{B}'}$.\\
     $\forall[v]_{\mathcal{B}}\in F^n$, $M_{\mathcal{BB}'}M_{\mathcal{B'B}}[v]_{\mathcal{B}}=M_{\mathcal{BB}'}[v]_{\mathcal{B}'}=[v]_{\mathcal{B}}\Longrightarrow M_{\mathcal{BB}'}M_{\mathcal{B'B}}=n\times n$ 维的单位矩阵, 即 $M_{\mathcal{B'B}}$ 是 $M_{\mathcal{BB}'}$ 的逆, 故 $M_{\mathcal{BB}'}$ 可逆.
@@ -468,7 +476,6 @@ $M_{\mathcal{BB}'}$ 可逆.
 \begin{thm}[(课本定理 2.18)]
     $B=PAQ$, 其中 $P$ 和 $Q$ 可逆, 则 $B$ 与 $A$ \textbf{等价}.
 \end{thm}
-(因为 $B$ 和 $A$ 是同一线性变换在两组不同的基下的表示.)
 
 \begin{thm}[(课本定理 2.19)]
     $B=PAP^{-1}$, 其中 $P$ 可逆, 则 $B$ 与 $A$ \textbf{相似}.

@@ -7,11 +7,11 @@
 \setcounter{chapter}{+11}
 \chapter{度量空间}
 \begin{df}[度量和度量空间]
-    对集合 $M$, 映射 $d(,):M\times M\rightarrow\mathbb{R}$ 满足:
+    对集合 $M$, 映射 $d(,):M\times M\rightarrow\mathbb{R}$, 若满足
     \begin{itemize}
-        \item[(1)] \textbf{正定}: $d(u,v)\geq 0$, 且 $d(u,v)=0\Longleftrightarrow u=v$.
-        \item[(2)] \textbf{对称}: $d(u,v)=d(v,u)$.
-        \item[(3)] \textbf{三角不等式}: $d(u,v)\leq d(u,v)+d(u,v)$.
+        \item[(1)] \textbf{正定}: $d(u,v)\geq 0$, 且 $d(u,v)=0\Longleftrightarrow u=v$,
+        \item[(2)] \textbf{对称}: $d(u,v)=d(v,u)$,
+        \item[(3)] \textbf{三角不等式}: $d(u,v)\leq d(u,v)+d(u,v)$,
     \end{itemize}
     则称 $d$ 为 $M$ 上的一个\textbf{度量}, 称 $(M,d)$ 为\textbf{度量空间}.
 \end{df}
@@ -51,36 +51,42 @@
     包含 $x_0$ 的任何开集称 $x_0$ 的\textbf{开邻域}.
 \end{df}
 
+开球为开集, 闭球为闭集.
+\begin{pf}
+    $\forall$ 开球 $B(x_0,r_0)=\{y\in M\mid d(y,x_0)<r_0\}$, $\forall x\in B(x_0,r_0)$, $\exists r=\frac{1}{2}(r_0-d(x,x_0))>0$, s.t. $B(x,r)\subseteq B(x_0,r_0)\Longrightarrow$ 开球 $B(x_0,r_0)$.
+
+    $\forall$ 闭球 $\bar{B}(x_0,r_0)=\{y\in M\mid d(y,x_0)\leq r_0\}$, $\forall x\in(\bar{B}(x_0,r_0))^c=\{y\in M\mid d(y,x_0)>r_0\}$, $\exists r=\frac{1}{2}(d(x,x_0)-r)>0$, s.t. $B(x,r)\subseteq(\bar{B}(x_0,r_0))^c\Longrightarrow(\bar{B}(x_0,r_0))^c$ 为开集, 即 $\bar{B}(x_0,r_0)$ 为闭集.
+\end{pf}
+
 \begin{eg}
-    设 $\mathbb{R}$ 上的度量 $d(r,t)=\abs{r-t}$, 对点 $x_0$,\\
+    设 $\mathbb{R}$ 上的度量 $d(r,t)=\abs{r-t}$. 对点 $x_0$,\\
     $B(x_0,r)=\{y\in\mathbb{R}\mid\abs{y-x_0}<r\}=(x_0-r,x_0+r)$,\\
     $\bar{B}(x_0,r)=[x_0-r,x_0+r]$,\\
     $S(x_0,r)=\{x_0-r,x_0+r\}$.\\
     开区间 $(a,b)$ 为开集.
     \begin{pf}
-        $\forall x\in(a,b)$, 取 $r=\frac{1}{2}\min\{\abs{x_0-a},\abs{x_0-b}\}>0$,\\
-        $B(x_0,r)=(x_0-r,x_0+r)\subseteq(a,b)$.
+        $\forall x\in(a,b)$, 取 $r=\frac{1}{2}\min\{\abs{x-a},\abs{x-b}\}>0$, $B(x,r)=(x-r,x+r)\subseteq(a,b)$, 故得证.
     \end{pf}
     闭区间 $[a,b]$ 为闭集.\\
     $(a,b]$ 既非开集也非闭集.
 \end{eg}
 
 \begin{thm}[(课本定理 12.1)]
-    $O=\{M\text{ 上的开集}\}$, 则
+    $\mathcal{O}=\{M\text{ 上的开集}\}$, 则
     \begin{itemize}
         \item[(1)] $\emptyset,M\in\mathcal{O}$.
-        \item[(2)] 有限个开集的并仍为开集: $S,T\in\mathcal{O}$, 则 $S\cap T\in\mathcal{O}$.
+        \item[(2)] 有限个开集的交仍为开集: $S,T\in\mathcal{O}$, 则 $S\cap T\in\mathcal{O}$.
         \item[(3)] $S_i\in\mathcal{O}$, 则 $\cup_{i\in K}S_i\in\mathcal{O}$ ($S_i$ 可以是无限个).
     \end{itemize}
 \end{thm}
 \begin{pf}
     \begin{itemize}
         \item[(1)] 显然.
-        \item[(2)] $x_0\in S\cap T\Longleftrightarrow x_0\in S$, $x_0\in T$,\\
-        $\because S$ 为开集, $\therefore\exists r_1>0$, s.t. $B(x_0,r)\subseteq S$,\\
-        $\because T$ 为开集, $\therefore\exists r_2>0$, s.t. $B(x_0,r)\subseteq T$.\\
+        \item[(2)] $x_0\in S\cap T\Longleftrightarrow x_0\in S$, $x_0\in T$.\\
+        $\because S$ 为开集, $\therefore\exists r_1>0$, s.t. $B(x_0,r_1)\subseteq S$;\\
+        $\because T$ 为开集, $\therefore\exists r_2>0$, s.t. $B(x_0,r_2)\subseteq T$.\\
         令 $r=\min\{r_1,r_2\}$, 则 $B(x_0,r)\subseteq S$ 且 $B(x_0,r)\subseteq T\Longrightarrow B(x_0,r)\subseteq S\cap T\Longrightarrow S\cap T$ 开, 即 $S\cap T\in\mathcal{O}$.
-        \item[(3)] $x_0\in\cup_iS_i\Longleftrightarrow\exists i$, s.t. $x_0\in S_i$,\\
+        \item[(3)] $x_0\in\cup_iS_i\Longleftrightarrow\exists i$, s.t. $x_0\in S_i$.\\
         $\because S_i$ 为开集, $\therefore\exists r>0$, s.t. $B(x_0,r)\subseteq S_i\subseteq\cup_iS_i\Longrightarrow\cup_iS_i$ 开, 即 $\cup_iS_i\in\mathcal{O}$.
     \end{itemize}
 \end{pf}
@@ -93,8 +99,8 @@
 单点集为闭集.
 \begin{pf}
     单点集 $S=\{a\}$, 补集 $S^c=M\backslash\{a\}$.\\
-    $\forall x\in S^c$, 则 $x\neq a$, $d(x,a)>0$, 取 $r=\frac{1}{2}d(x,a)$.\\
-    取 $r=\frac{1}{2}d(x,a)$, $a\neq B(x,r)\Longrightarrow B(x,r)\subseteq S^c\Longrightarrow S^c$ 开, 故 $S$ 闭.
+    $\forall x\in S^c$, 则 $x\neq a$, $d(x,a)>0$.\\
+    取 $r=\frac{1}{2}d(x,a)$, 则 $a\neq B(x,r)\Longrightarrow B(x,r)\subseteq S^c\Longrightarrow S^c$ 开, 故 $S$ 闭.
 \end{pf}
 
 有限点集为闭集.
@@ -107,11 +113,11 @@
 \begin{df}[拓扑和拓扑空间]
     集合 $X\neq\emptyset$, $\mathcal{O}$ 是 $X$ 的一些子集构成的簇\footnote{可理解为``集合的集合'', 此处为避免逻辑循环, 故名之}, 若
     \begin{itemize}
-        \item[(1)] $\emptyset X\in\mathcal{O}$,
+        \item[(1)] $\emptyset,X\in\mathcal{O}$,
         \item[(2)] $S,T\in\mathcal{O}$, 则 $S\cap T\in\mathcal{O}$,
         \item[(3)] $\{S_i\in\mathcal{O}\mid i\in K\}$, 则 $\cup_{i\in K}S_i\in\mathcal{O}$,
     \end{itemize}
-    则称 $\mathcal{O}$ 是 $X$ 上的一个\textbf{拓扑}, 称 $(X,\mathcal{O})$ 为\textbf{拓扑空间}, 称 $\mathcal{O}$ 中的集合为 $X$ 上的\textbf{开集}.
+    则称 $\mathcal{O}$ 为 $X$ 上的一个\textbf{拓扑}, 称 $(X,\mathcal{O})$ 为\textbf{拓扑空间}, 称 $\mathcal{O}$ 中的集合为 $X$ 上的\textbf{开集}.
 \end{df}
 
 故确定开集 $\Longleftrightarrow$ 确定拓扑.
@@ -122,7 +128,7 @@
 \end{df}
 
 \begin{eg}
-    $(r_n)$ 为 $\mathbb{R}$ 上的序列, $\lim_{n\rightarrow\infty}r_n=0$, 即 $x_n\rightarrow x$, 即 $\forall\epsilon>0$, $\exists N>0$, 当 $n>N$ 时, $d(x_n,x)<\epsilon\Longleftrightarrow x_n\in B(x,\epsilon)$.
+    $(r_n)$ 为 $\mathbb{R}$ 上的序列, $\lim_{n\rightarrow\infty}r_n=0$, 即 $r_n\rightarrow r$, 即 $\forall\epsilon>0$, $\exists N>0$, 当 $n>N$ 时, $d(r_n,r)<\epsilon\Longleftrightarrow r_n\in B(r,\epsilon)$.
 \end{eg}
 
 \textbf{收敛的性质}:
@@ -144,11 +150,10 @@
 
     ``$\Longleftarrow$'': 假设 $S$ 非闭, 则 $S^c$ 非开
     $\Longrightarrow\exists x_0\in S^c$, s.t. $\forall r>0$, $B(x_0,r)\nsubseteq S^c$.\\
-    特别地, 令 $r=1$, 则 $\exists x_1\in B(x,r)\Longrightarrow x_1\notin S^c$, 即 $x\in S$,\\
-    $\cdots$,\\
-    令 $r=\frac{1}{n}$, 则 $\exists x_n\in B(x_0,r)$, $x_n\notin S^c$, 即 $x_n\in S$,\\
-    $\cdots\Longrightarrow x_n\rightarrow x$.\\
-    但 $\because(x_n)\in S$, $\therefore$ 由题设, $x\in S$, 矛盾, 故假设错误, $S$ 闭.
+    特别地, 令 $r=1$, 则 $\exists x_1\in B(x_0,r)$, s.t. $x_1\notin S^c$, 即 $x_1\in S$,\\
+    $\cdots$, 令 $r=\frac{1}{n}$, 则 $\exists x_n\in B(x_0,r)$, s.t. $x_n\notin S^c$, 即 $x_n\in S$,\\
+    $\cdots\Longrightarrow x_n\rightarrow x_0$.\\
+    又 $\because(x_n)\in S$, $\therefore$ 由题设, $x_0\in S$, 矛盾, 故假设错误, $S$ 闭.
 
     综上, 得证.
 \end{pf}
@@ -158,7 +163,7 @@
     $S\subseteq M$, 称包含 $S$ 的最小闭集或包含 $S$ 的所有闭集的交为 $S$ 的\textbf{闭包}, 记作 $\cl(S)$.
 \end{df}
 
-给定 $S$, 闭包必 $\exists$.
+给定 $S$, 必 $\exists$ 其闭包.
 
 \begin{df}[极限点(/聚点)]
     $\emptyset\neq S\subseteq M$, $x\in M$, 若 $\forall r>0$, $B(x,r)\cap S$ 包含异于 $x$ 的点, 则称 $x$ 为 $S$ 的\textbf{极限点}或\textbf{聚点}, $S$ 对应的极限点的集合记作 $\lp(S)$.
@@ -166,12 +171,12 @@
 
 \begin{eg}
     $(a,b)\subseteq\mathbb{R}$, 则 $\lp((a,b))=[a,b]$.\\
-    $c\notin[a,b]$, $S=(a,b)\cup\{c\}$, 则 $l(S)=[a,b]$.
+    $c\notin[a,b]$, $S=(a,b)\cup\{c\}$, 则 $\lp(S)=[a,b]$.
 \end{eg}
 
 \begin{thm}[(课本定理 12.3)]
     \begin{itemize}
-        \item[(1)] $x\in\lp(S)\Longleftrightarrow\exists$ 序列 $(x_n)\in S$, s.t. $\forall n$, $x_n\neq x$ 且 $x_n\rightarrow x$.
+        \item[(1)] $x\in\lp(S)\Longleftrightarrow\exists$ 序列 $(x_n)\in S$, s.t. $x_n\neq x\forall n$ 且 $x_n\rightarrow x$.
         \item[(2)] $S$ 闭 $\Longleftrightarrow\lp(S)\subseteq S$.
         \item[(3)] $\cl(S)=S\cup\lp(S)$.
     \end{itemize}
@@ -182,29 +187,27 @@
         $\Longrightarrow d(x_n,x)<\frac{1}{n}$, 故 $\exists(x_n)\in S$, s.t. $\forall n$, $x_n\neq x$, $x_n\rightarrow x$.
 
         ``$\Longleftarrow$'': 设 $(x_n)\rightarrow x$ 且 $x\neq x_n\in S$.\\
-        $\forall r>0$, $\exists N$, s.t. 当 $n>N$ 时, $x_n\in B(x,r)$, 即 $\exists x\neq x_n$, s.t. $x_n\in B(x,r)\cap S$.
+        $\forall r>0$, $\exists N$, s.t. 当 $n>N$ 时, $x_n\in B(x,r)$, 即 $\exists x_n\neq x$, s.t. $x_n\in B(x,r)\cap S$, 故 $x\in\lp(S)$.
 
         综上, 得证.
-        \item[(2)] ``$\Longrightarrow$'': 设 $x\in\lp(S)$, 则由 (1) 得, $\exists(x_n)\in S$, s.t. $\forall n$, $x_n\neq x$ 且 $x_n\rightarrow x$.\\
+        \item[(2)] ``$\Longrightarrow$'': 设 $x\in\lp(S)$, 则由 (1) 得, $\exists(x_n)\in S$, s.t. $x_n\neq x\forall n$ 且 $x_n\rightarrow x$.\\
         又 $\because S$ 闭, $\therefore x\in S\Longrightarrow\lp(S)\subseteq S$.
 
-        ``$\Longleftarrow$'': $\forall S$ 中序列 $(x_n)\rightarrow x$, $\exists n$, s.t. $x_n=x$, 则 $x=x_n\in S$,\\
-        或 $\forall n$, $x_n\neq x$, 由 (1) 得 $x\in\lp(S)\subseteq S$, 故 $S$ 闭.
+        ``$\Longleftarrow$'': $\forall S$ 中序列 $(x_n)\rightarrow x$, 若 $\exists n$, s.t. $x_n=x$, 则 $x=x_n\in S$,\\
+        或 $x_n\neq x\forall n$, 则由 (1) 得 $x\in\lp(S)\subseteq S$, 故 $S$ 闭.
 
         综上, 得证.
         \item[(3)] 显然 $S\subseteq S\cup\lp(S)\equiv T$.\\
-        设 $x\in\lp(T)$, 则由 (1) 得, $\exists$ 序列 $(x_n)\in T$, s.t. $x_n\neq x$ 且 $x_n\rightarrow x$.\\
+        设 $x\in\lp(T)$, 则由 (1) 得, $\exists$ 序列 $(x_n)\in T$, s.t. $x_n\neq x\forall n$ 且 $x_n\rightarrow x$.\\
         假设 $x\notin S$ 且 $x\notin\lp(S)$, 则 $\because x\notin\lp(S)$, $\therefore\exists r>0$, $B(x,r)\cap S=\emptyset$.\\
-        但 $\because(x_n)\rightarrow x$, $\therefore\exists x_n\in B(x,r)\Longrightarrow x_n\neq S$.\\
-        又 $\because x_n\in T\equiv S\cap\lp(S)$, 
-        $\therefore x_n\in\lp(S)$.\\
+        但 $\because(x_n)\rightarrow x$, $\therefore\exists x_n\in B(x,r)\Longrightarrow x_n\notin S$.\\
+        又 $\because x_n\in T\equiv S\cup\lp(S)$, $\therefore x_n\in\lp(S)$.\\
         取 $x_n$, s.t. $d(x_n,x)<r$, 则 $B\left(x_n,\frac{r-d(x_n,x)}{2}\right)\subseteq B(x,r)$,\\
         且 $\because x_n\in\lp(S)$, $\therefore\exists y\in S\cap B\left(x_n,\frac{r-d(x_n-x)}{2}\right)\subseteq S\cap B(x,r)$, 与 $B(x,r)\cap S=\emptyset$ 矛盾, 故假设错误, $x\in S$ 或 $x\in\lp(S)$, 即 $x\in T\equiv S\cup \lp(S)\Longrightarrow T$ 闭.\\
-        又 $\because S\subseteq T$, $\therefore\cl(S)\subseteq T$.
+        又 $\because S\subseteq T$, $\therefore$ 由闭包定义, $\cl(S)\subseteq T$.
 
         另一方面, 由闭包定义, $S\in\cl(S)$.\\
-        假设 $\lp(S)\nsubseteq\cl(S)$, 即 $\exists x\in\lp(S)$ 且 $x\notin\cl(S)$, 则 $\forall r>0$, $B(x,r)\cap S\neq\emptyset$,\\
-        且 $\exists$ 闭集 $S'$, s.t. $x\notin S'$ 即 $x\in(S')^c$,\\
+        假设 $\lp(S)\nsubseteq\cl(S)$, 即 $\exists x\in\lp(S)$ 且 $x\notin\cl(S)$, 则 $\forall r>0$, $B(x,r)\cap S\neq\emptyset$, 且 $\exists$ 闭集 $S'$, s.t. $x\notin S'$ 即 $x\in(S')^c$.\\
         $\because S'$ 闭 $\Longrightarrow(S')^c$ 开, $\therefore\exists r>0$, s.t. $B(x,r)\subseteq(S')^c$, 与 $B(x,r)\cap S\neq\emptyset$ 矛盾, 故假设错误, $\lp(S)\subseteq\cl(S)\Longrightarrow T\equiv S\cup\lp(S)\subseteq\cl(S)$.
 
         综上, 得证.
@@ -226,8 +229,8 @@
 
 \section{连续}
 \begin{df}[连续和不连续]
-    度量空间 $(M,d)$ 和 $(M',d')$, 映射 $f:M\rightarrow M'$, $x_0\in M$, 若 $\forall\epsilon>0$, $\exists\delta>0$, s.t. $f(B(x_0,\delta))\subseteq B(f(x_0),\epsilon)$, 即 $d(x,x_0)<\delta\Longrightarrow d'(f(x),f(x_0))<0$, 则称 $f$ 在 $x_0$ 处\textbf{连续},\\
-    若 $\exists 0$, $\forall\epsilon>0$, $f(B(x_0,\delta))\nsubseteq B(f(x_0),\epsilon)$, 则称 $f$ 在 $x_0$ 处\textbf{不连续}.
+    度量空间 $(M,d)$ 和 $(M',d')$, 映射 $f:M\rightarrow M'$, $x_0\in M$, 若 $\forall\epsilon>0$, $\exists\delta>0$, s.t. $f(B(x_0,\delta))\subseteq B(f(x_0),\epsilon)$, 即 $d(x,x_0)<\delta\Longrightarrow d'(f(x),f(x_0))<\epsilon$, 则称 $f$ 在 $x_0$ 处\textbf{连续},\\
+    若 $\exists\epsilon>0$, $\forall\delta>0$, $f(B(x_0,\delta))\nsubseteq B(f(x_0),\epsilon)$, 则称 $f$ 在 $x_0$ 处\textbf{不连续}.
 \end{df}
 
 \begin{thm}[连续的判定 (课本定理 12.4)]
@@ -238,11 +241,10 @@
     $\because(x_n)\rightarrow x$, $\therefore\forall\delta>0$, $\exists N>0$, 当 $n>N$ 时, $d(x_n,x)<\delta$\\
     $\Longrightarrow d(f(x_n),f(x))<\epsilon$, 故 $(f(x_n))\rightarrow f(x)$.
 
-    ``$\Longleftarrow$'': 假设 $f$ 在 $x\in M$ 处不连续, 则 $\exists\epsilon>0$, s.t. $\forall\epsilon$, $f(B(x,\delta))\nsubseteq B(f(x),\delta)$.\\
-    取 $\delta=1$, $f(B(x,\delta))\nsubseteq B(f(x),\epsilon)$,\\
-    $\cdots$\\
-    取 $\delta=\frac{1}{2}$, $\exists x_n\in B(x,\frac{1}{n})$, s.t. $f(x_n)\notin B(f(x),\epsilon)$,\\
-    $\cdots$, 则序列 $(x_n)\rightarrow x$, 但 $d(f(x_n),f(x))>\delta$\\
+    ``$\Longleftarrow$'': 假设 $f$ 在 $x\in M$ 处不连续, 则 $\exists\epsilon>0$, s.t. $\forall\delta>0$, $f(B(x,\delta))\nsubseteq B(f(x),\epsilon)$, 即 $\exists x'\in B(x,\delta)$, s.t. $f(x')\notin B(f(x),\epsilon)$.\\
+    特别地, 取 $\delta=1$, $\exists x_1\in B(x,1)$, s.t. $f(x_1)\notin B(f(x),\epsilon)$,\\
+    $\cdots$, 取 $\delta=\frac{1}{n}$, $\exists x_n\in B(x,\frac{1}{n})$, s.t. $f(x_n)\notin B(f(x),\epsilon)$,\\
+    $\cdots$, 从而得到序列 $(x_n)\rightarrow x$, 但 $d(f(x_n),f(x))>\epsilon$\\
     $\Longrightarrow f(x)$ 不收敛至 $f(x)$, 与题设矛盾, 故假设错误, $f$ 在 $x_0$ 处连续.
 
     综上, 得证.
@@ -252,8 +254,8 @@
     若 $(x_n)\rightarrow x$, $(y_n)\rightarrow y$, 则 $(d(x_n,y_n))\rightarrow d(x,y)$.
 \end{thm}
 \begin{pf}
-    $\forall\epsilon$, $\because(x_n)\rightarrow x$, $\therefore\exists N_1>0$, s.t. 当 $n>N_1$ 时, $d(x_n,x)<\frac{\epsilon}{2}$,\\
-    $\because(y_n)\rightarrow y$, $\therefore\exists N_2>0$, s.t. 当 $n>N_2$ 时, $d(y_n,y)<\frac{\epsilon}{2}$,\\
+    $\forall\epsilon>0$, $\because(x_n)\rightarrow x$, $\therefore\exists N_1>0$, s.t. 当 $n>N_1$ 时, $d(x_n,x)<\frac{\epsilon}{2}$,\\
+    $\because(y_n)\rightarrow y$, $\therefore\exists N_2>0$, s.t. 当 $n>N_2$ 时, $d(y_n,y)<\frac{\epsilon}{2}$\\
     $\Longrightarrow\exists N=\max\{N_1,N_2\}$, s.t. 当 $n>N$ 时, $\abs{d(x_n,y_n)-d(x,y)}=\abs{d(x_n,y_n)-d(x,y_n)+d(x,y_n)-d(x,y)}\leq\abs{d(x_n,y_n)-d(x,y_n)}+\abs{d(x,y_n)-d(x,y)}\leq d(x_n,x)+d(y_n,y)<\epsilon$, 故得证.
 \end{pf}
 
@@ -264,10 +266,13 @@
     $(x_n)$ 为 $M$ 中序列, 若 $\forall\epsilon>0$, $\exists N>0$, 当 $n,m>N$ 时, $d(x_n,x_m)<\epsilon$, 则称 $(x_n)$ 为\textbf{柯西序列}.
 \end{df}
 
-收敛 $\Longrightarrow$ 柯西, 反之不真.
+\begin{thm}
+    收敛 $\Longrightarrow$ 柯西, 反之不真.
+\end{thm}
 \begin{pf}
-    设 $(x_n)\rightarrow x$, 则 $\forall\epsilon>0$, $\exists N_1>0$, s.t. 当 $n>N$ 时, $d(x_n,x)<\frac{\epsilon}{2}$, $\exists N_2>0$, s.t. 当 $m>N_2$ 时, $d(x_m,x)<\frac{\epsilon}{2}$\\
-    $\Longrightarrow\exists N=\max\{N_1,N_2\}$, s.t. 当 $n,m>N$ 时, $d(x_n,x_m)\leq d(x_n,x)+d(x_m,x)<\epsilon$, 故 $x_n$ 柯西.
+    设 $(x_n)\rightarrow x$, 则 $\forall\epsilon>0$, $\exists N_1>0$, s.t. 当 $n>N_1$ 时, $d(x_n,x)<\frac{\epsilon}{2}$,\\
+    $\exists N_2>0$, s.t. 当 $m>N_2$ 时, $d(x_m,x)<\frac{\epsilon}{2}$\\
+    $\Longrightarrow\exists N=\max\{N_1,N_2\}$, s.t. 当 $n,m>N$ 时, $d(x_n,x_m)\leq d(x_n,x)+d(x_m,x)<\epsilon$, 故 $(x_n)$ 柯西.
 \end{pf}
 
 \begin{eg}[不收敛的柯西序列 (课本例 12.12)]
@@ -288,8 +293,8 @@
     称柯西序列均收敛的空间为\textbf{完备}的.
 \end{df}
 
-\begin{df}[完备子集]
-    $S$ 为度量空间 $M$ 的子集, 若 $S$ 完备, 若 $S$ 完备, 则称 $S$ 为 $M$ 的\textbf{完备子群}.
+\begin{df}[完备子空间]
+    $S$ 为度量空间 $M$ 的子集, 若 $S$ 完备, 则称 $S$ 为 $M$ 的\textbf{完备子空间}.
 \end{df}
 
 \begin{thm}[(课本定理 12.6)]\label{thm-12.6}
@@ -301,12 +306,12 @@
 \end{thm}
 \begin{pf}
     \begin{itemize}
-        \item[(1)] 取完备子集 $S\subset M$, 取 $S$ 中任意序列 $(x_n)\rightarrow x\in M\Longrightarrow(x_n)$ 柯西.\\
-        又 $\because S$ 为完备子集, $\therefore(x_n)\rightarrow y\in S$.\\
+        \item[(1)] 取完备子集 $S\subseteq M$, 取 $S$ 中任意序列 $(x_n)\rightarrow x\in M\Longrightarrow(x_n)$ 柯西.\\
+        又 $\because S$ 为完备子集, $\therefore(x_n)$ 收敛, 设 $(x_n)\rightarrow y\in S$.\\
         又 $\because$ 极限唯一, $\therefore x=y\in S\Longrightarrow S$ 闭.
         \item[(2)] ``$\Longleftarrow$'': 已由 (1) 证.
 
-        ``$\Longrightarrow$'': $\forall$ 柯西序列 $(x_n)\in S$, $\because S\subseteq M$, $\therefore(x_n)$ 为 $M$ 中的柯西列.\\
+        ``$\Longrightarrow$'': $\forall$ 柯西列 $(x_n)\in S$, $\because S\subseteq M$, $\therefore(x_n)$ 为 $M$ 中的柯西列.\\
         又 $\because M$ 完备, $\therefore(x_n)$ 收敛, 设 $(x_n)\rightarrow x$.\\
         又 $\because S$ 闭, $\therefore x\in S$, 故 $S$ 完备.
 
@@ -322,8 +327,8 @@
     $C[a,b]$ 上度量 $d(f,g)=\sup_{x\in[a,b]}\{\abs{f(x)-g(x)}\}$, $(C[a,b],d)$ 完备.
     \begin{pf}
         在 $(C[a,b],d)$ 上, $d(f,g)=\sup\{\abs{f(x)-g(x)}\}<\epsilon\Longleftrightarrow\abs{f(x)-g(x)}<\epsilon$, $\forall x\in[a,b]$.\\
-        设 $(f_n)$ 柯西, 则 $\forall\epsilon>0$, $\exists N$, s.t. 当 $m,n>N$ 时, $\abs{f_n(x)-f_m(x)}<\epsilon$, $\forall x\in[a,b]$,\\
-        即给定 $\forall x\in[a,b]$, $(f_n(x))$ 为 $\mathbb{R}$ 或 $\mathbb{C}$ 上的柯西序列.\\
+        设 $(f_n)$ 柯西, 则 $\forall\epsilon>0$, $\exists N>0$, s.t. 当 $m,n>N$ 时, $d(f_n(x),f_m(x))<\epsilon\Longleftrightarrow\abs{f_n(x)-f_m(x)}<\epsilon$, $\forall x\in[a,b]$,\\
+        即给定 $\forall x\in[a,b]$, $(f_n(x))$ 为 $\mathbb{R}$ 或 $\mathbb{C}$ 上的柯西列.\\
         又 $\because\mathbb{R}$ 和 $\mathbb{C}$ 完备, $\therefore(f_n(x))$ 收敛.\\
         设 $f(x)=\lim_{n\rightarrow\infty}(x)$, 则取 $m\rightarrow\infty$ 得当 $n>N$ 时, $\abs{f_n(x)-f(x)}<\epsilon$, $\forall x\in[a,b]$\\
         $\Longrightarrow(f_n)\rightarrow f$, 故 $C[a,b]$ 完备.
@@ -345,14 +350,14 @@
 \end{thm}
 \begin{pf}
     \begin{itemize}
-        \item[(1)] (此处的 $M$ 和 $M$ 仅为集合, 没有定义额外的运算, 故 $0$ (加法单位元) 不一定存在, 必须从定义证明单射.)\\
+        \item[(1)] (此处的 $M$ 和 $M'$ 仅为集合, 没有定义额外的运算, 故 $0$ (加法单位元) 不一定存在, 必须从定义证明单射.)\\
         设 $f(x)=f(y)$, 则 $d(f(x),f(y))=0$.\\
         又 $\because f$ 等距, $\therefore d(x,y)=d(f(x),f(y))=0\Longrightarrow x=y$, 故得证.
         \item[(2)] $\forall M$ 的收敛序列 $(x_n)\rightarrow x$, $\forall\epsilon>0$, $\exists N>0$, s.t. 当 $n>N$ 时, $d(x_n,x)<\epsilon$.\\
         $\because f$ 等距, $\therefore d(f(x_n),f(x))=d(x_n,x)<\epsilon\Longrightarrow(f(x_n))\rightarrow f(x)$.\\
         $\because f$ 保持收敛, $\therefore f$ 连续.
-        \item[(3)] 若 $f$ 可逆, 则 $f^{-1}(f(x))=x\Longrightarrow f^{-1}f=1_M$.\\
-        $\because f$ 等距, $\therefore d(f(x),f(y))=d(x,y)=f(f^{-1}(f(x)),f^{-1}(f(y)))\Longrightarrow f^{-1}$ 等距.
+        \item[(3)] 若 $f$ 可逆, 则 $f^{-1}(f(x))=x$.\\
+        $\because f$ 等距, $\therefore d(f(x),f(y))=d(x,y)=d(f^{-1}(f(x)),f^{-1}(f(y)))\Longrightarrow f^{-1}$ 等距.
     \end{itemize}
 \end{pf}
 

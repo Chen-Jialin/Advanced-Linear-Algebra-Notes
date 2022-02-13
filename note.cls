@@ -81,7 +81,7 @@
 \RequirePackage{framed}% 文本加框 Framed text
 \RequirePackage{mdframed}% 定理环境加框 Framed theorem environment
 \RequirePackage{footmisc}% 脚注引用 Footnote reference
-\RequirePackage[subfigure]{tocloft}% 自定义目录，subfigure 选项防止与 subfigure 宏包冲突 Contents table customization, option subfigure avoiding conflict with subfigure package
+\RequirePackage[subfigure]{tocloft}% 自定义目录, subfigure 选项防止与 subfigure 宏包冲突 Contents table customization, option subfigure avoiding conflict with subfigure package
 
 % 页眉和页脚 Header & footer
 % #1 笔记主题 Notes topic
@@ -154,7 +154,7 @@
 \DeclareMathOperator{\cl}{cl}% 集合的闭包 Closure of set
 \DeclareMathOperator{\lp}{l}% 集合的极限点 Limit point of set
 \DeclareMathOperator{\spanned}{span}% 张成的空间 Spanned space
-\DeclareMathOperator{\cspan}{cpan}% 所张空间的闭包 Closure of spanned space
+\DeclareMathOperator{\cspan}{cspan}% 所张空间的闭包 Closure of spanned space
 
 % 题目和题解风格 Problem and solution style
 \ifUsingEnglish

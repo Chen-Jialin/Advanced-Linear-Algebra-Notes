@@ -6,13 +6,14 @@
 \begin{document}
 \fi
 \chapter{向量空间}
+\section{向量空间}
 \begin{df}[向量空间]
     交换群 $(V,+)$ 和域 $F$, 数乘映射 $\alpha:F\times V\rightarrow V$, 若满足
     \begin{itemize}
-        \item[(1)] $\alpha(r,u+v)=\alpha(r,u)+\alpha(r,v)$ (可简写为 $r(u+v)=ru+rv$)
-        \item[(2)] $\alpha(r+t,u)=\alpha(r,u)+\alpha(t,u)$ (可简写为 $(r+t)u=ru+tu$)
-        \item[(3)] $\alpha(r\cdot t,u)=\alpha(r,\alpha(t,u))$ (可简写为 $(rt)u=r(tu)$)
-        \item[(4)] \textbf{有单位元}: $\exists 1\in F$, s.t. $\alpha(1,u)=u$ (可简写为 $1u=u$)
+        \item[(1)] $\alpha(r,u+v)=\alpha(r,u)+\alpha(r,v)$ (可简写为 $r(u+v)=ru+rv$),
+        \item[(2)] $\alpha(r+t,u)=\alpha(r,u)+\alpha(t,u)$ (可简写为 $(r+t)u=ru+tu$),
+        \item[(3)] $\alpha(r\cdot t,u)=\alpha(r,\alpha(t,u))$ (可简写为 $(rt)u=r(tu)$),
+        \item[(4)] \textbf{有单位元}: $\exists 1\in F$, s.t. $\alpha(1,u)=u$ (可简写为 $1u=u$),
     \end{itemize}
     则称 $V$ 是 $F$ 上的\textbf{向量空间}.
 \end{df}
@@ -20,10 +21,10 @@
 \begin{eg}[直角坐标系]
     $(\mathbb{R},+,\cdot)$ 为域, $(\mathbb{R}^2\equiv\{(x,y)\mid x,y\in\mathbb{R}\},+)$ 为交换群, 满足
     \begin{itemize}
-        \item[(1)] $r((x_1,y_1)+(x_2,y_2))=r(x_1+x_2,y_1+y_2)=(rx_1+rx_2,ry_1+ry_2)=(rx_1,ry_1)+(rx_2,ry_2)=r(x_1,y_1)+r(x_2,y_2)$
-        \item[(2)] $(r+t)(x,y)=((r+t)x,(r+t)y)=(rx+tx,ry+ty)=(rx,ry)+(tx,ty)=r(x,y)+t(x,y)$
-        \item[(3)] $(r\cdot t)(x,y)=(rtx,rty)=r(tx,ty)=r(t(x,y))$
-        \item[(4)] $1(x,y)=(x,y)$
+        \item[(1)] $r((x_1,y_1)+(x_2,y_2))=r(x_1+x_2,y_1+y_2)=(rx_1+rx_2,ry_1+ry_2)=(rx_1,ry_1)+(rx_2,ry_2)=r(x_1,y_1)+r(x_2,y_2)$,
+        \item[(2)] $(r+t)(x,y)=((r+t)x,(r+t)y)=(rx+tx,ry+ty)=(rx,ry)+(tx,ty)=r(x,y)+t(x,y)$,
+        \item[(3)] $(rt)(x,y)=(rtx,rty)=r(tx,ty)=r(t(x,y))$,
+        \item[(4)] $1(x,y)=(x,y)$,
     \end{itemize}
     故 $\mathbb{R}^2$ 为 $\mathbb{R}$ 上的向量空间.
 \end{eg}
@@ -50,7 +51,7 @@ $-1v=-v$.
 \end{eg}
 
 \begin{eg}
-    $F^n\equiv\{(r_1,\cdots,r_n)\mid r_i\in F\}$, 满足 $(r_1,\cdots,r_n)+(l_1,\cdots,l_n)=(r_1+l_1,\cdots,r_n+l_n)$, $r(r_1,\cdots,r_n)=(rr_1,\cdots,rr_n)$. $F^n$ 为 $F$ 上的向量空间.
+    $F^n\equiv\{(r_1,\cdots,r_n)\mid r_i\in F\}$, 满足 $(r_1,\cdots,r_n)+(l_1,\cdots,l_n)=(r_1+l_1,\cdots,r_n+l_n)$, $r(r_1,\cdots,r_n)=(rr_1,\cdots,rr_n)$, 故 $F^n$ 为 $F$ 上的向量空间.
 \end{eg}
 \begin{pf}
     $\because r((r_1,\cdots,r_n)+(l_1,\cdots,l_n))=r(r_1+l_1,\cdots,r_n+l_n)=(rr_1+rl_1,\cdots,rr_n+rl_n)=(rr_1,\cdots,rr_n)+(rl_1,\cdots,rl_n)=r(r_1,\cdots,r_n)+r(l_1,\cdots,l_n)$,\\
@@ -60,17 +61,18 @@ $-1v=-v$.
     $\therefore F^n$ 为 $F$ 上的向量空间.
 \end{pf}
 
+\section{子空间}
 \begin{df}[子空间]
     $\emptyset\neq S\subseteq V$, 若 $S$ 为 $V$ 的子群, 且在相同的数乘下构成 $F$ 上的向量空间, 则称 $S$ 是 $V$ 的\textbf{子空间}.
 \end{df}
 
 \begin{thm}[子空间的判定 (课本定理 1.1)]
-    $S$ 为 $V$ 的子空间 $\Longleftrightarrow\forall a,b\in S$, $r,t\in F$, $ra+tb\in S$ (即线性运算封闭).
+    $S$ 为 $V$ 的子空间 $\Longleftrightarrow\forall a,b\in S$, $\forall r,t\in F$, $ra+tb\in S$ (即线性运算封闭).
 \end{thm}
 \begin{pf}
-    ``$\Longrightarrow$'': $ra\in S$, $-tb\in S$, 又 $\because S$ 为 $V$ 的子群, $ra-(-tb)\in S$.
+    ``$\Longrightarrow$'': $\because ra\in S$, $-tb\in S$ 且 $S$ 为 $V$ 的子群, $\therefore ra-(-tb)=ra+tb\in S$.
 
-    ``$\Longrightarrow$'': 令 $r=1$, $t=-1$, 有 $a-b\in S\Longrightarrow S<V$.\\
+    ``$\Longleftarrow$'': 令 $r=1$, $t=-1$, 有 $a-b\in S\Longrightarrow S<V$.\\
     令 $t=0$, 有 $ra\in S$, 故 $S$ 为 $V$ 的子空间.
 
     综上, 得证.
@@ -85,20 +87,21 @@ $-1v=-v$.
     综上, 得证.
 \end{pf}
 
-$S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子空间.
+若 $S,T$ 是 $V$ 的子空间, 则 $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子空间.
 \begin{pf}
     $\forall w_1,w_2\in S+T$, $r,t\in F$,\\
     $w_1\in S+T\Longrightarrow w_1=u_1+v_1$, $u_1\in S$, $v_1\in T$,\\
-    $w_2\in S+T\Longrightarrow w_2=u_2+v_2$, $u_2\in S$, $v_2\in T$.\\
-    $rw_1+tw_2=r(u_1+v_1)+t(u_2+v_2)=(ru_1+tu_2)+(rv1+tv_2)$, 其中 $ru_1+tu_2\in S$, $rv_1+tv_2\in T\Longrightarrow rw_1+tw_2\in S+T$, 故 $S+T$ 为 $V$ 的子空间.
+    $w_2\in S+T\Longrightarrow w_2=u_2+v_2$, $u_2\in S$, $v_2\in T$\\
+    $\Longrightarrow rw_1+tw_2=r(u_1+v_1)+t(u_2+v_2)=(ru_1+tu_2)+(rv_1+tv_2)$, 其中 $ru_1+tu_2\in S$, $rv_1+tv_2\in T\Longrightarrow rw_1+tw_2\in S+T$, 故 $S+T$ 为 $V$ 的子空间.
 \end{pf}
 
+\section{生成集和线性无关}
 \begin{df}[生成子空间和生成集]
-    $\emptyset\neq S\subseteq V$, $S$ 的\textbf{生成子空间}为 $\langle S\rangle\equiv$ 包含 $S$ 的最小子空间 $=\left\{\sum_{i=1}^nr_iu_i\mid r_i\in F,u_i\in S,n\in\mathbb{N}\right\}$, 其中称 $S$ 为\textbf{生成集}.
+    $\emptyset\neq S\subseteq V$, $S$ 的\textbf{生成子空间} $\langle S\rangle\equiv$ 包含 $S$ 的最小子空间 $=\left\{\sum_{i=1}^nr_iu_i\mid r_i\in F,u_i\in S,n\in\mathbb{N}\right\}$, 其中称 $S$ 为\textbf{生成集}.
 \end{df}
 
 \begin{eg}
-    向量空间 $\mathbb{R}^2$,\\
+    向量空间 $\mathbb{R}^2$ 中,\\
     $S_x=\langle\{(1,0)\}\rangle=\{(x,0)\mid x\in\mathbb{R}\}=x$ 轴,\\
     $S_y=\langle\{(0,1)\}\rangle=\{(0,y)\mid y\in\mathbb{R}\}=y$ 轴,\\
     $\langle\{(1,0),(0,1)\}\rangle=\langle\{(1,1),(1,-1)\}\rangle=\mathbb{R}^2$, 故对同一生成子空间, 生成集不唯一.
@@ -131,7 +134,8 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
 
 若 $u,v$ 线性相关, 则两者共线.
 \begin{pf}
-    $\exists r,t$ 不全为零, s.t. $ru+tv=0$, 无妨设 $0\neq r\in F$, 则 $ru=-tv\Longrightarrow r^{-1}ru=-r^{-1}tv\Longrightarrow u=-\frac{u}{r}v$
+    $\because u,v$ 线性无关, $\therefore\exists r,t$ 不全为零, s.t. $ru+tv=0\Longrightarrow ru=-tv$.\\
+    无妨设 $0\neq r\in F$, 则 $ru=-tv\Longrightarrow u=r^{-1}ru=-r^{-1}tv=-\frac{u}{r}v$
 \end{pf}
 
 \begin{df}[线性表示]
@@ -147,14 +151,14 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
 
     第一个 ``$\Longrightarrow$'': $v\in\langle S\rangle$, 则 $v$ 可由 $S$ 中的元素线性表示, 即 $\exists r_1,\cdots,r_m$, s.t. $v=r_1u_1+\cdots+r_mu_m$.\\
     要证这种线性表示是唯一的, 假设 $v$ 的另一种线性表示为 $v=r_1'u_1+\cdots+r_m'u_m$.\\
-    $v-v=(r_1-r_1')u_1+\cdots+(r_m-r_m')u_m=0$, 又 $\because S$ 线性无关, 即 $u_1,\cdots,u_m$ 线性无关, $\therefore r_1'=r_1$, $r_m'=r_m$, 故两种线性表示相同.
+    $v-v=(r_1-r_1')u_1+\cdots+(r_m-r_m')u_m=0$, 又 $\because S$ 线性无关, 即 $u_1,\cdots,u_m$ 线性无关, $\therefore r_1-r_1'=\cdots=r_m-r_m'=0\Longrightarrow r_1'=r_1$, $\cdots$, $r_m'=r_m$, 故两种线性表示相同.
 
-    第一个 ``$\Longleftarrow$'': $0\in\langle S\rangle$, 由于 $0u_1+\cdots+0u_m=$ 是且是 $0$ 唯一的线性表示, 故 $S$ 线性无关.
+    第一个 ``$\Longleftarrow$'': $0\in\langle S\rangle$, $\because 0=0u_1+\cdots+0u_m$ 是且是 $0$ 唯一的线性表示, $\therefore S$ 线性无关.
 
     第二个 ``$\Longrightarrow$'': 不妨假设 $u_1$ 可由 $u_2,\cdots,u_m$ 线性表示, 即 $u_1=t_2u_2+\cdots+t_mu_m$.\\
-    若 $r_1u_1+\cdots+r_mu_m=0$, 则 $r_1=\cdots=r_m=0$ 或 $r_1\neq 0$, $r_2=-r_1t_2,\cdots,r_m=-r_mt_m$, 从而 $S$ 线性相关, 故假设错误, $u_1$ 不可由 $u_2,\cdots,u_m$ 线性表示.
+    若 $r_1u_1+\cdots+r_mu_m=0$, 则 $r_1=\cdots=r_m=0$ 或 $r_1\neq 0$, $r_2=-r_1t_2,\cdots,r_m=-r_mt_m$, 从而 $S$ 线性相关, 矛盾, 故假设错误, $u_1$ 不可由 $u_2,\cdots,u_m$ 线性表示.
 
-    第二个 ``$\Longleftarrow$'': 假设 $S$ 线性相关, 则 $\exists$ 非零 $r_1,\cdots,r_m$, s.t. $r_1u_1+\cdots+r_mu_m=0$, 不妨设 $r_1$ 非零, 则 $u_1=-\frac{r_2}{r_1}u_2-\cdots-\frac{r_m}{r_1}u_m$, 即 $u_1$ 可由 $S$ 中其余向量线性表示, 矛盾, 故假设错误, $S$ 线性无关.
+    第二个 ``$\Longleftarrow$'': 假设 $S$ 线性相关, 则 $\exists$ 不全为零的 $r_1,\cdots,r_m$, s.t. $r_1u_1+\cdots+r_mu_m=0$, 不妨设 $r_1$ 非零, 则 $u_1=-\frac{r_2}{r_1}u_2-\cdots-\frac{r_m}{r_1}u_m$, 即 $u_1$ 可由 $S$ 中其余向量线性表示, 矛盾, 故假设错误, $S$ 线性无关.
 \end{pf}
 
 \begin{thm}[(课本定理 1.7)]
@@ -176,11 +180,11 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
     (3)$\Longrightarrow$(1): $S$ 为 $V$ 的生成集, 即 $V=\langle S\rangle$.\\
     假设 $S$ 线性相关, 即 $\exists r_1,\cdots,r_m$ 不全为零, s.t. $\sum_{i=1}^mr_iu_i=0$, 不妨设 $r_1\neq 0$, 则 $u_1=-\frac{r_2}{r_1}u_2+\cdots+\frac{r_m}{r_1}u_m$, 则 $S-\{u_1\}$ 仍可以生成 $V$, 矛盾, 故假设错误, $S$ 线性无关.
 
-    (1)$\Longrightarrow$(4): 假设 $S$ 不是极大线性无关集, 则 $\exists v\in V-S$, s.t. $S\cup\{v\}$ 线性无关.\\
-    又 $\because V=\langle S\rangle$, $\therefore v=\sum_{i=1}^mr_iu_i$, 其中 $r_i\in F$, $u_i\in S$, $m\in\mathbb{N}$, 即线性无关集 $S\cup\{v\}$ 中的向量 $v$ 可由其中的部分向量线性表示, 与 $S\supseteq$ 线性无关矛盾, 故假设错误, $S$ 是极大线性无关集.
+    (1)$\Longrightarrow$(4): 假设 $S$ 不是极大线性无关集, 则 $\exists v\in V\backslash\langle S\rangle$, s.t. $S\cup\{v\}$ 线性无关.\\
+    又 $\because V=\langle S\rangle$, $\therefore v=\sum_{i=1}^mr_iu_i$, 其中 $r_i\in F$, $u_i\in S$, $m\in\mathbb{N}$, 即线性无关集 $S\cup\{v\}$ 中的向量 $v$ 可由其中的部分向量线性表示, 与 $S\cup\{v\}$ 线性无关矛盾, 故假设错误, $S$ 是极大线性无关集.
 
     (4)$\Longrightarrow$(1): $\because S$ 是 $V$ 的极大线性无关集, $\therefore S$ 线性无关.\\
-    假设 $V\neq\langle S\rangle$, $\exists v\in V-S$, s.t. $v$ 无法由 $S$ 中的元素线性表示 $\Longrightarrow S\cup\{v\}$ 为线性无关集, 与 $S$ 为最大线性无关集矛盾, 故假设错误, $V=\langle S\rangle$.
+    假设 $V\neq\langle S\rangle$, $\exists v\in V\backslash\langle S\rangle$, s.t. $v$ 无法由 $S$ 中的元素线性表示 $\Longrightarrow S\cup\{v\}$ 为线性无关集, 与 $S$ 为最大线性无关集矛盾, 故假设错误, $V=\langle S\rangle$.
 
     综上, 得证.
 \end{pf}
@@ -198,26 +202,27 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
 \end{eg}
 \begin{pf}
     $r_1e_1+\cdots+r_ne_n=(r_1,\cdots,r_n)=0\Longrightarrow r_1=\cdots=r_n=0$, 故 $e_1,\cdots,e_n$ 线性无关.\\
-    又 $\langle\{e_1,\cdots,e_n\}\rangle=\{r_1e_1+\cdots+r_ne_n=(r_1,\cdots,r_n)\mid r_i\in F,\text{ 对 }i=1,\cdots,n\}=F$, 故得证.
+    又 $\langle\{e_1,\cdots,e_n\}\rangle=\{r_1e_1+\cdots+r_ne_n=(r_1,\cdots,r_n)\mid r_i\in F,$ 其中 $i=1,\cdots,n\}=F$, 故得证.
 \end{pf}
 
 \textbf{找基的方法}:
 \begin{itemize}
     \item[(1)] 若 $0\neq u_1\in V$, 则 $\{u_1\}$ 线性无关.
-    \item[(2)] 若 $u_2\in V-\langle u_1\rangle$ 且 $u_2$ 与 $u_1$ 线性无关, 则 $\{u_1,u_2\}$ 线性无关.
+    \item[(2)] 若 $u_2\in V\backslash\langle u_1\rangle$ 且 $u_2$ 与 $u_1$ 线性无关, 则 $\{u_1,u_2\}$ 线性无关.
     \item[(3)] 重复以上操作, 直至无法找到新的线性无关元素, 即得到极大线性无关集, 此即向量空间的基.
 \end{itemize}
 
 \begin{thm}[(课本定理 1.9)]
-    线性无关集 $I\subseteq V$, $S\subseteq V$ 是 $V$ 的生成集, 且 $I\subseteq S$, 则 $\exists V$ 的基 $\mathcal{B}$, s.t. $I\subseteq\mathcal{B}\subseteq S$.
+    线性无关集 $I\subseteq V$, $S$ 是 $V$ 的生成集, 且 $I\subseteq S$, 则 $\exists V$ 的基 $\mathcal{B}$, s.t. $I\subseteq\mathcal{B}\subseteq S$.
 \end{thm}
 
+\section{直和}
 \begin{df}[直和]
     \begin{itemize}
         \item[(1)] \textbf{外直和}: 若 $V_1,\cdots,V_n$ 是 $F$ 上的向量空间, $V_1\oplus\cdots\oplus V_n\equiv\{(v_1,\cdots,v_n)\mid v_i\in V_i\}$, 满足
         \begin{itemize}
-            \item $(v_1,\cdots,v_n)+(u_1,\cdots,u_n)=(v_1+u_1,\cdots,v_n+u_n)$
-            \item $r(v_1,\cdots,v_n)=(rv_1,\cdots,rv_n)$
+            \item $(v_1,\cdots,v_n)+(u_1,\cdots,u_n)=(v_1+u_1,\cdots,v_n+u_n)$,
+            \item $r(v_1,\cdots,v_n)=(rv_1,\cdots,rv_n)$,
         \end{itemize}
         则$V_1\oplus\cdots\oplus V_n$ 为 $F$ 的向量空间, $V_1\oplus\cdots\oplus V_n$ 为 $V_1,\cdots,V_n$ 的\textbf{外直和}.
         \item[(2)] \textbf{内直和}: $V$ 是 $F$ 上的向量空间, $V_1,\cdots,V_n$ 是 $V$ 的子空间, 若 $V=\sum_{i=1}^nV_i$, 其中 $v_i\in V_i$ 且 $V_i\cap(\cup_{j\neq i}V_j)=\{0\}$, 则称 $V$ 为 $V_1,\cdots,V_m$ 的\textbf{内直和}, 记作 $V=\bigoplus_{i=1}^nV_i$, 称 $V_i$ 为\textbf{直和项}.
@@ -225,7 +230,7 @@ $S,T$ 是 $V$ 的子空间, $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子�
 \end{df}
 
 \textbf{内/外直和的关系}:
-$V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdots$, $V_m'=\{(0,0,\cdots,v_m)\mid v_m\in V_m\}$ 是 $V$ 的子空间, 则 $V=\bigoplus_{i=1}^nV_i$ 且 $V_i'\cap(\cup_{j\neq i}V_j)=\{0\}\Longrightarrow V_i=\bigoplus_{i=1}^mV_i'$, 故内/外直和是等价的, 以下我们不明确区分内/外直和, 均用内直和.
+$V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdots$, $V_m'=\{(0,0,\cdots,v_m)\mid v_m\in V_m\}$ 是 $V$ 的子空间, 则 $V=\sum_{i=1}^nV_i'$ 且 $V_i'\cap(\cup_{j\neq i}V_j')=\{0\}\Longrightarrow V_i=\bigoplus_{i=1}^mV_i'$, 故内/外直和是等价的, 以下我们不明确区分内/外直和, 均用内直和.
 
 \begin{eg}
     $\mathbb{R}^2=S_x\oplus S_y$.
@@ -237,21 +242,21 @@ $V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdo
         \item[(1)] $V=\bigoplus_{i\in J}V_i$.
         \item[(2)] $V_i\cap(\sum_{j\neq i}V_j)\neq\{0\}$.
         \item[(3)] $0=0+\cdots+0$ 是 $0$ 的唯一分解式.
-        \item[(4)] $V$ 中任一向量 $v$ 具有唯一分解式 $v=v_1+\cdots+v_n$, 分解式中的有限个非零元 $v_i\in V_i$ 组成的集合成为支集.
+        \item[(4)] $V$ 中任一向量 $v$ 具有唯一分解式 $v=v_1+\cdots+v_n$, 分解式中的有限个非零元 $v_i\in V_i$ 组成的集合称为\textbf{支集}.
     \end{itemize}
 \end{thm}
 \begin{pf}
     (1)$\Longleftrightarrow$(2): 由直积的定义即得证.
 
     (2)$\Longrightarrow$(3): 假设 $0=s_{i1}+\cdots+s_{in}$ 且 $s_{ij}$ 不全为零, 不妨设 $s_{i1}\neq 0$, 则 $V_{i1}\ni s_{i1}=-s_{i2}-\cdots-s_{ij}\in\sum_{j=2}^nV_{ij}$\\
-    $\Longrightarrow s_{i_1}\in V_{i_1}\cap(\cup_{j=2}^nV_{i_j})$, $s_{i_1}\neq 0$ 与 $V_{i_1}\cap(\cup_{j=2}^nV_{i_j})=\{0\}$ 矛盾, 故假设错误, $0=0+\cdots+0$ 是 $0$ 的唯一分解式.
+    $\Longrightarrow s_{i_1}\in V_{i_1}\cap(\cup_{j=2}^nV_{ij})$, $s_{i_1}\neq 0$ 与 $V_{i_1}\cap(\cup_{j=2}^nV_{ij})=\{0\}$ 矛盾, 故假设错误, $0=0+\cdots+0$ 是 $0$ 的唯一分解式.
 
     (3)$\Longrightarrow$(4): $\forall v\in V$, $v=u_1+\cdots+u_n$, 其中 $u_i\in V_i$.\\
     假设 $v=w_1+\cdots+w_m$, 其中 $w_i\in V_i$.\\
-    $0=v-v=u_1+\cdots+u_n-w_1-\cdots-w_n$, 将属于相同子空间的元素合并到一起, 得 $0=(u_{t_1}-w_{t_1})+\cdots+(u_{t_k}-w_{t_k})+u_{t_{k+1}}+\cdots+u_{t_n}-w_{t_{k+1}}-w_{t_m}$, 由 (2) 知 $k=n=m$ 且 $v_{t_i}=u_{t_i}$, 故 $v$ 具有唯一分解式 $v=v_1+\cdots+v_n$.
+    $0=v-v=u_1+\cdots+u_n-w_1-\cdots-w_n$, 将属于相同子空间的元素合并到一起, 得 $0=(u_{t_1}-w_{t_1})+\cdots+(u_{t_k}-w_{t_k})+\cdots+(u_{t_n}-w_{t_n})$, 由 (2) 知 $u_{t_i}=w_{t_i}$, 故 $v$ 具有唯一分解式 $v=v_1+\cdots+v_n$.
 
-    (4)$\Longrightarrow$(2): 假设 $V_i\cap(\sum_{j\neq i}V_j)\neq\{0\}$, 则 $V_i\cap(\sum_{j\neq i}V_j)\supsetneq\{0\}$, 即 $\exists 0\neq u\in V_i\cap(\cup_{j\neq i}V_j)$,\\
-    不妨设 $u\in V_1$ 且 $u\in V_2$, 则 $v=v_1+\cdots+v_n=(v_1+u)+(v_2-u)+\cdots+v_n$, 其中 $v_i\in V_i$ 且 $v_1+u\in V_1$,$v_2-u\in V_2$, $v$ 的分解式不唯一, 矛盾, 故假设错误, $V_i\cap(\sum_{j\neq i}V_j)=\{0\}$.
+    (4)$\Longrightarrow$(2): 假设 $V_i\cap(\cup_{j\neq i}V_j)\neq\{0\}$, 则 $V_i\cap(\sum_{j\neq i}V_j)\supsetneq\{0\}$, 即 $\exists 0\neq u\in V_i\cap(\cup_{j\neq i}V_j)$,\\
+    不妨设 $u\in V_1$ 且 $u\in V_2$, 则 $v=v_1+\cdots+v_n=(v_1+u)+(v_2-u)+\cdots+v_n$, 其中 $v_i\in V_i$ 且 $v_1+u\in V_1$, $v_2-u\in V_2$, $v$ 的分解式不唯一, 矛盾, 故假设错误, $V_i\cap(\sum_{j\neq i}V_j)=\{0\}$.
 
     综上, 得证.
 \end{pf}
@@ -261,27 +266,28 @@ $V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdo
 \end{thm}
 \begin{pf}
     ``$\Longrightarrow$'': $\because\mathcal{B}$ 为 $V$ 的基, $\therefore V=\langle\mathcal{B}\rangle=\langle v_1,\cdots,v_n\rangle=\{\sum_{i=1}^nr_iv_i\mid r_i\in F\}=\langle v_1\rangle+\cdots+\langle v_n\rangle$.\\
-    $\because\mathcal{B}$ 为 $V$ 的基, $\therefore v_1,\cdots,v_n$ 线性无关 $\Longrightarrow\forall 0\neq u\in\langle v_i\rangle$, $u=r_iv_i$ 且无法由 $\{v_j\mid j\neq i\}$ 线性表示 $\Longrightarrow u\notin V_i\cap(\cup_{j\neq i}V_j)$,\\
-    $0=0v_i\in\langle v_i\rangle$ 且 $0=\sum_{j\neq i}0v_j\Longrightarrow 0\in V_i\cap(\cup_{j\neq i}V_j)$\\
-    $\Longrightarrow V_i\cap(\cup_{j\neq i}V_j)=\{0\}$.\\
+    $\because\mathcal{B}$ 为 $V$ 的基, $\therefore v_1,\cdots,v_n$ 线性无关 $\Longrightarrow\forall 0\neq u\in\langle v_i\rangle$, $u=r_iv_i$ 且无法由 $\{v_j\mid j\neq i\}$ 线性表示 $\Longrightarrow u\notin V_i\cap(\cup_{j\neq i}V_j)$.\\
+    又 $\because 0=0v_i\in\langle v_i\rangle$ 且 $0=\sum_{j\neq i}0v_j\Longrightarrow 0\in V_i\cap(\cup_{j\neq i}V_j)$, $\therefore V_i\cap(\cup_{j\neq i}V_j)=\{0\}$.\\
     故 $V=\langle v_1\rangle\oplus\cdots\oplus\langle v_n\rangle$.
 
-    ``$\Longleftarrow$'': 一方面, $V=\langle v_1\rangle+\cdots+\langle v_n\rangle=\langle\mathcal{B}\rangle$;\\
+    ``$\Longleftarrow$'': 一方面, $V=\langle v_1\rangle+\cdots+\langle v_n\rangle=\langle v_1,\cdots,v_n\rangle=\langle\mathcal{B}\rangle$;\\
     另一方面, 假设 $\{v_1,\cdots,v_n\}$ 线性相关, 则 $\exists$ 不全为零的 $r_1,\cdots,r_n$, s.t. $\sum_{i}r_iv_i=0$,\\
-    不妨设 $r_i\neq 0$, 则 $r_iv_i=-\sum_{j\neq i}r_jv_j\Longrightarrow 0\neq r_iv_i\in V_i$ 且 $r_iv_i=-\sum_{j\neq i}r_jv_j\in\cup_{j\neq i}V_j\Longrightarrow r_iv_i\in V_0\cap(\cup_{j\neq i}V_j)\Longrightarrow V_0\cap(\cup_{j\neq i}V_j)\neq\{0\}$, 与直和的定义矛盾, 故假设错误, $v_1,\cdots,v_n$ 线性无关.\\
+    不妨设 $r_i\neq 0$, 则 $r_iv_i=-\sum_{j\neq i}r_jv_j\Longrightarrow 0\neq r_iv_i\in V_i$ 且 $r_iv_i=-\sum_{j\neq i}r_jv_j\in\cup_{j\neq i}V_j\Longrightarrow r_iv_i\in V_0\cap(\cup_{j\neq i}V_j)\Longrightarrow V_0\cap(\cup_{j\neq i}V_j)\neq\{0\}$, 与直和的定义矛盾, 故假设错误, $\{v_1,\cdots,v_n\}$ 线性无关.\\
     故 $\mathcal{B}=\{v_1,\cdots,v_n\}$ 是 $V$ 的基.
+
+    综上, 得证.
 \end{pf}
 
 \begin{thm}[(课本定理 1.4)]
     $S$ 为 $V$ 的子空间, 则 $\exists V$ 的子空间 $S^c$, s.t. $V=S\oplus S^c$, 称 $S^c$ 为 $S$ 的补空间.
 \end{thm}
 \begin{pf}
-    $\mathcal{B}_1$ 为 $S$ 的基, 则 $\mathcal{B}_1$ 为 $V$ 中的线性无关集,\\
-    $\mathcal{B}_1$ 总可以扩张为 (即添加一些元素) 成 $V$ 的基, 即 $\exists\mathcal{B}_2$, s.t. $\mathcal{B}_1\cap\mathcal{B}_2=\emptyset$, $\mathcal{B}_1\cup\mathcal{B}_2$ 线性无关且 $V=\langle\mathcal{B}_1\rangle+\langle\mathcal{B}_2\rangle\Longrightarrow V=\langle\mathcal{B}_1\rangle\oplus\langle\mathcal{B}_2\rangle$, 故 $S^c=\langle\mathcal{B}\rangle$.
+    $\mathcal{B}_1$ 为 $S$ 的基, 则 $\mathcal{B}_1$ 为 $V$ 中的线性无关集.\\
+    $\mathcal{B}_1$ 总可以扩张 (即添加一些元素) 成 $V$ 的基, 即 $\exists\mathcal{B}_2$, s.t. $\mathcal{B}_1\cap\mathcal{B}_2=\emptyset$, $\mathcal{B}_1\cup\mathcal{B}_2$ 线性无关且 $V=\langle\mathcal{B}_1\rangle+\langle\mathcal{B}_2\rangle\Longrightarrow V=\langle\mathcal{B}_1\rangle\oplus\langle\mathcal{B}_2\rangle$, 故 $S^c=\langle\mathcal{B}_2\rangle$.
 \end{pf}
 
 \begin{eg}
-    $\mathbb{R}^2=S_x\oplus S_y=S_l\oplus S_{l'}$, 其中 $S_l$ 和 $S_{l'}$ 分别为过原点直线 $l$ 和 $l'$ 对应的子空间, $l$ 与 $l'$ 不共线.
+    $\mathbb{R}^2=S_x\oplus S_y=S_l\oplus S_{l'}$, 其中 $S_l$ 和 $S_{l'}$ 分别为过原点、不共线的直线 $l$ 和 $l'$.
 \end{eg}
 
 补空间总存在, 但不唯一.
@@ -300,40 +306,42 @@ $V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdo
 
         $\forall u\in\langle\mathcal{B}_1\rangle\cap\langle\mathcal{B}_2\rangle$,$u\in\langle\mathcal{B}_1\rangle\Longrightarrow u=\sum_{i=1}^nr_iv_i$, 其中 $r_i\in F$, $v_i\in\mathcal{B}_1$,\\
         且 $u\in\langle\mathcal{B}_2\rangle\Longrightarrow u=\sum_{i=1}^nl_iw_i$, 其中 $l_i\in F$, $w_i\in\mathcal{B}_2$\\
-        $\Longrightarrow 0=u-u=\sum r_iv_i-\sum l_iw_i$,\\
-        又 $\because\mathcal{B}$ 为基, $\mathcal{B}=\mathcal{B}_1\cup\mathcal{B}_2$ 且 $\mathcal{B}_1\cap\mathcal{B}_2=\emptyset$, $\therefore r_i,w_i$ 线性无关 $\Longrightarrow r_i=l_i=0$, $\forall i$\\
-        $\Longrightarrow u=0$.
+        $\Longrightarrow 0=u-u=\sum r_iv_i-\sum l_iw_i$.\\
+        又 $\because\mathcal{B}$ 为基, $\mathcal{B}=\mathcal{B}_1\cup\mathcal{B}_2$ 且 $\mathcal{B}_1\cap\mathcal{B}_2=\emptyset$, $\therefore r_i,w_i$ 线性无关 $\Longrightarrow r_i=l_i=0\forall i\Longrightarrow u=0$.
 
         综上, $V=\langle\mathcal{B}_1\rangle\oplus\langle\mathcal{B}_2\rangle$.
         \item[(2)] $V=S\oplus T\Longleftrightarrow V=S+T$ 且 $S\cap T=\{0\}$.\\
-        假设 $v\in\mathcal{B}_1\cap\mathcal{B}_2$, 则 $v\neq 0$, $\langle v\rangle=S\cap T$, 与 $S\cap T=\{0\}$ 矛盾, 故假设错误, $\mathcal{B}_1\cap\mathcal{B}_2=\emptyset$.
+        假设 $\exists 0\neq v\in\mathcal{B}_1\cap\mathcal{B}_2$, 则 $\langle v\rangle=S\cap T=\{0\}\Longrightarrow v=0$, 矛盾, 故假设错误, $\mathcal{B}_1\cap\mathcal{B}_2=\emptyset$.
 
-        $\because V=S+T$, $\therefore\forall u\in V$, $u=u_1+u_2$, 其中 $u_1\in S$, $u_2\in T$,\\
+        $\because V=S+T$, $\therefore\forall u\in V$, $u=u_1+u_2$, 其中 $u_1\in S$, $u_2\in T$.\\
         $\because\mathcal{B}_1$ 是 $S$ 的基, $\mathcal{B}_2$ 是 $T$ 的基, $\therefore u_1=\sum_{i=1}^kr_iv_i$, $u_2=\sum_{i=k+1}^n$, 其中 $r_i\in F$, 对 $i=1,\cdots,k$, $v_i\in\mathcal{B}_1$, 对 $i=k+1,\cdots,n$, $v_i\in\mathcal{B}_2$\\
-        $\Longrightarrow u=\sum_{i=1}^mr_iv_i$, 其中 $r_i\in F$, $v_i\in\mathcal{B}_1\cap\mathcal{B}_2$, 即 $V=\langle\mathcal{B}_1\cup\mathcal{B}_2\rangle$.\\
-        假设 $\mathcal{B}_1\cup\mathcal{B}_2$ 线性相关, 则 $\exists r_i\in F$ 不全为零, $\sum_{i=1}^nr_iv_i=\sum_{i=1}^kr_iv_i+\sum_{i=k+1}^nr_iv_i=0$, 其中 $r_i\in F$, 对 $i=1,\cdots,k$, $v_i\in\mathcal{B}_1$, 对 $i=k+1,\cdots,n$, $v_i\in\mathcal{B}_2$,\\
+        $\Longrightarrow u=\sum_{i=1}^nr_iv_i$, 其中 $r_i\in F$, $v_i\in\mathcal{B}_1\cap\mathcal{B}_2$, 即 $V=\langle\mathcal{B}_1\cup\mathcal{B}_2\rangle$.\\
+        假设 $\mathcal{B}_1\cup\mathcal{B}_2$ 线性相关, 则 $\exists r_i\in F$ 不全为零, $\sum_{i=1}^nr_iv_i=\sum_{i=1}^kr_iv_i+\sum_{i=k+1}^nr_iv_i=0$, 其中 $r_i\in F$, 对 $i=1,\cdots,k$, $v_i\in\mathcal{B}_1$, 对 $i=k+1,\cdots,n$, $v_i\in\mathcal{B}_2$.\\
         $\because\mathcal{B}_1$ 和 $\mathcal{B}_2$ 为基, $\therefore\mathcal{B}_1$ 和 $\mathcal{B}_2$ 线性无关 $\Longrightarrow\sum_{i=1}^kr_iv_i\neq 0$, $\sum_{i=k+1}^nr_iv_i\neq 0$, 与 $0=0+\cdots+0$ 是 $0$ 的唯一分解式矛盾, 故假设错误, $\mathcal{B}_1\cup\mathcal{B}_2$ 线性无关 $\Longrightarrow\mathcal{B}_1\cup\mathcal{B}_2$ 是 $V$ 的基.
+
+        综上, 得证.
     \end{itemize}
 \end{pf}
 
 \begin{thm}[(课本定理 1.14)]
-    $S,T$ 是 $V$ 的子空间, $\dim S+\dim T=\dim(S\cap T)+\dim(S+T)$. 特别地, 若 $T$ 是 $S$ 的补空间, 则 $\dim S+\dim T=\dim(S\oplus T)$.
+    $S,T$ 为 $V$ 的子空间, $\dim S+\dim T=\dim(S\cap T)+\dim(S+T)$.\\
+    特别地, 若 $T$ 为 $S$ 的补空间, 则 $\dim S+\dim T=\dim(S\oplus T)$.
 \end{thm}
 \begin{pf}
-    设 $S\cap T$ 的基为 $\mathcal{A}$,\\
-    $\because S\cap T$ 为 $S$ 的子空间, $\therefore$ 可将 $\mathcal{A}$ 扩张成 $S$ 的基 $\mathcal{A}\cup\mathcal{B}$,\\
-    $\because S\cap T$ 为 $T$ 的子空间, $\therefore$ 可将 $\mathcal{A}$ 扩张成 $T$ 的基 $\mathcal{A}\cup\mathcal{C}$.
+    设 $S\cap T$ 的基为 $\mathcal{B}$.\\
+    $\because S\cap T$ 为 $S$ 的子空间, $\therefore$ 可将 $\mathcal{B}$ 扩张成 $S$ 的基 $\mathcal{A}\cup\mathcal{B}$, 其中 $\mathcal{A}\cap\mathcal{B}=\emptyset$.\\
+    $\because S\cap T$ 为 $T$ 的子空间, $\therefore$ 可将 $\mathcal{B}$ 扩张成 $T$ 的基 $\mathcal{B}\cup\mathcal{C}$, 其中 $\mathcal{B}\cap\mathcal{C}=\emptyset$.
 
     接下来需要用到这样一个事实: $\mathcal{A}\cup\mathcal{B}\cup\mathcal{C}$ 是 $S+T$ 的基. 所以先来证明它:
     \begin{pf}
-        $\forall w\in S+T$, $w=u+v$, 其中 $u\in S$, $v\in T\Longrightarrow u\in \langle\mathcal{A}\cup\mathcal{B}\rangle$, $v\in\langle\mathcal{A}+\mathcal{C}\rangle$, 故 $\langle\mathcal{A}\cup\mathcal{B}\cup\mathcal{C}\rangle=S+T$.
+        $\forall w\in S+T$, $w=u+v$, 其中 $u\in S$, $v\in T\Longrightarrow u\in \langle\mathcal{A}\cup\mathcal{B}\rangle$, $v\in\langle\mathcal{B}+\mathcal{C}\rangle$, 故 $\langle\mathcal{A}\cup\mathcal{B}\cup\mathcal{C}\rangle=S+T$.
 
         不妨设 $\sum_{i=1}^nr_iv_i=0$, 其中 $v_i\in\mathcal{A}\cup\mathcal{B}\cup\mathcal{C}$.\\
-        设 $v_1,\cdots,v_k\in\mathcal{A}$, 则 $\sum_{i=1}^kr_iv_i+\sum_{i=k+1}^nr_iv_i=0$,\\
-        令 $x=\sum_{i=1}^kr_iv_i$, 则 $x=\sum_{i=1}^kr_iv_i\in\langle\mathcal{A}\rangle$ 且 $x=-\sum_{i=k+1}^nr_iv_i\in\langle\mathcal{B}\cup\mathcal{C}\rangle\Longrightarrow x\in\langle\mathcal{A}\rangle\cap\langle\mathcal{B}\cup\mathcal{C}\rangle=(S-T)\cap T=\emptyset$.\\
-        $\because x\in\langle\mathcal{B}\rangle$, $\therefore x\in\mathcal{S}$, 又 $\because x\in \langle\mathcal{B}\cup\mathcal{C}\rangle$, $\therefore x\in T\Longrightarrow x\in S\cap T=\langle\mathcal{B}\rangle$.
-        $\Longrightarrow x\in\langle\mathcal{A}\rangle\cap\langle\mathcal{B}\rangle\Longrightarrow x=0$.\\
-        又 $\because\mathcal{A}$ 和 $\mathcal{B}\cup\mathcal{C}$ 线性独立, 故 $\forall i$, $r_i=0\Longrightarrow\mathcal{A}\cup\mathcal{B}\cup\mathcal{C}$ 线性无关.
+        设 $v_1,\cdots,v_k\in\mathcal{A}$, 则 $\sum_{i=1}^kr_iv_i=-\sum_{i=k+1}^nr_iv_i$.\\
+        令 $x=\sum_{i=1}^kr_iv_i$, 则 $x=\sum_{i=1}^kr_iv_i\in\langle\mathcal{A}\rangle$ 且 $x=-\sum_{i=k+1}^nr_iv_i\in\langle\mathcal{B}\cup\mathcal{C}\rangle\Longrightarrow x\in\langle\mathcal{A}\rangle\cap\langle\mathcal{B}\cup\mathcal{C}\rangle$.\\
+        $\because x\in\langle\mathcal{A}\rangle$, $\therefore x\in S$.\\
+        又 $\because x\in \langle\mathcal{B}\cup\mathcal{C}\rangle$, $\therefore x\in T\Longrightarrow x\in S\cap T=\langle\mathcal{B}\rangle\Longrightarrow x\in\langle\mathcal{A}\rangle\cap\langle\mathcal{B}\rangle\Longrightarrow x=\sum_{i=1}^kr_iv_i=-\sum_{i=k+1}^nr_iv_i=0$.\\
+        又 $\because\mathcal{A}$ 和 $\mathcal{B}\cup\mathcal{C}$ 线性独立, $\therefore r_i=0\forall i\Longrightarrow\mathcal{A}\cup\mathcal{B}\cup\mathcal{C}$ 线性无关.
 
         综上, $\mathcal{A}\cup\mathcal{B}\cup\mathcal{C}$ 是 $S+T$ 的基.
     \end{pf}

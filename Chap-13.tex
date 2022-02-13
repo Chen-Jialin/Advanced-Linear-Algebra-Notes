@@ -21,7 +21,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \begin{pf}
     \begin{itemize}
         \item[(2)] $(x_n)\rightarrow x\Longleftrightarrow\forall\epsilon>0$, $\exists N>0$, 当 $n>N$ 时, $d(x_n,x)=\norm{x_n-x}<\epsilon$\\
-        $\Longrightarrow\abs{\norm{x_n}-\norm{x}}<\norm{x_n-x}<\epsilon$, 故 $(\norm{x_n})\rightarrow\norm{x}$.
+        $\Longrightarrow\abs{\norm{x_n}-\norm{x}}\leq\norm{x_n-x}<\epsilon$, 故 $(\norm{x_n})\rightarrow\norm{x}$.
         \item[(1)] $\abs{\langle x_n,y_n\rangle-\langle x,y\rangle}=\abs{\langle x_n,y_n\rangle-\langle x_n,y\rangle+\langle x_n,y\rangle-\langle x,y\rangle}\leq\abs{\langle x_n,y_n\rangle-\langle x_n,y\rangle}+\abs{\langle x_n,y\rangle-\langle x,y\rangle}=\abs{\langle x_n,y_n-y\rangle}+\abs{\langle x_n-x,y\rangle}\leq\norm{x_n}\norm{y_n-y}+\norm{x_n-x}\norm{y}$.\\
         $\because(x_n)\rightarrow x$, $(y_n)\rightarrow y$, $\therefore\norm{x_n-x}\rightarrow 0$, $\norm{y_n-y}\rightarrow 0\Longrightarrow\abs{\langle x_n,y_n\rangle-\langle x,y\rangle}\rightarrow 0\Longrightarrow(\langle x_n,y_n\rangle)\rightarrow\langle x,y\rangle$.
     \end{itemize}
@@ -53,38 +53,38 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
         \item[(3)] $\because\dim S=n$, $\therefore\exists$ 正交归一基 $\{b_1,\cdots,b_n\}$.\\
         取 $S$ 中序列 $(v_n)\rightarrow v\in V$, 下证 $v\in S$.\\
         假设 $v\notin S$, 则 $\hat{v}\in S$ 且 $v-\hat{v}\perp S$.\\
-        $\norm{v_n-v}^2=\norm{v_n-\hat{v}+\hat{v}_n+\hat{v}}^2$, 其中 $v-\hat{v}\in S^{\perp}$, $\hat{v}_n+\hat{v}\in S$\\
-        $\Longrightarrow\norm{v_n-v}^2=\norm{v-\hat{v}}^2-\norm{\hat{v}_n+v}^2\geq\norm{v-\hat{v}}^2>0$, 与 $(v_n)\rightarrow v$ 矛盾, 故假设错误, $v\in S\Longrightarrow S$ 闭.
+        $\norm{v_n-v}^2=\norm{v_n-\hat{v}+\hat{v}-v}^2$, 其中 $v_n-\hat{v}\in S$, $\hat{v}-v\in S^{\perp}$\\
+        $\Longrightarrow\norm{v_n-v}^2=\norm{v_n-\hat{v}}^2+\norm{v-\hat{v}}^2\geq\norm{v-\hat{v}}^2>0$, 与 $(v_n)\rightarrow v$ 矛盾, 故假设错误, $v\in S\Longrightarrow S$ 闭.
 
         由完备化定理, $\exists$ 希尔伯特空间 $H$ 及等距映射 $\tau:S\rightarrow H$, s.t. $\tau(S)$ 在 $H$ 中稠密.\\
-        $\because\tau$ 等距, $\therefore\tau$ 单射 $\Longrightarrow S$ 等距同构.\\
+        $\because\tau$ 等距, $\therefore\tau$ 单射 $\Longrightarrow\tau:S\rightarrow\tau(S)$ 等距同构.\\
         又 $\because\dim S=n$, $\therefore\dim\tau(S)=n\Longrightarrow\tau(S)$ 闭.\\
-        又 $\tau(S)$ 在 $H$ 中稠密, $\therefore H=\cl(\tau(S))=\tau(S)\Longrightarrow S\approx H$.\\
-        又 $H$ 为希尔伯特空间, $\therefore S$ 为希尔伯特空间.
+        又 $\because\tau(S)$ 在 $H$ 中稠密, $\therefore H=\cl(\tau(S))=\tau(S)\Longrightarrow S\approx H$.\\
+        又 $\because H$ 为希尔伯特空间, $\therefore S$ 为希尔伯特空间.
     \end{itemize}
 \end{pf}
 
 \section{无穷级数}
-此前, 我们已经证明, 对给定的向量, 由有限维子空间有正交归一基可表示其在有限维子空间中的最佳近似; 由于无限维子空间有最大正交归一集, 但该最大正交归一集未必为基, 故向量在无限维子空间中未必有最佳近似; 以开子集为例可说明, 向量在子集中未必有最佳近似.
+此前我们已经证明, 对给定的向量, 由有限维子空间有正交归一基可表示其在有限维子空间中的最佳近似; 由于无限维子空间有最大正交归一集, 但该最大正交归一集未必为基, 故向量在无限维子空间中未必有最佳近似; 以开子集为例可说明, 向量在子集中未必有最佳近似.
 
 \begin{df}[级数收敛和绝对收敛]
-    序列 $(x_n)$ 的前 $n$ 项和 $s_n=\sum_{i=1}^nx_i$, 若 $(s_n)$ 在 $V$ 中收敛于 $s$, 则称级数 $\sum_{i=1}^{\infty}x_i$ 在 $V$ 中\textbf{收敛}于 $s$, 记作 $\sum_{i=1}^{\infty}=s$; 若 $\sum_{i=1}^{\infty}\abs{x_i}$ 收敛, 则称 $\sum_{i=1}^{\infty}x_i$ \textbf{绝对收敛}.
+    序列 $(x_n)$ 的前 $n$ 项和 $s_n=\sum_{i=1}^nx_i$, 若 $(s_n)$ 在 $V$ 中收敛于 $s$, 则称\textbf{级数} $\sum_{i=1}^{\infty}x_i$ 在 $V$ 中\textbf{收敛}于 $s$, 记作 $\sum_{i=1}^{\infty}x_i=s$; 若 $\sum_{i=1}^{\infty}\abs{x_i}$ 收敛, 则称 $\sum_{i=1}^{\infty}x_i$ \textbf{绝对收敛}.
 \end{df}
 
 \begin{thm}[收敛和绝对收敛的关系 (课本定理 13.8)]
     内积向量空间 $V$ 完备 $\Longleftrightarrow V$ 上绝对收敛级数收敛.
 \end{thm}
 \begin{pf}
-    ``$\Longrightarrow$'': 取绝对收敛级数 $\sum_{i=1}^{\infty}x_i$, 则 $\sum_{i=1}^{\infty}x_i$ 收敛.\\
+    ``$\Longrightarrow$'': 取绝对收敛级数 $\sum_{i=1}^{\infty}x_i$, 则 $\sum_{i=1}^{\infty}\abs{x_i}$ 收敛.\\
     令 $s_n=\sum_{i=1}^n\norm{x_i}$, 则 $(s_n)$ 收敛 $\Longrightarrow(s_n)$ 柯西, 即 $\forall\epsilon>0$, $\exists N>0$, 当 $n,m>N$ 时, $\norm{s_n-s_m}<\epsilon$.\\
     无妨 $n<m$, 则 $\abs{s_n-s_m}=\abs{\sum_{i=1}^n\norm{x_i}-\sum_{i=1}^m\norm{x_i}}=\abs{\sum_{i=n+1}^m\norm{x_i}}<\epsilon$.\\
     令 $a_n=\sum_{i=1}^nx_i$, $\norm{a_n-a_m}=\norm{\sum_{i=1}^nx_i-\sum_{i=1}^mx_i}=\norm{\sum_{i=n+1}^mx_i}\leq\sum_{i=n+1}^m\norm{x_i}<\epsilon\Longrightarrow a_n=\sum_{i=1}^nx_i$ 柯西.\\
-    又 $\because V$ 完备, $\therefore a_n$ 收敛 $\Longrightarrow\sum_{i=1}^{\infty}$ 在 $V$ 中收敛.
+    又 $\because V$ 完备, $\therefore a_n$ 收敛 $\Longrightarrow\sum_{i=1}^{\infty}x_i$ 在 $V$ 中收敛.
 
     ``$\Longleftarrow$'': 取 $V$ 中柯西序列 $(x_n)$, 则 $\forall\epsilon>0$, $\exists N>0$, s.t. 当 $n>N$ 时, $\norm{x_n-x_m}<\epsilon$.\\
-    特别地, 令 $\epsilon_k=\frac{1}{2^k}$, 其中 $k=0,1,\cdots$, 则 $\forall\epsilon_k$, $\exists N_k>0$, s.t. 当 $n,m>N$ 时, $\norm{x_n-x_m}<\epsilon_k=\frac{1}{2^k}$.\\
-    选 $N_1<N_2<\cdots$, 则 $\norm{x_{N_{k+1}}-x_{N_k}}<\frac{1}{2^k}\Longrightarrow\sum_{k=1}^{\infty}\norm{x_{N_{k+1}}-x_{N_k}}<\sum_{k=1}^{\infty}\frac{1}{2^k}=1\Longrightarrow\sum_{k=1}^{\infty}\norm{x_{N_{k+1}}-x_{N_k}}$ 收敛.\\
-    又 $\because V$ 上绝对收敛级数收敛, $\therefore\sum_{k=1}^{\infty}x_{N_{k+1}}-x_{N_k}=x_{N_{n+1}}-x_{N_1}$ 收敛 $\Longrightarrow x_{N_{k+1}}$ 收敛.\\
+    特别地, $\forall\epsilon>0$, 令 $\epsilon_k=\frac{\epsilon}{2^k}$, 其中 $k=0,1,\cdots$, $\exists N_k>0$, s.t. 当 $n,m>N_k$ 时, $\norm{x_n-x_m}<\epsilon_k=\frac{\epsilon}{2^k}$.\\
+    选 $N_1<N_2<\cdots$, 则 $\norm{x_{N_{k+1}}-x_{N_k}}<\frac{\epsilon}{2^k}\Longrightarrow\sum_{k=1}^{\infty}\norm{x_{N_{k+1}}-x_{N_k}}<\sum_{k=1}^{\infty}\frac{\epsilon}{2^k}=\epsilon\Longrightarrow\sum_{k=1}^{\infty}\norm{x_{N_{k+1}}-x_{N_k}}$ 收敛.\\
+    又 $\because V$ 上绝对收敛级数收敛, $\therefore\sum_{k=1}^{\infty}x_{N_{k+1}}-x_{N_k}=\lim_{k\rightarrow\infty}x_{N_{k+1}}-x_{N_1}$ 收敛 $\Longrightarrow x_{N_{k+1}}$ 收敛.\\
     由引理 \ref{cor-13.1} 得 $x_n$ 收敛, 故 $V$ 完备.
 
     综上, 得证.
@@ -95,7 +95,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \end{cor}
 \begin{pf}
     设柯西序列 $(x_n)$ 的子列 $(x_{N_k})\rightarrow x$, 即 $\forall\epsilon>0$, $\exists K>0$, s.t. 当 $k>K$ 时, $\norm{x_{N_k}-x}<\frac{\epsilon}{2}$.\\
-    $\because(x_n)$ 柯西, $\therefore\forall\epsilon$, $\exists N>0$, s.t. 当 $n,m>N$ 时, $\norm{x_n-x_m}<\frac{\epsilon}{2}$.\\
+    $\because(x_n)$ 柯西, $\therefore\forall\epsilon>0$, $\exists N>0$, s.t. 当 $n,m>N$ 时, $\norm{x_n-x_m}<\frac{\epsilon}{2}$.\\
     取 $m=\max\{N+1,N_K+1\}$, $\norm{x_n-x}=\norm{x_n-x_m+x_m-x}\leq\norm{x_n-x_m}+\norm{x_m-x}<\epsilon\Longrightarrow(x_n)\rightarrow x$.
 \end{pf}
 
@@ -115,19 +115,18 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
     $V$ 为内积向量空间, $S$ 为 $V$ 的完备的凸闭子集, 则 $\forall x\in V$, $\exists!\hat{x}\in S$, s.t. $\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}$, 称 $\hat{x}$ 为 $x$ 在 $S$ 中的\textbf{最佳近似}.
 \end{thm}
 \begin{pf}
-    令 $\delta=\inf_{y\in S}\norm{x-y}$, 则 $\forall\epsilon>0$, $\exists z\in S$, s.t. $\norm{y-z}<\delta+\epsilon$.\\
-    取 $\epsilon=\frac{1}{n}$, $\exists y_1\in S$, s.t. $\norm{x-y_1}<\delta+\epsilon_1$,\\
-    $\cdots$,\\
-    $\exists y_n\in S$, s.t. $\norm{x-y_n}\leq\delta+\epsilon_n$,\\
-    $\cdots$, 于是得序列 $(y_n)\in S$.\\
+    令 $\delta=\inf_{y\in S}\norm{x-y}$, 则 $\forall\epsilon>0$, $\exists y\in S$, s.t. $\norm{x-y}<\delta+\epsilon$.\\
+    取 $\epsilon_k=\frac{1}{k}$, 则 $\exists y_1\in S$, s.t. $\norm{x-y_1}<\delta+\epsilon_1$,\\
+    $\cdots$, $\exists y_n\in S$, s.t. $\norm{x-y_n}\leq\delta+\epsilon_n$,\\
+    $\cdots$, 从而得序列 $(y_n)\in S$.\\
     令 $s_n=x-y_n$, 则 $(\norm{s_n})\rightarrow\delta$.\\
-    $\norm{s_i-s_j}^2=2(\norm{s_i}^2+\norm{s_j})-\norm{s_i+s_j}^2$, 其中 $\norm{s_i+s_j}^2=\norm{x-y_i+x-y_j}^2=4\norm{x-\frac{y_i+y_j}{2}}^2$,\\
-    $\because y_i,y_j\in S$ 且 $S$ 凸, $\therefore\frac{y_i+y_j}{2}\in S\Longrightarrow\norm{x-\frac{y_i+y_j}{2}}^2\geq\delta$\\
+    $\norm{s_i-s_j}^2=2(\norm{s_i}^2+\norm{s_j}^2)-\norm{s_i+s_j}^2$, 其中 $\norm{s_i+s_j}^2=\norm{x-y_i+x-y_j}^2=4\norm{x-\frac{y_i+y_j}{2}}^2$,\\
+    $\because y_i,y_j\in S$ 且 $S$ 凸, $\therefore\frac{y_i+y_j}{2}\in S\Longrightarrow\norm{x-\frac{y_i+y_j}{2}}^2\geq\delta^2$\\
     $\Longrightarrow\norm{s_i-s_j}^2\leq 2(\norm{s_i}^2+\norm{s_j}^2)-4\delta^2\rightarrow 4\delta^2-4\delta^2=0\Longrightarrow\norm{s_i-s_j}^2=\norm{x-y_i-x+y_j}^2=\norm{y_i-y_j}^2\rightarrow 0$, 故 $(y_n)$ 为 $S$ 中柯西列.\\
     又 $\because S$ 完备, $\therefore(y_n)\rightarrow x\Longrightarrow\norm{x-\hat{x}}=\lim_{n\rightarrow\infty}\norm{x-y_n}=\delta$.
 
     下证 $\hat{x}$ 的唯一性: 设 $w\in S$, s.t. $\norm{x-w}=\delta$.\\
-    $\norm{\hat{x}-w}^2=\norm{\hat{x}-x+x-w}^2=2(\norm{x-\hat{x}}^2+\norm{x-w}^2)-\norm{\hat{x}-x-(x-w)}^2$, 其中 $\norm{\hat{x}-x-(x-w)}=4\norm{x-\frac{\hat{x}+w}{2}}^2$,\\
+    $\norm{\hat{x}-w}^2=\norm{\hat{x}-x+x-w}^2=2(\norm{x-\hat{x}}^2+\norm{x-w}^2)-\norm{\hat{x}-x-(x-w)}^2$, 其中 $\norm{\hat{x}-x-(x-w)}=4\norm{x-\frac{\hat{x}+w}{2}}^2$.\\
     $\because\hat{x},w\in S$ 且 $S$ 凸, $\therefore\frac{\hat{x}+w}{2}\in S\Longrightarrow\norm{x-\frac{\hat{x}+w}{2}}^2\geq\delta$\\
     $\Longrightarrow\norm{\hat{x}-w}^2\leq 2(\norm{x-\hat{x}}^2+\norm{x-w}^2)-4\delta^2=4\delta^2-4\delta^2=0\Longrightarrow\norm{\hat{x}-w}^2=0\Longrightarrow w=\hat{x}$.
 
@@ -144,7 +143,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \begin{pf}
     $S$ 为子空间 $\Longleftrightarrow S$ 中线性运算封闭 $\Longrightarrow S$ 凸, 由定理 \ref{thm-13.9} 得, $\exists!x$ 在 $S$ 中的最佳近似 $\hat{x}\in S$, s.t. $\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}$.
 
-    下证 $x-\hat{x}\in S$: $\forall y\in S$, $r\in F$, $\norm{v-ry}^2=\langle v-ry,v-ry\rangle=\langle v,v\rangle+\langle v,-ry\rangle+\langle-ry,v\rangle+\langle-ry,-ry\rangle=\norm{v}^2-\bar{r}\langle v,y\rangle-r\langle y,v\rangle+\abs{r}^2\norm{y}^2=\norm{v}^2+\norm{y}^2\left(r\bar{r}-\bar{r}\frac{\langle v,y\rangle}{\norm{y}^2}-r\frac{\langle y,v\rangle}{\norm{y}^2}\right)=\norm{v}^2+\norm{y}^2\left(r-\frac{\langle v,y\rangle}{\norm{y}^2}\right)\left(\bar{r}-\frac{\langle y,v\rangle}{\norm{y}^2}\right)-\norm{y}^2\frac{\langle v,y\rangle\langle y,v\rangle}{\norm{y}^4}=\norm{x}^2+\norm{y}^2\abs{r-\frac{\langle v,y\rangle}{\norm{y}^2}}-\frac{\abs{\langle v,y\rangle}}{\norm{y}^2}$.\\
+    下证 $x-\hat{x}\perp S$: $\forall y\in S$, $\forall r\in F$, $\norm{v-ry}^2=\langle v-ry,v-ry\rangle=\langle v,v\rangle+\langle v,-ry\rangle+\langle-ry,v\rangle+\langle-ry,-ry\rangle=\norm{v}^2-\bar{r}\langle v,y\rangle-r\langle y,v\rangle+\abs{r}^2\norm{y}^2=\norm{v}^2+\norm{y}^2\left(r\bar{r}-\bar{r}\frac{\langle v,y\rangle}{\norm{y}^2}-r\frac{\langle y,v\rangle}{\norm{y}^2}\right)=\norm{v}^2+\norm{y}^2\left(r-\frac{\langle v,y\rangle}{\norm{y}^2}\right)\left(\bar{r}-\frac{\langle y,v\rangle}{\norm{y}^2}\right)-\norm{y}^2\frac{\langle v,y\rangle\langle y,v\rangle}{\norm{y}^4}=\norm{v}^2+\norm{y}^2\abs{r-\frac{\langle v,y\rangle}{\norm{y}^2}}^2-\frac{\abs{\langle v,y\rangle}}{\norm{y}^2}$.\\
     当 $r=\frac{\langle v,y\rangle}{\norm{y}^2}$ 时, $\norm{v-ry}^2$ 取最小值, 此时 $\norm{v-ry}^2=\norm{v}^2-\frac{\abs{\langle v,y\rangle}^2}{\norm{y}^2}$.\\
     特别地, 令 $v=x-\hat{x}$, 则 $\norm{x-\hat{x}-ry}^2\geq\norm{x-\hat{x}}^2-\frac{\abs{\langle x-\hat{x},y\rangle}^2}{\norm{y}^2}$.\\
     又 $\because\norm{x-\hat{x}}=\inf_{y\in S}\norm{x-y}^2\leq\norm{x-(\hat{x}+ry)}^2$, $\therefore\frac{\abs{\langle x-\hat{x},y\rangle}^2}{\norm{y}^2}=0\Longrightarrow x-\hat{x}\perp y\Longrightarrow x-\hat{x}\perp S$.
@@ -153,14 +152,14 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \end{pf}
 
 \begin{thm}[投影定理 (课本定理 13.11)]
-    $V$ 为内积向量空间, $S$ 为 $V$ 的完备子集, 则 $V=S\odot S^{\perp}$.\\
+    $V$ 为内积向量空间, $S$ 为 $V$ 的完备子空间, 则 $V=S\odot S^{\perp}$.\\
     特别地, 若 $H$ 为希尔伯特空间, $S$ 为 $H$ 的闭子空间, 则 $H=S\odot S^{\perp}$.
 \end{thm}
 
 \begin{thm}[(课本定理 13.12)]
     $S,T$ 为 $V$ 的子空间, 则
     \begin{itemize}
-        \item[(1)] 若 $V=S\odot T$, 则 $V=S\odot T$.
+        \item[(1)] 若 $V=S\odot T$, 则 $T=S^{\perp}$.
         \item[(2)] 若正交补 $\exists$, 则唯一. 若 $S\odot T=S\odot T'$, 则 $T=T'$.
     \end{itemize}
 \end{thm}
@@ -172,6 +171,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
         $\because w\in S^{\perp}$, $w_S\in S$, $\therefore 0=\langle w_S,w\rangle=\langle w_S,w_S+w_T\rangle=\langle w_S,w_S\rangle+\msout{\langle w_S,w_T\rangle}0\Longrightarrow w_S=0\Longrightarrow w=w_T\in T\Longrightarrow S^{\perp}\subseteq T$.
 
         综上, 得证.
+        \item[(2)] $\because V'\equiv S\odot T=S\odot T'$, 则 $T=T'=S^{\perp}$.
     \end{itemize}
 \end{pf}
 
@@ -180,8 +180,8 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \begin{thm}[(课本定理 13.13)]
     $H$ 为希尔伯特空间, 则
     \begin{itemize}
-        \item[(1)] 若 $A\subseteq H$, 则 $\cspan(A)^{\perp}=A^{\perp\perp}~$\footnote{$\cspan(A)=\cl(\spanned{A})$ 为 $A$ 中向量所张成的空间的闭包.}.
-        \item[(2)] 若 $S$ 为 $H$ 的子空间, 则 $\cl(S)=S^{\perp}$.
+        \item[(1)] 若 $A\subseteq H$, 则 $\cspan(A)=A^{\perp\perp}~$\footnote{$\cspan(A)=\cl(\spanned{A})$ 为 $A$ 中向量所张成的空间的闭包.}.
+        \item[(2)] 若 $S$ 为 $H$ 的子空间, 则 $\cl(S)=S^{\perp\perp}$.
         \item[(3)] 若 $K$ 为 $H$ 的完备子空间, 则 $K=K^{\perp\perp}$.
     \end{itemize}
 \end{thm}
@@ -190,7 +190,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
         \item[(1)] 即证 $\cspan(A)^{\perp}=A^{\perp}$: $\because A\subseteq\cspan(A)$, $\therefore\cspan(A)^{\perp}\subseteq A^{\perp}$.
 
         $\cspan(A)=\spanned(A)\cup\lp(\spanned(A))$.\\
-        $\forall x\in A$, $x\perp A$.\\
+        $\forall x\in A^{\perp}$, $x\perp A$.\\
         $\forall y\in\spanned(A)$, $y=\sum_ir_ix_i$, 其中 $r_i\in F$, $x_i\in A$.\\
         $\because x\perp A$, $\therefore\langle x,x_i\rangle=0\forall i\Longrightarrow\langle x,y\rangle=\langle x,\sum_ir_ix_i\rangle=\sum_i\overline{r_i}\langle x,x_i\rangle=0\Longrightarrow x\perp\spanned(A)$.\\
         $\forall z\in\lp(\spanned(A))$, $\forall r$, $B(z,r)\cap\spanned(A)$ 中包含异于 $z$ 的点.\\
@@ -231,7 +231,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
     $H$ 为 Hilbert 空间, $\mathcal{O}=\{u_k\mid k\in K\}$ 为 $H$ 中的正交归一簇, 则下列叙述等价:
     \begin{itemize}
         \item[(1)] $\mathcal{O}$ 为 Hilbert 基.
-        \item[(2)] $\mathcal{O}=\{0\}$.
+        \item[(2)] $\mathcal{O}^{\perp}=\{0\}$.
         \item[(3)] $x=\hat{x}$.
         \item[(4)] $\norm{x}=\norm{\hat{x}}$.
     \end{itemize}
@@ -240,7 +240,7 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \section{有界线性变换的 Riesz 表示定理}
 \begin{df}[有界线性变换]
     $H_1,H_2$ 为希尔伯特空间, $\tau\in\mathcal{L}(H_1,H_2)$, 若 $\sup_{0\neq x\in H_1}\frac{\norm{\tau(x)}}{\norm{x}}<\infty$, 则称 $\tau$ \textbf{有界}, 记 $\norm{\tau}\equiv\sup_{0\neq x\in H_1}\frac{\norm{\tau(x)}}{\norm{x}}$, 称为 $\tau$ 的\textbf{范数}.\\
-    记 $\mathcal{B}(H_1,H_2)=\{H_1$ 到 $H_2$ 的\textbf{有界线性变换}$\}$, $\mathcal{B}(H_1)\equiv\mathcal{B}(H_1)=\{H_1$ 的\textbf{有界线性算子}$\}$.
+    记 $\mathcal{B}(H_1,H_2)=\{H_1$ 到 $H_2$ 的\textbf{有界线性变换}$\}$, $\mathcal{B}(H_1)\equiv\{H_1$ 的\textbf{有界线性算子}$\}$.
 \end{df}
 
 \begin{eg}
@@ -285,15 +285,13 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
     $\tau$ 有界 $\Longleftrightarrow\tau$ 连续.
 \end{thm}
 \begin{pf}
-    ``$\Longrightarrow$'': 取 $H_1$ 中收敛序列 $(x_n)\rightarrow x$.\\
-    $\forall\epsilon>0$, $\exists N>0$, s.t. 当 $n>N$ 时, $\norm{x_n-x}<\frac{\epsilon}{\norm{\tau}}$\\
+    ``$\Longrightarrow$'': 取 $H_1$ 中收敛序列 $(x_n)\rightarrow x$, 则 $\forall\epsilon>0$, $\exists N>0$, s.t. 当 $n>N$ 时, $\norm{x_n-x}<\frac{\epsilon}{\norm{\tau}}$\\
     $\Longrightarrow\norm{\tau(x_n)-\tau(x)}=\norm{\tau(x_n-x)}\leq\norm{\tau}\norm{x_n-x}<\epsilon\Longrightarrow(\tau(x_n))\rightarrow\tau(x)$, 故 $\tau$ 连续.
 
     ``$\Longleftarrow$'': 以 $0$ 为例, 其余点同理可证.\\
     $\because\tau$ 连续, $\therefore\forall\epsilon>0$, $\exists\delta>0$, s.t. $\tau(B(0,\delta))\subseteq B(\tau(0),\epsilon)=B(0,\epsilon)$.\\
     特别地, 令 $\epsilon=1$, 则 $\exists\delta_1>0$, s.t. $\tau(B(0,\delta_1))\subseteq B(0,1)$.\\
-    若 $\norm{x}\leq\delta_1$, 则 $\norm{\tau(x)}\leq 1\Longrightarrow$ 若 $\norm{x}=\delta_1$, 则 $\norm{x}\leq 1$\\
-    $\Longrightarrow$ 若 $\norm{x}=\delta_1$, 则 $\frac{\norm{\tau(x)}}{\norm{x}}\leq\frac{1}{\delta_1}$\\
+    若 $\norm{x}\leq\delta_1$, 则 $\norm{\tau(x)}\leq 1\Longrightarrow$ 若 $\norm{x}=\delta_1$, 则 $\norm{\tau(x)}\leq 1$, $\frac{\norm{\tau(x)}}{\norm{x}}\leq\frac{1}{\delta_1}$\\
     $\Longrightarrow\forall\norm{x}=1$, $\norm{\delta_1x}=\delta_1$, $\frac{\norm{\tau(x)}}{\norm{x}}=\frac{\norm{\tau(\delta_1x)}}{\norm{\delta_1x}}\leq\frac{1}{\delta_1}\Longrightarrow\tau$ 有界.
 
     综上, 得证.
@@ -303,22 +301,18 @@ $v\in V$, $r>0$, $B(v,r)=\{u\in V\mid d(u,v)<r\}=\{u\in V\mid\sqrt{\langle u-v,u
 \begin{itemize}
     \item[(1)] $\tau+\sigma\in\mathcal{B}(H_1,H_2)$ 且 $\norm{\tau+\sigma}\leq\norm{\tau}+\norm{\sigma}$.
     \begin{pf}
-        $\norm{\tau+\sigma}=\sup_{x\neq 0}\frac{\norm{(\tau+\sigma)(x)}}{\norm{x}}=\sup_{x\neq 0}\frac{\norm{\tau(x)+\sigma(x)}}{\norm{x}}\leq\sup_{\norm{x}}\Longrightarrow\tau+\sigma\in\mathcal{B}(H_1,H_2)$.
+        $\norm{\tau+\sigma}=\sup_{x\neq 0}\frac{\norm{(\tau+\sigma)(x)}}{\norm{x}}=\sup_{x\neq 0}\frac{\norm{\tau(x)+\sigma(x)}}{\norm{x}}\leq\sup_{x\neq 0}\frac{\norm{\tau(x)}+\norm{\sigma(x)}}{\norm{x}}\leq\sup_{x\neq 0}\frac{\norm{\tau(x)}}{\norm{x}}+\sup_{x\neq 0}\frac{\norm{\sigma(x)}}{\norm{x}}=\norm{\tau}+\norm{\sigma}\Longrightarrow\tau+\sigma\in\mathcal{B}(H_1,H_2)$.
     \end{pf}
-
-    由此定义了有界线性变换的加法, 与线性变换的加法相同.
-    \item[(2)] $\forall r\in F$, $rt\in\mathcal{B}(H_1,H_2)$ 且 $\norm{r\tau}=\abs{r}\norm{\tau}$.
+    \item[(2)] $\forall r\in F$, $r\tau\in\mathcal{B}(H_1,H_2)$ 且 $\norm{r\tau}=\abs{r}\norm{\tau}$.
     \begin{pf}
         $\norm{r\tau}=\sup_{x\neq 0}\frac{\norm{r\tau(x)}}{\norm{x}}=\sup_{x\neq 0}\frac{\abs{r}\norm{\tau(x)}}{\norm{x}}=\abs{r}\norm{\tau}\Longrightarrow r\tau\in\mathcal{B}(H_1,H_2)$.
     \end{pf}
-
-    由此定义了有界线性变换的数乘, 与线性变换的数乘相同.
 \end{itemize}
 $\tau,\sigma\in\mathcal{B}(H_1)$, 则
 \begin{itemize}
     \item[(3)] $\sigma\circ\tau\in\mathcal{B}(H_1)$ 且 $\norm{\sigma\circ\tau}\leq\norm{\sigma}\norm{\tau}$.
     \begin{pf}
-        $\because\norm{\sigma\circ\tau(x)}=\norm{\sigma(\tau(x))}=\norm{\sigma(\tau(x))}\leq\norm{\sigma}\norm{\tau(x)}\leq\norm{\sigma}\norm{\tau}\norm{x}$, $\therefore\norm{\sigma\circ\tau}=\sup_{x\neq 0}\frac{\norm{\sigma\circ\tau(x)}}{\norm{x}}\leq\sup_{x\neq 0}\norm{\sigma}\norm{\tau}=\norm{\sigma}\norm{\tau}\Longrightarrow\sigma\circ\tau\in\mathcal{B}(H_1)$.
+        $\because\norm{\sigma\circ\tau(x)}=\norm{\sigma(\tau(x))}\leq\norm{\sigma}\norm{\tau(x)}\leq\norm{\sigma}\norm{\tau}\norm{x}$, $\therefore\norm{\sigma\circ\tau}=\sup_{x\neq 0}\frac{\norm{\sigma\circ\tau(x)}}{\norm{x}}\leq\sup_{x\neq 0}\norm{\sigma}\norm{\tau}=\norm{\sigma}\norm{\tau}\Longrightarrow\sigma\circ\tau\in\mathcal{B}(H_1)$.
     \end{pf}
 \end{itemize}
 
@@ -335,7 +329,7 @@ $(\mathcal{B}(H_1,H_2),+)$ 为交换群.
 
 $\mathcal{B}(H_1,H_2)$ 为向量空间.
 \begin{pf}
-    前面已定义了有界线性变换的数乘及 $\mathcal{B}(H_1,H_2)$ 为交换群, 又由于 $\mathcal{B}(H_1)$ 满足
+    前面已定义了有界线性变换的数乘及 $(\mathcal{B}(H_1,H_2),+)$ 为交换群, 由于其满足
     \begin{itemize}
         \item[(1)] $r(\tau+\sigma)=r\tau+r\sigma$,
         \item[(2)] $(r+t)\tau=r\tau+t\tau$,
@@ -361,7 +355,7 @@ $(\mathcal{B}(H),+,\circ)$ 为环.
     $H$ 为希尔伯特空间, $\forall f\in H^*\equiv\{H$ 到 $F$ 上的有界线性变换$\}=\mathcal{B}(H,F)$, $\exists!z\in H$, s.t. $\forall x\in H$, $f(x)=\langle x,z\rangle$ 且 $\norm{z}=\norm{f}$.
 \end{thm}
 \begin{pf}
-    若 $f=0$, 则取 $z=0$, 以下考虑 $f\neq 0$ 的情况:\\
+    若 $f=0$, 则取 $z=0$ 即得证, 下证 $f\neq 0$ 的情况:\\
     由引理 \ref{cor-13.2} 得, $\ker f$ 为闭子空间, 又 $\because H$ 为希尔伯特空间, $\therefore\ker f$ 完备子空间 $\Longrightarrow H=\ker f\odot\ker f^{\perp}$.\\
     由同构第一基本定理得 $\frac{H}{\ker f}\approx F\approx\ker f^{\perp}\Longrightarrow\dim\ker f^{\perp}=1\Longrightarrow\exists x\in H$, s.t. $\ker f^{\perp}=\langle x\rangle$.\\
     $\forall y\in H$, $y=rx+w$, 其中 $w\in\langle x\rangle^{\perp}=\ker f\Longrightarrow f(y)=f(rx+w)=rf(x)+f(w)=rf(x)$.\\
@@ -373,14 +367,10 @@ $(\mathcal{B}(H),+,\circ)$ 为环.
 \end{cor}
 \begin{pf}
     $\ker f=\{v\in H\mid f(v)=\langle v,z_0\rangle=0\}$, 其中 $z_0$ 为 $f$ 的 Riesz 向量.\\
-    取 $\ker f$ 中序列 $(x_n)\rightarrow x_0$.\\
-    $\because\langle,z_0\rangle$ 连续, $\therefore\langle x_n,z_0\rangle=0\rightarrow\langle x_0,z_0\rangle=0\Longrightarrow x_0\in\ker f$, 故 $\ker f$ 收敛封闭 $\Longrightarrow f$ 闭.
+    $\forall\ker f$ 中序列 $(x_n)\rightarrow x_0$, $\because\langle,z_0\rangle$ 连续, $\therefore 0=\langle x_n,z_0\rangle\rightarrow\langle x_0,z_0\rangle=0\Longrightarrow x_0\in\ker f$, 故 $\ker f$ 收敛封闭 $\Longrightarrow f$ 闭.
 \end{pf}
 
-$\tau^*\in\mathcal{B}(H_2,H_1)$ 且 $\norm{\tau^*}\leq\norm{\tau}$, 即 $\mathcal{B}(H_1,H_2)$ 是伴随封闭的.
-\begin{pf}
-    
-\end{pf}
+$\tau^*\in\mathcal{B}(H_2,H_1)$ 且 $\norm{\tau^*}\leq\norm{\tau}$, 即 $\mathcal{B}(H_1,H_2)$ 是伴随封闭的 (证略).
 
 $\because\mathcal{B}(H)$ 是伴随封闭的, $\mathcal{B}(H)$ 关于线性算子的加法和复合成环, 关于线性算子的加法和点乘成向量空间, $\therefore\mathcal{B}(H)$ 为辛代数.
 \ifx\allfiles\undefined
