@@ -86,8 +86,8 @@
 % 页眉和页脚 Header & footer
 % #1 笔记主题 Notes topic
 % #2 笔记补充信息 Notes supplementary information
-% #3 记录者姓名 Notes-taker name
-% #4 记录者姓名上的超链接 Hyperlink on solver name
+% #3 作者姓名 Author name
+% #4 作者姓名上的超链接 Hyperlink on author name
 % #5 时间 Time
 \NewDocumentCommand{\NoteInfos}{ m m m O{https://github.com/Chen-Jialin} m }
 {
