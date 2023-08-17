@@ -70,7 +70,8 @@ $-1v=-v$.
     $S$ 为 $V$ 的子空间 $\Longleftrightarrow\forall a,b\in S$, $\forall r,t\in F$, $ra+tb\in S$ (即线性运算封闭).
 \end{thm}
 \begin{pf}
-    ``$\Longrightarrow$'': $\because ra\in S$, $-tb\in S$ 且 $S$ 为 $V$ 的子群, $\therefore ra-(-tb)=ra+tb\in S$.
+    ``$\Longrightarrow$'': $\because S$ 为 $V$ 的子空间, $\therefore S$ 构成 $F$ 上的向量空间 $\Longrightarrow ra\in S$, $tb\in S$.\\
+    $\because S$ 为 $V$ 的子空间, $S$ 为 $V$ 的子群 $\Longrightarrow ra+tb\in S$.
 
     ``$\Longleftarrow$'': 令 $r=1$, $t=-1$, 有 $a-b\in S\Longrightarrow S<V$.\\
     令 $t=0$, 有 $ra\in S$, 故 $S$ 为 $V$ 的子空间.
@@ -87,7 +88,12 @@ $-1v=-v$.
     综上, 得证.
 \end{pf}
 
-若 $S,T$ 是 $V$ 的子空间, 则 $S+V\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子空间.
+子空间的并未必是子空间.
+\begin{pf}
+    $\because$ 子群的并未必是子群, $\therefore$ 子空间的并未必是子空间.
+\end{pf}
+
+若 $S,T$ 是 $V$ 的子空间, 则 $S+T\equiv\{u+v\mid u\in S,v\in T\}$ 为 $V$ 的子空间.
 \begin{pf}
     $\forall w_1,w_2\in S+T$, $r,t\in F$,\\
     $w_1\in S+T\Longrightarrow w_1=u_1+v_1$, $u_1\in S$, $v_1\in T$,\\
@@ -97,7 +103,8 @@ $-1v=-v$.
 
 \section{生成集和线性无关}
 \begin{df}[生成子空间和生成集]
-    $\emptyset\neq S\subseteq V$, $S$ 的\textbf{生成子空间} $\langle S\rangle\equiv$ 包含 $S$ 的最小子空间 $=\left\{\sum_{i=1}^nr_iu_i\mid r_i\in F,u_i\in S,n\in\mathbb{N}\right\}$, 其中称 $S$ 为\textbf{生成集}.
+    $\emptyset\neq S\subseteq V$, $S$ 的\textbf{生成子空间} $\langle S\rangle\equiv$ 包含 $S$ 的最小子空间\\
+    $=\left\{\sum_{i=1}^nr_iu_i\mid r_i\in F,u_i\in S,n\in\mathbb{N}\right\}$, 其中称 $S$ 为\textbf{生成集}.
 \end{df}
 
 \begin{eg}
@@ -123,13 +130,17 @@ $-1v=-v$.
     $\mathbb{R}^2$ 上线性无关, 即两非零元夹角非零.
 \end{eg}
 
+\begin{eg}
+    $\mathbb{R}^3$ 上三个向量线性无关, 即其立体角均非零且不共面.
+\end{eg}
+
 单个非零元 $v$ 线性无关.
 \begin{pf}
     $rv=0$ 且 $v\neq 0\Longrightarrow r=0$, 故 $v$ 线性无关.
 \end{pf}
 
 \begin{df}[线性相关]
-    $u_1,\cdots,u_m$, 若 $\exists$ 不全为零的 $r_1,\cdots,r_m$, s.t. $r_1u_1+\cdots+r_mu_m=0$, 则称 $u_1,\cdots,u_m$ \textbf{线性相关}.
+    $u_1,\cdots,u_m$, 若 $\exists$ 不全为零的 $r_1,\cdots,r_m$, s.t. $\sum_{i=1}^mr_iu_i=0$, 则称 $u_1,\cdots,u_m$ \textbf{线性相关}.
 \end{df}
 
 若 $u,v$ 线性相关, 则两者共线.
@@ -222,10 +233,15 @@ $-1v=-v$.
         \item[(1)] \textbf{外直和}: 若 $V_1,\cdots,V_n$ 是 $F$ 上的向量空间, $V_1\oplus\cdots\oplus V_n\equiv\{(v_1,\cdots,v_n)\mid v_i\in V_i\}$, 满足
         \begin{itemize}
             \item $(v_1,\cdots,v_n)+(u_1,\cdots,u_n)=(v_1+u_1,\cdots,v_n+u_n)$,
-            \item $r(v_1,\cdots,v_n)=(rv_1,\cdots,rv_n)$,
+            \item $\forall r\in F$, $r(v_1,\cdots,v_n)=(rv_1,\cdots,rv_n)$,
         \end{itemize}
         则$V_1\oplus\cdots\oplus V_n$ 为 $F$ 的向量空间, $V_1\oplus\cdots\oplus V_n$ 为 $V_1,\cdots,V_n$ 的\textbf{外直和}.
-        \item[(2)] \textbf{内直和}: $V$ 是 $F$ 上的向量空间, $V_1,\cdots,V_n$ 是 $V$ 的子空间, 若 $V=\sum_{i=1}^nV_i$, 其中 $v_i\in V_i$ 且 $V_i\cap(\cup_{j\neq i}V_j)=\{0\}$, 则称 $V$ 为 $V_1,\cdots,V_m$ 的\textbf{内直和}, 记作 $V=\bigoplus_{i=1}^nV_i$, 称 $V_i$ 为\textbf{直和项}.
+        \item[(2)] \textbf{内直和}: $V$ 是 $F$ 上的向量空间, $V_1,\cdots,V_n$ 是 $V$ 的子空间, 满足
+        \begin{itemize}
+            \item $V=\sum_{i=1}^nV_i$, 其中 $v_i\in V_i$,
+            \item $V_i\cap(\sum_{j\neq i}V_j)=\{0\}$,
+        \end{itemize}
+        则 $V$ 为 $V_1,\cdots,V_m$ 的\textbf{内直和}, 记作 $V=\bigoplus_{i=1}^nV_i$, 称 $V_i$ 为\textbf{直和项}.
     \end{itemize}
 \end{df}
 
@@ -240,7 +256,7 @@ $V=V_1\oplus\cdots\oplus V_n$, $V_1'=\{(v_1,0,\cdots,0)\mid v_i\in V_i\}$, $\cdo
     $\{V_i\mid i\in J\}$ 是 $V$ 的子空间集合, $V=\sum_{i\in J}V_i$, 则下列等价:
     \begin{itemize}
         \item[(1)] $V=\bigoplus_{i\in J}V_i$.
-        \item[(2)] $V_i\cap(\sum_{j\neq i}V_j)\neq\{0\}$.
+        \item[(2)] $V_i\cap(\sum_{j\neq i}V_j)=\{0\}$.
         \item[(3)] $0=0+\cdots+0$ 是 $0$ 的唯一分解式.
         \item[(4)] $V$ 中任一向量 $v$ 具有唯一分解式 $v=v_1+\cdots+v_n$, 分解式中的有限个非零元 $v_i\in V_i$ 组成的集合称为\textbf{支集}.
     \end{itemize}

@@ -155,7 +155,7 @@ $S$ 是内积向量空间 $V$ 的子空间, 则对应的商空间 $\frac{V}{S}$ 
     \begin{itemize}
         \item[(1)] $V$ 为内积向量空间, $u,v\in V$, 若 $\langle u,v\rangle=0$, 则称 $u$ 与 $v$ \textbf{正交}, 记作 $u\perp v$.
         \item[(2)] $X,Y$ 为 $V$ 的子集, 若 $\forall x\in X$, $\forall y\in Y$, 有 $x\perp y$, 则称 $X$ 与 $Y$ \textbf{正交}, 记作 $X\perp Y$.
-        \item[(3)] $X$ 的\textbf{正交补} $X^{\perp}=\{v\in X\mid v\perp X\}$.
+        \item[(3)] $X$ 的\textbf{正交补} $X^{\perp}=\{v\in V\mid v\perp X\}$.
     \end{itemize}
 \end{df}
 
@@ -230,7 +230,7 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
 \end{thm}
 
 \begin{df}[Hamel 基]
-    极大线性无关集.
+    极大线性无关集或极小生成集.
 \end{df}
 
 \begin{df}[Hilbert 基]
@@ -251,7 +251,7 @@ $S$ 为 $V$ 的子空间, $S^c$ 为 $S$ 的补空间, 则 $V=S\oplus S^c$.
     $\mathcal{O}$ 为正交归一集, $\langle\mathcal{O}\rangle=S\subseteq V$, $\forall v\in V$, 令 $v$ 的\textbf{傅里叶展开} $\hat{v}=\langle v,u_1\rangle u_1+\cdots+\langle v,u_k\rangle u_k$, 则 $\hat{v}\in S$ 且
     \begin{itemize}
         \item[(1)] $\hat{v}$ 是 $S$ 中唯一满足 $v-\hat{v}\perp S$ 的向量.
-        \item[(2)] $\hat{v}$ 是 $S$ 中与 $v$ 最近的向量 (即 $\forall w\in S$, $d(v,\hat{v})\leq d(d,w)$), 称 $\hat{v}$ 为 $v$ 在 $S$ 中的\textbf{最佳近似}.
+        \item[(2)] $\hat{v}$ 是 $S$ 中与 $v$ 最近的向量 (即 $\forall w\in S$, $d(v,\hat{v})\leq d(v,w)$), 称 $\hat{v}$ 为 $v$ 在 $S$ 中的\textbf{最佳近似}.
         \item[(3)] \textbf{Bessel 不等式}: $\norm{\hat{v}}\leq\norm{v}$.
     \end{itemize}
 \end{thm}

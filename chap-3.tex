@@ -284,7 +284,7 @@ $\frac{V}{S}$ 为 $F$ 上的向量空间.
 $V^*$ 本身也是向量空间.
 
 \begin{df}[二重对偶(空间)]
-    $V^{**}=\mathcal{L}(V^*,F)$ 称为\textbf{二重对偶(空间)}, 其中的元素为 $v^{**}:V^*\rightarrow F$, $f\rightarrow v^**=f(v)$.
+    $V^{**}=\mathcal{L}(V^*,F)$ 称为\textbf{二重对偶(空间)}, 其中的元素为 $v^{**}:V^*\rightarrow F$, $f\rightarrow v^{**}=f(v)$.
 \end{df}
 
 $V\rightarrow V^*\rightarrow V^{**}$, $v\mapsto v^*\mapsto v^{**}$, $b_i\mapsto b_i^*\mapsto b_i^{**}$, 满足 $b_i^*(b_j)=\delta_{ij}$, $b_i^{**}(b_j^*)=b_j^*(b_i)$, 两个映射复合得 $\tau:V\rightarrow V^{**}$, $v\mapsto v^{**}$.
@@ -372,7 +372,7 @@ $V\rightarrow V^*\rightarrow V^{**}$, $v\mapsto v^*\mapsto v^{**}$, $b_i\mapsto 
     $\tau\in\mathcal{L}(V,W)$, 其中 $\dim V<\infty$, $\dim W<\infty$, $\mathcal{B}$ 和 $\mathcal{C}$ 分别是 $V$ 和 $W$ 的定序基, $\mathcal{B}^*$ 和 $\mathcal{C}^*$ 分别是 $\mathcal{B}$ 和 $\mathcal{C}$ 的对偶基, 则 $[\tau^{\times}]_{\mathcal{C^*B^*}}=([\tau]_{\mathcal{BC}})^T$.
 \end{thm}
 \begin{pf}
-    设 $\dim V=n$, $\dim W=m$, $V$ 的定序基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, $W$ 的定序基 $\mathcal{C}=\{c_1,\cdots,c_m\}$, $\tau\in\mathcal{L}(V,W)$ 的矩阵表示为 $[\tau]_{\mathcal{BC}}=[\alpha_{ij}]_{m\times n}$, $\tau^{\times}\in\mathcal{L}(W^*,V^*)$ 的矩阵表示为 $[\tau^{\times}]_{\mathcal{C^*B^*}}=[\beta_{ij}]_{n\times m}$.\\
+    设 $\dim V=n$, $\dim W=m$, $V$ 的定序基 $\mathcal{B}=\{b_1,\cdots,b_n\}$, $W$ 的定序基 $\mathcal{C}=\{c_1,\cdots,c_m\}$, $\tau\in\mathcal{L}(V,W)$ 的矩阵表示为 $[\tau]_{\mathcal{BC}}=[\alpha_{ij}]_{m\times n}$, $\tau^{\times}\in\mathcal{L}(W^*,V^*)$ 的矩阵表示为 $[\tau^{\times}]_{\mathcal{C^*B^*}}=[\beta_{ij}]_{n\times m}^T$.\\
     $[\tau]_{\mathcal{BC}}=\begin{pmatrix}
         [\tau(b_1)]_{\mathcal{C}}&\cdots&[\tau(b_n)]_{\mathcal{C}}
     \end{pmatrix}$, 其中 $[\tau(b_i)]_{\mathcal{C}}=\begin{pmatrix}

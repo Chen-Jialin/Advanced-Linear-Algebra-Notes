@@ -116,7 +116,7 @@ $\mathcal{L}(V)$ 是环.
     \begin{itemize}
         \item[(1)] $V=\langle S\rangle\Longleftrightarrow W=\langle\tau(S)\rangle$.
         \item[(2)] $S$ 线性无关 $\Longleftrightarrow\tau(S)$ 线性无关.
-        \item[(3)] $S$ 是 $V$ 的基 $\Longleftrightarrow\tau(S)$ 是 $V$ 的基.
+        \item[(3)] $S$ 是 $V$ 的基 $\Longleftrightarrow\tau(S)$ 是 $W$ 的基.
     \end{itemize}
 \end{thm}
 \begin{pf}
@@ -176,7 +176,7 @@ $x$ 为 $n$ 维向量, $\nul A=\dim\{x\mid Ax=0\}=n-\rk A$.
 \section{线性变换的表示}
 ``表示''其实就是用已知的东西展现未知的东西, 在这里, 我们用已知的矩阵乘法展现未知的线性变换, 这就是线性变换的表示.
 
-$F$ 为域, $F^n=\{(r_1,\cdots,r_n)\mid r_i\in F\}$, 满足 $(r_1,\cdots,r_n)+(l_1,\cdots,l_n)=(r_1+l_1,\cdots,r_n+l_n)$ 及 $r(r_1,\cdots,r_n)=(rr_1,\cdots,rr_n)$, $\dim F^n=n$, $F^n$ 的标准基为 $\{e_1=(1,0,\cdots,0),e_2=(0,1,\cdots,0),\cdots,e_n=(0,0,\cdots,1)\}$; $F^m=\{(r_1,\cdots,r_m)\mid r_i\in F\}$, $\dim F=m$, 标准基为 $\{f_1=(1,0,\cdots,0),f_2=(0,1,\cdots,0),\cdots,f_m=(0,0,\cdots,1)\}$. 如何确定/展现 $F^n$ 到 $F^m$ 的线性变换?
+$F$ 为域, $F^n=\{(r_1,\cdots,r_n)\mid r_i\in F\}$, 满足 $(r_1,\cdots,r_n)+(l_1,\cdots,l_n)=(r_1+l_1,\cdots,r_n+l_n)$ 及 $r(r_1,\cdots,r_n)=(rr_1,\cdots,rr_n)$, $\dim F^n=n$, $F^n$ 的标准基为 $\{e_1=(1,0,\cdots,0),e_2=(0,1,\cdots,0),\cdots,e_n=(0,0,\cdots,1)\}$; $F^m=\{(r_1,\cdots,r_m)\mid r_i\in F\}$, $\dim F^m=m$, 标准基为 $\{f_1=(1,0,\cdots,0),f_2=(0,1,\cdots,0),\cdots,f_m=(0,0,\cdots,1)\}$. 如何确定/展现 $F^n$ 到 $F^m$ 的线性变换?
 
 根据定理 \ref{thm-2.4}, 我们只需确定一组基在线性变换下的表现, 就可以确定这一线性变换. 因此, $\forall\tau\in\mathcal{L}(F^n,F^m)$, 若 $\tau(e_i)=(a_{1i},\cdots,a_{mi})=\sum_{j=1}^ma_{ji}f_j$.\\
 $\forall(r_1,\cdots,r_n)\in F^n$,
@@ -365,7 +365,7 @@ $\dim V=n$, $\dim W=n$, 故 $V\approx W\approx F^n$, 取 $V$ 的一组定序基 
         \node(5)at(-3,3){$v$};
         \node(6)at(3,3){$\tau(v)$};
         \node(7)at(-3,-3){$[v]_{\mathcal{B}}$};
-        \node(8)at(3,-3){$\tau([v]_{\mathcal{B}})=[v]_{\mathcal{C}}$};
+        \node(8)at(3,-3){$\tau_A([v]_{\mathcal{B}})=[\tau(v)]_{\mathcal{C}}$};
         \node(9)at(-4,4){$b_i$};
         \node(10)at(4,4){$\tau(b_i)$};
         \node(11)at(-4,-4){$e_i$};
@@ -415,9 +415,9 @@ $\dim V=n$, $\dim W=n$, 故 $V\approx W\approx F^n$, 取 $V$ 的一组定序基 
         \node(1)at(-2,0){$V$};
         \node(2)at(2,0){$W$};
         \node(3)at(-2,-2){$F^n$};
-        \node(4)at(2,-2){$F^n$};
+        \node(4)at(2,-2){$F^m$};
         \node(5)at(-2,2){$F^n$};
-        \node(6)at(2,2){$F^n$};
+        \node(6)at(2,2){$F^m$};
         \draw[->](1)--(2)node[midway]{$\tau$};
         \draw[->](1)--(3)node[midway]{$\phi_{\mathcal{B}}$};
         \draw[->](2)--(4)node[midway]{$\phi_{\mathcal{C}}$};

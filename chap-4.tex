@@ -8,7 +8,7 @@
 \chapter{模 I: 基本性质}
 \section{模}
 \begin{df}[模]
-    $R$ 为有单位元交换环, $(M,+)$ 为交换群, 数乘 $:R\times M\rightarrow M$, $(r,m)\mapsto m$, 若满足
+    $R$ 为有单位元交换环, $(M,+)$ 为交换群, 数乘 $:R\times M\rightarrow M$, $(r,m)\mapsto rm$, 若满足
     \begin{itemize}
         \item[(1)] $(r+t)m=rm+tm$,
         \item[(2)] $(rt)m=r(tm)$,
@@ -59,7 +59,7 @@ $\End(M)$ 关于同态的加法、复合成环, 其单位元为 $M$ 上的恒等
 \end{eg}
 
 \begin{eg}\label{module Zp}
-    $\mathbb{Z}_p=\frac{\mathbb{Z}}{p}=\{[0],\cdots,[p-1]\}$, $(\mathbb{Z}_p,+)$ 是交换群, 故 $\mathbb{Z}_p\in\mathbb{Z}-\module$.
+    $\mathbb{Z}_p=\frac{\mathbb{Z}}{\langle p\rangle}=\{[0],\cdots,[p-1]\}$, $(\mathbb{Z}_p,+)$ 是交换群, 故 $\mathbb{Z}_p\in\mathbb{Z}-\module$.
 
     $\mathbb{Z}_6=\{[0],[1],[2],[3],[4],[5]\}$, $n[k]=\overbrace{[k]+\cdots+[k]}^{\text{$n$ 个 $[k]$ 相加}}=[nk]$.\\
     注意到 $[2]\neq[0]$, $3\neq 0$, 但 $3[2]=[6]=[0]$, 即非零元素的卡氏积在数乘映射下得到零元素, 这意味着非零的单个元素不再线性无关.
